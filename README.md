@@ -38,7 +38,7 @@ The following base functionality is provided with the free version of this appli
 - [ ] User can post pictures to profile or other users via Direct Message.
 
 
-# Messages
+##### Messages
 - [ ] User will recieve notifications for requests/messages while the app is running in the background.
 - [ ] User will be able to view other user's profile pages.
 
