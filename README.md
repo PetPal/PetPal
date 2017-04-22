@@ -2,16 +2,16 @@
 Pet care exchange for free among people you trust most.
 
 
-## Definitions:
+# Definitions:
 
-#Community: A group of trusted individuals comprising of friends, family and neighbors.
-#Messages: Any communication between two users mainly of two types:
+#### Community: A group of trusted individuals comprising of friends, family and neighbors.
+#### Messages: Any communication between two users mainly of two types:
             - Requests: Group Requests, Care Requests
             - DM: Chat feature betweern users
-#Schedule: The collection of upcoming Pet Care requested for or past Pet Care provided.
+#### Schedule: The collection of upcoming Pet Care requested for or past Pet Care provided.
 
 
-## User Stories
+# User Stories
 
 The following base functionality is provided with the free version of this application:
 
@@ -19,19 +19,19 @@ The following base functionality is provided with the free version of this appli
 - [ ] A Launch Screen that will display the story of the App upon first launch
 
 
-# Communities Features
+##### Communities Features
 - [ ] User can send and recieve requests for pet care among their community.
 - [ ] User can look for communities based on thier geo-location.
 - [ ] User can create, join and leave communities within the app.
 
 
-# Backend and Specifics
+##### Backend and Specifics
 - [ ] User can see requests, messages and other data that is retreieved from a Parse DB using Parse API.
 - [ ] User sees an error message when there is a network error.
 - [ ] Application will save the login credentials of the user until logout.
 
 
-# Profile
+##### Profile
 - [ ] User can edit his/her own profile page.
 - [ ] User will be able to view other user's profile pages.
 - [ ] User will be able to scroll through a Home Feed of posts by users within their community.
@@ -42,12 +42,12 @@ The following base functionality is provided with the free version of this appli
 - [ ] User will recieve notifications for requests/messages while the app is running in the background.
 - [ ] User will be able to view other user's profile pages.
 
-# Schedule
+##### Schedule
 - [ ] Users can view their upcoming schedules.
 
 
 
-## License
+# License
 
     Copyright 2017 PetPal
 
