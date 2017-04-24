@@ -46,24 +46,10 @@ The following base functionality is provided with the free version of this appli
 - [ ] Users can view their upcoming schedules.
 
 
+Walkthrough of all user stories:
 
-# Wireframes
+![Video Walkthrough](Petpal_wf.gif)
 
-#### Home page
-
-![home page](home.png)
-
-#### Profile page
-
-![profile page](profile.png) 
-
-#### Link to profile page 
-
-![link page](link.png)
-
-#### gif walkthrough
-
-![userstory] (petpal_wf.gif)
 
 
 # License
