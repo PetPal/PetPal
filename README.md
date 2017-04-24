@@ -59,7 +59,7 @@ The following base functionality is provided with the free version of this appli
 
 #### Link to profile page 
 
-(link.png)
+![link page](link.png)
 
 
 
