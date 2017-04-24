@@ -32,7 +32,7 @@ The following base functionality is provided with the free version of this appli
 
 
 ##### Profile
-- [ ] User can edit his/her own profile page.
+- [ ] User can edit his/her own ![profile page](profile.png).
 - [ ] User will be able to view other user's profile pages.
 - [ ] User will be able to scroll through a Home Feed of posts by users within their community.
 - [ ] User can post pictures to profile or other users via Direct Message.
