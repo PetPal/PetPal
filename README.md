@@ -32,7 +32,7 @@ The following base functionality is provided with the free version of this appli
 
 
 ##### Profile
-- [ ] User can edit his/her own profile page. ![profile page](profile.png).
+- [ ] User can edit his/her own profile page. .
 - [ ] User will be able to view other user's profile pages.
 - [ ] User will be able to scroll through a Home Feed of posts by users within their community.
 - [ ] User can post pictures to profile or other users via Direct Message.
@@ -44,6 +44,23 @@ The following base functionality is provided with the free version of this appli
 
 ##### Schedule
 - [ ] Users can view their upcoming schedules.
+
+
+
+# Wireframes
+
+#### Home page
+
+![home page](home.png)
+
+#### Profile page
+
+![profile page](profile.png) 
+
+#### Link to profile page 
+
+(link.png)
+
 
 
 
