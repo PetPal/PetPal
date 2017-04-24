@@ -61,7 +61,9 @@ The following base functionality is provided with the free version of this appli
 
 ![link page](link.png)
 
+#### gif walkthrough
 
+![userstory] (petpal_wf.gif)
 
 
 # License
