@@ -22,6 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.server = "https://petpal2.herokuapp.com/parse"
         }))
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let hamburgerVC = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
+        window?.rootViewController = hamburgerVC
+        let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+        hamburgerVC.menuViewController = menuVC
+        menuVC.hamburgerViewController = hamburgerVC
+        
         return true
     }
 

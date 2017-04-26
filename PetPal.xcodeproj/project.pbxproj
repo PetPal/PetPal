@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		0C4ACE878B558D300C83B94E /* Pods_PetPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A160AF67740E2B4AF34C905 /* Pods_PetPal.framework */; };
 		99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DA9F1EAC016B00878886 /* AppDelegate.swift */; };
-		99F9DAA21EAC016B00878886 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DAA11EAC016B00878886 /* ViewController.swift */; };
 		99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA31EAC016B00878886 /* Main.storyboard */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
 		99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */; };
+		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
+		CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */; };
+		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +22,13 @@
 		95292EC65A459922D4166FF5 /* Pods-PetPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.release.xcconfig"; sourceTree = "<group>"; };
 		99F9DA9C1EAC016B00878886 /* PetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9DA9F1EAC016B00878886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		99F9DAA11EAC016B00878886 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		99F9DAA41EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99F9DAA61EAC016B00878886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F9DAA91EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F9DAAB1EAC016B00878886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
+		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 		DD527D991A1CA34B157370BD /* Pods-PetPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,8 +65,9 @@
 		99F9DA9E1EAC016B00878886 /* PetPal */ = {
 			isa = PBXGroup;
 			children = (
+				CEEC8B351EB1323200CC07C5 /* Views */,
+				CEEC8B341EB1322A00CC07C5 /* View Controllers */,
 				99F9DA9F1EAC016B00878886 /* AppDelegate.swift */,
-				99F9DAA11EAC016B00878886 /* ViewController.swift */,
 				99F9DAA31EAC016B00878886 /* Main.storyboard */,
 				99F9DAA61EAC016B00878886 /* Assets.xcassets */,
 				99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */,
@@ -77,6 +82,23 @@
 				4A160AF67740E2B4AF34C905 /* Pods_PetPal.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEEC8B341EB1322A00CC07C5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */,
+				CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */,
+				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CEEC8B351EB1323200CC07C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		DE13AC39A6C3E023FF7ABC7B /* Pods */ = {
@@ -212,7 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99F9DAA21EAC016B00878886 /* ViewController.swift in Sources */,
+				CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */,
+				CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */,
+				CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */,
 				99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
