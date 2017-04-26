@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C4ACE878B558D300C83B94E /* Pods_PetPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A160AF67740E2B4AF34C905 /* Pods_PetPal.framework */; };
 		99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DA9F1EAC016B00878886 /* AppDelegate.swift */; };
 		99F9DAA21EAC016B00878886 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DAA11EAC016B00878886 /* ViewController.swift */; };
 		99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA31EAC016B00878886 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A160AF67740E2B4AF34C905 /* Pods_PetPal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetPal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95292EC65A459922D4166FF5 /* Pods-PetPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.release.xcconfig"; sourceTree = "<group>"; };
 		99F9DA9C1EAC016B00878886 /* PetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9DA9F1EAC016B00878886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99F9DAA11EAC016B00878886 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		99F9DAA61EAC016B00878886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F9DAA91EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F9DAAB1EAC016B00878886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD527D991A1CA34B157370BD /* Pods-PetPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4ACE878B558D300C83B94E /* Pods_PetPal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				99F9DA9E1EAC016B00878886 /* PetPal */,
 				99F9DA9D1EAC016B00878886 /* Products */,
+				DE13AC39A6C3E023FF7ABC7B /* Pods */,
+				B5C96A47C1FD150BAA8A221B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = PetPal;
 			sourceTree = "<group>";
 		};
+		B5C96A47C1FD150BAA8A221B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A160AF67740E2B4AF34C905 /* Pods_PetPal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE13AC39A6C3E023FF7ABC7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD527D991A1CA34B157370BD /* Pods-PetPal.debug.xcconfig */,
+				95292EC65A459922D4166FF5 /* Pods-PetPal.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99F9DAAE1EAC016B00878886 /* Build configuration list for PBXNativeTarget "PetPal" */;
 			buildPhases = (
+				98E18B4E39DCF9EA9740854C /* [CP] Check Pods Manifest.lock */,
 				99F9DA981EAC016B00878886 /* Sources */,
 				99F9DA991EAC016B00878886 /* Frameworks */,
 				99F9DA9A1EAC016B00878886 /* Resources */,
+				6411958AF407BBC897E1E047 /* [CP] Embed Pods Frameworks */,
+				07FC22BB71CF12F7911E62AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07FC22BB71CF12F7911E62AF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetPal/Pods-PetPal-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6411958AF407BBC897E1E047 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PetPal/Pods-PetPal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98E18B4E39DCF9EA9740854C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99F9DA981EAC016B00878886 /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		99F9DAAF1EAC016B00878886 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD527D991A1CA34B157370BD /* Pods-PetPal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T8EV243LZA;
@@ -270,6 +346,7 @@
 		};
 		99F9DAB01EAC016B00878886 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95292EC65A459922D4166FF5 /* Pods-PetPal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T8EV243LZA;
@@ -300,6 +377,7 @@
 				99F9DAB01EAC016B00878886 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
