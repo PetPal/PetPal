@@ -12,6 +12,8 @@
 		99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA31EAC016B00878886 /* Main.storyboard */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
 		99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */; };
+		A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966091EB1797A001D072B /* ChatViewController.swift */; };
+		A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9662F1EB292FF001D072B /* LoginViewController.swift */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
 		CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */; };
 		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
@@ -26,6 +28,8 @@
 		99F9DAA61EAC016B00878886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F9DAA91EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F9DAAB1EAC016B00878886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5F966091EB1797A001D072B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		A5F9662F1EB292FF001D072B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */,
 				CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */,
 				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
+				A5F966091EB1797A001D072B /* ChatViewController.swift */,
+				A5F9662F1EB292FF001D072B /* LoginViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -224,7 +230,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -234,9 +240,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
 				CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */,
 				CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */,
 				CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */,
+				A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */,
 				99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
