@@ -13,8 +13,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    
-   
+
+    // add the OK action to the alert controller
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,9 +52,18 @@ class LoginViewController: UIViewController {
         user.signUpInBackground {
             (succeeded: Bool, error: Error?) -> Void in
             if error != nil {
-                print ("Error when signing up a user.")
+                let alertController = UIAlertController(title: "Error", message: "Please enter your email address and password.", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true)
+                print ("Error: \(error?.localizedDescription)")
             } else {
-                print ("Successfully signed up the user: \(self.emailTextField.text)")
+                let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully signed up!", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true)
             }
         }
     }
@@ -67,8 +77,18 @@ class LoginViewController: UIViewController {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
+                let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully logged in!", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true)
                 print ("Successfully logged in!")
             } else {
+                let alertController = UIAlertController(title: "Error", message: "Invalid email address or password.", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true)
                 // The login failed. Check error to see why.
                 print ("Error: \(error?.localizedDescription)")
             }
