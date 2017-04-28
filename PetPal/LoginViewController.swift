@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    var window: UIWindow?
 
     // add the OK action to the alert controller
 
@@ -57,14 +58,16 @@ class LoginViewController: UIViewController {
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
-                
-                                print ("Error: \(error?.localizedDescription)")
+                print ("Error: \(error?.localizedDescription)")
             } else {
-                let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully signed up!", preferredStyle: .alert)
+                                let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully signed up!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    self.dismiss(animated: true, completion: nil)
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let chatVC = mainStoryboard.instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
-                    self.present(chatVC, animated: true, completion: nil)
+                    self.window?.rootViewController = chatVC
+                    //self.present(chatVC, animated: true, completion: nil)
+
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
@@ -83,11 +86,13 @@ class LoginViewController: UIViewController {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
+               
                 let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully logged in!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let chatVC = mainStoryboard.instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
                     self.present(chatVC, animated: true, completion: nil)
+                    
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)

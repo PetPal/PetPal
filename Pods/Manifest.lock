@@ -15,21 +15,18 @@ PODS:
   - AFNetworking/UIKit (3.0.0):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.8.4)
-  - Parse (1.14.2):
+  - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
-  - TwilioChatClient (0.17.2)
 
 DEPENDENCIES:
   - AFNetworking (= 3.0)
   - Parse
-  - TwilioChatClient (~> 0.17)
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
-  TwilioChatClient: 5171074293fdecd1f26a09a21096950812a834d5
+  Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
 
-PODFILE CHECKSUM: 9b430fd0b40bbfae7b027953103e4132046ce6b7
+PODFILE CHECKSUM: 9709d8bb1b067fcd9fc971f152bf971c06fc9ef3
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.2.0

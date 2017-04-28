@@ -9,6 +9,5 @@ target 'PetPal' do
 
   # Pods for PetPal
   pod 'Parse'
-  pod 'TwilioChatClient', '~> 0.17'
   pod 'AFNetworking', '3.0'
 end
