@@ -188,10 +188,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4O-Fz-yRE">
-                                <rect key="frame" x="79" y="318" width="50" height="30"/>
+                                <rect key="frame" x="71" y="369" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SignUp"/>
                                 <connections>
@@ -199,13 +199,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1B-f9-uqY">
-                                <rect key="frame" x="245" y="318" width="48" height="30"/>
+                                <rect key="frame" x="248" y="369" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="onCancel:" destination="bTP-9T-SP5" eventType="touchUpInside" id="nsf-Mw-uI8"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tag Line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkn-Bc-KKc">
+                                <rect key="frame" x="35" y="296" width="324" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -213,6 +220,7 @@
                         <outlet property="emailField" destination="g42-Wk-anJ" id="h3W-6J-QSA"/>
                         <outlet property="nameField" destination="cQw-2i-ewS" id="mhb-eJ-Bvg"/>
                         <outlet property="passwordField" destination="OMq-GK-V5n" id="bQb-cs-spN"/>
+                        <outlet property="taglineField" destination="Qkn-Bc-KKc" id="yZ2-c5-cKr"/>
                         <outlet property="userNameField" destination="Bon-lw-w1r" id="En0-ip-FDl"/>
                     </connections>
                 </viewController>

@@ -30,5 +30,13 @@ class User: NSObject {
         email = dictionary["email"] as? String
         password = dictionary["password"] as? String
     }
+    
+    init(newName: String, newScreenName: String, newTagLine: String, newEmail: String, newPassword: String){
+        name = newName
+        screenName = newScreenName
+        tagLine = newTagLine
+        email = newEmail
+        password = newPassword
+    }
 
 }
