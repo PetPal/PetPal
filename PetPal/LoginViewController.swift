@@ -57,13 +57,19 @@ class LoginViewController: UIViewController {
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
-                print ("Error: \(error?.localizedDescription)")
+                
+                                print ("Error: \(error?.localizedDescription)")
             } else {
                 let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully signed up!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let chatVC = mainStoryboard.instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
+                    self.present(chatVC, animated: true, completion: nil)
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
+                
+
             }
         }
     }
@@ -79,9 +85,14 @@ class LoginViewController: UIViewController {
                 // Do stuff after successful login.
                 let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully logged in!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let chatVC = mainStoryboard.instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
+                    self.present(chatVC, animated: true, completion: nil)
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
+                
+                
                 print ("Successfully logged in!")
             } else {
                 let alertController = UIAlertController(title: "Error", message: "Invalid email address or password.", preferredStyle: .alert)

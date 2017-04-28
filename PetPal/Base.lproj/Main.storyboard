@@ -152,7 +152,7 @@
         <!--Chat View Controller-->
         <scene sceneID="bpx-3X-jwt">
             <objects>
-                <viewController id="yZa-hY-yyl" customClass="ChatViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chatVC" id="yZa-hY-yyl" customClass="ChatViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bn6-6p-bfe"/>
                         <viewControllerLayoutGuide type="bottom" id="sgm-G9-4rB"/>
