@@ -65,9 +65,7 @@ class LoginViewController: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let chatVC = mainStoryboard.instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
-                    self.window?.rootViewController = chatVC
-                    //self.present(chatVC, animated: true, completion: nil)
-
+                    self.present(chatVC, animated: true, completion: nil)
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
@@ -77,7 +75,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
     @IBAction func onLoginButton(_ sender: UIButton) {
         let username = self.emailTextField.text
         let password = self.passwordTextField.text
@@ -86,7 +83,6 @@ class LoginViewController: UIViewController {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
-               
                 let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully logged in!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -96,16 +92,14 @@ class LoginViewController: UIViewController {
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
-                
-                
                 print ("Successfully logged in!")
             } else {
+                // The login failed. Check error to see why.
                 let alertController = UIAlertController(title: "Error", message: "Invalid email address or password.", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
-                // The login failed. Check error to see why.
                 print ("Error: \(error?.localizedDescription)")
             }
         }
