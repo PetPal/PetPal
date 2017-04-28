@@ -1,17 +1,21 @@
-
 //
-//  ChatViewController.swift
+//  SignUpViewController.swift
 //  PetPal
 //
-//  Created by Rui Mao on 4/26/17.
+//  Created by Sabareesh Kappagantu on 4/28/17.
 //  Copyright © 2017 PetPal. All rights reserved.
 //
 
 import UIKit
 
+class SignUpViewController: UIViewController {
 
-class ChatViewController: UIViewController {
-
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +27,14 @@ class ChatViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onSignUp(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func onCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

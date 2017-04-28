@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,11 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
-            configuration.applicationId = "petpal2-id"
-            configuration.server = "https://petpal2.herokuapp.com/parse"
-        }))
+        
+//        let nu: NSDictionary = ["name": "Sabareesh Kappagantu", "screenName": "sbrsh", "tagline": "I'm cool" , "email": "sbrsh@test.com", "password": "test"]
+//        
+//        let newUser = User(dictionary: nu)
+        
+        PetPalAPIClient.sharedInstance.initializeParse()
+        PetPalAPIClient.sharedInstance.getUsers()
+        
+        
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let hamburgerVC = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
