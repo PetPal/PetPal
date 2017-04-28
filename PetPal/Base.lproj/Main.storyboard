@@ -150,7 +150,6 @@
             </objects>
             <point key="canvasLocation" x="1053.5999999999999" y="1709.5952023988007"/>
         </scene>
-<<<<<<< HEAD
         <!--Chat View Controller-->
         <scene sceneID="bpx-3X-jwt">
             <objects>
@@ -169,7 +168,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AB-9d-FxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1054" y="2503"/>
-=======
+        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="93v-5m-ctb">
             <objects>
@@ -247,7 +246,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="87d-dz-dUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1943.2" y="1706.8965517241381"/>
->>>>>>> cc2d908fd674f002e4136a8f2a577d4bcb7a564a
         </scene>
         <!--Hamburger View Controller-->
         <scene sceneID="xSN-jq-39G">

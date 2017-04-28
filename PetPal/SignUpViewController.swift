@@ -38,14 +38,8 @@ class SignUpViewController: UIViewController {
             let newUser = User(newName: nameField.text!, newScreenName: userNameField.text!, newTagLine: taglineField.text!, newEmail: emailField.text!, newPassword: passwordField.text!)
             PetPalAPIClient.sharedInstance.addUser(user: newUser, success: { (bool: Bool) in
                 print("Successfully Signed up user")
-                alertController.title = "Sign Up Success"
-                alertController.message = "Successfully signed up a new user."
-                self.present(alertController, animated: true, completion: nil)
             }, failure: { (error: Error) in
                 print("Failed to Signup User. : \(error.localizedDescription)")
-                alertController.title = "Error"
-                alertController.message = "\(error.localizedDescription)"
-                self.present(alertController, animated: true, completion: nil)
             })
             self.dismiss(animated: true, completion: nil)
         }
