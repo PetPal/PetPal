@@ -7,24 +7,32 @@
 //
 
 import UIKit
+//import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
 //        let nu: NSDictionary = ["name": "Sabareesh Kappagantu", "screenName": "sbrsh", "tagline": "I'm cool" , "email": "sbrsh@test.com", "password": "test"]
 //        
 //        let newUser = User(dictionary: nu)
-        
         PetPalAPIClient.sharedInstance.initializeParse()
-        PetPalAPIClient.sharedInstance.getUsers()
-        
-        
-        
+        //PetPalAPIClient.sharedInstance.getUsers()
+  
+
+ /*        if PFUser.current() != nil {
+            print ("There is a current user.")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "chatVC")
+            self.window?.rootViewController = vc
+        } else {
+            print ("There is no current user.")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+                self.window?.rootViewController = vc
+            }
+ */
+    
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let hamburgerVC = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
         window?.rootViewController = hamburgerVC

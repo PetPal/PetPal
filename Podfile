@@ -9,5 +9,6 @@ target 'PetPal' do
 
   # Pods for PetPal
   pod 'Parse'
+  pod 'MBProgressHUD'
   pod 'AFNetworking', '3.0'
 end

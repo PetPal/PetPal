@@ -8,25 +8,32 @@
 
 import UIKit
 import Parse
+import AFNetworking
 
-class LoginViewController: UIViewController {
+
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    var window: UIWindow?
 
-    // add the OK action to the alert controller
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard)))
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+
     
 
     /*
@@ -39,59 +46,28 @@ class LoginViewController: UIViewController {
     }
     */
 
-    @IBAction func onSignupButton(_ sender: UIButton) {
-        let user = PFUser()
-        let username = self.emailTextField.text
-        let password = self.passwordTextField.text
-        
-        user.username = username
-        user.password = password
-        //user.email = "email@example.com"
-        // other fields can be set just like with PFObject
-        //user["phone"] = "415-392-0202"
-        
-        user.signUpInBackground {
-            (succeeded: Bool, error: Error?) -> Void in
-            if error != nil {
-                let alertController = UIAlertController(title: "Error", message: "Please enter your email address and password.", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                }
-                alertController.addAction(OKAction)
-                self.present(alertController, animated: true)
-                print ("Error: \(error?.localizedDescription)")
-            } else {
-                                let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully signed up!", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    self.dismiss(animated: true, completion: nil)
-                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let chatVC = mainStoryboard.instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
-                    self.present(chatVC, animated: true, completion: nil)
-                }
-                alertController.addAction(OKAction)
-                self.present(alertController, animated: true)
-                
-
-            }
-        }
-    }
+    
+    
+ 
     
     @IBAction func onLoginButton(_ sender: UIButton) {
-        let username = self.emailTextField.text
+        self.login()
+    }
+    
+    func login() {
+        let email = self.emailTextField.text?.lowercased()
         let password = self.passwordTextField.text
-
-        PFUser.logInWithUsername(inBackground: (username)!, password:(password)!) {
+        PFUser.logInWithUsername(inBackground: (email)!, password:(password)!) {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
-                let alertController = UIAlertController(title: "Welcome to Petpal", message: "User \(self.emailTextField.text!) has successfully logged in!", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let chatVC = mainStoryboard.instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
-                    self.present(chatVC, animated: true, completion: nil)
+                let alertController = UIAlertController(title: "Welcome to Petpal", message: "Welcome back, \(user!["firstName"])", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "Ok" , style: .default) { (action) in
                     
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
+                self.dismiss(animated: true, completion: nil)
                 print ("Successfully logged in!")
             } else {
                 // The login failed. Check error to see why.

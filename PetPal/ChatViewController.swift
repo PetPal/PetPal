@@ -11,13 +11,16 @@ import UIKit
 import Parse
 
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITextViewDelegate {
 
-    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var messageTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +32,7 @@ class ChatViewController: UIViewController {
     @IBAction func onSendButton(_ sender: UIButton) {
         let message = PFObject(className:"Message")
         message["user"] = 1337
-        message["text"] = messageTextField.text
+        message["text"] = messageTextView.text
 
         message.saveInBackground {
             (success: Bool, error: Error?) -> Void in
@@ -41,6 +44,23 @@ class ChatViewController: UIViewController {
             }
         }
     }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+
 
     /*
     // MARK: - Navigation
