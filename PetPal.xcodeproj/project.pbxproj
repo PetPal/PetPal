@@ -12,9 +12,15 @@
 		99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA31EAC016B00878886 /* Main.storyboard */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
 		99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */; };
+		CE4C9DFC1EB3E1990096652A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C9DFB1EB3E1990096652A /* Group.swift */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
 		CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */; };
 		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
+		CEEC8B3D1EB2672300CC07C5 /* Request.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEC8B3C1EB2672300CC07C5 /* Request.storyboard */; };
+		CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3F1EB2781000CC07C5 /* UIImageView.swift */; };
+		CEEC8B421EB2898100CC07C5 /* RequestDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */; };
+		CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */; };
+		CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +32,15 @@
 		99F9DAA61EAC016B00878886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F9DAA91EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F9DAAB1EAC016B00878886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE4C9DFB1EB3E1990096652A /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		CEEC8B3C1EB2672300CC07C5 /* Request.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Request.storyboard; sourceTree = "<group>"; };
+		CEEC8B3F1EB2781000CC07C5 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailTableViewCell.swift; sourceTree = "<group>"; };
+		CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRequestViewController.swift; sourceTree = "<group>"; };
+		CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectViewController.swift; sourceTree = "<group>"; };
 		DD527D991A1CA34B157370BD /* Pods-PetPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,10 +77,13 @@
 		99F9DA9E1EAC016B00878886 /* PetPal */ = {
 			isa = PBXGroup;
 			children = (
+				CE4C9DFD1EB3E19E0096652A /* Model */,
+				CEEC8B3E1EB277A700CC07C5 /* Helpers */,
 				CEEC8B351EB1323200CC07C5 /* Views */,
 				CEEC8B341EB1322A00CC07C5 /* View Controllers */,
 				99F9DA9F1EAC016B00878886 /* AppDelegate.swift */,
 				99F9DAA31EAC016B00878886 /* Main.storyboard */,
+				CEEC8B3C1EB2672300CC07C5 /* Request.storyboard */,
 				99F9DAA61EAC016B00878886 /* Assets.xcassets */,
 				99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */,
 				99F9DAAB1EAC016B00878886 /* Info.plist */,
@@ -84,12 +99,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE4C9DFD1EB3E19E0096652A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE4C9DFB1EB3E1990096652A /* Group.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		CEEC8B341EB1322A00CC07C5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */,
 				CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */,
 				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
+				CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */,
+				CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -97,8 +122,17 @@
 		CEEC8B351EB1323200CC07C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		CEEC8B3E1EB277A700CC07C5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CEEC8B3F1EB2781000CC07C5 /* UIImageView.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		DE13AC39A6C3E023FF7ABC7B /* Pods */ = {
@@ -175,6 +209,7 @@
 			files = (
 				99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */,
 				99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */,
+				CEEC8B3D1EB2672300CC07C5 /* Request.storyboard in Resources */,
 				99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,7 +269,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4C9DFC1EB3E1990096652A /* Group.swift in Sources */,
 				CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */,
+				CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */,
+				CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */,
+				CEEC8B421EB2898100CC07C5 /* RequestDetailTableViewCell.swift in Sources */,
+				CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */,
 				CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */,
 				CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */,
 				99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */,
