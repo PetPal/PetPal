@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard)))
+        //self.view.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard)))
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
 
@@ -61,13 +61,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
-                let alertController = UIAlertController(title: "Welcome to Petpal", message: "Welcome back, \(user!["firstName"])", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Welcome to Petpal", message: "Welcome back, " +    user!.username!, preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "Ok" , style: .default) { (action) in
+                    
+                    //test modal present chatVC, canbe changed later
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let chatVC = mainStoryboard.instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
+                    self.present(chatVC, animated: true, completion: nil)
                     
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
-                self.dismiss(animated: true, completion: nil)
+                
                 print ("Successfully logged in!")
             } else {
                 // The login failed. Check error to see why.
