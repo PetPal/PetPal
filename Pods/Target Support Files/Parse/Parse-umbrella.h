@@ -1,4 +1,14 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
 
 #import "Parse.h"
 #import "ParseClientConfiguration.h"
@@ -15,6 +25,8 @@
 #import "PFFile+Deprecated.h"
 #import "PFFile+Synchronous.h"
 #import "PFFile.h"
+#import "PFFileUploadController.h"
+#import "PFFileUploadResult.h"
 #import "PFGeoPoint.h"
 #import "PFInstallation.h"
 #import "PFNetworkActivityIndicatorManager.h"

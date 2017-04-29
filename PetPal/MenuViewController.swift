@@ -32,7 +32,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        requestsNavigationController = storyboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
+        requestsNavigationController = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
         
         controllers.append(requestsNavigationController)
     }
