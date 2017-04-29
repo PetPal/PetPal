@@ -31,7 +31,8 @@ class ChatViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func onSendButton(_ sender: UIButton) {
         let message = PFObject(className:"Message")
-        message["user"] = 1337
+        //message["user"] = 1337
+        message["username"] = PFUser.current()?.username
         message["text"] = messageTextView.text
 
         message.saveInBackground {
