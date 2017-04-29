@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc protocol AddRequestViewControllerDelegate: class {
+    @objc optional func multiSelect(addRequestViewController: AddRequestViewController, request: Request)
+}
+
+
 class AddRequestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MultiSelectViewControllerDelegate {
 
     @IBOutlet var tableView: UITableView!
@@ -43,6 +48,8 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - UITableView
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
@@ -112,6 +119,7 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     // MARK: - MultiSelectViewControllerDelegate
+    
     func multiSelect(multiSelectViewController: MultiSelectViewController, selection: [Bool]) {
         if let indexPath = tableView.indexPathForSelectedRow {
             switch indexPath.section {
@@ -153,4 +161,20 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
+    @IBAction func onAddRequestButton(_ sender: Any) {
+        let user = User.currentUser
+        let today = Date()
+        let tomorrow = Date(timeInterval: 60*60*24, since: today)
+        var requestType = RequestType.boardingType
+        if selectedService[1] {
+            requestType = RequestType.dropInVisitType
+        }
+        let group = Group(name: "Small Dogs", type: GroupType.privateType, owner: user!)
+        PetPalAPIClient.sharedInstance.addGroup(group: group)
+        let request = Request(requestUser: user!, startDate: today, endDate: tomorrow, requestType: requestType, groups: nil)
+        PetPalAPIClient.sharedInstance.addRequest(request: request)
+        
+        _ = navigationController?.popViewController(animated: true)
+
+    }
 }

@@ -8,12 +8,21 @@
 
 import UIKit
 
-class Group: NSObject {
+enum GroupType: Int {
+    case publicType
+    case privateType
+}
 
-    var name: String?
+class Group: NSObject {
     
-    init(name: String) {
+    var name: String?
+    var type: GroupType = GroupType.privateType
+    var owner: User?
+    
+    init(name: String, type: GroupType, owner: User) {
         self.name = name
+        self.type = type
+        self.owner = owner
     }
     
 }

@@ -53,5 +53,47 @@ class PetPalAPIClient  {
             }
         }
     }
+    
+    func addRequest(request: Request) {
+        let requestObject = PFObject(className: "Request")
+        if let startDate = request.startDate {
+            requestObject["startDate"] = startDate
+        }
+        if let endDate = request.endDate {
+            requestObject["endDate"] = endDate
+        }
+        if let requestUser = request.requestUser {
+            requestObject["requestUser"] = requestUser.pfUser
+        }
+        if let acceptUser = request.acceptUser {
+            requestObject["acceptUser"] = acceptUser.pfUser
+        }
+        requestObject["requestType"] = request.requestType.rawValue
+        requestObject.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                print("request added")
+            } else if let error = error {
+                print("error \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func addGroup(group: Group) {
+        let groupObject = PFObject(className: "Group")
+        if let name = group.name {
+            groupObject["name"] = name
+        }
+        groupObject["groupType"] = group.type.rawValue
+        if let owner = group.owner {
+            groupObject["owner"] = owner.pfUser
+        }
+        groupObject.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                print("group added")
+            } else if let error = error {
+                print("error \(error.localizedDescription)")
+            }
+        }
+    }
 
 }

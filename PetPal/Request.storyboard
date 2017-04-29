@@ -160,6 +160,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="onAddRequestButton:" destination="4f2-wv-9ZU" eventType="touchUpInside" id="IrA-nI-gfP"/>
                                     <action selector="onRequestButton:" destination="9RD-Dl-O6y" eventType="touchUpInside" id="gb5-OB-1Rx"/>
                                 </connections>
                             </button>

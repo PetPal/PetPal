@@ -8,16 +8,22 @@
 
 import UIKit
 
+enum RequestType: Int {
+    case boardingType
+    case dropInVisitType
+}
+
 class Request: NSObject {
+
 
     var requestUser: User?
     var acceptUser: User?
     var startDate: Date?
     var endDate: Date?
-    var requestType: String?
+    var requestType: RequestType = RequestType.boardingType
     var groups: [Group]?
     
-    init(requestUser: User, startDate: Date, endDate: Date, requestType: String, groups: [Group]) {
+    init(requestUser: User, startDate: Date, endDate: Date, requestType: RequestType, groups: [Group]?) {
         self.requestUser = requestUser
         self.startDate = startDate
         self.endDate = endDate

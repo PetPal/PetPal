@@ -33,6 +33,8 @@ class MultiSelectViewController: UIViewController , UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - tableView
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selections?.count ?? 0
     }
@@ -56,6 +58,8 @@ class MultiSelectViewController: UIViewController , UITableViewDelegate, UITable
         tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
     }
     
+    // MARK: - Navigation
+
     @IBAction func onSelectButton(_ sender: Any) {
         delegate?.multiSelect?(multiSelectViewController: self, selection: selected!)
         

@@ -7,9 +7,11 @@
 //
 
 import UIKit
-//import Parse
+import Parse
 
 class User: NSObject {
+    
+    var pfUser: PFUser?
     
     var name: String?
     var screenName: String?
@@ -38,6 +40,30 @@ class User: NSObject {
         tagLine = newTagLine
         email = newEmail
         password = newPassword
+    }
+    
+    init(pfUser: PFUser) {
+        self.pfUser = pfUser
+        name = pfUser.object(forKey: "name") as? String
+        screenName = pfUser.username
+        tagLine = pfUser.object(forKey: "tagline") as? String
+        email = pfUser.email
+        password = pfUser.password
+    }
+    
+    // MARK: class vars
+    
+    private static var _currentUser: User?
+    
+    class var currentUser: User? {
+        get {
+            if _currentUser == nil {
+                if let pfUser = PFUser.current() {
+                    _currentUser = User(pfUser: pfUser)
+                }
+            }
+            return _currentUser
+        }
     }
 
 }
