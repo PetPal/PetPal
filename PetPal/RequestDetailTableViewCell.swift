@@ -10,9 +10,15 @@ import UIKit
 
 class RequestDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet var requestImageView: UIImageView!
+    @IBOutlet var requestGroupLabel: UILabel!
+    @IBOutlet var requestPetLabel: UILabel!
+    @IBOutlet var requestDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        requestImageView.setRounded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

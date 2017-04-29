@@ -9,13 +9,11 @@
 import UIKit
 
 class Group: NSObject {
+
     var name: String?
     
-    override var description: String {
-        if let name = self.name {
-            return name
-        } else {
-            return self.description
-        }
+    init(name: String) {
+        self.name = name
     }
+    
 }

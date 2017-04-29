@@ -12,11 +12,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet var tableView: UITableView!
     
+    var loginNavigationController: UIViewController!
     var requestsNavigationController: UIViewController!
     
     var controllers: [UIViewController] = []
     
-    let menuTitle = ["Requests"]
+    let menuTitle = ["Login", "Requests"]
     
     weak var hamburgerViewController: HamburgerViewController! {
         didSet {
@@ -32,8 +33,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        requestsNavigationController = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
+        loginNavigationController = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
         
+        let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
+        requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
+        
+        controllers.append(loginNavigationController)
         controllers.append(requestsNavigationController)
     }
     

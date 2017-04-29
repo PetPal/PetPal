@@ -15,7 +15,6 @@
 		99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA31EAC016B00878886 /* Main.storyboard */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
 		99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */; };
-		CE4C9DFC1EB3E1990096652A /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4C9DFB1EB3E1990096652A /* Group.swift */; };
 		A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966091EB1797A001D072B /* ChatViewController.swift */; };
 		A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9662F1EB292FF001D072B /* LoginViewController.swift */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
@@ -26,6 +25,8 @@
 		CEEC8B421EB2898100CC07C5 /* RequestDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */; };
 		CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */; };
 		CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */; };
+		CEF1A2441EB4631700EBC0A4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1A2431EB4631700EBC0A4 /* Request.swift */; };
+		CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1A2451EB4649000EBC0A4 /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,6 @@
 		99F9DAA61EAC016B00878886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F9DAA91EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F9DAAB1EAC016B00878886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE4C9DFB1EB3E1990096652A /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		A5F966091EB1797A001D072B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A5F9662F1EB292FF001D072B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailTableViewCell.swift; sourceTree = "<group>"; };
 		CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRequestViewController.swift; sourceTree = "<group>"; };
 		CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectViewController.swift; sourceTree = "<group>"; };
+		CEF1A2431EB4631700EBC0A4 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		CEF1A2451EB4649000EBC0A4 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DD527D991A1CA34B157370BD /* Pods-PetPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				992D9C671EB3D9FF00668001 /* User.swift */,
+				CEF1A2431EB4631700EBC0A4 /* Request.swift */,
+				CEF1A2451EB4649000EBC0A4 /* Group.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -103,7 +107,6 @@
 		99F9DA9E1EAC016B00878886 /* PetPal */ = {
 			isa = PBXGroup;
 			children = (
-				CE4C9DFD1EB3E19E0096652A /* Model */,
 				CEEC8B3E1EB277A700CC07C5 /* Helpers */,
 				992D9C661EB3D9E600668001 /* Models */,
 				992D9C631EB3D87100668001 /* API */,
@@ -127,25 +130,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE4C9DFD1EB3E19E0096652A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CE4C9DFB1EB3E1990096652A /* Group.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		CEEC8B341EB1322A00CC07C5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */,
 				CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */,
-				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
-				CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */,
-				CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */,
 				A5F966091EB1797A001D072B /* ChatViewController.swift */,
 				A5F9662F1EB292FF001D072B /* LoginViewController.swift */,
 				992D9C691EB3EAD700668001 /* SignUpViewController.swift */,
+				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
+				CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */,
+				CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -300,10 +295,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4C9DFC1EB3E1990096652A /* Group.swift in Sources */,
 				992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
 				CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */,
+				CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */,
 				CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */,
 				CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */,
 				CEEC8B421EB2898100CC07C5 /* RequestDetailTableViewCell.swift in Sources */,
@@ -312,6 +307,7 @@
 				992D9C681EB3D9FF00668001 /* User.swift in Sources */,
 				CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */,
 				992D9C6A1EB3EAD700668001 /* SignUpViewController.swift in Sources */,
+				CEF1A2441EB4631700EBC0A4 /* Request.swift in Sources */,
 				A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */,
 				99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */,
 			);
