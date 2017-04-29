@@ -15,21 +15,18 @@ PODS:
   - AFNetworking/UIKit (3.0.0):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.8.4)
-  - MBProgressHUD (1.0.0)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
 
 DEPENDENCIES:
   - AFNetworking (= 3.0)
-  - MBProgressHUD
   - Parse
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
 
-PODFILE CHECKSUM: 22018ab3b5b90bbf69bb9b69d22d154adbfddd5a
+PODFILE CHECKSUM: 9709d8bb1b067fcd9fc971f152bf971c06fc9ef3
 
 COCOAPODS: 1.2.1

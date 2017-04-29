@@ -12,7 +12,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet var tableView: UITableView!
     
-    var loginNavigationController: UIViewController!
+    var WelcomeNavigationController: UIViewController!
     var requestsNavigationController: UIViewController!
     
     var controllers: [UIViewController] = []
@@ -33,16 +33,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-<<<<<<< HEAD
+
         requestsNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
-=======
-        loginNavigationController = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
->>>>>>> 05d31dcfea2925beb29adf0d0fa610c972a4f2fb
+
+        WelcomeNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
+
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
         
-        controllers.append(loginNavigationController)
+        controllers.append(WelcomeNavigationController)
         controllers.append(requestsNavigationController)
     }
     
