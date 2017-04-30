@@ -36,17 +36,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        requestsNavigationController = storyboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
-        
         WelcomeNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
         
         groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupNavigationController")
         
         chatNavigationController = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController")
         
-        /*let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
+        let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
-        */
      
         
         controllers.append(WelcomeNavigationController)
