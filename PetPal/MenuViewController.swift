@@ -14,10 +14,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var WelcomeNavigationController: UIViewController!
     var requestsNavigationController: UIViewController!
+    var groupNavigationController: UIViewController!
+    var chatNavigationController: UIViewController!
     
     var controllers: [UIViewController] = []
     
-    let menuTitle = ["Login", "Requests"]
+    let menuTitle = ["Login", "Requests", "Groups", "Chats"]
     
     weak var hamburgerViewController: HamburgerViewController! {
         didSet {
@@ -34,15 +36,23 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        requestsNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
+        requestsNavigationController = storyboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
         
         WelcomeNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
         
-        let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
+        groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupNavigationController")
+        
+        chatNavigationController = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController")
+        
+        /*let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
+        */
+     
         
         controllers.append(WelcomeNavigationController)
         controllers.append(requestsNavigationController)
+        controllers.append(groupNavigationController)
+        controllers.append(chatNavigationController)
     }
     
     override func didReceiveMemoryWarning() {

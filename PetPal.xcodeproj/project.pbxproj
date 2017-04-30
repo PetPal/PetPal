@@ -18,6 +18,8 @@
 		A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966091EB1797A001D072B /* ChatViewController.swift */; };
 		A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9662F1EB292FF001D072B /* LoginViewController.swift */; };
 		A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966311EB46948001D072B /* WelcomeViewController.swift */; };
+		A5F966381EB5998B001D072B /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966371EB5998B001D072B /* GroupViewController.swift */; };
+		A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966391EB59DE5001D072B /* Utilities.swift */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
 		CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */; };
 		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
@@ -45,6 +47,8 @@
 		A5F966091EB1797A001D072B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A5F9662F1EB292FF001D072B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A5F966311EB46948001D072B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		A5F966371EB5998B001D072B /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		A5F966391EB59DE5001D072B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
 				CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */,
 				CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */,
+				A5F966371EB5998B001D072B /* GroupViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				CEEC8B3F1EB2781000CC07C5 /* UIImageView.swift */,
+				A5F966391EB59DE5001D072B /* Utilities.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -304,6 +310,8 @@
 				CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */,
 				CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */,
 				CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */,
+				A5F966381EB5998B001D072B /* GroupViewController.swift in Sources */,
+				A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */,
 				CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */,
 				CEEC8B421EB2898100CC07C5 /* RequestDetailTableViewCell.swift in Sources */,
 				CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */,
