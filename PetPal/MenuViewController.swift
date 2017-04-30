@@ -65,7 +65,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 4 {
+        if indexPath.row == logoutRow {
             Utilities.logoutUser()
         } else {
             hamburgerViewController.contentViewController = controllers[indexPath.row]
