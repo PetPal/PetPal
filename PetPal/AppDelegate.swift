@@ -14,22 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
-        
-        
         //Initilaize the Parse Connection
         PetPalAPIClient.sharedInstance.initializeParse()
-  
 
- 
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let hamburgerVC = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
-        window?.rootViewController = hamburgerVC
-        let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
-        
-        hamburgerVC.menuViewController = menuVC
-        menuVC.hamburgerViewController = hamburgerVC
+        if User.currentUser != nil {
+            Utilities.presentHamburgerView()
+        }
         
         return true
     }

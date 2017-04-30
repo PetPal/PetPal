@@ -19,12 +19,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var controllers: [UIViewController] = []
     
-    let menuTitle = ["Login", "Requests", "Groups", "Chats"]
+    let menuTitle = ["Login", "Requests", "Groups", "Chats", "Logout"]
+    let logoutRow = 4
     
     weak var hamburgerViewController: HamburgerViewController! {
         didSet {
             view.layoutIfNeeded()
-            hamburgerViewController.contentViewController = controllers[0]
+            hamburgerViewController.contentViewController = controllers[1]
         }
     }
     
@@ -59,7 +60,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controllers.count
+        return menuTitle.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +71,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        hamburgerViewController.contentViewController = controllers[indexPath.row]
+        if indexPath.row == 4 {
+            Utilities.logoutUser()
+        } else {
+            hamburgerViewController.contentViewController = controllers[indexPath.row]
+        }
     }
     
 }

@@ -8,14 +8,37 @@
 
 import Foundation
 import UIKit
+import Parse
 
 
 class Utilities {
+    
+    class func presentHamburgerView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let hamburgerVC = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
+        let window = UIApplication.shared.keyWindow
+        window?.rootViewController = hamburgerVC
+        let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+        hamburgerVC.menuViewController = menuVC
+        menuVC.hamburgerViewController = hamburgerVC
+    }
     
     class func loginUser(_ target: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let welcomeVC = storyboard.instantiateViewController(withIdentifier: "navigationVC") as! UINavigationController
         target.present(welcomeVC, animated: true, completion: nil)
+        
+    }
+    
+    class func logoutUser() {
+        PFUser.logOutInBackground()
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let welcomeVC = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController") as! UINavigationController
+        if let keyWindow = UIApplication.shared.keyWindow {
+            keyWindow.rootViewController = welcomeVC
+        }
         
     }
     
