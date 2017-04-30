@@ -33,9 +33,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        requestsNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
-        
         WelcomeNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)

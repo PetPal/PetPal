@@ -18,6 +18,7 @@ class User: NSObject {
     var tagLine: String?
     var email: String?
     var password: String?
+    var groups: [Group]?
     //var profileImageURL: String?
     
 //    var petCount: Int?
@@ -60,6 +61,9 @@ class User: NSObject {
             if _currentUser == nil {
                 if let pfUser = PFUser.current() {
                     _currentUser = User(pfUser: pfUser)
+                    
+                    // TODO: Not the right place, but where?
+                    PetPalAPIClient.sharedInstance.populateGroups(forUser: _currentUser!)
                 }
             }
             return _currentUser

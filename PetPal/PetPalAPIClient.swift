@@ -54,26 +54,69 @@ class PetPalAPIClient  {
         }
     }
     
+    func addGroupToUser(user: User, group: Group) {
+        let pfUser = user.pfUser
+        let relation = pfUser!.relation(forKey: "groups")
+        let pfGroup = group.pfObject!
+        relation.add(pfGroup)
+        pfUser?.saveInBackground(block: { (success: Bool, error: Error?) in
+            if success {
+                print("add group to user successfully")
+            } else {
+                print("failed to add group to user")
+            }
+        })
+    }
+    
+    func populateGroups(forUser user: User) {
+        let pfUser = user.pfUser
+        let relation = pfUser!.relation(forKey: "groups")
+        relation.query().findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                var groups = [Group]()
+                if let objects = objects {
+                    for object in objects {
+                        let group = Group(object: object)
+                        groups.append(group)
+                    }
+                    user.groups = groups
+                }
+            }
+        }
+    }
+    
     func addRequest(request: Request) {
-        let requestObject = PFObject(className: "Request")
-        if let startDate = request.startDate {
-            requestObject["startDate"] = startDate
-        }
-        if let endDate = request.endDate {
-            requestObject["endDate"] = endDate
-        }
-        if let requestUser = request.requestUser {
-            requestObject["requestUser"] = requestUser.pfUser
-        }
-        if let acceptUser = request.acceptUser {
-            requestObject["acceptUser"] = acceptUser.pfUser
-        }
-        requestObject["requestType"] = request.requestType.rawValue
+        let requestObject: PFObject! = request.makePFObject()
         requestObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("request added")
             } else if let error = error {
                 print("error \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func getRequests(user: User, success: @escaping ([Request]) -> (), failure: @escaping (Error?) -> ()) {
+        let query = PFQuery(className: "Request")
+        query.includeKey("requestUser")
+        query.includeKey("acceptUser")
+        query.includeKey("toGroup")
+        if let pfUser = user.pfUser {
+            query.whereKey("requestUser", equalTo: pfUser)
+        }
+        // TODO add where clause for acceptUser
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                var requests = [Request]()
+                if let objects = objects {
+                    for object in objects {
+                        let request = Request(object: object)
+                        requests.append(request)
+                    }
+                }
+                success(requests)
+            } else {
+                failure(error)
             }
         }
     }
@@ -95,5 +138,24 @@ class PetPalAPIClient  {
             }
         }
     }
+    
+    func getGroups(success: @escaping ([Group]) -> (), failure: @escaping (Error?) -> ()) {
+        let query = PFQuery(className: "Group")
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                var groups = [Group]()
+                if let objects = objects {
+                    for object in objects {
+                        let group = Group(object: object)
+                        groups.append(group)
+                    }
+                }
+                success(groups)
+            } else {
+                failure(error)
+            }
+        }
+    }
+    
 
 }

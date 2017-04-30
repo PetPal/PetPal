@@ -12,11 +12,33 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet var tableView: UITableView!
     
+    var requests: [Request]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        let user = User.currentUser
+        print("/(user.groups)")
+        /*
+        PetPalAPIClient.sharedInstance.getGroups(success: { (groups: [Group]) in
+            print("got groups")
+            for group in groups {
+                PetPalAPIClient.sharedInstance.addGroupToUser(user: user!, group: group)
+            }
+        }) { (error: Error?) in
+            print("no groups")
+        }
+        */
+        
+        PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in
+            self.requests = requests
+            self.tableView.reloadData()
+        }) { (error: Error?) in
+            print("error \(String(describing: error?.localizedDescription))")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,12 +47,14 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return requests?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestDetailCell", for: indexPath) as! RequestDetailTableViewCell
-        
+        if let request = requests?[indexPath.row] {
+            cell.request = request
+        }
         return cell
     }
 

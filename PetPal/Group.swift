@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 enum GroupType: Int {
     case publicType
@@ -15,6 +16,7 @@ enum GroupType: Int {
 
 class Group: NSObject {
     
+    var pfObject: PFObject?
     var name: String?
     var type: GroupType = GroupType.privateType
     var owner: User?
@@ -25,4 +27,10 @@ class Group: NSObject {
         self.owner = owner
     }
     
+    init(object: PFObject) {
+        pfObject = object
+        name = object["name"] as? String
+        type = GroupType(rawValue: (object["groupType"] as? Int) ?? 0)!
+    }
+
 }

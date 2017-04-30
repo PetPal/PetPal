@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 enum RequestType: Int {
     case boardingType
@@ -15,7 +16,7 @@ enum RequestType: Int {
 
 class Request: NSObject {
 
-
+    var pfObject: PFObject?
     var requestUser: User?
     var acceptUser: User?
     var startDate: Date?
@@ -29,5 +30,38 @@ class Request: NSObject {
         self.endDate = endDate
         self.requestType = requestType
         self.groups = groups
+    }
+
+    init(object: PFObject) {
+        pfObject = object
+        if let pfUser = object["requestUser"] as? PFUser {
+            requestUser = User(pfUser: pfUser)
+        }
+        if let pfGroup = object["toGroup"] as? PFObject {
+            let group = Group(object: pfGroup)
+            groups = [group]
+        }
+        startDate = object["startDate"] as? Date
+        endDate = object["endDate"] as? Date
+        requestType = RequestType(rawValue: (object["requestType"] as? Int) ?? 0)!
+    }
+    
+    func makePFObject() -> PFObject! {
+        let requestObject = PFObject(className: "Request")
+        if let startDate = startDate {
+            requestObject["startDate"] = startDate
+        }
+        if let endDate = endDate {
+            requestObject["endDate"] = endDate
+        }
+        if let requestUser = requestUser {
+            requestObject["requestUser"] = requestUser.pfUser
+        }
+        if let acceptUser = acceptUser {
+            requestObject["acceptUser"] = acceptUser.pfUser
+        }
+        requestObject["requestType"] = requestType.rawValue
+        
+        return requestObject
     }
 }

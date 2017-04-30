@@ -21,7 +21,8 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let groupSection = 0
     let groupTitle = "Select Group"
-    let groups = ["Main St. Small Dogs", "Chihuahua Club", "Lots of Cats"]
+    //let groups = ["Main St. Small Dogs", "Chihuahua Club", "Lots of Cats"]
+    var groups = [String]()
     var selectedGroups: [Bool] = []
     
     let wwwSection = 1
@@ -37,6 +38,13 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        let user = User.currentUser
+        if let userGroups = user?.groups {
+            for group in userGroups {
+                groups.append(group.name!)
+            }
+        }
         
         selectedGroups = Array(repeating: false, count: groups.count)
         selectedService = Array(repeating: false, count: services.count)
@@ -169,8 +177,6 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         if selectedService[1] {
             requestType = RequestType.dropInVisitType
         }
-        let group = Group(name: "Small Dogs", type: GroupType.privateType, owner: user!)
-        PetPalAPIClient.sharedInstance.addGroup(group: group)
         let request = Request(requestUser: user!, startDate: today, endDate: tomorrow, requestType: requestType, groups: nil)
         PetPalAPIClient.sharedInstance.addRequest(request: request)
         
