@@ -19,8 +19,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var controllers: [UIViewController] = []
     
-    let menuTitle = ["Login", "Requests", "Groups", "Chats", "Logout"]
-    let logoutRow = 4
+    let menuTitle = ["Requests", "Groups", "Chats", "Logout"]
+    let logoutRow = 3
     
     weak var hamburgerViewController: HamburgerViewController! {
         didSet {
@@ -37,17 +37,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        WelcomeNavigationController = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController")
-        
         groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupNavigationController")
-        
         chatNavigationController = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController")
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
-     
-        
-        controllers.append(WelcomeNavigationController)
         controllers.append(requestsNavigationController)
         controllers.append(groupNavigationController)
         controllers.append(chatNavigationController)
