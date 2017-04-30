@@ -19,13 +19,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var controllers: [UIViewController] = []
     
+    // assume Logout is the last menu item
     let menuTitle = ["Requests", "Groups", "Chats", "Logout"]
-    let logoutRow = 3
     
     weak var hamburgerViewController: HamburgerViewController! {
         didSet {
             view.layoutIfNeeded()
-            hamburgerViewController.contentViewController = controllers[1]
+            hamburgerViewController.contentViewController = controllers[0]
         }
     }
     
@@ -42,6 +42,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
+        
         controllers.append(requestsNavigationController)
         controllers.append(groupNavigationController)
         controllers.append(chatNavigationController)
@@ -54,7 +55,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuTitle.count
+        return controllers.count + 1 // include a Logout menu item
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +66,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == logoutRow {
+        if indexPath.row == controllers.count  {
             Utilities.logoutUser()
         } else {
             hamburgerViewController.contentViewController = controllers[indexPath.row]
