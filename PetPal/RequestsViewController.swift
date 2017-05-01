@@ -22,16 +22,13 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         
         let user = User.currentUser
         print("/(user.groups)")
-        /*
-        PetPalAPIClient.sharedInstance.getGroups(success: { (groups: [Group]) in
-            print("got groups")
-            for group in groups {
-                PetPalAPIClient.sharedInstance.addGroupToUser(user: user!, group: group)
-            }
-        }) { (error: Error?) in
-            print("no groups")
+
+        NotificationCenter.default.addObserver(forName: Request.requestAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            print("request added")
+            let request = notification.object as! Request
+            self.requests?.append(request)
+            self.tableView.reloadData()
         }
-        */
         
         PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in
             self.requests = requests
@@ -57,6 +54,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         return cell
     }
+    
 
     /*
     // MARK: - Navigation

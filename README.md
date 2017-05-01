@@ -50,6 +50,9 @@ Walkthrough of all user stories:
 
 ![Video Walkthrough](Petpal_wf.gif)
 
+Sprint1 walk through
+
+![Video Walkthrough](PetPalSprint1.gif)
 
 
 # License

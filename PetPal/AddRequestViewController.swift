@@ -177,7 +177,8 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         if selectedService[1] {
             requestType = RequestType.dropInVisitType
         }
-        let request = Request(requestUser: user!, startDate: today, endDate: tomorrow, requestType: requestType, groups: nil)
+        // TODO find the selectedGroups 
+        let request = Request(requestUser: user!, startDate: today, endDate: tomorrow, requestType: requestType, groups: user!.groups)
         PetPalAPIClient.sharedInstance.addRequest(request: request)
         
         _ = navigationController?.popViewController(animated: true)

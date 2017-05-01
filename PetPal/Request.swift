@@ -16,6 +16,8 @@ enum RequestType: Int {
 
 class Request: NSObject {
 
+    static let requestAdded = NSNotification.Name(rawValue: "requestAdded")
+
     var pfObject: PFObject?
     var requestUser: User?
     var acceptUser: User?
@@ -61,7 +63,12 @@ class Request: NSObject {
             requestObject["acceptUser"] = acceptUser.pfUser
         }
         requestObject["requestType"] = requestType.rawValue
-        
+        if let groups = groups {
+            if groups.count > 0 {
+                requestObject["toGroup"] = groups[0].pfObject
+            }
+        }
+
         return requestObject
     }
 }
