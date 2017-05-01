@@ -18,7 +18,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     var messages = [PFObject]()
-    //var messages = NSArray()
     var groupId: String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +75,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func onTimer() {
         let query = PFQuery(className:"Message")
-        //query.whereKey("groupId", equalTo: "84JWUZIAZe")
+        //query.whereKey("groupId", equalTo: groupId)
         query.whereKeyExists("text")
         query.order(byDescending: "createdAt")
         query.findObjectsInBackground {

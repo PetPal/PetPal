@@ -14,12 +14,12 @@ import AFNetworking
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.emailTextField.delegate = self
+        self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
 
     }
@@ -48,9 +48,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func login() {
-        let email = self.emailTextField.text?.lowercased()
+        let username = self.usernameTextField.text
         let password = self.passwordTextField.text
-        PFUser.logInWithUsername(inBackground: (email)!, password:(password)!) {
+        PFUser.logInWithUsername(inBackground: (username)!, password:(password)!) {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
                 Utilities.presentHamburgerView()
