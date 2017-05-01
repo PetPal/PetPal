@@ -10,6 +10,7 @@ import UIKit
 
 class ChatCell: UITableViewCell {
 
+    @IBOutlet weak var thumbImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

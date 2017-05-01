@@ -28,11 +28,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.estimatedRowHeight = 40
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-    
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(ChatViewController.onTimer), userInfo: nil, repeats: true)
-       
     }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -67,15 +66,20 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         let message = messages[indexPath.row]
-        //cell.textLabel?.text = message["text"] as? String
-                cell.textLabel?.text = message.object(forKey: "text") as! String?
-        
+        cell.messageLabel?.text = message.object(forKey: "text") as! String?
+        /*
+        let baseurl = "http://petpal2.herokuapp.com/parse/files/petpal2-id/"
+        let profileImagePath = PFUser.current()?.object(forKey: "profileImage") as! String
+        let imageUrl = NSURL(string: baseurl + profileImagePath)
+        cell.thumbImageView.setImageWith(imageUrl! as URL)
+ */
         return cell
     }
     
     func onTimer() {
+        self.messages.removeAll()
         let query = PFQuery(className:"Message")
         //query.whereKey("groupId", equalTo: groupId)
         query.whereKeyExists("text")
@@ -88,9 +92,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Successfully retrieved \(objects!.count) messages.")
                 if let objects = objects {
                     for object in objects {
-                      print(object.objectId ?? "Default Message")
-                      self.messages.append(object)
-                    }
+                      //print(object.objectId ?? "Default Message")
+                        //if self.messages.contains(object) {
+                         //   return
+                        //} else {
+                            self.messages.append(object)
+                        //}
+                }
                     self.tableView.reloadData()
                 }
             } else {
