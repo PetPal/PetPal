@@ -50,6 +50,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             if (success) {
                 // The object has been saved.
                 print ("Message has been saved.")
+                self.view.window?.endEditing(true)
+                self.messageTextView.text = ""
                 self.onTimer()
                 self.tableView.reloadData()
             } else {
