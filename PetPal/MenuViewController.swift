@@ -13,19 +13,20 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tableView: UITableView!
     
     var WelcomeNavigationController: UIViewController!
+    var profileNavigationController: UIViewController!
     var requestsNavigationController: UIViewController!
     var groupNavigationController: UIViewController!
     var chatNavigationController: UIViewController!
     
     var controllers: [UIViewController] = []
-    
-    let menuTitle = ["Requests", "Groups", "Chats", "Logout"]
-    let logoutRow = 3
+
+    let menuTitle = ["Requests", "Profile", "Groups", "Chats", "Logout"]
+    let logoutRow = 4
     
     weak var hamburgerViewController: HamburgerViewController! {
         didSet {
             view.layoutIfNeeded()
-            hamburgerViewController.contentViewController = controllers[1]
+            hamburgerViewController.contentViewController = controllers[0]
         }
     }
     
@@ -42,7 +43,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
+
+        let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        profileNavigationController = profileStoryboard.instantiateViewController(withIdentifier: "ProfileNavigationController")
+
         controllers.append(requestsNavigationController)
+        controllers.append(profileNavigationController)
         controllers.append(groupNavigationController)
         controllers.append(chatNavigationController)
     }
@@ -54,7 +60,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuTitle.count
+        return controllers.count + 1 // include a Logout menu item
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,7 +71,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 4 {
+        if indexPath.row == controllers.count  {
             Utilities.logoutUser()
         } else {
             hamburgerViewController.contentViewController = controllers[indexPath.row]

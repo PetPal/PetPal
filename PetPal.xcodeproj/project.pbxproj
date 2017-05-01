@@ -11,6 +11,8 @@
 		992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D9C641EB3D90C00668001 /* PetPalAPIClient.swift */; };
 		992D9C681EB3D9FF00668001 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D9C671EB3D9FF00668001 /* User.swift */; };
 		992D9C6A1EB3EAD700668001 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D9C691EB3EAD700668001 /* SignUpViewController.swift */; };
+		994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9942553F1EB66DDC0039BE4B /* Profile.storyboard */; };
+		994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994255401EB66DDC0039BE4B /* ProfileViewController.swift */; };
 		99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DA9F1EAC016B00878886 /* AppDelegate.swift */; };
 		99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA31EAC016B00878886 /* Main.storyboard */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		992D9C641EB3D90C00668001 /* PetPalAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetPalAPIClient.swift; sourceTree = "<group>"; };
 		992D9C671EB3D9FF00668001 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		992D9C691EB3EAD700668001 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9942553F1EB66DDC0039BE4B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		994255401EB66DDC0039BE4B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		99F9DA9C1EAC016B00878886 /* PetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9DA9F1EAC016B00878886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99F9DAA41EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				CEEC8B341EB1322A00CC07C5 /* View Controllers */,
 				99F9DA9F1EAC016B00878886 /* AppDelegate.swift */,
 				99F9DAA31EAC016B00878886 /* Main.storyboard */,
+				9942553F1EB66DDC0039BE4B /* Profile.storyboard */,
 				CEEC8B3C1EB2672300CC07C5 /* Request.storyboard */,
 				99F9DAA61EAC016B00878886 /* Assets.xcassets */,
 				99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */,
@@ -141,6 +146,7 @@
 		CEEC8B341EB1322A00CC07C5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				994255401EB66DDC0039BE4B /* ProfileViewController.swift */,
 				CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */,
 				CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */,
 				A5F966091EB1797A001D072B /* ChatViewController.swift */,
@@ -247,6 +253,7 @@
 			files = (
 				99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */,
 				99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */,
+				994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */,
 				CEEC8B3D1EB2672300CC07C5 /* Request.storyboard in Resources */,
 				99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */,
 			);
@@ -297,7 +304,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -317,6 +324,7 @@
 				A5F966381EB5998B001D072B /* GroupViewController.swift in Sources */,
 				A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */,
 				CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */,
+				994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */,
 				CEEC8B421EB2898100CC07C5 /* RequestDetailTableViewCell.swift in Sources */,
 				CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */,
 				CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */,
