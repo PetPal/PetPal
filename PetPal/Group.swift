@@ -31,6 +31,7 @@ class Group: NSObject {
         pfObject = object
         name = object["name"] as? String
         type = GroupType(rawValue: (object["groupType"] as? Int) ?? 0)!
+        
     }
 
 }

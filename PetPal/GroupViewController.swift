@@ -115,5 +115,43 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         // Pass the selected object to the new view controller.
     }
     */
+    
+    /*func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        
+        let group = self.groups[indexPath.row]
+        let groupId = group.objectId! as String
+        
+        //Messages.createMessageItem(PFUser.currentUser()!, groupId: groupId, description: group[PF_GROUPS_NAME] as! String)
+        
+        self.performSegue(withIdentifier: "groupChatSegue", sender: groupId)
+    }
+ */
+    
+    /*func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "groupChatSegue" {
+            let chatVC = segue.destination as! ChatViewController
+            chatVC.hidesBottomBarWhenPushed = true
+            let groupId = sender as! String
+            //if let indexPath = tableView.indexPathForSelectedRow
+            //let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+            chatVC.groupId = groupId as String
+            
+        }
+    }
+ */
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ChatViewController {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)
+            let group = groups[indexPath!.row]
+            let groupId = group.objectId! as String
+            let chatViewController = segue.destination as! ChatViewController
+            chatViewController.groupId = groupId
+        }
+    }
+    
 
 }

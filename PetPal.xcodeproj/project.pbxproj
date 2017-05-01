@@ -20,6 +20,7 @@
 		A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966311EB46948001D072B /* WelcomeViewController.swift */; };
 		A5F966381EB5998B001D072B /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966371EB5998B001D072B /* GroupViewController.swift */; };
 		A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966391EB59DE5001D072B /* Utilities.swift */; };
+		A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663D1EB66A63001D072B /* ChatCell.swift */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
 		CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */; };
 		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
@@ -49,6 +50,7 @@
 		A5F966311EB46948001D072B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		A5F966371EB5998B001D072B /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		A5F966391EB59DE5001D072B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		A5F9663D1EB66A63001D072B /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */,
+				A5F9663D1EB66A63001D072B /* ChatCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */,
 				A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
+				A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */,
 				CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */,
 				CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */,
 				CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */,
