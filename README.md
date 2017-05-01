@@ -52,7 +52,7 @@ Walkthrough of all user stories:
 
 Sprint1 walk through
 
-![Video Walkthrough](PetpalSprint1.gif)
+![Video Walkthrough](PetPalSprint1.gif)
 
 
 # License
