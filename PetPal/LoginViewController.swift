@@ -53,7 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         PFUser.logInWithUsername(inBackground: (username)!, password:(password)!) {
             (user: PFUser?, error: Error?) -> Void in
             if user != nil {
-                Utilities.presentHamburgerView()
+                Utilities.presentHamburgerView(window: UIApplication.shared.keyWindow)
                 print ("Successfully logged in!")
             } else {
                 // The login failed. Check error to see why.
