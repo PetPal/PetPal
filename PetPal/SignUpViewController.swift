@@ -16,10 +16,22 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var taglineField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        signUpButton.layer.cornerRadius = 4
+        cancelButton.layer.cornerRadius = 4
+        
+        nameField.signupTextBox()
+        userNameField.signupTextBox()
+        emailField.signupTextBox()
+        passwordField.signupTextBox()
+        taglineField.signupTextBox()
+        
 
         // Do any additional setup after loading the view.
     }
