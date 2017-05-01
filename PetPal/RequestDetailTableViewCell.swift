@@ -24,6 +24,13 @@ class RequestDetailTableViewCell: UITableViewCell {
             startDateLabel.text = formatter.string(from: request!.startDate!)
             endDateLabel.text = formatter.string(from: request!.endDate!)
             
+            // TODO change to pet name
+            if request!.requestType == RequestType.boardingType {
+                requestPetLabel.text = "Boarding"
+            } else {
+                requestPetLabel.text = "Drop in visit"
+            }
+            
             if let groups = request?.groups {
                 requestGroupLabel.text = groups[0].name
             }

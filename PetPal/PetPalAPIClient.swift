@@ -89,6 +89,9 @@ class PetPalAPIClient  {
         let requestObject: PFObject! = request.makePFObject()
         requestObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
+                let request = Request(object: requestObject)
+                NotificationCenter.default.post(name: Request.requestAdded, object: request)
+                
                 print("request added")
             } else if let error = error {
                 print("error \(error.localizedDescription)")
