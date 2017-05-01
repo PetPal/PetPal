@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PetPalAPIClient.sharedInstance.initializeParse()
 
         if User.currentUser != nil {
-            Utilities.presentHamburgerView()
+            Utilities.presentHamburgerView(window: window)
         }
         
         return true

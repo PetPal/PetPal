@@ -13,15 +13,15 @@ import Parse
 
 class Utilities {
     
-    class func presentHamburgerView() {
+    class func presentHamburgerView(window: UIWindow?) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let hamburgerVC = storyboard.instantiateViewController(withIdentifier: "HamburgerViewController") as! HamburgerViewController
-        let window = UIApplication.shared.keyWindow
-        window?.rootViewController = hamburgerVC
         let menuVC = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
         
         hamburgerVC.menuViewController = menuVC
         menuVC.hamburgerViewController = hamburgerVC
+
+        window?.rootViewController = hamburgerVC
     }
     
     class func loginUser(_ target: AnyObject) {
