@@ -21,7 +21,10 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         
         let user = User.currentUser
+<<<<<<< HEAD
         //print("/(user.groups)")
+=======
+>>>>>>> b16723bb6779910d519a931686854bfaa7a6493c
 
         NotificationCenter.default.addObserver(forName: Request.requestAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             print("request added")
