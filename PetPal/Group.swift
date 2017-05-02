@@ -20,17 +20,23 @@ class Group: NSObject {
     var name: String?
     var type: GroupType = GroupType.privateType
     var owner: User?
-    
-    init(name: String, type: GroupType, owner: User) {
+    var zipcode: Int?
+    var overview: String?
+
+    init(name: String, type: GroupType, owner: User, zipcode: Int, overview: String) {
         self.name = name
         self.type = type
-        self.owner = owner
+        self.owner = User.currentUser
+        self.zipcode = zipcode
+        self.overview = overview
     }
     
     init(object: PFObject) {
         pfObject = object
         name = object["name"] as? String
         type = GroupType(rawValue: (object["groupType"] as? Int) ?? 0)!
+        zipcode = object["zipcode"] as? Int ?? 00000
+        overview = (object["overview"] as? String) ?? "None"
         
     }
 

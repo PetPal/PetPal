@@ -24,6 +24,7 @@
 		A5F966381EB5998B001D072B /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966371EB5998B001D072B /* GroupViewController.swift */; };
 		A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966391EB59DE5001D072B /* Utilities.swift */; };
 		A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663D1EB66A63001D072B /* ChatCell.swift */; };
+		A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663F1EB90619001D072B /* NewGroupViewController.swift */; };
 		CEBA9AC81EB6FEFC00CB846C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9AC71EB6FEFC00CB846C /* README.md */; };
 		CEBA9ACA1EB702D000CB846C /* PetPalSprint1.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
@@ -59,6 +60,7 @@
 		A5F966371EB5998B001D072B /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		A5F966391EB59DE5001D072B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A5F9663D1EB66A63001D072B /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		A5F9663F1EB90619001D072B /* NewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		CEBA9AC71EB6FEFC00CB846C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint1.gif; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */,
 				CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */,
 				A5F966371EB5998B001D072B /* GroupViewController.swift */,
+				A5F9663F1EB90619001D072B /* NewGroupViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */,
 				992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */,
 				A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,

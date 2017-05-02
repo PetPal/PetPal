@@ -14,6 +14,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     var groups: [PFObject]! = []
     var refreshControl: UIRefreshControl!
     var groupNameField: UITextField?
+    var groupTypeField: UITextField?
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,24 +59,34 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
             self.refreshControl!.endRefreshing()
         }
     }
-    @IBAction func onNewButton(_ sender: UIBarButtonItem) {
+    /*@IBAction func onNewButton(_ sender: UIBarButtonItem) {
         self.actionNew()
     }
     
     func actionNew() {
-        let alert = UIAlertController(title: "Please enter a name for your group", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Input your group name and type", message: "", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
             (result : UIAlertAction) -> Void in
             print("OK")
         }
         
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
-            textField.placeholder = "Your group name"
+            textField.placeholder = "Type Your group name here"
             self.groupNameField = textField
         })
+        
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in
+            textField.placeholder = "0 for public groups, 1 for private groups"
+            self.groupTypeField = textField
+        })
         alert.addAction(okAction)
+        
+        let groupName =  groupNameField?.text
+        let groupOwner = User.currentUser
         self.present(alert, animated: true, completion: nil)
-    }
+        let newGroup = Group(name: groupNameField.text!, type: GroupType(rawValue: 0)!, owner: groupOwner!)
+        PetPalAPIClient.sharedInstance.addGroup(group: newGroup)
+    }*/
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.groups.count
