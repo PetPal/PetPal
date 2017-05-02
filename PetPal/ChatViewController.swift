@@ -30,7 +30,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(ChatViewController.onTimer), userInfo: nil, repeats: true)
+        let timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(ChatViewController.onTimer), userInfo: nil, repeats: true)
+        
+        timer.fire()
     }
     
 
@@ -43,7 +45,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBAction func onSendButton(_ sender: UIButton) {
         let message = PFObject(className:"Message")
-        message["username"] = PFUser.current()?.object(forKey: "username")
+        //message["username"] = PFUser.current()?.object(forKey: "username") // delete me later
+        message["user"] = PFUser.current()
         message["text"] = messageTextView.text
 
         message.saveInBackground {
@@ -73,33 +76,35 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
+        
+        
         let message = messages[indexPath.row]
         cell.messageLabel?.text = message.object(forKey: "text") as! String?
-        //cell.avatarImageView.file = message.object(forKey: "userAvatar")as? PFFile
-        let user = PFObject(className: "User")
-        user["username"] = message.object(forKey: "username")
-        let query = PFQuery(className: "User")
-        query.includeKey("username")
-        cell.avatarImageView.file = user.object(forKey: "userAvatar") as? PFFile
-        cell.avatarImageView.loadInBackground()
+       // cell.avatarImageView.file = user["user"].object(forKey: "userAvatar")as? PFFile
+        let user = message.object(forKey: "user") as? PFUser
+        cell.avatarImageView.file = nil
+        if (user != nil) {
+            let file = user?.object(forKey: "userAvatar") as! PFFile
+            cell.avatarImageView.file = file
+            cell.avatarImageView.loadInBackground()
+        }
         return cell
     }
     
     func onTimer() {
-        self.messages.removeAll()
+        //self.messages.removeAll()
         let query = PFQuery(className:"Message")
         //query.whereKey("groupId", equalTo: groupId)
         query.whereKeyExists("text")
         query.order(byDescending: "createdAt")
+        query.includeKey("user")
         query.findObjectsInBackground {
             (objects: [PFObject]?, error: Error?) -> Void in
             
             if error == nil {
                 //print("Successfully retrieved \(objects!.count) messages.")
                 if let objects = objects {
-                    for object in objects {
-                            self.messages.append(object)
-                }
+                    self.messages = objects
                     self.tableView.reloadData()
                 }
             } else {
