@@ -9,16 +9,18 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var messageTextView: UITextView!
-    
     @IBOutlet weak var tableView: UITableView!
+    
     var messages = [PFObject]()
     var groupId: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +28,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 40
+        tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(ChatViewController.onTimer), userInfo: nil, repeats: true)
     }
@@ -58,7 +60,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-    
+    func queryForTable() -> PFQuery<PFObject>! {
+        let query = PFQuery(className: "User")
+        query.includeKey("username")
+        return query
+    }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,12 +75,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         let message = messages[indexPath.row]
         cell.messageLabel?.text = message.object(forKey: "text") as! String?
-        /*
-        let baseurl = "http://petpal2.herokuapp.com/parse/files/petpal2-id/"
-        let profileImagePath = PFUser.current()?.object(forKey: "profileImage") as! String
-        let imageUrl = NSURL(string: baseurl + profileImagePath)
-        cell.thumbImageView.setImageWith(imageUrl! as URL)
- */
+        //cell.avatarImageView.file = message.object(forKey: "userAvatar")as? PFFile
+        let user = PFObject(className: "User")
+        user["username"] = message.object(forKey: "username")
+        let query = PFQuery(className: "User")
+        query.includeKey("username")
+        cell.avatarImageView.file = user.object(forKey: "userAvatar") as? PFFile
+        cell.avatarImageView.loadInBackground()
         return cell
     }
     
@@ -88,16 +95,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
             (objects: [PFObject]?, error: Error?) -> Void in
             
             if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) messages.")
+                //print("Successfully retrieved \(objects!.count) messages.")
                 if let objects = objects {
                     for object in objects {
-                      //print(object.objectId ?? "Default Message")
-                        //if self.messages.contains(object) {
-                         //   return
-                        //} else {
                             self.messages.append(object)
-                        //}
                 }
                     self.tableView.reloadData()
                 }

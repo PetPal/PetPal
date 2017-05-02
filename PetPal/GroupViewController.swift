@@ -13,7 +13,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     
     var groups: [PFObject]! = []
     var refreshControl: UIRefreshControl!
-
+    var groupNameField: UITextField?
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +63,18 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     }
     
     func actionNew() {
-        let alert = UIAlertView(title: "Please enter a name for your group", message: "", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "OK")
-        alert.alertViewStyle = UIAlertViewStyle.plainTextInput
-        alert.show()
+        let alert = UIAlertController(title: "Please enter a name for your group", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            print("OK")
+        }
+        
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in
+            textField.placeholder = "Your group name"
+            self.groupNameField = textField
+        })
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

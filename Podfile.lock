@@ -17,16 +17,21 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
+  - ParseUI (1.2.0):
+    - Bolts/Tasks (~> 1.3)
+    - Parse (~> 1.9)
 
 DEPENDENCIES:
   - AFNetworking (= 3.0)
   - Parse
+  - ParseUI
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
+  ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 
-PODFILE CHECKSUM: 9709d8bb1b067fcd9fc971f152bf971c06fc9ef3
+PODFILE CHECKSUM: 23d3e1b9d81f292aabf088637c42ce3c2a0da4de
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

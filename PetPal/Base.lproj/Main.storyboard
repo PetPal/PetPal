@@ -256,16 +256,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WwY-Uy-Pch">
-                                                    <rect key="frame" x="8" y="8" width="65" height="65"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WwY-Uy-Pch" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="8" width="65" height="66.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="EE4-uU-uzz"/>
-                                                        <constraint firstAttribute="height" constant="65" id="KHA-oN-0rV"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfF-z9-Z4G">
-                                                    <rect key="frame" x="81" y="8" width="141" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfF-z9-Z4G">
+                                                    <rect key="frame" x="81" y="8" width="286" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -274,12 +273,17 @@
                                                 <constraint firstItem="WwY-Uy-Pch" firstAttribute="leading" secondItem="bJq-N3-QWZ" secondAttribute="leading" constant="8" id="3r8-Bq-IqS"/>
                                                 <constraint firstItem="WwY-Uy-Pch" firstAttribute="top" secondItem="bJq-N3-QWZ" secondAttribute="top" constant="8" id="8qo-E0-Ef1"/>
                                                 <constraint firstItem="hfF-z9-Z4G" firstAttribute="top" secondItem="bJq-N3-QWZ" secondAttribute="top" constant="8" id="NRR-Du-DmD"/>
+                                                <constraint firstAttribute="bottom" secondItem="WwY-Uy-Pch" secondAttribute="bottom" constant="12" id="Ndx-sp-dw3"/>
+                                                <constraint firstItem="WwY-Uy-Pch" firstAttribute="leading" secondItem="bJq-N3-QWZ" secondAttribute="leading" constant="8" id="WYs-g1-Se0"/>
                                                 <constraint firstItem="hfF-z9-Z4G" firstAttribute="leading" secondItem="WwY-Uy-Pch" secondAttribute="trailing" constant="8" id="Z7H-Dh-asq"/>
+                                                <constraint firstAttribute="trailing" secondItem="hfF-z9-Z4G" secondAttribute="trailing" constant="8" id="ZS1-pm-azm"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hfF-z9-Z4G" secondAttribute="bottom" constant="12" id="e9L-Wn-I2h"/>
+                                                <constraint firstItem="WwY-Uy-Pch" firstAttribute="top" secondItem="bJq-N3-QWZ" secondAttribute="top" constant="8" id="iCm-qh-ejd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="avatarImageView" destination="WwY-Uy-Pch" id="0M3-wH-ikn"/>
                                             <outlet property="messageLabel" destination="hfF-z9-Z4G" id="eZq-uW-Nsn"/>
-                                            <outlet property="thumbImageView" destination="WwY-Uy-Pch" id="7N1-y7-sU2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

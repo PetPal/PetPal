@@ -7,11 +7,24 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class ChatCell: UITableViewCell {
 
-    @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var avatarImageView: PFImageView!
+    
     @IBOutlet weak var messageLabel: UILabel!
+    
+    var User: PFObject! {
+        didSet {
+            self.avatarImageView.file = User["userAvatar"] as? PFFile
+            self.avatarImageView.loadInBackground()
+        }
+    }
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
