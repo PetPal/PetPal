@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewGroupViewController: UIViewController {
+class NewGroupViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
     @IBOutlet weak var typeSegment: UISegmentedControl!
@@ -18,6 +18,7 @@ class NewGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        descriptionTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -25,6 +26,11 @@ class NewGroupViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.descriptionTextField.text = ""
+        self.descriptionTextField.textColor = UIColor.black
     }
     
     @IBAction func onCancelButton(_ sender: UIBarButtonItem) {
