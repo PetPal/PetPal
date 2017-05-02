@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class User: NSObject {
     
@@ -19,7 +20,7 @@ class User: NSObject {
     var email: String?
     var password: String?
     var groups: [Group]?
-    //var profileImageURL: String?
+    var userAvatar: PFFile?
     
 //    var petCount: Int?
 //    var locationCity: String?
@@ -50,6 +51,7 @@ class User: NSObject {
         tagLine = pfUser.object(forKey: "tagline") as? String
         email = pfUser.email
         password = pfUser.password
+        userAvatar = pfUser.object(forKey: "userAvatar") as? PFFile
     }
     
     // MARK: class vars
