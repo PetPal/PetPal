@@ -15,7 +15,6 @@
 		994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994255401EB66DDC0039BE4B /* ProfileViewController.swift */; };
 		99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D74BC31EB7EFA100CAB24C /* UITextField.swift */; };
 		99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DA9F1EAC016B00878886 /* AppDelegate.swift */; };
-		99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA31EAC016B00878886 /* Main.storyboard */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
 		99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */; };
 		A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966091EB1797A001D072B /* ChatViewController.swift */; };
@@ -25,6 +24,7 @@
 		A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966391EB59DE5001D072B /* Utilities.swift */; };
 		A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663D1EB66A63001D072B /* ChatCell.swift */; };
 		A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663F1EB90619001D072B /* NewGroupViewController.swift */; };
+		A5F966421EB92B3C001D072B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F966411EB92B3C001D072B /* Main.storyboard */; };
 		CEBA9AC81EB6FEFC00CB846C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9AC71EB6FEFC00CB846C /* README.md */; };
 		CEBA9ACA1EB702D000CB846C /* PetPalSprint1.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */; };
 		CEBA9ACC1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */; };
@@ -51,7 +51,6 @@
 		99D74BC31EB7EFA100CAB24C /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		99F9DA9C1EAC016B00878886 /* PetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9DA9F1EAC016B00878886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		99F9DAA41EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99F9DAA61EAC016B00878886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F9DAA91EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F9DAAB1EAC016B00878886 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		A5F966391EB59DE5001D072B /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A5F9663D1EB66A63001D072B /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		A5F9663F1EB90619001D072B /* NewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
+		A5F966411EB92B3C001D072B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CEBA9AC71EB6FEFC00CB846C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint1.gif; sourceTree = "<group>"; };
 		CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -137,8 +137,8 @@
 				CEEC8B351EB1323200CC07C5 /* Views */,
 				CEEC8B341EB1322A00CC07C5 /* View Controllers */,
 				99F9DA9F1EAC016B00878886 /* AppDelegate.swift */,
-				99F9DAA31EAC016B00878886 /* Main.storyboard */,
 				9942553F1EB66DDC0039BE4B /* Profile.storyboard */,
+				A5F966411EB92B3C001D072B /* Main.storyboard */,
 				CEEC8B3C1EB2672300CC07C5 /* Request.storyboard */,
 				99F9DAA61EAC016B00878886 /* Assets.xcassets */,
 				99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */,
@@ -269,9 +269,9 @@
 				99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */,
 				99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */,
 				CEBA9ACA1EB702D000CB846C /* PetPalSprint1.gif in Resources */,
+				A5F966421EB92B3C001D072B /* Main.storyboard in Resources */,
 				994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */,
 				CEEC8B3D1EB2672300CC07C5 /* Request.storyboard in Resources */,
-				99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,14 +360,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		99F9DAA31EAC016B00878886 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				99F9DAA41EAC016B00878886 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		99F9DAA81EAC016B00878886 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

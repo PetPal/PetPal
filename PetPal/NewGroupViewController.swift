@@ -10,9 +10,9 @@ import UIKit
 
 class NewGroupViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
-
-    @IBOutlet weak var typeSegment: UISegmentedControl!
     @IBOutlet weak var zipcodeTextField: UITextField!
+    @IBOutlet weak var typeSegment: UISegmentedControl!
+    
     
     @IBOutlet weak var descriptionTextField: UITextView!
     
@@ -27,8 +27,11 @@ class NewGroupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onCancelButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
    
-    @IBAction func onSubmitButton(_ sender: UIButton) {
+    @IBAction func onCreateButton(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Missed a Field!", message: "You missed a mandatory field when creating a new group", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         
