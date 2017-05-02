@@ -8,33 +8,60 @@
 
 import UIKit
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet var tableView: UITableView!
+struct MenuItem {
+    var title: String
+    var color: UIColor
+    var image: UIImage?
+    var viewController: UIViewController?
     
-    var WelcomeNavigationController: UIViewController!
+    init(title: String, color: UIColor, image: UIImage?) {
+        self.title = title
+        self.color = color
+        self.image = image
+    }
+}
+
+class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var profileName: UILabel!
+    @IBOutlet var collectionViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet var collectionViewLeadingConstraint: NSLayoutConstraint!
+    // padding to make menu more centered
+    let collectionViewBuffer = 20
+    
+    // profile show on top of view
     var profileNavigationController: UIViewController!
+    
     var requestsNavigationController: UIViewController!
     var groupNavigationController: UIViewController!
     var chatNavigationController: UIViewController!
     
-    var controllers: [UIViewController] = []
-
-    let menuTitle = ["Requests", "Profile", "Groups", "Chats", "Logout"]
-    let logoutRow = 4
+    // Make sure to set the viewController in viewDidLoad
+    var menuItems: [MenuItem] = [
+        MenuItem(title: "Requests", color: UIColor(colorLiteralRed: 224/256, green: 142/256, blue: 67/256, alpha: 1.0), image: UIImage(named: "requests_64")),
+        MenuItem(title: "Groups", color: UIColor(colorLiteralRed: 157/256, green: 169/256, blue: 61/256, alpha: 1.0), image: UIImage(named: "groups_64")),
+        MenuItem(title: "Chats", color: UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0), image: UIImage(named: "chats_64")),
+        MenuItem(title: "Logout", color: UIColor(colorLiteralRed: 196/256, green: 77/256, blue: 88/256, alpha: 1.0), image: UIImage(named: "logout_64"))
+    ]
     
     weak var hamburgerViewController: HamburgerViewController! {
         didSet {
             view.layoutIfNeeded()
-            hamburgerViewController.contentViewController = controllers[0]
+            hamburgerViewController.contentViewController = menuItems[0].viewController
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        // set collection view's content to be the visible view area
+        collectionViewTrailingConstraint.constant = (view.frame.width / 4) + CGFloat(collectionViewBuffer)
+
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -47,35 +74,47 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         profileNavigationController = profileStoryboard.instantiateViewController(withIdentifier: "ProfileNavigationController")
 
-        controllers.append(requestsNavigationController)
-        controllers.append(profileNavigationController)
-        controllers.append(groupNavigationController)
-        controllers.append(chatNavigationController)
-    }
+        menuItems[0].viewController = requestsNavigationController
+        menuItems[1].viewController = groupNavigationController
+        menuItems[2].viewController = chatNavigationController
+     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - UITableView
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controllers.count + 1 // include a Logout menu item
+    @IBAction func onTapProfile(_ sender: UITapGestureRecognizer) {
+        hamburgerViewController.contentViewController = profileNavigationController
     }
-        
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        cell.textLabel?.text = menuTitle[indexPath.row]
-        cell.selectionStyle = .none
+    
+    // MARK: - UICollectionView
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return menuItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as! MenuItemCollectionViewCell
+        cell.menuItem = menuItems[indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == controllers.count  {
-            Utilities.logoutUser()
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let viewController = menuItems[indexPath.row].viewController {
+            hamburgerViewController.contentViewController = viewController
         } else {
-            hamburgerViewController.contentViewController = controllers[indexPath.row]
+            Utilities.logoutUser()
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let availableWidth = view.frame.width - collectionViewTrailingConstraint.constant - collectionViewLeadingConstraint.constant - CGFloat(collectionViewBuffer)
+        // show 2 column menu
+        let widthPerItem = availableWidth / 2
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
 }

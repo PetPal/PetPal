@@ -13,10 +13,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Set a uniform navigation bar appearance
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor.white
+        navigationBarAppearance.barTintColor = UIColor(colorLiteralRed: 56/256, green: 56/256, blue: 82/256, alpha: 1.0)
+        //navigationBarAppearance.backgroundColor = UIColor(colorLiteralRed: 56/256, green: 56/256, blue: 82/256, alpha: 1.0)
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
+        let barButtonAppearance = UIBarButtonItem.appearance()
+        barButtonAppearance.tintColor = UIColor.white
+
         //Initilaize the Parse Connection
         PetPalAPIClient.sharedInstance.initializeParse()
 
+        // Go directly to the hamburger view if we have a current user
         if User.currentUser != nil {
             Utilities.presentHamburgerView(window: window)
         }
