@@ -67,7 +67,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CoY-AF-c8k">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="147"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zfj-sA-zod">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zfj-sA-zod" customClass="PFImageView">
                                         <rect key="frame" x="15" y="33" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="Gh9-Dk-hx2"/>
@@ -129,25 +129,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="116" y="123.68815592203899"/>
-        </scene>
-        <!--Requests-->
-        <scene sceneID="cEa-6a-Jr4">
-            <objects>
-                <viewController id="WV9-3v-8Ru" customClass="RequestsViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Kt9-tH-N39"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hjj-6B-7ot"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="m3C-i5-8us">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Requests" id="wCE-5B-9jA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2gE-4N-mjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1054" y="940"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="EBh-k5-0hv">
@@ -321,7 +302,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8ds-Jt-eES" id="bJq-N3-QWZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WwY-Uy-Pch" customClass="PFImageView">
@@ -588,24 +569,6 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1055.2" y="109.29535232383809"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="nuB-am-ffO">
-            <objects>
-                <navigationController storyboardIdentifier="RequestsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="tyI-oI-cxX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VMZ-Sc-ves">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="WV9-3v-8Ru" kind="relationship" relationship="rootViewController" id="v28-Ii-9Z8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RsL-aL-6G0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="116" y="940"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wJa-K7-2Ot">

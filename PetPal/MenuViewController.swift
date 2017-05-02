@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ParseUI
 
 struct MenuItem {
     var title: String
@@ -24,7 +25,7 @@ struct MenuItem {
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var profileImage: PFImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var collectionViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet var collectionViewLeadingConstraint: NSLayoutConstraint!
@@ -58,6 +59,14 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        // initialize profile view
+        let user = User.currentUser
+        profileName.text = user?.name
+        if let avatar = user?.userAvatar {
+            profileImage.file = avatar
+            profileImage.loadInBackground()
+        }
         
         // set collection view's content to be the visible view area
         collectionViewTrailingConstraint.constant = (view.frame.width / 4) + CGFloat(collectionViewBuffer)
