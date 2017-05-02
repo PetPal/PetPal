@@ -13,6 +13,7 @@
 		992D9C6A1EB3EAD700668001 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D9C691EB3EAD700668001 /* SignUpViewController.swift */; };
 		994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9942553F1EB66DDC0039BE4B /* Profile.storyboard */; };
 		994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994255401EB66DDC0039BE4B /* ProfileViewController.swift */; };
+		99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D74BC31EB7EFA100CAB24C /* UITextField.swift */; };
 		99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DA9F1EAC016B00878886 /* AppDelegate.swift */; };
 		99F9DAA51EAC016B00878886 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA31EAC016B00878886 /* Main.storyboard */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		992D9C691EB3EAD700668001 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9942553F1EB66DDC0039BE4B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		994255401EB66DDC0039BE4B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		99D74BC31EB7EFA100CAB24C /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		99F9DA9C1EAC016B00878886 /* PetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9DA9F1EAC016B00878886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99F9DAA41EAC016B00878886 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				CEEC8B3F1EB2781000CC07C5 /* UIImageView.swift */,
 				A5F966391EB59DE5001D072B /* Utilities.swift */,
+				99D74BC31EB7EFA100CAB24C /* UITextField.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */,
 				A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
+				99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */,
 				CEBA9AC81EB6FEFC00CB846C /* README.md in Sources */,
 				A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */,
 				CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */,
