@@ -36,7 +36,9 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var profileNavigationController: UIViewController!
     
     var requestsNavigationController: UIViewController!
-    var groupNavigationController: UIViewController!
+    //var groupNavigationController: UIViewController!
+    var groupNavigationController: UITabBarController!
+    
     var chatNavigationController: UIViewController!
     
     // Make sure to set the viewController in viewDidLoad
@@ -74,7 +76,9 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupNavigationController")
+        groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupTabBarController") as! UITabBarController
+        
+        
         chatNavigationController = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController")
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)

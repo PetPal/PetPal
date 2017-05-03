@@ -25,6 +25,8 @@
 		A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663D1EB66A63001D072B /* ChatCell.swift */; };
 		A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663F1EB90619001D072B /* NewGroupViewController.swift */; };
 		A5F966421EB92B3C001D072B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F966411EB92B3C001D072B /* Main.storyboard */; };
+		A5F966461EBA62E7001D072B /* nearbyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */; };
+		A5F966481EBA6324001D072B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F966471EBA6324001D072B /* MapKit.framework */; };
 		CEBA9AC81EB6FEFC00CB846C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9AC71EB6FEFC00CB846C /* README.md */; };
 		CEBA9ACA1EB702D000CB846C /* PetPalSprint1.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */; };
 		CEBA9ACC1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */; };
@@ -62,6 +64,8 @@
 		A5F9663D1EB66A63001D072B /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		A5F9663F1EB90619001D072B /* NewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		A5F966411EB92B3C001D072B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyGroupsViewController.swift; sourceTree = "<group>"; };
+		A5F966471EBA6324001D072B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CEBA9AC71EB6FEFC00CB846C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint1.gif; sourceTree = "<group>"; };
 		CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F966481EBA6324001D072B /* MapKit.framework in Frameworks */,
 				0C4ACE878B558D300C83B94E /* Pods_PetPal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +155,7 @@
 		B5C96A47C1FD150BAA8A221B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5F966471EBA6324001D072B /* MapKit.framework */,
 				4A160AF67740E2B4AF34C905 /* Pods_PetPal.framework */,
 			);
 			name = Frameworks;
@@ -170,6 +176,7 @@
 				CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */,
 				A5F966371EB5998B001D072B /* GroupViewController.swift */,
 				A5F9663F1EB90619001D072B /* NewGroupViewController.swift */,
+				A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -332,6 +339,7 @@
 			files = (
 				A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */,
 				992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */,
+				A5F966461EBA62E7001D072B /* nearbyGroupsViewController.swift in Sources */,
 				A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
 				99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */,

@@ -16,10 +16,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     var groupNameField: UITextField?
     var groupTypeField: UITextField?
     var endpoint : String = "mygroups"
-    var storyboardIDs: [String] = ["mygroupsNavigationController", "nearbygroupsNavigationController"]
-    var window: UIWindow?
     
-    var viewControllers: [UIViewController] = []
     
     @IBOutlet weak var tabbar: UITabBar!
     
@@ -30,9 +27,9 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
             let controller = (self.storyboard?.instantiateViewController(withIdentifier: storyboardID))! as! GroupViewController
             viewControllers.append(controller)
         }*/
-        window = UIWindow(frame: UIScreen.main.bounds)
+       /*  window = UIWindow(frame: UIScreen.main.bounds)
         //self.tabbar.delegate = self
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+       let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mygroupsNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupNavigationController") as! UINavigationController
         let mygroupsViewController = mygroupsNavigationController.topViewController as! GroupViewController
         mygroupsViewController.endpoint = "mygroups"
@@ -50,6 +47,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
          
          window?.rootViewController = tabBarController
          window?.makeKeyAndVisible()
+ */
 
         //
 
@@ -117,6 +115,8 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.groups.count
+        
+        //return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
