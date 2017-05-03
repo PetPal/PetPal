@@ -9,15 +9,49 @@
 import UIKit
 import Parse
 
-class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate {
+class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate {
     
-    var groups: [PFObject]! = []
+    var groups: [Group]! = []
     var refreshControl: UIRefreshControl!
     var groupNameField: UITextField?
     var groupTypeField: UITextField?
+    var endpoint : String = "mygroups"
+    var storyboardIDs: [String] = ["mygroupsNavigationController", "nearbygroupsNavigationController"]
+    var window: UIWindow?
+    
+    var viewControllers: [UIViewController] = []
+    
+    @IBOutlet weak var tabbar: UITabBar!
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*for storyboardID in self.storyboardIDs {
+            let controller = (self.storyboard?.instantiateViewController(withIdentifier: storyboardID))! as! GroupViewController
+            viewControllers.append(controller)
+        }*/
+        window = UIWindow(frame: UIScreen.main.bounds)
+        //self.tabbar.delegate = self
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mygroupsNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupNavigationController") as! UINavigationController
+        let mygroupsViewController = mygroupsNavigationController.topViewController as! GroupViewController
+        mygroupsViewController.endpoint = "mygroups"
+        mygroupsNavigationController.tabBarItem.title = "My groups"
+        //mygroupsNavigationController.tabBarItem.image = UIImage(named: "now_playing")
+        
+        let nearbygroupsNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupNavigationController") as! UINavigationController
+        let nearbygroupsViewController = nearbygroupsNavigationController.topViewController as! GroupViewController
+        nearbygroupsViewController.endpoint = "nearbygroups"
+        nearbygroupsNavigationController.tabBarItem.title = "Nearby Groups"
+        //nearbygroupsNavigationController.tabBarItem.image = UIImage(named: "top_rated")
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [mygroupsNavigationController, nearbygroupsNavigationController]
+         
+         window?.rootViewController = tabBarController
+         window?.makeKeyAndVisible()
+
+        //
 
         // Do any additional setup after loading the view.
         tableView.delegate = self
@@ -28,8 +62,6 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl!.addTarget(self, action: #selector(GroupViewController.loadGroups), for: UIControlEvents.valueChanged)
-        
-        
     }
     
 
@@ -43,8 +75,31 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         }
     }
     
+    
+ 
+    
     func loadGroups() {
-        let query = PFQuery(className: "Group")
+        
+        switch self.endpoint {
+            case "mygroups":
+                
+                let user = User.currentUser
+            //fetching the group which the current user belongs to
+                self.groups.removeAll()
+                PetPalAPIClient.sharedInstance.populateGroups(forUser: user!)
+                self.groups = user?.groups
+            self.tableView.reloadData()
+            case "nearbygroups":
+                //fetching the groups within 20mil of the current user's zipcode
+                self.groups = User.currentUser?.groups
+            
+        default :
+            return
+            
+            
+    
+        }
+       /* let query = PFQuery(className: "Group")
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?)
             -> Void in
             if error == nil {
@@ -53,50 +108,23 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
                // self.groups.extend(objects as! [PFObject]!)
                 self.tableView.reloadData()
             } else {
-                //ProgressHUD.showError("Network error")
                 print("error: \(error?.localizedDescription)")
             }
             self.refreshControl!.endRefreshing()
-        }
+        }*/
     }
-    /*@IBAction func onNewButton(_ sender: UIBarButtonItem) {
-        self.actionNew()
-    }
-    
-    func actionNew() {
-        let alert = UIAlertController(title: "Input your group name and type", message: "", preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-            (result : UIAlertAction) -> Void in
-            print("OK")
-        }
-        
-        alert.addTextField(configurationHandler: {(textField: UITextField!) in
-            textField.placeholder = "Type Your group name here"
-            self.groupNameField = textField
-        })
-        
-        alert.addTextField(configurationHandler: {(textField: UITextField!) in
-            textField.placeholder = "0 for public groups, 1 for private groups"
-            self.groupTypeField = textField
-        })
-        alert.addAction(okAction)
-        
-        let groupName =  groupNameField?.text
-        let groupOwner = User.currentUser
-        self.present(alert, animated: true, completion: nil)
-        let newGroup = Group(name: groupNameField.text!, type: GroupType(rawValue: 0)!, owner: groupOwner!)
-        PetPalAPIClient.sharedInstance.addGroup(group: newGroup)
-    }*/
+ 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.groups.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
         let group = self.groups[indexPath.row]
-        cell.textLabel?.text = group["name"] as? String
-        let query = PFQuery(className: "Message")
+        
+        cell.textLabel?.text = group.name
+        /*let query = PFQuery(className: "Message")
         query.whereKey("groupId", equalTo: group.objectId ?? 0)
         query.order(byDescending: "createdAt")
         query.limit = 1000
@@ -112,6 +140,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         }
         cell.detailTextLabel?.textColor = UIColor.lightGray
         }
+        */
     
         return cell
     }
@@ -167,9 +196,9 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPath(for: cell)
             let group = groups[indexPath!.row]
-            let groupId = group.objectId! as String
+            //let groupId = group.objectId! as String
             let chatViewController = segue.destination as! ChatViewController
-            chatViewController.groupId = groupId
+            //chatViewController.groupId = groupId
         }
     }
     

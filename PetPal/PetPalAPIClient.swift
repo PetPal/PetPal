@@ -142,8 +142,9 @@ class PetPalAPIClient  {
         }
     }
     
-    func getGroups(success: @escaping ([Group]) -> (), failure: @escaping (Error?) -> ()) {
+    func getGroups(location: Int, success: @escaping ([Group]) -> (), failure: @escaping (Error?) -> ()) {
         let query = PFQuery(className: "Group")
+     
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if error == nil {
                 var groups = [Group]()
@@ -159,4 +160,8 @@ class PetPalAPIClient  {
             }
         }
     }
+    
+    
+    
+    
 }
