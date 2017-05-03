@@ -355,7 +355,7 @@
             </objects>
             <point key="canvasLocation" x="1053.5999999999999" y="2502.9985007496252"/>
         </scene>
-        <!--Groups-->
+        <!--My Groups-->
         <scene sceneID="KXG-aa-br5">
             <objects>
                 <viewController storyboardIdentifier="groupVC" id="peh-sC-Hyv" customClass="GroupViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
@@ -410,7 +410,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Groups" id="3pB-pb-U8h"/>
-                    <navigationItem key="navigationItem" title="Groups" id="LE1-ja-nO7">
+                    <navigationItem key="navigationItem" title="My Groups" id="LE1-ja-nO7">
                         <barButtonItem key="rightBarButtonItem" title="New" id="akU-Xh-FkZ">
                             <connections>
                                 <action selector="onNewButton:" destination="peh-sC-Hyv" id="WII-DD-nex"/>
@@ -730,7 +730,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9Y-X8-nX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="GroupNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="cRV-hE-VNq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Groups" id="Zah-VJ-cmp"/>
+                    <tabBarItem key="tabBarItem" title="My Groups" image="mygroup" id="Zah-VJ-cmp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N7t-z5-Rk4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -768,7 +768,7 @@
                             <constraint firstItem="Ql7-vZ-3d1" firstAttribute="top" secondItem="Ufp-SL-mIb" secondAttribute="top" id="cPA-qI-7UU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mNa-Hx-oxZ"/>
+                    <navigationItem key="navigationItem" title="Nearby Groups" id="mNa-Hx-oxZ"/>
                     <connections>
                         <outlet property="mapView" destination="Ql7-vZ-3d1" id="V1t-sV-brB"/>
                     </connections>
@@ -817,7 +817,7 @@
         <scene sceneID="H0X-Ay-9cf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X1o-Vc-XdK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nearby Groups" id="j7h-jN-aDt"/>
+                    <tabBarItem key="tabBarItem" title="Nearby Groups" image="nearby" id="j7h-jN-aDt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="m90-Xx-oiK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -835,6 +835,8 @@
     </scenes>
     <resources>
         <image name="PetPalLogo" width="1000" height="1000"/>
+        <image name="mygroup" width="24" height="24"/>
+        <image name="nearby" width="24" height="24"/>
         <image name="newgroup-1" width="1600" height="364"/>
         <image name="requests_64" width="64" height="64"/>
     </resources>
