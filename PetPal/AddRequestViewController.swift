@@ -48,6 +48,7 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
                 groups.append(group.name!)
             }
         }
+
         
         selectedGroups = Array(repeating: false, count: groups.count)
         selectedService = Array(repeating: false, count: services.count)
@@ -192,6 +193,7 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - Actions
 
     @IBAction func onAddRequestButton(_ sender: Any) {
+        // TODO error recovery? alert dialog?
         guard let startDate = startDate, let endDate = endDate else { return }
         
         let user = User.currentUser
@@ -199,9 +201,18 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         if selectedService[1] {
             requestType = RequestType.dropInVisitType
         }
-        // TODO find the selectedGroups 
         
-        let request = Request(requestUser: user!, startDate: startDate, endDate: endDate, requestType: requestType, groups: user!.groups)
+        // gather the selectedGroups
+        var requestGroups = [Group]()
+        if let userGroups = user?.groups {
+            for i in 0..<selectedGroups.count {
+                if selectedGroups[i] {
+                    requestGroups.append(userGroups[i])
+                }
+            }
+        }
+
+        let request = Request(requestUser: user!, startDate: startDate, endDate: endDate, requestType: requestType, groups: requestGroups)
         PetPalAPIClient.sharedInstance.addRequest(request: request)
         
         _ = navigationController?.popViewController(animated: true)

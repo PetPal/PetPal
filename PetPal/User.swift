@@ -54,6 +54,24 @@ class User: NSObject {
         userAvatar = pfUser.object(forKey: "userAvatar") as? PFFile
     }
     
+    func getGroup(fromId id: String) -> Group? {
+        if let groups = groups {
+            for group in groups {
+                if group.pfObject?.objectId == id {
+                    return group
+                }
+            }
+        }
+        return nil
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let objectUser = object as? User {
+            return pfUser?.objectId == objectUser.pfUser?.objectId
+        }
+        return false
+    }
+    
     // MARK: class vars
     
     private static var _currentUser: User?

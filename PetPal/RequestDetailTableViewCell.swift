@@ -15,16 +15,30 @@ class RequestDetailTableViewCell: UITableViewCell {
     @IBOutlet var requestGroupLabel: UILabel!
     @IBOutlet var requestPetLabel: UILabel!
     @IBOutlet var startDateLabel: UILabel!
-    @IBOutlet var endDateLabel: UILabel!
     
     var request: Request? {
         didSet {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "M/d/yy"
-            startDateLabel.text = formatter.string(from: request!.startDate!)
-            endDateLabel.text = formatter.string(from: request!.endDate!)
+            if let startDate = request?.startDate, let endDate = request?.endDate {
+                startDateLabel.text = Utilities.formatStartEndDate(startDate: startDate, endDate: endDate)
+            }
             
-            // TODO change to pet name
+            let isOurRequest = User.currentUser?.isEqual(request?.requestUser)
+            let isOurTask = User.currentUser?.isEqual(request?.acceptUser)
+            if isOurRequest ?? false {
+                if request?.acceptUser == nil {
+                    requestStatusLabel.text = "Pending Request"
+                } else {
+                    requestStatusLabel.text = "Accepted Request"
+                }
+            } else if isOurTask ?? false {
+                requestStatusLabel.text = "Task"
+            } else {
+                requestStatusLabel.text = "Group Request"
+                
+            }
+            
+            // TODO include pet name
+            
             if request!.requestType == RequestType.boardingType {
                 requestPetLabel.text = "Boarding"
             } else {
@@ -32,7 +46,14 @@ class RequestDetailTableViewCell: UITableViewCell {
             }
             
             if let groups = request?.groups {
-                requestGroupLabel.text = groups[0].name
+                var str: String = ""
+                for group in groups {
+                    if !str.isEmpty {
+                        str += ", "
+                    }
+                    str += group.name ?? ""
+                }
+                requestGroupLabel.text = str
             }
         }
     }
