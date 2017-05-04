@@ -8,13 +8,13 @@
 
 import UIKit
 
-class NewGroupViewController: UIViewController, UITextViewDelegate {
+class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
     @IBOutlet weak var typeSegment: UISegmentedControl!
-    
-    
     @IBOutlet weak var descriptionTextField: UITextView!
+    var photo: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,38 @@ class NewGroupViewController: UIViewController, UITextViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
    
+    @IBAction func onCameraButton(_ sender: UIButton) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = false
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            print("Camera is available 📸")
+            vc.sourceType = .camera
+        } else {
+            print("Camera 🚫 available so we will use photo library instead")
+            vc.sourceType = .photoLibrary
+        }
+        //vc.sourceType = UIImagePickerControllerSourceType.camera
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        // Get the image captured by the UIImagePickerController
+        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+       // let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        // Do something with the images (based on your use case)
+        //self.cameraButton.imageView?.image = originalImage
+        
+        self.cameraButton.setImage(originalImage, for: UIControlState.normal)
+                
+        
+        // Dismiss UIImagePickerController to go back to your original view controller
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func onCreateButton(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Missed a Field!", message: "You missed a mandatory field when creating a new group", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
