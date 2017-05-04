@@ -16,6 +16,11 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor.white
+        navigationBarAppearance.barTintColor = UIColor(colorLiteralRed: 224/256, green: 142/256, blue: 67/256, alpha: 1.0)
+        navigationBarAppearance.isTranslucent = false
+
 
         tableView.dataSource = self
         tableView.delegate = self

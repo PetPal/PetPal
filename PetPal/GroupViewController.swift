@@ -23,7 +23,9 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*for storyboardID in self.storyboardIDs {
+        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 157/256, green: 169/256, blue: 61/256, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = UIColor.white
+     /*for storyboardID in self.storyboardIDs {
             let controller = (self.storyboard?.instantiateViewController(withIdentifier: storyboardID))! as! GroupViewController
             viewControllers.append(controller)
         }*/

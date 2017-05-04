@@ -18,6 +18,8 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 157/256, green: 169/256, blue: 61/256, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = UIColor.white
         descriptionTextField.delegate = self
 
         // Do any additional setup after loading the view.

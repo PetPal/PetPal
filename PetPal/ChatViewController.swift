@@ -25,7 +25,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = UIColor.white
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 120

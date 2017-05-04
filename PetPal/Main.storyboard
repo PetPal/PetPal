@@ -411,7 +411,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="My Groups" id="3pB-pb-U8h"/>
                     <navigationItem key="navigationItem" title="My Groups" id="LE1-ja-nO7">
-                        <barButtonItem key="rightBarButtonItem" title="New" id="akU-Xh-FkZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="akU-Xh-FkZ">
                             <connections>
                                 <action selector="onNewButton:" destination="peh-sC-Hyv" id="WII-DD-nex"/>
                                 <segue destination="OZt-TM-yl0" kind="presentation" id="b1H-n1-IVB"/>
