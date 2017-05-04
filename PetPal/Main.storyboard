@@ -411,7 +411,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="My Groups" id="3pB-pb-U8h"/>
                     <navigationItem key="navigationItem" title="My Groups" id="LE1-ja-nO7">
-                        <barButtonItem key="rightBarButtonItem" title="New" id="akU-Xh-FkZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="akU-Xh-FkZ">
                             <connections>
                                 <action selector="onNewButton:" destination="peh-sC-Hyv" id="WII-DD-nex"/>
                                 <segue destination="OZt-TM-yl0" kind="presentation" id="b1H-n1-IVB"/>
@@ -439,19 +439,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your group name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHr-ex-ipq">
-                                <rect key="frame" x="58" y="97" width="259" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your group zipcode" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DpI-C9-SQE">
-                                <rect key="frame" x="58" y="172" width="259" height="30"/>
+                                <rect key="frame" x="58" y="212" width="259" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zFq-4u-RuD">
-                                <rect key="frame" x="58" y="240" width="259" height="29"/>
+                                <rect key="frame" x="58" y="265" width="259" height="29"/>
                                 <segments>
                                     <segment title="Public group"/>
                                     <segment title="Private group"/>
@@ -493,31 +487,39 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newgroup-1" translatesAutoresizingMaskIntoConstraints="NO" id="jIx-pI-Ir3">
                                 <rect key="frame" x="0.0" y="579" width="375" height="88"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQW-YD-iGq">
+                                <rect key="frame" x="136" y="130" width="102" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="N0n-qA-rJV"/>
+                                    <constraint firstAttribute="height" constant="60" id="OGs-N9-r3R"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="camera"/>
+                                <connections>
+                                    <action selector="onCameraButton:" destination="hda-2t-8iW" eventType="touchUpInside" id="etg-HP-oXN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DpI-C9-SQE" firstAttribute="leading" secondItem="FwU-GJ-slQ" secondAttribute="leading" constant="58" id="4ek-qj-jr6"/>
+                            <constraint firstItem="aHr-ex-ipq" firstAttribute="top" secondItem="TQW-YD-iGq" secondAttribute="bottom" constant="22" id="8PW-Tx-FHu"/>
                             <constraint firstItem="fu9-RZ-vhZ" firstAttribute="top" secondItem="7x7-vO-Dre" secondAttribute="bottom" constant="23" id="CPD-YI-6a9"/>
                             <constraint firstItem="aHr-ex-ipq" firstAttribute="leading" secondItem="FwU-GJ-slQ" secondAttribute="leading" constant="58" id="FNL-6O-H30"/>
                             <constraint firstItem="fu9-RZ-vhZ" firstAttribute="leading" secondItem="aHr-ex-ipq" secondAttribute="leading" id="HBk-s0-fZN"/>
-                            <constraint firstItem="DpI-C9-SQE" firstAttribute="leading" secondItem="aHr-ex-ipq" secondAttribute="leading" id="HH0-iv-ICr"/>
-                            <constraint firstAttribute="trailing" secondItem="DpI-C9-SQE" secondAttribute="trailing" constant="58" id="HwR-y6-0vn"/>
                             <constraint firstAttribute="trailing" secondItem="jIx-pI-Ir3" secondAttribute="trailing" id="J0o-zn-qto"/>
                             <constraint firstAttribute="bottom" secondItem="fu9-RZ-vhZ" secondAttribute="bottom" constant="109" id="Mlg-Pg-vo6"/>
                             <constraint firstItem="jIx-pI-Ir3" firstAttribute="top" secondItem="fu9-RZ-vhZ" secondAttribute="bottom" constant="21" id="MmJ-53-uvU"/>
                             <constraint firstItem="fu9-RZ-vhZ" firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" id="SEj-NZ-E1U"/>
                             <constraint firstItem="MVM-EV-saB" firstAttribute="top" secondItem="jIx-pI-Ir3" secondAttribute="bottom" id="T8d-DS-hjC"/>
                             <constraint firstItem="7x7-vO-Dre" firstAttribute="top" secondItem="FwU-GJ-slQ" secondAttribute="top" constant="313" id="Udc-ll-rF6"/>
-                            <constraint firstItem="aHr-ex-ipq" firstAttribute="top" secondItem="yCj-a3-tJH" secondAttribute="bottom" constant="33" id="WZd-yY-2xa"/>
-                            <constraint firstItem="7x7-vO-Dre" firstAttribute="top" secondItem="zFq-4u-RuD" secondAttribute="bottom" constant="45" id="Y53-qU-6Da"/>
+                            <constraint firstItem="7x7-vO-Dre" firstAttribute="top" secondItem="zFq-4u-RuD" secondAttribute="bottom" constant="20" id="Y53-qU-6Da"/>
                             <constraint firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" constant="58" id="e66-Ot-ZIk"/>
-                            <constraint firstItem="DpI-C9-SQE" firstAttribute="top" secondItem="aHr-ex-ipq" secondAttribute="bottom" constant="45" id="eiP-ny-rVU"/>
                             <constraint firstItem="zFq-4u-RuD" firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" id="gIO-Pf-NTb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TQW-YD-iGq" secondAttribute="trailing" constant="121" id="hWv-IN-e3Y"/>
                             <constraint firstItem="zFq-4u-RuD" firstAttribute="leading" secondItem="aHr-ex-ipq" secondAttribute="leading" id="kfW-gf-xie"/>
                             <constraint firstItem="7x7-vO-Dre" firstAttribute="leading" secondItem="aHr-ex-ipq" secondAttribute="leading" id="pdO-pJ-4Hv"/>
+                            <constraint firstItem="TQW-YD-iGq" firstAttribute="top" secondItem="yCj-a3-tJH" secondAttribute="bottom" constant="66" id="slG-8H-6qr"/>
                             <constraint firstItem="7x7-vO-Dre" firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" id="y0D-n6-aLy"/>
                             <constraint firstItem="jIx-pI-Ir3" firstAttribute="leading" secondItem="FwU-GJ-slQ" secondAttribute="leading" id="yDz-jo-Lde"/>
-                            <constraint firstItem="DpI-C9-SQE" firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" id="zsl-aM-R9X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Group" id="7lt-OF-G8B">
@@ -528,15 +530,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cameraButton" destination="TQW-YD-iGq" id="iiG-iN-Oqw"/>
                         <outlet property="descriptionTextField" destination="xvk-Jt-k1Z" id="u7m-uE-wlA"/>
                         <outlet property="nameTextField" destination="aHr-ex-ipq" id="Dex-at-hPT"/>
                         <outlet property="typeSegment" destination="zFq-4u-RuD" id="kh7-s0-aKa"/>
-                        <outlet property="zipcodeTextField" destination="DpI-C9-SQE" id="9oJ-Sm-pBT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpB-T0-hYP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3012" y="3268.5157421289359"/>
+            <point key="canvasLocation" x="3605.5999999999999" y="3295.5022488755626"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="93v-5m-ctb">
@@ -835,6 +837,7 @@
     </scenes>
     <resources>
         <image name="PetPalLogo" width="1000" height="1000"/>
+        <image name="camera" width="48" height="48"/>
         <image name="mygroup" width="24" height="24"/>
         <image name="nearby" width="24" height="24"/>
         <image name="newgroup-1" width="1600" height="364"/>
