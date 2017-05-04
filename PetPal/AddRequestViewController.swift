@@ -13,7 +13,7 @@ import UIKit
 }
 
 
-class AddRequestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MultiSelectViewControllerDelegate {
+class AddRequestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MultiSelectViewControllerDelegate, DateSelectViewControllerDelegate {
 
     @IBOutlet var tableView: UITableView!
     
@@ -32,6 +32,9 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
     var selectedService: [Bool] = []
     let pets = ["Fluffy", "Turtle"]
     var selectedPets: [Bool] = []
+    
+    var startDate: Date?
+    var endDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,9 +90,13 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.textLabel?.text = multiSelectText(emptyText: titleText, options: services, selections: selectedService)
                 return cell
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "MultiSelectCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DateSelectCell", for: indexPath)
                 let titleText = wwwTitles[indexPath.row]
-                cell.textLabel?.text = titleText
+                if let startDate = startDate, let endDate = endDate {
+                    cell.textLabel?.text = Utilities.formatStartEndDate(startDate: startDate, endDate: endDate)
+                } else {
+                    cell.textLabel?.text = titleText
+                }
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MultiSelectCell", for: indexPath)
@@ -143,6 +150,15 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
             tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
     }
+    
+    // MARK: - DateSelectViewControllerDelegate
+    func dateSelected(dateSelectViewController: DateSelectViewController, startDate: Date, endDate: Date) {
+        self.startDate = startDate
+        self.endDate = endDate
+        
+        tableView.reloadData()
+    }
+    
 
     // MARK: - Navigation
 
@@ -166,19 +182,26 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
                     multiSelectVC.selected = selectedGroups
                 }
             }
+        } else if segue.identifier == "DateSelectSegue" {
+            let dateSelectVC = segue.destination as! DateSelectViewController
+            dateSelectVC.delegate = self
+            
         }
     }
+    
+    // MARK: - Actions
 
     @IBAction func onAddRequestButton(_ sender: Any) {
+        guard let startDate = startDate, let endDate = endDate else { return }
+        
         let user = User.currentUser
-        let today = Date()
-        let tomorrow = Date(timeInterval: 60*60*24, since: today)
         var requestType = RequestType.boardingType
         if selectedService[1] {
             requestType = RequestType.dropInVisitType
         }
         // TODO find the selectedGroups 
-        let request = Request(requestUser: user!, startDate: today, endDate: tomorrow, requestType: requestType, groups: user!.groups)
+        
+        let request = Request(requestUser: user!, startDate: startDate, endDate: endDate, requestType: requestType, groups: user!.groups)
         PetPalAPIClient.sharedInstance.addRequest(request: request)
         
         _ = navigationController?.popViewController(animated: true)
