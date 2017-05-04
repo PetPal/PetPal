@@ -68,6 +68,26 @@ class Utilities {
         }
         return elapsed
     }
+    
+    class func formatStartEndDate(startDate: Date, endDate: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM"
+        let startMonth = formatter.string(from: startDate)
+        let endMonth = formatter.string(from: endDate)
+        if startMonth == endMonth {
+            formatter.dateFormat = "d"
+            let startDay = formatter.string(from: startDate)
+            let endDay = formatter.string(from: endDate)
+            
+            return startMonth + " " + startDay + " - " + endDay
+        } else {
+            formatter.dateFormat = "MMMM d"
+            let startDay = formatter.string(from: startDate)
+            let endDay = formatter.string(from: endDate)
+            
+            return startDay + " - " + endDay
+        }
+    }
 }
 
 

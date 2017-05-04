@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.0.0):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.8.4)
+  - JTAppleCalendar (7.0.2)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
   - ParseUI (1.2.0):
@@ -23,15 +24,17 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (= 3.0)
+  - JTAppleCalendar (~> 7.0)
   - Parse
   - ParseUI
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  JTAppleCalendar: c14685634064ef67a68209548ff3443208af48a3
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 
-PODFILE CHECKSUM: 23d3e1b9d81f292aabf088637c42ce3c2a0da4de
+PODFILE CHECKSUM: 4cddb8a88c4fd92c146eeee00ff2b6a6ad55b636
 
 COCOAPODS: 1.2.1

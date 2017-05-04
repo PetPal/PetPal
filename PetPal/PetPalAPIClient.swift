@@ -124,6 +124,31 @@ class PetPalAPIClient  {
         }
     }
     
+    func getRequestInUserGroup(user: User) {
+        let query = PFQuery(className: "Request")
+        query.includeKey("requestUser")
+        query.includeKey("acceptUser")
+        query.includeKey("toGroup")
+        if let pfUser = user.pfUser {
+            query.whereKey("requestUser", equalTo: pfUser)
+        }
+        // TODO add where clause for acceptUser
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                var requests = [Request]()
+                if let objects = objects {
+                    for object in objects {
+                        let request = Request(object: object)
+                        requests.append(request)
+                    }
+                }
+                //success(requests)
+            } else {
+                //failure(error)
+            }
+        }
+    }
+    
     func addGroup(group: Group) {
         let groupObject = PFObject(className: "Group")
         if let name = group.name {

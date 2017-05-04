@@ -25,7 +25,7 @@ struct MenuItem {
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var profileImage: PFImageView!
+    @IBOutlet weak var profileImage: PFImageView!
     @IBOutlet var profileName: UILabel!
     @IBOutlet var collectionViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet var collectionViewLeadingConstraint: NSLayoutConstraint!
