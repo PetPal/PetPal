@@ -43,10 +43,10 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // Make sure to set the viewController in viewDidLoad
     var menuItems: [MenuItem] = [
-        MenuItem(title: "Requests", color: UIColor(colorLiteralRed: 224/256, green: 142/256, blue: 67/256, alpha: 1.0), image: UIImage(named: "requests_64")),
-        MenuItem(title: "Groups", color: UIColor(colorLiteralRed: 157/256, green: 169/256, blue: 61/256, alpha: 1.0), image: UIImage(named: "groups_64")),
-        MenuItem(title: "Chats", color: UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0), image: UIImage(named: "chats_64")),
-        MenuItem(title: "Logout", color: UIColor(colorLiteralRed: 196/256, green: 77/256, blue: 88/256, alpha: 1.0), image: UIImage(named: "logout_64"))
+        MenuItem(title: "Requests", color: UIColor(colorWithHexValue: 0xE08E43), image: UIImage(named: "requests_64")),
+        MenuItem(title: "Groups", color: UIColor(colorWithHexValue: 0x9DA933), image: UIImage(named: "groups_64")),
+        MenuItem(title: "Chats", color: UIColor(colorWithHexValue: 0x397FCC), image: UIImage(named: "chats_64")),
+        MenuItem(title: "Logout", color: UIColor(colorWithHexValue: 0xC44D58), image: UIImage(named: "logout_64"))
     ]
     
     weak var hamburgerViewController: HamburgerViewController! {
