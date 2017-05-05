@@ -170,7 +170,7 @@ class PetPalAPIClient  {
         groupObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("group added")
-                NotificationCenter.default.post(name: PetPalConstants.groupAdded, object: request)
+                NotificationCenter.default.post(name: PetPalConstants.groupAdded, object: group)
             } else if let error = error {
                 print("error \(error.localizedDescription)")
             }

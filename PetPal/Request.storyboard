@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4W7-uK-Q2d" id="OiQ-Vb-FyP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Request!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfB-Qt-0ex">
@@ -114,13 +114,51 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-Sm-lRa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="64"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tCS-h2-GvL">
+                                        <rect key="frame" x="0.0" y="17" width="375" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUT-tP-Zfk">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="30"/>
+                                                <state key="normal" title="Requests">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEB-Zp-5Gd">
+                                                <rect key="frame" x="125" y="0.0" width="125" height="30"/>
+                                                <state key="normal" title="Tasks">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5T-6Y-GNA">
+                                                <rect key="frame" x="250" y="0.0" width="125" height="30"/>
+                                                <state key="normal" title="Group Requests">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84264808893203735" green="0.55984824895858765" blue="0.21843937039375305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="tCS-h2-GvL" secondAttribute="bottom" constant="17" id="DrT-al-1Bz"/>
+                                    <constraint firstAttribute="trailing" secondItem="tCS-h2-GvL" secondAttribute="trailing" id="WOz-3g-ufj"/>
+                                    <constraint firstItem="tCS-h2-GvL" firstAttribute="top" secondItem="Dof-Sm-lRa" secondAttribute="top" constant="17" id="cYY-AL-kAi"/>
+                                    <constraint firstItem="tCS-h2-GvL" firstAttribute="leading" secondItem="Dof-Sm-lRa" secondAttribute="leading" id="tfm-wL-2S6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZaP-vq-DS7" firstAttribute="top" secondItem="Ui7-TA-PGD" secondAttribute="bottom" id="01A-cp-j91"/>
-                            <constraint firstItem="Ui7-TA-PGD" firstAttribute="leading" secondItem="Awx-2d-Ack" secondAttribute="leading" id="gl5-gc-92h"/>
-                            <constraint firstAttribute="trailing" secondItem="Ui7-TA-PGD" secondAttribute="trailing" id="hlw-7A-SEF"/>
-                            <constraint firstItem="Ui7-TA-PGD" firstAttribute="top" secondItem="Awx-2d-Ack" secondAttribute="top" id="pcS-Jf-0fh"/>
+                            <constraint firstItem="ZaP-vq-DS7" firstAttribute="top" secondItem="Ui7-TA-PGD" secondAttribute="bottom" id="MjF-vR-dde"/>
+                            <constraint firstItem="Ui7-TA-PGD" firstAttribute="top" secondItem="Awx-2d-Ack" secondAttribute="top" id="PeK-2Z-OKg"/>
+                            <constraint firstItem="Ui7-TA-PGD" firstAttribute="leading" secondItem="Awx-2d-Ack" secondAttribute="leading" id="YMN-vQ-JhA"/>
+                            <constraint firstItem="Dof-Sm-lRa" firstAttribute="top" secondItem="Kd9-Ca-UuC" secondAttribute="bottom" id="c7x-O2-oil"/>
+                            <constraint firstItem="Dof-Sm-lRa" firstAttribute="leading" secondItem="Awx-2d-Ack" secondAttribute="leading" id="gWD-TJ-Dm5"/>
+                            <constraint firstAttribute="trailing" secondItem="Ui7-TA-PGD" secondAttribute="trailing" id="t4B-fw-gSw"/>
+                            <constraint firstAttribute="trailing" secondItem="Dof-Sm-lRa" secondAttribute="trailing" id="wfq-zD-mnX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Requests" id="tUu-9M-IuH">
