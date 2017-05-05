@@ -80,6 +80,8 @@ class PetPalAPIClient  {
                         groups.append(group)
                     }
                     user.groups = groups
+                    
+                    NotificationCenter.default.post(name: PetPalConstants.userGroupUpdated, object: user)
                 }
             }
         }
@@ -90,7 +92,7 @@ class PetPalAPIClient  {
         requestObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 let request = Request(object: requestObject)
-                NotificationCenter.default.post(name: Request.requestAdded, object: request)
+                NotificationCenter.default.post(name: PetPalConstants.requestAdded, object: request)
                 
                 print("request added")
             } else if let error = error {
@@ -167,6 +169,7 @@ class PetPalAPIClient  {
         groupObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("group added")
+                NotificationCenter.default.post(name: PetPalConstants.groupAdded, object: request)
             } else if let error = error {
                 print("error \(error.localizedDescription)")
             }

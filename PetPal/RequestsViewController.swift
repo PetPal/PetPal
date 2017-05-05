@@ -25,27 +25,26 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
-        NotificationCenter.default.addObserver(forName: Request.requestAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+        NotificationCenter.default.addObserver(forName: PetPalConstants.requestAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             print("request added")
             let request = notification.object as! Request
             self.requests?.append(request)
             self.tableView.reloadData()
         }
         
+        NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            print("request - user group updated")
+            self.refreshControlAction()
+        }
+
         
         // pull to refresh
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         tableView.addSubview(refreshControl)
-        
-        let user = User.currentUser
-        PetPalAPIClient.sharedInstance.getRequestInUserGroup(user: user!, success: { (requests: [Request]) in
-            self.requests = requests
-            self.tableView.reloadData()
-        }) { (error: Error?) in
-            print("error \(String(describing: error?.localizedDescription))")
-        }
 
+        // update requests
+        refreshControlAction()
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,13 +66,15 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: Refresh
     
-    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+    func refreshControlAction(_ refreshControl: UIRefreshControl? = nil) {
         let user = User.currentUser
         PetPalAPIClient.sharedInstance.getRequestInUserGroup(user: user!, success: { (requests: [Request]) in
             self.requests = requests
             self.tableView.reloadData()
             
-            refreshControl.endRefreshing()
+            if let refreshControl = refreshControl {
+                refreshControl.endRefreshing()
+            }
         }) { (error: Error?) in
             print("error \(String(describing: error?.localizedDescription))")
         }

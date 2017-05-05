@@ -82,7 +82,7 @@ class User: NSObject {
                 if let pfUser = PFUser.current() {
                     _currentUser = User(pfUser: pfUser)
                     
-                    // TODO: Not the right place, but where?
+                    // populate the groups- notification will be sent 
                     PetPalAPIClient.sharedInstance.populateGroups(forUser: _currentUser!)
                 }
             }
