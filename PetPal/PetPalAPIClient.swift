@@ -104,7 +104,7 @@ class PetPalAPIClient  {
         let query = PFQuery(className: "Request")
         query.includeKey("requestUser")
         query.includeKey("acceptUser")
-        query.includeKey("toGroup")
+        query.includeKey("groupIds")
         if let pfUser = user.pfUser {
             query.whereKey("requestUser", equalTo: pfUser)
         }
@@ -124,16 +124,22 @@ class PetPalAPIClient  {
             }
         }
     }
-    
-    func getRequestInUserGroup(user: User) {
+
+    func getRequestInUserGroup(user: User, success: @escaping ([Request]) -> (), failure: @escaping (Error?) -> ()) {
+        guard let userGroups = user.groups else { return }
+
         let query = PFQuery(className: "Request")
         query.includeKey("requestUser")
         query.includeKey("acceptUser")
-        query.includeKey("toGroup")
-        if let pfUser = user.pfUser {
-            query.whereKey("requestUser", equalTo: pfUser)
+        query.includeKey("groupIds")
+        var groupIds = [String]()
+        for group in userGroups {
+            if let objectId = group.pfObject?.objectId {
+                groupIds.append(objectId)
+            }
         }
-        // TODO add where clause for acceptUser
+        query.whereKey("groupIds", containedIn: groupIds)
+        
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if error == nil {
                 var requests = [Request]()
@@ -143,9 +149,9 @@ class PetPalAPIClient  {
                         requests.append(request)
                     }
                 }
-                //success(requests)
+                success(requests)
             } else {
-                //failure(error)
+                failure(error)
             }
         }
     }

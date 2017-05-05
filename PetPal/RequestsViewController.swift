@@ -25,11 +25,6 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
-        let user = User.currentUser
-
-        //print("/(user.groups)")
-
-
         NotificationCenter.default.addObserver(forName: Request.requestAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             print("request added")
             let request = notification.object as! Request
@@ -37,12 +32,20 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
             self.tableView.reloadData()
         }
         
-        PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in
+        
+        // pull to refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl)
+        
+        let user = User.currentUser
+        PetPalAPIClient.sharedInstance.getRequestInUserGroup(user: user!, success: { (requests: [Request]) in
             self.requests = requests
             self.tableView.reloadData()
         }) { (error: Error?) in
             print("error \(String(describing: error?.localizedDescription))")
         }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +63,20 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.request = request
         }
         return cell
+    }
+    
+    // MARK: Refresh
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        let user = User.currentUser
+        PetPalAPIClient.sharedInstance.getRequestInUserGroup(user: user!, success: { (requests: [Request]) in
+            self.requests = requests
+            self.tableView.reloadData()
+            
+            refreshControl.endRefreshing()
+        }) { (error: Error?) in
+            print("error \(String(describing: error?.localizedDescription))")
+        }
     }
     
 
