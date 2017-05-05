@@ -440,17 +440,24 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your group name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHr-ex-ipq">
                                 <rect key="frame" x="58" y="212" width="259" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="259" id="VIv-Ye-dhB"/>
+                                    <constraint firstAttribute="height" constant="30" id="x3d-4u-KTe"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zFq-4u-RuD">
-                                <rect key="frame" x="58" y="265" width="259" height="29"/>
+                                <rect key="frame" x="58" y="265" width="259" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="o8g-Te-Gch"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Public group"/>
                                     <segment title="Private group"/>
                                 </segments>
-                                <color key="tintColor" red="0.20159103719999999" green="0.76862745099999996" blue="0.70022485069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.71920138825502911" green="0.61839884072065532" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x7-vO-Dre">
                                 <rect key="frame" x="58" y="313" width="259" height="173"/>
@@ -473,7 +480,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu9-RZ-vhZ">
                                 <rect key="frame" x="58" y="509" width="259" height="49"/>
-                                <color key="backgroundColor" red="0.20159103719999999" green="0.76862745099999996" blue="0.70022485069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.71920138830000002" green="0.61839884069999995" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="gxI-y0-uUX"/>
                                 </constraints>
@@ -484,42 +491,38 @@
                                     <action selector="onCreateButton:" destination="hda-2t-8iW" eventType="touchUpInside" id="TFH-rS-Ni7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newgroup-1" translatesAutoresizingMaskIntoConstraints="NO" id="jIx-pI-Ir3">
-                                <rect key="frame" x="0.0" y="579" width="375" height="88"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQW-YD-iGq">
                                 <rect key="frame" x="136" y="130" width="102" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="N0n-qA-rJV"/>
                                     <constraint firstAttribute="height" constant="60" id="OGs-N9-r3R"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="camera"/>
+                                <state key="normal" image="camera"/>
                                 <connections>
                                     <action selector="onCameraButton:" destination="hda-2t-8iW" eventType="touchUpInside" id="etg-HP-oXN"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aHr-ex-ipq" firstAttribute="top" secondItem="TQW-YD-iGq" secondAttribute="bottom" constant="22" id="8PW-Tx-FHu"/>
+                            <constraint firstItem="aHr-ex-ipq" firstAttribute="top" secondItem="TQW-YD-iGq" secondAttribute="bottom" constant="22" id="Adf-OH-eB5"/>
                             <constraint firstItem="fu9-RZ-vhZ" firstAttribute="top" secondItem="7x7-vO-Dre" secondAttribute="bottom" constant="23" id="CPD-YI-6a9"/>
                             <constraint firstItem="aHr-ex-ipq" firstAttribute="leading" secondItem="FwU-GJ-slQ" secondAttribute="leading" constant="58" id="FNL-6O-H30"/>
                             <constraint firstItem="fu9-RZ-vhZ" firstAttribute="leading" secondItem="aHr-ex-ipq" secondAttribute="leading" id="HBk-s0-fZN"/>
-                            <constraint firstAttribute="trailing" secondItem="jIx-pI-Ir3" secondAttribute="trailing" id="J0o-zn-qto"/>
                             <constraint firstAttribute="bottom" secondItem="fu9-RZ-vhZ" secondAttribute="bottom" constant="109" id="Mlg-Pg-vo6"/>
-                            <constraint firstItem="jIx-pI-Ir3" firstAttribute="top" secondItem="fu9-RZ-vhZ" secondAttribute="bottom" constant="21" id="MmJ-53-uvU"/>
                             <constraint firstItem="fu9-RZ-vhZ" firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" id="SEj-NZ-E1U"/>
-                            <constraint firstItem="MVM-EV-saB" firstAttribute="top" secondItem="jIx-pI-Ir3" secondAttribute="bottom" id="T8d-DS-hjC"/>
-                            <constraint firstItem="7x7-vO-Dre" firstAttribute="top" secondItem="FwU-GJ-slQ" secondAttribute="top" constant="313" id="Udc-ll-rF6"/>
-                            <constraint firstItem="7x7-vO-Dre" firstAttribute="top" secondItem="zFq-4u-RuD" secondAttribute="bottom" constant="20" id="Y53-qU-6Da"/>
                             <constraint firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" constant="58" id="e66-Ot-ZIk"/>
+                            <constraint firstItem="zFq-4u-RuD" firstAttribute="top" secondItem="aHr-ex-ipq" secondAttribute="bottom" constant="23" id="g4m-1L-A5B"/>
                             <constraint firstItem="zFq-4u-RuD" firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" id="gIO-Pf-NTb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TQW-YD-iGq" secondAttribute="trailing" constant="121" id="hWv-IN-e3Y"/>
                             <constraint firstItem="zFq-4u-RuD" firstAttribute="leading" secondItem="aHr-ex-ipq" secondAttribute="leading" id="kfW-gf-xie"/>
                             <constraint firstItem="7x7-vO-Dre" firstAttribute="leading" secondItem="aHr-ex-ipq" secondAttribute="leading" id="pdO-pJ-4Hv"/>
+                            <constraint firstItem="7x7-vO-Dre" firstAttribute="top" secondItem="zFq-4u-RuD" secondAttribute="bottom" constant="18" id="rwO-pW-W6k"/>
                             <constraint firstItem="TQW-YD-iGq" firstAttribute="top" secondItem="yCj-a3-tJH" secondAttribute="bottom" constant="66" id="slG-8H-6qr"/>
+                            <constraint firstItem="TQW-YD-iGq" firstAttribute="top" secondItem="yCj-a3-tJH" secondAttribute="bottom" constant="66" id="tbT-c4-bMB"/>
                             <constraint firstItem="7x7-vO-Dre" firstAttribute="trailing" secondItem="aHr-ex-ipq" secondAttribute="trailing" id="y0D-n6-aLy"/>
-                            <constraint firstItem="jIx-pI-Ir3" firstAttribute="leading" secondItem="FwU-GJ-slQ" secondAttribute="leading" id="yDz-jo-Lde"/>
+                            <constraint firstItem="zFq-4u-RuD" firstAttribute="top" secondItem="aHr-ex-ipq" secondAttribute="bottom" constant="23" id="yib-lL-7c6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Group" id="7lt-OF-G8B">
@@ -840,7 +843,6 @@
         <image name="camera" width="48" height="48"/>
         <image name="mygroup" width="24" height="24"/>
         <image name="nearby" width="24" height="24"/>
-        <image name="newgroup-1" width="1600" height="364"/>
         <image name="requests_64" width="64" height="64"/>
     </resources>
 </document>
