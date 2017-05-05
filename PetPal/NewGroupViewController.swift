@@ -11,7 +11,6 @@ import UIKit
 class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var zipcodeTextField: UITextField!
     @IBOutlet weak var typeSegment: UISegmentedControl!
     @IBOutlet weak var descriptionTextField: UITextView!
     var photo: UIImage!
@@ -75,10 +74,10 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
         let alertController = UIAlertController(title: "Missed a Field!", message: "You missed a mandatory field when creating a new group", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         
-        if (nameTextField.text == "" || zipcodeTextField.text == "" || descriptionTextField.text == ""){
+        if (nameTextField.text == "" ||  descriptionTextField.text == ""){
             self.present(alertController, animated: true, completion: nil)
         } else {
-            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: 0)!, owner: User.currentUser!, zipcode: Int(zipcodeTextField.text!)!, overview: descriptionTextField.text!)
+            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: 0)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!)
             PetPalAPIClient.sharedInstance.addGroup(group: newgroup)
             self.dismiss(animated: true, completion: nil)
         }

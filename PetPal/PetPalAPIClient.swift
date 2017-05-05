@@ -78,6 +78,7 @@ class PetPalAPIClient  {
                     for object in objects {
                         let group = Group(object: object)
                         groups.append(group)
+                        
                     }
                     user.groups = groups
                 }
