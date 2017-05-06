@@ -42,6 +42,10 @@
 		CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */; };
 		CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */; };
 		CEEFFB8B1EBCE76700E93EE4 /* PetPalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB8A1EBCE76700E93EE4 /* PetPalConstants.swift */; };
+		CEEFFB8E1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB8C1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift */; };
+		CEEFFB8F1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */; };
+		CEEFFB911EBD1C4D00E93EE4 /* EditRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB901EBD1C4D00E93EE4 /* EditRequestViewController.swift */; };
+		CEEFFB931EBD8AA000E93EE4 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */; };
 		CEF1A2441EB4631700EBC0A4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1A2431EB4631700EBC0A4 /* Request.swift */; };
 		CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1A2451EB4649000EBC0A4 /* Group.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +89,10 @@
 		CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRequestViewController.swift; sourceTree = "<group>"; };
 		CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectViewController.swift; sourceTree = "<group>"; };
 		CEEFFB8A1EBCE76700E93EE4 /* PetPalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetPalConstants.swift; sourceTree = "<group>"; };
+		CEEFFB8C1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRangeTableViewCell.swift; sourceTree = "<group>"; };
+		CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateRangeTableViewCell.xib; sourceTree = "<group>"; };
+		CEEFFB901EBD1C4D00E93EE4 /* EditRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRequestViewController.swift; sourceTree = "<group>"; };
+		CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CEF1A2431EB4631700EBC0A4 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CEF1A2451EB4649000EBC0A4 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DD527D991A1CA34B157370BD /* Pods-PetPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +190,7 @@
 				A5F966311EB46948001D072B /* WelcomeViewController.swift */,
 				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
 				CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */,
+				CEEFFB901EBD1C4D00E93EE4 /* EditRequestViewController.swift */,
 				CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */,
 				CEBA9ACD1EBA636A00CB846C /* DateSelectViewController.swift */,
 				A5F966371EB5998B001D072B /* GroupViewController.swift */,
@@ -198,6 +207,9 @@
 				CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */,
 				CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */,
 				A5F9663D1EB66A63001D072B /* ChatCell.swift */,
+				CEEFFB8C1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift */,
+				CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */,
+				CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -287,6 +299,7 @@
 			files = (
 				99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */,
 				99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */,
+				CEEFFB8F1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib in Resources */,
 				CEBA9ACA1EB702D000CB846C /* PetPalSprint1.gif in Resources */,
 				A5F966421EB92B3C001D072B /* Main.storyboard in Resources */,
 				994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */,
@@ -349,9 +362,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEFFB931EBD8AA000E93EE4 /* HeaderTableViewCell.swift in Sources */,
 				A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */,
 				CEBA9AD41EBB074E00CB846C /* UIColor.swift in Sources */,
 				992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */,
+				CEEFFB8E1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift in Sources */,
 				A5F966461EBA62E7001D072B /* nearbyGroupsViewController.swift in Sources */,
 				A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
@@ -361,6 +376,7 @@
 				A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */,
 				CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */,
 				CEBA9ACE1EBA636A00CB846C /* DateSelectViewController.swift in Sources */,
+				CEEFFB911EBD1C4D00E93EE4 /* EditRequestViewController.swift in Sources */,
 				CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */,
 				CEBA9ACC1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift in Sources */,
 				CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */,

@@ -14,6 +14,13 @@ enum RequestType: Int {
     case dropInVisitType
 }
 
+enum RequestCategory: Int {
+    case pendingRequest
+    case acceptedRequest
+    case task
+    case groupRequest
+}
+
 class Request: NSObject {
 
     var pfObject: PFObject?
@@ -23,6 +30,24 @@ class Request: NSObject {
     var endDate: Date?
     var requestType: RequestType = RequestType.boardingType
     var groups: [Group]?
+    
+    var category: RequestCategory {
+        get {
+            let isOurRequest = User.currentUser?.isEqual(requestUser)
+            let isOurTask = User.currentUser?.isEqual(acceptUser)
+            if isOurRequest ?? false {
+                if acceptUser == nil {
+                    return RequestCategory.pendingRequest
+                } else {
+                    return RequestCategory.acceptedRequest
+                }
+            } else if isOurTask ?? false {
+                return RequestCategory.task
+            } else {
+                return RequestCategory.groupRequest
+            }
+        }
+    }
     
     init(requestUser: User, startDate: Date, endDate: Date, requestType: RequestType, groups: [Group]) {
         self.requestUser = requestUser
@@ -83,5 +108,27 @@ class Request: NSObject {
         }
 
         return requestObject
+    }
+    
+    func getTypeString() -> String {
+        switch requestType {
+        case RequestType.boardingType:
+            return "Boarding"
+        case RequestType.dropInVisitType:
+            return "Drop in visit"
+        }
+    }
+    
+    func getCategoryString() -> String {
+        switch category {
+        case RequestCategory.pendingRequest:
+            return "Pending Request"
+        case RequestCategory.acceptedRequest:
+            return "Accepted Request"
+        case RequestCategory.task:
+            return "Task"
+        case RequestCategory.groupRequest:
+            return "Group Request"
+        }
     }
 }
