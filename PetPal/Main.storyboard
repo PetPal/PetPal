@@ -310,6 +310,7 @@
                                                     <rect key="frame" x="8" y="8" width="65" height="66.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="EE4-uU-uzz"/>
+                                                        <constraint firstAttribute="height" constant="66" id="eNp-2Q-KRt"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a message." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfF-z9-Z4G">

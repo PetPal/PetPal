@@ -15,6 +15,7 @@ class RequestDetailTableViewCell: UITableViewCell {
     @IBOutlet var requestTitle: UILabel!
     @IBOutlet var requestInfo: UILabel!
     @IBOutlet var requestCategory: UILabel!
+    @IBOutlet var elapsedTimeLabel: UILabel!
     @IBOutlet var startWeekDay: UILabel!
     @IBOutlet var startDateLabel: UILabel!
     @IBOutlet var endWeekDay: UILabel!
@@ -59,6 +60,11 @@ class RequestDetailTableViewCell: UITableViewCell {
             if let avatar = user?.userAvatar {
                 requestImageView.file = avatar
                 requestImageView.loadInBackground()
+            }
+            
+            if let updatedAtDate = request.updatedAtDate {
+                let elpased = updatedAtDate.timeIntervalSinceNow
+                elapsedTimeLabel.text = Utilities.timeElapsed(elpased)
             }
 
             if let startDate = request.startDate {

@@ -35,6 +35,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             print("error \(String(describing: error?.localizedDescription))")
         }
         
+        profileTableView.estimatedRowHeight = 320
+        profileTableView.rowHeight = UITableViewAutomaticDimension
+        
+        let nibName = UINib(nibName: "RequestDetailTableViewCell", bundle: nil)
+        profileTableView.register(nibName, forCellReuseIdentifier: "RequestDetailCell")
         
         //Updating data on labels
         nameLabel.text = user?.name
@@ -50,7 +55,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return requests?.count ?? 0
     }
 
     

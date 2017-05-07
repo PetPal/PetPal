@@ -28,6 +28,7 @@ class Request: NSObject {
     var acceptUser: User?
     var startDate: Date?
     var endDate: Date?
+    var updatedAtDate: Date?
     var requestType: RequestType = RequestType.boardingType
     var groups: [Group]?
     
@@ -55,10 +56,14 @@ class Request: NSObject {
         self.endDate = endDate
         self.requestType = requestType
         self.groups = groups
+
+        self.updatedAtDate = Date()
     }
 
     init(object: PFObject) {
         pfObject = object
+        updatedAtDate = object.updatedAt
+
         if let pfUser = object["requestUser"] as? PFUser {
             requestUser = User(pfUser: pfUser)
         }
