@@ -63,22 +63,18 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.delegate = self
         
         // initialize profile view
-        let user = User.currentUser
-        profileName.text = user?.name
-        if let avatar = user?.userAvatar {
-            profileImage.file = avatar
-            profileImage.loadInBackground()
+        initProfileView()
+        profileImage.setRounded()
+        
+        NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            self.initProfileView()
         }
         
         // set collection view's content to be the visible view area
         collectionViewTrailingConstraint.constant = (view.frame.width / 4) + CGFloat(collectionViewBuffer)
 
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupTabBarController") as! UITabBarController
-        
-        
         chatNavigationController = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController")
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
@@ -90,7 +86,16 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         menuItems[0].viewController = requestsNavigationController
         menuItems[1].viewController = groupNavigationController
         menuItems[2].viewController = chatNavigationController
-     }
+    }
+    
+    func initProfileView() {
+        let user = User.currentUser
+        profileName.text = user?.name
+        if let avatar = user?.userAvatar {
+            profileImage.file = avatar
+            profileImage.loadInBackground()
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -88,6 +88,9 @@ class User: NSObject {
             }
             return _currentUser
         }
+        set(user) {
+            _currentUser = nil
+        }
     }
 
 }

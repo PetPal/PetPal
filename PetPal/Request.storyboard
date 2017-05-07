@@ -36,7 +36,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Request!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfB-Qt-0ex">
                                                     <rect key="frame" x="246.5" y="4" width="120.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.93728679418563843" green="0.46388924121856689" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.84264808889999998" green="0.55984824899999996" blue="0.2184393704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1F-Uc-sAq">
@@ -158,6 +158,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentControl" destination="mSM-Wc-o4t" id="1GZ-D4-Q26"/>
                         <outlet property="tableView" destination="Ui7-TA-PGD" id="eZJ-5V-ptB"/>
                     </connections>
                 </viewController>
@@ -235,16 +236,34 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifl-HE-N7E">
+                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.84264808889999998" green="0.55984824899999996" blue="0.2184393704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MuM-pI-M6W"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" red="0.96061021089999998" green="0.95639878509999998" blue="0.97790676359999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onActionButton:" destination="d50-30-1Ps" eventType="touchUpInside" id="bkn-UT-XJU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ckZ-jD-oel" firstAttribute="top" secondItem="ifl-HE-N7E" secondAttribute="bottom" id="1y8-rw-PGX"/>
                             <constraint firstItem="ckZ-jD-oel" firstAttribute="top" secondItem="v8r-Gx-UoJ" secondAttribute="bottom" id="BMh-7Z-NPl"/>
                             <constraint firstItem="v8r-Gx-UoJ" firstAttribute="leading" secondItem="qRA-hP-dGl" secondAttribute="leading" id="cra-R1-NmC"/>
                             <constraint firstItem="v8r-Gx-UoJ" firstAttribute="top" secondItem="qRA-hP-dGl" secondAttribute="top" id="fTt-PG-BRZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ifl-HE-N7E" secondAttribute="trailing" id="ob1-YY-fmx"/>
                             <constraint firstAttribute="trailing" secondItem="v8r-Gx-UoJ" secondAttribute="trailing" id="sbn-65-DNk"/>
+                            <constraint firstItem="ifl-HE-N7E" firstAttribute="leading" secondItem="qRA-hP-dGl" secondAttribute="leading" id="svY-sw-qlJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="ifl-HE-N7E" id="hqj-XJ-gof"/>
                         <outlet property="tableView" destination="v8r-Gx-UoJ" id="wUE-Nh-E5U"/>
                     </connections>
                 </viewController>
@@ -312,7 +331,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpc-q3-gAT">
                                 <rect key="frame" x="0.0" y="539" width="375" height="64"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.46274509803921571" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.84264808889999998" green="0.55984824899999996" blue="0.2184393704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="20" maxX="0.0" maxY="20"/>
                                 <state key="normal" title="Request">
@@ -371,7 +390,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnw-Fu-yLB">
                                 <rect key="frame" x="0.0" y="603" width="375" height="64"/>
-                                <color key="backgroundColor" red="0.93747466802597046" green="0.46337580680847168" blue="0.003057313384488225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.84264808889999998" green="0.55984824899999996" blue="0.2184393704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="20" maxX="0.0" maxY="20"/>
                                 <state key="normal" title="Select">
@@ -613,7 +632,7 @@
             <objects>
                 <navigationController storyboardIdentifier="RequestsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="xAK-qP-y5Q" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="232-fx-AMd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="232-fx-AMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.84264808889999998" green="0.55984824899999996" blue="0.2184393704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

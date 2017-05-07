@@ -83,6 +83,10 @@ class Request: NSObject {
     
     func makePFObject() -> PFObject! {
         let requestObject = PFObject(className: "Request")
+        return updatePFObject(requestObject: requestObject)
+    }
+    
+    func updatePFObject(requestObject: PFObject) -> PFObject {
         if let startDate = startDate {
             requestObject["startDate"] = startDate
         }
@@ -96,7 +100,7 @@ class Request: NSObject {
             requestObject["acceptUser"] = acceptUser.pfUser
         }
         requestObject["requestType"] = requestType.rawValue
-
+        
         if let groups = groups {
             var groupIds = [String]()
             for group in groups {
@@ -106,7 +110,6 @@ class Request: NSObject {
             }
             requestObject["groupIds"] = groupIds
         }
-
         return requestObject
     }
     

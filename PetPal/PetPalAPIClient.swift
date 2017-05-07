@@ -102,6 +102,19 @@ class PetPalAPIClient  {
         }
     }
     
+    func updateRequest(request: Request) {
+        guard let pfObject = request.pfObject else { return }
+        let requestObject: PFObject! = request.updatePFObject(requestObject: pfObject)
+        requestObject.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                NotificationCenter.default.post(name: PetPalConstants.requestUpdated, object: request)
+                print("request updated")
+            } else if let error = error {
+                print("error \(error.localizedDescription)")
+            }
+        }
+    }
+
     func getRequests(user: User, success: @escaping ([Request]) -> (), failure: @escaping (Error?) -> ()) {
         let query = PFQuery(className: "Request")
         query.includeKey("requestUser")

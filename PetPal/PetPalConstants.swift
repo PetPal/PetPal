@@ -11,6 +11,7 @@ import Foundation
 struct PetPalConstants {
     
     static let requestAdded = NSNotification.Name(rawValue: "requestAdded")
+    static let requestUpdated = NSNotification.Name(rawValue: "requestUpdated")
     
     static let groupAdded = NSNotification.Name(rawValue: "groupAdded")
 
