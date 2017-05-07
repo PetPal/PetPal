@@ -18,8 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="to-arrow-24" translatesAutoresizingMaskIntoConstraints="NO" id="W3W-99-E72">
-                        <rect key="frame" x="148" y="33.5" width="12" height="12"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="to-arrow-24" translatesAutoresizingMaskIntoConstraints="NO" id="W3W-99-E72">
+                        <rect key="frame" x="154" y="39.5" width="12" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="12" id="f0O-qP-xZ0"/>
                             <constraint firstAttribute="height" constant="12" id="kh2-jU-P8F"/>

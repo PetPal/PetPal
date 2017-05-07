@@ -11,6 +11,7 @@ import UIKit
 class EditRequestViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var actionButton: UIButton!
     
     var request: Request!
     
@@ -19,6 +20,21 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // initialize
+        switch request.category {
+        case .pendingRequest:
+            actionButton.isHidden = true
+        case .acceptedRequest:
+            actionButton.isHidden = false
+            actionButton.setTitle("Chat", for: .normal)
+        case .task:
+            actionButton.isHidden = false
+            actionButton.setTitle("Chat", for: .normal)
+        case .groupRequest:
+            actionButton.isHidden = false
+            actionButton.setTitle("Accept", for: .normal)
+        }
 
         let nibName = UINib(nibName: "DateRangeTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "DateRangeTableViewCell")
@@ -43,7 +59,12 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         case 0:
             return 1
         case 1:
-            return request.groups?.count ?? 0
+            switch request.category {
+            case .pendingRequest:
+                return request.groups?.count ?? 0
+            case .acceptedRequest, .task, .groupRequest:
+                return 1
+            }
         case 2:
             return 1
         default:
@@ -62,7 +83,21 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
             return dateCell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicCell", for: indexPath)
-            cell.textLabel?.text = request.groups![indexPath.row].name
+            
+            switch request.category {
+            case .pendingRequest:
+                cell.textLabel?.text = request.groups![indexPath.row].name
+            case .acceptedRequest:
+                let user = request.acceptUser
+                cell.textLabel?.text = user?.name
+            case .task:
+                let user = request.requestUser
+                cell.textLabel?.text = user?.name
+            case .groupRequest:
+                let user = request.requestUser
+                cell.textLabel?.text = user?.name
+            }
+
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicCell", for: indexPath)
@@ -78,9 +113,18 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderTableViewCell
         switch section {
         case 0:
-            cell.header = "Dates"
+            cell.header = request.getCategoryString()
         case 1:
-            cell.header = "Groups"
+            switch request.category {
+            case .pendingRequest:
+                cell.header = "Groups"
+            case .acceptedRequest:
+                cell.header = "Accepted by"
+            case .task:
+                cell.header = "Task for"
+            case .groupRequest:
+                cell.header = "Request from"
+            }
         case 2:
             cell.header = "Type"
         default:
@@ -90,22 +134,29 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 40
     }
     
-    /*
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Dates"
-        case 1:
-            return "Groups"
-        case 2:
-            return "Type"
-        default:
-            return ""
+    @IBAction func onActionButton(_ sender: Any) {
+        switch request.category {
+        case .pendingRequest:
+            break
+        case .acceptedRequest:
+            // segue chat
+            _ = navigationController?.popViewController(animated: true)
+            break
+        case .task:
+          // segue chat
+            _ = navigationController?.popViewController(animated: true)
+            break
+        case .groupRequest:
+            request.acceptUser = User.currentUser
+            PetPalAPIClient.sharedInstance.updateRequest(request: request)
+            
+            _ = navigationController?.popViewController(animated: true)
+            break
         }
+
     }
- */
 
 }

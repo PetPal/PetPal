@@ -39,7 +39,6 @@
 		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
 		CEEC8B3D1EB2672300CC07C5 /* Request.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEC8B3C1EB2672300CC07C5 /* Request.storyboard */; };
 		CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3F1EB2781000CC07C5 /* UIImageView.swift */; };
-		CEEC8B421EB2898100CC07C5 /* RequestDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */; };
 		CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */; };
 		CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */; };
 		CEEFFB8B1EBCE76700E93EE4 /* PetPalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB8A1EBCE76700E93EE4 /* PetPalConstants.swift */; };
@@ -47,6 +46,8 @@
 		CEEFFB8F1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */; };
 		CEEFFB911EBD1C4D00E93EE4 /* EditRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB901EBD1C4D00E93EE4 /* EditRequestViewController.swift */; };
 		CEEFFB931EBD8AA000E93EE4 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */; };
+		CEEFFB961EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB941EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift */; };
+		CEEFFB971EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEFFB951EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib */; };
 		CEF1A2441EB4631700EBC0A4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1A2431EB4631700EBC0A4 /* Request.swift */; };
 		CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1A2451EB4649000EBC0A4 /* Group.swift */; };
 /* End PBXBuildFile section */
@@ -87,7 +88,6 @@
 		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 		CEEC8B3C1EB2672300CC07C5 /* Request.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Request.storyboard; sourceTree = "<group>"; };
 		CEEC8B3F1EB2781000CC07C5 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailTableViewCell.swift; sourceTree = "<group>"; };
 		CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRequestViewController.swift; sourceTree = "<group>"; };
 		CEEC8B451EB296E200CC07C5 /* MultiSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectViewController.swift; sourceTree = "<group>"; };
 		CEEFFB8A1EBCE76700E93EE4 /* PetPalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetPalConstants.swift; sourceTree = "<group>"; };
@@ -95,6 +95,8 @@
 		CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateRangeTableViewCell.xib; sourceTree = "<group>"; };
 		CEEFFB901EBD1C4D00E93EE4 /* EditRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRequestViewController.swift; sourceTree = "<group>"; };
 		CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		CEEFFB941EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailTableViewCell.swift; sourceTree = "<group>"; };
+		CEEFFB951EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestDetailTableViewCell.xib; sourceTree = "<group>"; };
 		CEF1A2431EB4631700EBC0A4 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CEF1A2451EB4649000EBC0A4 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DD527D991A1CA34B157370BD /* Pods-PetPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,13 +207,14 @@
 		CEEC8B351EB1323200CC07C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEBA9ACF1EBA671700CB846C /* CustomDateCell.swift */,
-				CEEC8B411EB2898100CC07C5 /* RequestDetailTableViewCell.swift */,
-				CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */,
 				A5F9663D1EB66A63001D072B /* ChatCell.swift */,
+				CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */,
+				CEBA9ACF1EBA671700CB846C /* CustomDateCell.swift */,
+				CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */,
+				CEEFFB941EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift */,
+				CEEFFB951EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib */,
 				CEEFFB8C1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift */,
 				CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */,
-				CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				CEBA9ACA1EB702D000CB846C /* PetPalSprint1.gif in Resources */,
 				A5F966421EB92B3C001D072B /* Main.storyboard in Resources */,
 				994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */,
+				CEEFFB971EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib in Resources */,
 				CEEC8B3D1EB2672300CC07C5 /* Request.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,7 +392,7 @@
 				A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */,
 				CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */,
 				994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */,
-				CEEC8B421EB2898100CC07C5 /* RequestDetailTableViewCell.swift in Sources */,
+				CEEFFB961EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift in Sources */,
 				CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */,
 				CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */,
 				992D9C681EB3D9FF00668001 /* User.swift in Sources */,

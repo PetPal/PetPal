@@ -11,6 +11,7 @@ import UIKit
 class RequestsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var segmentControl: UISegmentedControl!
     
     var requestArray: [[Request]] = [ [Request](), [Request](), [Request]() ]
     let requestsIndex = 0
@@ -24,22 +25,38 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.estimatedRowHeight = 320
+        tableView.rowHeight = UITableViewAutomaticDimension
+
+        let nibName = UINib(nibName: "RequestDetailTableViewCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "RequestDetailCell")
+
         NotificationCenter.default.addObserver(forName: PetPalConstants.requestAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             print("request added")
             let request = notification.object as! Request
             
             let index = self.getRequestIndex(request: request)
-            self.requestArray[index].append(request)
+            self.requestArray[index].insert(request, at: 0)
             if index == self.currentIndex {
+                self.tableView.reloadData()
+            } else {
+                self.segmentControl.selectedSegmentIndex = index
+                self.currentIndex = index
                 self.tableView.reloadData()
             }
         }
         
         NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            print("request - user group updated")
+            print("request - user updated")
             self.refreshControlAction()
         }
         
+        NotificationCenter.default.addObserver(forName: PetPalConstants.requestUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            print("request - user updated")
+            let request = notification.object as! Request
+            self.updateRequests(request: request)
+        }
+
         // pull to refresh
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
@@ -77,12 +94,17 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestDetailCell", for: indexPath) as! RequestDetailTableViewCell
+        cell.selectionStyle = .none
         let requests = getRequestArray()
         cell.request = requests[indexPath.row]
         return cell
     }
     
-    // MARK: Refresh
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "EditRequestSegue", sender: self)
+    }
+    
+    // MARK: UISegmentedControl
 
     @IBAction func onSegmentChanged(_ sender: Any) {
         let control = sender as! UISegmentedControl
@@ -95,6 +117,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     func refreshControlAction(_ refreshControl: UIRefreshControl? = nil) {
         let user = User.currentUser
         PetPalAPIClient.sharedInstance.getRequestInUserGroup(user: user!, success: { (requests: [Request]) in
+            self.requestArray = [ [Request](), [Request](), [Request]() ]
             self.populateRequests(requests: requests)
             self.tableView.reloadData()
             
@@ -117,7 +140,31 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
                 requestArray[groupRequestsIndex].append(request)
             }
         }
-        
+    }
+    
+    func updateRequests(request: Request) {
+        let requestIndex = getRequestIndex(request: request)
+        for i in 0..<3 {
+            for checkRequest in requestArray[i] {
+                if request == checkRequest {
+                    if requestIndex == i {
+                        tableView.reloadData()
+                        break
+                    } else {
+                        // remove it
+                        if let removeIndex = requestArray[i].index(of: request) {
+                            requestArray[i].remove(at: removeIndex)
+                        }
+                        // add it back in 
+                        requestArray[requestIndex].insert(request, at: 0)
+                        segmentControl.selectedSegmentIndex = requestIndex
+                        currentIndex = requestIndex
+                        tableView.reloadData()
+                        break
+                    }
+                }
+            }
+        }
     }
     
 
