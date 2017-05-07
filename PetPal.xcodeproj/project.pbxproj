@@ -10,9 +10,10 @@
 		0C4ACE878B558D300C83B94E /* Pods_PetPal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A160AF67740E2B4AF34C905 /* Pods_PetPal.framework */; };
 		992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D9C641EB3D90C00668001 /* PetPalAPIClient.swift */; };
 		992D9C681EB3D9FF00668001 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D9C671EB3D9FF00668001 /* User.swift */; };
-		992D9C6A1EB3EAD700668001 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992D9C691EB3EAD700668001 /* SignUpViewController.swift */; };
 		994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9942553F1EB66DDC0039BE4B /* Profile.storyboard */; };
 		994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994255401EB66DDC0039BE4B /* ProfileViewController.swift */; };
+		995C9E3F1EBFA6150063510E /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */; };
+		99CBCD221EBFAFE300850FCC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */; };
 		99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D74BC31EB7EFA100CAB24C /* UITextField.swift */; };
 		99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DA9F1EAC016B00878886 /* AppDelegate.swift */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
@@ -55,9 +56,10 @@
 		95292EC65A459922D4166FF5 /* Pods-PetPal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetPal.release.xcconfig"; path = "Pods/Target Support Files/Pods-PetPal/Pods-PetPal.release.xcconfig"; sourceTree = "<group>"; };
 		992D9C641EB3D90C00668001 /* PetPalAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetPalAPIClient.swift; sourceTree = "<group>"; };
 		992D9C671EB3D9FF00668001 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		992D9C691EB3EAD700668001 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9942553F1EB66DDC0039BE4B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		994255401EB66DDC0039BE4B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
+		99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		99D74BC31EB7EFA100CAB24C /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		99F9DA9C1EAC016B00878886 /* PetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9DA9F1EAC016B00878886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,12 +183,12 @@
 		CEEC8B341EB1322A00CC07C5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */,
 				994255401EB66DDC0039BE4B /* ProfileViewController.swift */,
 				CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */,
 				CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */,
 				A5F966091EB1797A001D072B /* ChatViewController.swift */,
 				A5F9662F1EB292FF001D072B /* LoginViewController.swift */,
-				992D9C691EB3EAD700668001 /* SignUpViewController.swift */,
 				A5F966311EB46948001D072B /* WelcomeViewController.swift */,
 				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
 				CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */,
@@ -221,6 +223,7 @@
 				A5F966391EB59DE5001D072B /* Utilities.swift */,
 				99D74BC31EB7EFA100CAB24C /* UITextField.swift */,
 				CEBA9AD31EBB074E00CB846C /* UIColor.swift */,
+				995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -352,7 +355,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -362,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99CBCD221EBFAFE300850FCC /* SignUpViewController.swift in Sources */,
 				CEEFFB931EBD8AA000E93EE4 /* HeaderTableViewCell.swift in Sources */,
 				A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */,
 				CEBA9AD41EBB074E00CB846C /* UIColor.swift in Sources */,
@@ -388,8 +392,8 @@
 				CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */,
 				CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */,
 				992D9C681EB3D9FF00668001 /* User.swift in Sources */,
+				995C9E3F1EBFA6150063510E /* CAGradientLayer.swift in Sources */,
 				CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */,
-				992D9C6A1EB3EAD700668001 /* SignUpViewController.swift in Sources */,
 				CEF1A2441EB4631700EBC0A4 /* Request.swift in Sources */,
 				A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */,
 				CEEFFB8B1EBCE76700E93EE4 /* PetPalConstants.swift in Sources */,
