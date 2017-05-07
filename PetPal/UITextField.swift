@@ -14,7 +14,6 @@ extension UITextField {
     func signupTextBox() {
         
           self.borderStyle = UITextBorderStyle.none
-          self.frame = CGRect(x: Int(self.frame.origin.x), y: Int(self.frame.origin.y), width: Int(self.frame.size.width), height: 50)
           self.backgroundColor = UIColor.clear
           self.textColor = UIColor.black
         
