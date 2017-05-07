@@ -302,11 +302,8 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8ds-Jt-eES" id="bJq-N3-QWZ">
-<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="86.5"/>
-=======
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
->>>>>>> 01a1af53eb06c3e9c442e9dd43ff3a7f49f71cde
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WwY-Uy-Pch" customClass="PFImageView">
