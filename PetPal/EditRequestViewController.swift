@@ -143,9 +143,11 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
             break
         case .acceptedRequest:
             // segue chat
+            _ = navigationController?.popViewController(animated: true)
             break
         case .task:
           // segue chat
+            _ = navigationController?.popViewController(animated: true)
             break
         case .groupRequest:
             request.acceptUser = User.currentUser

@@ -2,62 +2,85 @@
 //  RequestDetailTableViewCell.swift
 //  PetPal
 //
-//  Created by LING HAO on 4/27/17.
+//  Created by LING HAO on 5/7/17.
 //  Copyright © 2017 PetPal. All rights reserved.
 //
 
 import UIKit
+import ParseUI
 
 class RequestDetailTableViewCell: UITableViewCell {
 
-    @IBOutlet var requestStatusLabel: UILabel!
-    @IBOutlet var requestImageView: UIImageView!
-    @IBOutlet var requestGroupLabel: UILabel!
-    @IBOutlet var requestPetLabel: UILabel!
+    @IBOutlet weak var requestImageView: PFImageView!
+    @IBOutlet var requestTitle: UILabel!
+    @IBOutlet var requestInfo: UILabel!
+    @IBOutlet var requestCategory: UILabel!
+    @IBOutlet var startWeekDay: UILabel!
     @IBOutlet var startDateLabel: UILabel!
+    @IBOutlet var endWeekDay: UILabel!
+    @IBOutlet var endDateLabel: UILabel!
     
-    var request: Request? {
+    var formatter = DateFormatter()
+
+    var request: Request! {
         didSet {
-            if let startDate = request?.startDate, let endDate = request?.endDate {
-                startDateLabel.text = Utilities.formatStartEndDate(startDate: startDate, endDate: endDate)
-            }
+            var user: User?
             
-            let isOurRequest = User.currentUser?.isEqual(request?.requestUser)
-            let isOurTask = User.currentUser?.isEqual(request?.acceptUser)
-            if isOurRequest ?? false {
-                if request?.acceptUser == nil {
-                    requestStatusLabel.text = "Pending Request"
-                } else {
-                    requestStatusLabel.text = "Accepted Request"
-                }
-            } else if isOurTask ?? false {
-                requestStatusLabel.text = "Task"
-            } else {
-                requestStatusLabel.text = "Group Request"
-                
-            }
-            
-            // TODO include pet name
-            
-            if request!.requestType == RequestType.boardingType {
-                requestPetLabel.text = "Boarding"
-            } else {
-                requestPetLabel.text = "Drop in visit"
-            }
-            
-            if let groups = request?.groups {
-                var str: String = ""
-                for group in groups {
-                    if !str.isEmpty {
-                        str += ", "
+            switch request.category {
+            case .pendingRequest:
+                requestTitle.text = "Sent to groups"
+                user = request.requestUser
+                if let groups = request.groups {
+                    var str: String = ""
+                    for group in groups {
+                        if !str.isEmpty {
+                            str += ", "
+                        }
+                        str += group.name ?? ""
                     }
-                    str += group.name ?? ""
+                    requestInfo.text = str
                 }
-                requestGroupLabel.text = str
+            case .acceptedRequest:
+                requestTitle.text = "Accepted by"
+                user = request.acceptUser
+                requestInfo.text = user?.name
+            case .task:
+                requestTitle.text = "Task for"
+                user = request.requestUser
+                requestInfo.text = user?.name
+            case .groupRequest:
+                requestTitle.text = "Request from"
+                user = request.requestUser
+                requestInfo.text = user?.name
+            }
+
+            requestCategory.text = request.getCategoryString()
+            
+            if let avatar = user?.userAvatar {
+                requestImageView.file = avatar
+                requestImageView.loadInBackground()
+            }
+
+            if let startDate = request.startDate {
+                formatter.dateFormat = "EEE"
+                startWeekDay.text = formatter.string(from: startDate)
+                formatter.dateFormat = "MMMM d, yyyy"
+                startDateLabel.text = formatter.string(from: startDate)
+                if let endDate = request.endDate {
+                    formatter.dateFormat = "EEE"
+                    endWeekDay.text = formatter.string(from: endDate)
+                    formatter.dateFormat = "MMMM d, yyyy"
+                    endDateLabel.text = formatter.string(from: endDate)
+                } else {
+                    formatter.dateFormat = "EEE"
+                    endWeekDay.text = formatter.string(from: startDate)
+                    formatter.dateFormat = "MMMM d, yyyy"
+                    endDateLabel.text = formatter.string(from: startDate)
+                }
             }
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -69,5 +92,5 @@ class RequestDetailTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

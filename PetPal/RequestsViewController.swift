@@ -25,6 +25,12 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.estimatedRowHeight = 320
+        tableView.rowHeight = UITableViewAutomaticDimension
+
+        let nibName = UINib(nibName: "RequestDetailTableViewCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "RequestDetailCell")
+
         NotificationCenter.default.addObserver(forName: PetPalConstants.requestAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             print("request added")
             let request = notification.object as! Request
@@ -88,12 +94,17 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RequestDetailCell", for: indexPath) as! RequestDetailTableViewCell
+        cell.selectionStyle = .none
         let requests = getRequestArray()
         cell.request = requests[indexPath.row]
         return cell
     }
     
-    // MARK: Refresh
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "EditRequestSegue", sender: self)
+    }
+    
+    // MARK: UISegmentedControl
 
     @IBAction func onSegmentChanged(_ sender: Any) {
         let control = sender as! UISegmentedControl
