@@ -25,14 +25,13 @@ class PetPalAPIClient  {
         newUser["name"] = user.name
         newUser.username = user.screenName
         newUser.email = user.email
-        newUser["tagline"] = user.tagLine
         newUser["password"] = user.password
         newUser.signUpInBackground { (response: Bool, error: Error?) in
             if(error == nil){
                 print("Successfully Signed up a User!")
                 success(response)
             } else {
-                print("There was an error Signing Up: \(error?.localizedDescription)")
+                print("There was an error Signing Up: \(error?.localizedDescription ?? "Error")")
                 failure(error!)
             }
         }
@@ -45,11 +44,11 @@ class PetPalAPIClient  {
                 print("Successfully Retrieved the Users!")
                 if let objects = objects{
                     for object in objects {
-                        print(object["name"] ?? "Default Name")
+                        print(object["name"])
                     }
                 }
             } else {
-                print("There was an error fetching the Users : \(error?.localizedDescription)")
+                print("There was an error fetching the Users : \(error?.localizedDescription ?? "Error")")
             }
         }
     }
