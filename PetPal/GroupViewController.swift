@@ -50,7 +50,6 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         PetPalAPIClient.sharedInstance.populateGroups(forUser: user!)
         self.groups = user?.groups
         self.tableView.reloadData()
-
         }
        /* let query = PFQuery(className: "Group")
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?)

@@ -14,7 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.0.0)
   - AFNetworking/UIKit (3.0.0):
     - AFNetworking/NSURLSession
+  - Alamofire (4.4.0)
   - Bolts/Tasks (1.8.4)
+  - JSQMessagesViewController (7.1.0):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - JTAppleCalendar (7.0.2)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
@@ -24,17 +28,32 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (= 3.0)
+  - Alamofire
+  - JSQMessagesViewController (from `https://github.com/galambalazs/JSQMessagesViewController.git`, branch `smooth-scrolling`)
   - JTAppleCalendar (~> 7.0)
   - Parse
   - ParseUI
 
+EXTERNAL SOURCES:
+  JSQMessagesViewController:
+    :branch: smooth-scrolling
+    :git: https://github.com/galambalazs/JSQMessagesViewController.git
+
+CHECKOUT OPTIONS:
+  JSQMessagesViewController:
+    :commit: 8a4fb6178223117f439537b0f186d09400af6781
+    :git: https://github.com/galambalazs/JSQMessagesViewController.git
+
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  JSQMessagesViewController: ca11f86fa68ca70835f05e169df9244147c1dc40
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   JTAppleCalendar: c14685634064ef67a68209548ff3443208af48a3
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 
-PODFILE CHECKSUM: 4cddb8a88c4fd92c146eeee00ff2b6a6ad55b636
+PODFILE CHECKSUM: c64df34fe54e1d245818102865a773dabde31c75
 
 COCOAPODS: 1.2.1

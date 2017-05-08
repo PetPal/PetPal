@@ -34,18 +34,15 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // profile show on top of view
     var profileNavigationController: UIViewController!
-    
     var requestsNavigationController: UIViewController!
-    //var groupNavigationController: UIViewController!
     var groupNavigationController: UITabBarController!
-    
-    var chatNavigationController: UIViewController!
+    var messagesNavigationController: UIViewController!
     
     // Make sure to set the viewController in viewDidLoad
     var menuItems: [MenuItem] = [
         MenuItem(title: "Requests", color: UIColor(colorWithHexValue: 0xE08E43), image: UIImage(named: "requests_64")),
         MenuItem(title: "Groups", color: UIColor(colorWithHexValue: 0x9DA933), image: UIImage(named: "groups_64")),
-        MenuItem(title: "Chats", color: UIColor(colorWithHexValue: 0x397FCC), image: UIImage(named: "chats_64")),
+        MenuItem(title: "Messages", color: UIColor(colorWithHexValue: 0x397FCC), image: UIImage(named: "chats_64")),
         MenuItem(title: "Logout", color: UIColor(colorWithHexValue: 0xC44D58), image: UIImage(named: "logout_64"))
     ]
     
@@ -78,8 +75,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupTabBarController") as! UITabBarController
         
-        
-        chatNavigationController = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController")
+        messagesNavigationController = storyboard.instantiateViewController(withIdentifier: "messagesNavigationController")
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
@@ -89,7 +85,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         menuItems[0].viewController = requestsNavigationController
         menuItems[1].viewController = groupNavigationController
-        menuItems[2].viewController = chatNavigationController
+        menuItems[2].viewController = messagesNavigationController
      }
     
     override func didReceiveMemoryWarning() {
