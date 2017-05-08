@@ -46,7 +46,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBAction func onSendButton(_ sender: UIButton) {
         let message = PFObject(className:"Message")
-        //message["username"] = PFUser.current()?.object(forKey: "username") // delete me later
         message["user"] = PFUser.current()
         message["text"] = messageTextView.text
 
