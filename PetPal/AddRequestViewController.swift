@@ -71,6 +71,8 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
             return 1
         case 1:
             return groups?.count ?? 0
+        case 2:
+            return 1
         default:
             return 0
         }
@@ -97,6 +99,9 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.selectionStyle = .none
             cell.group = groups?[indexPath.row]
             cell.checkSelected = selectedGroups[indexPath.row]
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RequestTypeCell", for: indexPath)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicTableViewCell", for: indexPath)
