@@ -266,6 +266,29 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestTypeCell" id="690-8m-SAh">
+                                        <rect key="frame" x="0.0" y="210" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="690-8m-SAh" id="EIZ-dO-6Mt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xmj-MM-5PI">
+                                                    <rect key="frame" x="24" y="8" width="327" height="29"/>
+                                                    <segments>
+                                                        <segment title="Boarding"/>
+                                                        <segment title="Drop in visit"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.84264808889999998" green="0.55984824899999996" blue="0.2184393704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xmj-MM-5PI" firstAttribute="leading" secondItem="EIZ-dO-6Mt" secondAttribute="leadingMargin" constant="16" id="Is0-He-mXQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xmj-MM-5PI" secondAttribute="trailing" constant="16" id="dG2-WQ-3zJ"/>
+                                                <constraint firstItem="xmj-MM-5PI" firstAttribute="centerY" secondItem="EIZ-dO-6Mt" secondAttribute="centerY" id="xDD-fu-RUO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpc-q3-gAT">
