@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SXo-7P-b0y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SXo-7P-b0y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -414,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AB-9d-FxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4658" y="2522"/>
+            <point key="canvasLocation" x="3686" y="2522"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="KXG-aa-br5">
@@ -455,9 +455,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="9lW-lD-W4a" kind="presentation" identifier="groupChatSegue" id="aTZ-eq-orK"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -923,7 +920,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MessagesCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="messagesCell" rowHeight="185" id="vRj-1f-9JV" customClass="MessagesCell" customModule="PetPal" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MessagesCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessagesCell" rowHeight="185" id="vRj-1f-9JV" customClass="MessagesCell" customModule="PetPal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="185"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vRj-1f-9JV" id="IOd-li-72x">
@@ -980,6 +977,7 @@
                                     <outlet property="nameLabel" destination="cuB-8U-HfS" id="sTC-xA-866"/>
                                     <outlet property="timeElapsedLabel" destination="OSm-y8-4El" id="3gj-qp-UGy"/>
                                     <outlet property="userImage" destination="Goq-2F-8YW" id="fWY-Ls-ZYD"/>
+                                    <segue destination="9lW-lD-W4a" kind="presentation" identifier="messagesChatSegue" id="FHw-kX-wGi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -990,12 +988,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="0QN-TL-9Xw"/>
                     <connections>
-                        <outlet property="emptyView" destination="EhR-xe-sKq" id="nqt-Rx-OZT"/>
+                        <outlet property="emptyView" destination="EhR-xe-sKq" id="qbF-T3-WsU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kw-DW-owr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949.5999999999999" y="2534.4827586206898"/>
+            <point key="canvasLocation" x="1892" y="2522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="V45-KX-lPi">
@@ -1013,7 +1011,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVp-aN-yW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3766" y="2522"/>
+            <point key="canvasLocation" x="2841" y="2522"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="h29-PG-INo">
