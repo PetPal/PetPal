@@ -34,19 +34,18 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // profile show on top of view
     var profileNavigationController: UIViewController!
-    
     var requestsNavigationController: UIViewController!
-    //var groupNavigationController: UIViewController!
     var groupNavigationController: UITabBarController!
-    
-    var chatNavigationController: UIViewController!
+    var messagesNavigationController: UIViewController!
+    var settingsNavigationController: UIViewController!
     
     // Make sure to set the viewController in viewDidLoad
     var menuItems: [MenuItem] = [
         MenuItem(title: "Requests", color: UIColor(colorWithHexValue: 0xE08E43), image: UIImage(named: "requests_64")),
         MenuItem(title: "Groups", color: UIColor(colorWithHexValue: 0x9DA933), image: UIImage(named: "groups_64")),
-        MenuItem(title: "Chats", color: UIColor(colorWithHexValue: 0x397FCC), image: UIImage(named: "chats_64")),
-        MenuItem(title: "Logout", color: UIColor(colorWithHexValue: 0xC44D58), image: UIImage(named: "logout_64"))
+        MenuItem(title: "Messages", color: UIColor(colorWithHexValue: 0x397FCC), image: UIImage(named: "chats_64")),
+        MenuItem(title: "Logout", color: UIColor(colorWithHexValue: 0xC44D58), image: UIImage(named: "logout_64")),
+        MenuItem(title: "Settings", color: UIColor.white, image: UIImage(named:"settings"))
     ]
     
     weak var hamburgerViewController: HamburgerViewController! {
@@ -63,19 +62,31 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.delegate = self
         
         // initialize profile view
-        initProfileView()
-        profileImage.setRounded()
         
-        NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            self.initProfileView()
+        let user = User.currentUser
+        profileName.text = user?.name
+        if let avatar = user?.userAvatar {
+            profileImage.file = avatar
+            profileImage.loadInBackground()
+            profileImage.setRounded()
         }
+        
+        
+        //initProfileView()
+        //        NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+        //            self.initProfileView()
+        //        }
+        
+        
         
         // set collection view's content to be the visible view area
         collectionViewTrailingConstraint.constant = (view.frame.width / 4) + CGFloat(collectionViewBuffer)
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupTabBarController") as! UITabBarController
-        chatNavigationController = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController")
+        
+        messagesNavigationController = storyboard.instantiateViewController(withIdentifier: "messagesNavigationController")
+        settingsNavigationController = storyboard.instantiateViewController(withIdentifier: "SettingsNavigationController")
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
@@ -85,17 +96,9 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         menuItems[0].viewController = requestsNavigationController
         menuItems[1].viewController = groupNavigationController
-        menuItems[2].viewController = chatNavigationController
-    }
-    
-    func initProfileView() {
-        let user = User.currentUser
-        profileName.text = user?.name
-        if let avatar = user?.userAvatar {
-            profileImage.file = avatar
-            profileImage.loadInBackground()
-        }
-    }
+        menuItems[2].viewController = messagesNavigationController
+        menuItems[4].viewController = settingsNavigationController
+     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -135,4 +138,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let widthPerItem = availableWidth / 2
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
+    
+   
 }

@@ -60,7 +60,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.onTimer()
                 self.tableView.reloadData()
             } else {
-                print ("Error: \(error?.localizedDescription)")
+                print ("Error: \(String(describing: error?.localizedDescription))")
             }
         }
     }
@@ -110,7 +110,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             } else {
                 // Log details of the failure
-                print("Error:  \(error?.localizedDescription)")
+                print("Error:  \(String(describing: error?.localizedDescription))")
             }
         }
     }
