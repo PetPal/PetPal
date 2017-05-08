@@ -62,9 +62,12 @@ class RequestDetailTableViewCell: UITableViewCell {
                 requestImageView.loadInBackground()
             }
             
-            if let updatedAtDate = request.updatedAtDate {
-                let elpased = updatedAtDate.timeIntervalSinceNow
-                elapsedTimeLabel.text = Utilities.timeElapsed(elpased)
+            if let acceptedAtDate = request.acceptDate {
+                let elpased = acceptedAtDate.timeIntervalSinceNow
+                elapsedTimeLabel.text = Utilities.timeElapsed(-elpased)
+            } else if let createdAtDate = request.createdAtDate {
+                let elpased = createdAtDate.timeIntervalSinceNow
+                elapsedTimeLabel.text = Utilities.timeElapsed(-elpased)
             }
 
             if let startDate = request.startDate {
