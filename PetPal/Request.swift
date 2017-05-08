@@ -14,17 +14,41 @@ enum RequestType: Int {
     case dropInVisitType
 }
 
-class Request: NSObject {
+enum RequestCategory: Int {
+    case pendingRequest
+    case acceptedRequest
+    case task
+    case groupRequest
+}
 
-    static let requestAdded = NSNotification.Name(rawValue: "requestAdded")
+class Request: NSObject {
 
     var pfObject: PFObject?
     var requestUser: User?
     var acceptUser: User?
     var startDate: Date?
     var endDate: Date?
+    var updatedAtDate: Date?
     var requestType: RequestType = RequestType.boardingType
     var groups: [Group]?
+    
+    var category: RequestCategory {
+        get {
+            let isOurRequest = User.currentUser?.isEqual(requestUser)
+            let isOurTask = User.currentUser?.isEqual(acceptUser)
+            if isOurRequest ?? false {
+                if acceptUser == nil {
+                    return RequestCategory.pendingRequest
+                } else {
+                    return RequestCategory.acceptedRequest
+                }
+            } else if isOurTask ?? false {
+                return RequestCategory.task
+            } else {
+                return RequestCategory.groupRequest
+            }
+        }
+    }
     
     init(requestUser: User, startDate: Date, endDate: Date, requestType: RequestType, groups: [Group]) {
         self.requestUser = requestUser
@@ -32,10 +56,14 @@ class Request: NSObject {
         self.endDate = endDate
         self.requestType = requestType
         self.groups = groups
+
+        self.updatedAtDate = Date()
     }
 
     init(object: PFObject) {
         pfObject = object
+        updatedAtDate = object.updatedAt
+
         if let pfUser = object["requestUser"] as? PFUser {
             requestUser = User(pfUser: pfUser)
         }
@@ -60,6 +88,10 @@ class Request: NSObject {
     
     func makePFObject() -> PFObject! {
         let requestObject = PFObject(className: "Request")
+        return updatePFObject(requestObject: requestObject)
+    }
+    
+    func updatePFObject(requestObject: PFObject) -> PFObject {
         if let startDate = startDate {
             requestObject["startDate"] = startDate
         }
@@ -73,15 +105,7 @@ class Request: NSObject {
             requestObject["acceptUser"] = acceptUser.pfUser
         }
         requestObject["requestType"] = requestType.rawValue
-
-        //        let relation = requestObject.relation(forKey: "groups")
-        //        if let groups = request.groups {
-        //            for i in 0 ..< groups.count {
-        //                let pfGroup = groups[i].pfObject!
-        //                relation.add(pfGroup)
-        //            }
-        //    
-    
+        
         if let groups = groups {
             var groupIds = [String]()
             for group in groups {
@@ -91,7 +115,28 @@ class Request: NSObject {
             }
             requestObject["groupIds"] = groupIds
         }
-
         return requestObject
+    }
+    
+    func getTypeString() -> String {
+        switch requestType {
+        case RequestType.boardingType:
+            return "Boarding"
+        case RequestType.dropInVisitType:
+            return "Drop in visit"
+        }
+    }
+    
+    func getCategoryString() -> String {
+        switch category {
+        case RequestCategory.pendingRequest:
+            return "Pending Request"
+        case RequestCategory.acceptedRequest:
+            return "Accepted Request"
+        case RequestCategory.task:
+            return "Task"
+        case RequestCategory.groupRequest:
+            return "Group Request"
+        }
     }
 }

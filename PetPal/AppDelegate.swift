@@ -17,12 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set a uniform navigation bar appearance
         let navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.tintColor = UIColor.white
-        navigationBarAppearance.barTintColor = UIColor(colorLiteralRed: 56/256, green: 56/256, blue: 82/256, alpha: 1.0)
         navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         let barButtonAppearance = UIBarButtonItem.appearance()
         barButtonAppearance.tintColor = UIColor.white
-
+        
         //Initilaize the Parse Connection
         PetPalAPIClient.sharedInstance.initializeParse()
 

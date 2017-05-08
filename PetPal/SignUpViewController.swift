@@ -15,22 +15,46 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var taglineField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    
+    @IBOutlet weak var signUpWithTwitter: UIButton!
+   
+    @IBOutlet weak var nameView: UIView!
+    @IBOutlet weak var usernameView: UIView!
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var passwordView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signUpButton.layer.cornerRadius = 4
-        cancelButton.layer.cornerRadius = 4
+        //Background Styling
+        let topColor = UIColor(displayP3Red: (225.0/255.0), green: (141.0/255.0), blue: (68.0/255.0), alpha: 1)
+        let bottomColor = UIColor(displayP3Red: (220.0/255.0), green: (85.0/255.0), blue: (99.0/255.0), alpha: 1)
+        let background = CAGradientLayer().gradientBackground(topColor: topColor.cgColor, bottomColor: bottomColor.cgColor)
+        background.frame = self.view.bounds
+        self.view.layer.insertSublayer(background, at: 0)
         
+        //Button Styling
+        signUpButton.layer.cornerRadius = 4
+        signUpButton.backgroundColor = UIColor(displayP3Red: (250.0/255.0), green: (157.0/255.0), blue: (77.0/255.0), alpha: 1)
+        signUpWithTwitter.layer.cornerRadius = 4
+        signUpWithTwitter.backgroundColor = UIColor(displayP3Red: (0/255.0), green: (172.0/255.0), blue: (237.0/255.0), alpha: 1)
+        
+        //TextBoxView Formatting
+        nameView.layer.cornerRadius = 20
+        nameView.alpha = 0.3
+        usernameView.layer.cornerRadius = 20
+        usernameView.alpha = 0.3
+        emailView.layer.cornerRadius = 20
+        emailView.alpha = 0.3
+        passwordView.layer.cornerRadius = 20
+        passwordView.alpha = 0.3
+        
+        //Textbox Formatting
         nameField.signupTextBox()
         userNameField.signupTextBox()
         emailField.signupTextBox()
         passwordField.signupTextBox()
-        taglineField.signupTextBox()
         
 
         // Do any additional setup after loading the view.
@@ -48,7 +72,7 @@ class SignUpViewController: UIViewController {
         if (nameField.text == "" || userNameField.text == "" || emailField.text == "" || passwordField.text == ""){
             self.present(alertController, animated: true, completion: nil)
         } else {
-            let newUser = User(newName: nameField.text!, newScreenName: userNameField.text!, newTagLine: taglineField.text!, newEmail: emailField.text!, newPassword: passwordField.text!)
+            let newUser = User(newName: nameField.text!, newScreenName: userNameField.text!, newEmail: emailField.text!, newPassword: passwordField.text!)
             PetPalAPIClient.sharedInstance.addUser(user: newUser, success: { (bool: Bool) in
                 print("Successfully Signed up user")
             }, failure: { (error: Error) in

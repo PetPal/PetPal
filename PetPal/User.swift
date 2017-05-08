@@ -31,15 +31,13 @@ class User: NSObject {
     init(dictionary: NSDictionary){
         name = dictionary["name"] as? String
         screenName = dictionary["screenName"] as? String
-        tagLine = dictionary["tagline"] as? String
         email = dictionary["email"] as? String
         password = dictionary["password"] as? String
     }
     
-    init(newName: String, newScreenName: String, newTagLine: String, newEmail: String, newPassword: String){
+    init(newName: String, newScreenName: String, newEmail: String, newPassword: String){
         name = newName
         screenName = newScreenName
-        tagLine = newTagLine
         email = newEmail
         password = newPassword
     }
@@ -48,7 +46,6 @@ class User: NSObject {
         self.pfUser = pfUser
         name = pfUser.object(forKey: "name") as? String
         screenName = pfUser.username
-        tagLine = pfUser.object(forKey: "tagline") as? String
         email = pfUser.email
         password = pfUser.password
         userAvatar = pfUser.object(forKey: "userAvatar") as? PFFile
@@ -82,11 +79,14 @@ class User: NSObject {
                 if let pfUser = PFUser.current() {
                     _currentUser = User(pfUser: pfUser)
                     
-                    // TODO: Not the right place, but where?
+                    // populate the groups- notification will be sent 
                     PetPalAPIClient.sharedInstance.populateGroups(forUser: _currentUser!)
                 }
             }
             return _currentUser
+        }
+        set(user) {
+            _currentUser = nil
         }
     }
 
