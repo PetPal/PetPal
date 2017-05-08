@@ -112,7 +112,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RequestDetailTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestDetailCell" rowHeight="101" id="s9Z-kY-TjH" customClass="RequestDetailTableViewCell" customModule="PetPal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RequestDetailTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="101" id="s9Z-kY-TjH" customClass="RequestDetailTableViewCell" customModule="PetPal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="234" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s9Z-kY-TjH" id="bCX-wh-apc">

@@ -21,11 +21,11 @@ class MessagesCell: UITableViewCell {
     
     var message: PFObject! {
         didSet {
-            let lastUser = message["lastUser"] as? User
-            message["user"] = lastUser
-            userImage.file = lastUser?.userAvatar
-             userImage.loadInBackground()
-            nameLabel.text = lastUser?.name 
+            let lastUser = message.object(forKey: "lastUser") as? User
+            //let lastUser = message["lastUser"] as? User
+            //userImage.file = lastUser?.object(forKey: "userAvatar") as? PFFile
+             //userImage.loadInBackground()
+            nameLabel.text = lastUser?.name
             lastMessageLabel.text = message["text"] as? String
            // let date = Date()
           //  let timeInterval = date.timeIntervalSince(message["updatedAt"] as! Date)

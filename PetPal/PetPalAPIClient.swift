@@ -25,14 +25,13 @@ class PetPalAPIClient  {
         newUser["name"] = user.name
         newUser.username = user.screenName
         newUser.email = user.email
-        newUser["tagline"] = user.tagLine
         newUser["password"] = user.password
         newUser.signUpInBackground { (response: Bool, error: Error?) in
             if(error == nil){
                 print("Successfully Signed up a User!")
                 success(response)
             } else {
-                print("There was an error Signing Up: \(error?.localizedDescription)")
+                print("There was an error Signing Up: \(error?.localizedDescription ?? "Error")")
                 failure(error!)
             }
         }
@@ -45,11 +44,11 @@ class PetPalAPIClient  {
                 print("Successfully Retrieved the Users!")
                 if let objects = objects{
                     for object in objects {
-                        print(object["name"] ?? "Default Name")
+                        print(object["name"])
                     }
                 }
             } else {
-                print("There was an error fetching the Users : \(error?.localizedDescription)")
+                print("There was an error fetching the Users : \(error?.localizedDescription ?? "Error")")
             }
         }
     }
@@ -81,6 +80,8 @@ class PetPalAPIClient  {
                         
                     }
                     user.groups = groups
+                    
+                    NotificationCenter.default.post(name: PetPalConstants.userGroupUpdated, object: user)
                 }
             }
         }
@@ -91,7 +92,7 @@ class PetPalAPIClient  {
         requestObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 let request = Request(object: requestObject)
-                NotificationCenter.default.post(name: Request.requestAdded, object: request)
+                NotificationCenter.default.post(name: PetPalConstants.requestAdded, object: request)
                 
                 print("request added")
             } else if let error = error {
@@ -100,6 +101,19 @@ class PetPalAPIClient  {
         }
     }
     
+    func updateRequest(request: Request) {
+        guard let pfObject = request.pfObject else { return }
+        let requestObject: PFObject! = request.updatePFObject(requestObject: pfObject)
+        requestObject.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                NotificationCenter.default.post(name: PetPalConstants.requestUpdated, object: request)
+                print("request updated")
+            } else if let error = error {
+                print("error \(error.localizedDescription)")
+            }
+        }
+    }
+
     func getRequests(user: User, success: @escaping ([Request]) -> (), failure: @escaping (Error?) -> ()) {
         let query = PFQuery(className: "Request")
         query.includeKey("requestUser")
@@ -168,6 +182,7 @@ class PetPalAPIClient  {
         groupObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("group added")
+                NotificationCenter.default.post(name: PetPalConstants.groupAdded, object: group)
             } else if let error = error {
                 print("error \(error.localizedDescription)")
             }

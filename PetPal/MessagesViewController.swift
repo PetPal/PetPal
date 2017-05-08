@@ -14,6 +14,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     var messages = [PFObject]()
     
     
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet var composeButton: UIBarButtonItem!
     
     
@@ -33,7 +34,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
         self.refreshControl!.addTarget(self, action: #selector(MessagesViewController.loadMessages), for: UIControlEvents.valueChanged)
         self.tableView?.addSubview(self.refreshControl!)
         
-        // self.emptyView?.isHidden = true
+         self.emptyView?.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -72,7 +73,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     // MARK: - Helper methods
     
     func updateEmptyView() {
-        //self.emptyView?.isHidden = (self.messages.count != 0)
+        self.emptyView?.isHidden = (self.messages.count != 0)
     }
     
     func updateTabCounter() {
@@ -86,8 +87,12 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     
     // MARK: - User actions
     
-    func openChat(_ groupId: String) {
+   /* func openChat(_ groupId: String) {
         self.performSegue(withIdentifier: "messagesChatSegue", sender: groupId)
+    } */
+    
+    func openChat() {
+        self.performSegue(withIdentifier: "messagesChatSegue", sender: nil)
     }
     
     func cleanup() {
@@ -104,12 +109,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     
     // MARK: - Prepare for segue to chatVC
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let chatVC = segue.destination as! ChatViewController
-        chatVC.hidesBottomBarWhenPushed = true
-        let groupId = sender as! String
-        chatVC.groupId = groupId
-    }
+
     
     // MARK: - UIActionSheetDelegate
     
@@ -135,14 +135,16 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     func didSelectSingleUser(_ user2: PFUser) {
         let user1 = PFUser.current()!
         let groupId = Messages.startPrivateChat(user1, user2: user2)
-        self.openChat(groupId)
+        //self.openChat(groupId)
+        self.openChat()
     }
     
     // MARK: - SelectMultipleDelegate
     
     func didSelectMultipleUsers(_ selectedUsers: [PFUser]!) {
         let groupId = Messages.startMultipleChat(selectedUsers)
-        self.openChat(groupId)
+        //self.openChat(groupId)
+        self.openChat()
     }
     
     // MARK: - AddressBookDelegate
@@ -150,7 +152,8 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     func didSelectAddressBookUser(_ user2: PFUser) {
         let user1 = PFUser.current()!
         let groupId = Messages.startPrivateChat(user1, user2: user2)
-        self.openChat(groupId)
+        //self.openChat(groupId)
+        self.openChat()
     }
     
     // MARK: - FacebookFriendsDelegate
@@ -158,7 +161,8 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     func didSelectFacebookUser(_ user2: PFUser) {
         let user1 = PFUser.current()!
         let groupId = Messages.startPrivateChat(user1, user2: user2)
-        self.openChat(groupId)
+        //self.openChat(groupId)
+        self.openChat()
     }
     
     // MARK: - Table view data source
@@ -200,6 +204,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let message = self.messages[indexPath.row] as PFObject
-        self.openChat(message["groupId"] as! String)
+        //self.openChat(message["groupId"] as! String)
+        self.openChat()
     }
 }

@@ -1,25 +1,20 @@
 //
-//  ChatCell.swift
+//  HeaderTableViewCell.swift
 //  PetPal
 //
-//  Created by Rui Mao on 4/30/17.
+//  Created by LING HAO on 5/5/17.
 //  Copyright © 2017 PetPal. All rights reserved.
 //
 
 import UIKit
-import Parse
-import ParseUI
 
-class ChatCell: UITableViewCell {
+class HeaderTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var avatarImageView: PFImageView!
+    @IBOutlet var headerLabel: UILabel!
     
-    @IBOutlet weak var messageLabel: UILabel!
-    
-    var User: PFObject! {
+    var header: String! {
         didSet {
-            self.avatarImageView.file = User["userAvatar"] as? PFFile
-            self.avatarImageView.loadInBackground()
+            headerLabel.text = header
         }
     }
     
@@ -27,6 +22,7 @@ class ChatCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

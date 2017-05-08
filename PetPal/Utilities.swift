@@ -33,6 +33,7 @@ class Utilities {
     
     class func logoutUser() {
         PFUser.logOutInBackground()
+        User.currentUser = nil
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let welcomeVC = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController") as! UINavigationController
