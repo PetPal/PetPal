@@ -189,6 +189,7 @@ class PetPalAPIClient  {
         if let owner = group.owner {
             groupObject["owner"] = owner.pfUser
         }
+        groupObject["groupAvatar"] = Utilities.getPFFileFromImage(image: group.profileImage)
         groupObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("group added")
