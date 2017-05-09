@@ -387,33 +387,35 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pdh-6d-Raz" customClass="PFImageView">
-                                                    <rect key="frame" x="8" y="8" width="65" height="65"/>
+                                                    <rect key="frame" x="8" y="8" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="65" id="JIU-T9-5jn"/>
-                                                        <constraint firstAttribute="width" constant="65" id="xQ2-tP-4S6"/>
+                                                        <constraint firstAttribute="height" constant="40" id="JIU-T9-5jn"/>
+                                                        <constraint firstAttribute="width" constant="40" id="xQ2-tP-4S6"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Big apple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdr-q2-OBJ">
-                                                    <rect key="frame" x="81" y="8" width="76" height="21"/>
+                                                    <rect key="frame" x="56" y="8" width="76" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat lovers in Sunnyvale" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCj-Sp-TA5">
-                                                    <rect key="frame" x="81" y="45" width="177" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created at 4/3/2017" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCj-Sp-TA5">
+                                                    <rect key="frame" x="56" y="30" width="137.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Pdh-6d-Raz" firstAttribute="top" secondItem="ar1-3w-cxm" secondAttribute="top" constant="8" id="06Z-ux-OGq"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Pdh-6d-Raz" secondAttribute="bottom" constant="12" id="09l-2T-eEY"/>
                                                 <constraint firstItem="Pdh-6d-Raz" firstAttribute="leading" secondItem="ar1-3w-cxm" secondAttribute="leading" constant="8" id="2P1-Pn-bdu"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cCj-Sp-TA5" secondAttribute="bottom" constant="12" id="NYR-uo-skw"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cCj-Sp-TA5" secondAttribute="trailing" constant="8" id="R5g-aW-0W9"/>
                                                 <constraint firstItem="bdr-q2-OBJ" firstAttribute="leading" secondItem="Pdh-6d-Raz" secondAttribute="trailing" constant="8" id="SbI-8y-PaO"/>
                                                 <constraint firstItem="cCj-Sp-TA5" firstAttribute="leading" secondItem="Pdh-6d-Raz" secondAttribute="trailing" constant="8" id="YiA-w4-1tL"/>
                                                 <constraint firstItem="bdr-q2-OBJ" firstAttribute="top" secondItem="ar1-3w-cxm" secondAttribute="top" constant="8" id="kM4-hH-RYQ"/>
-                                                <constraint firstItem="cCj-Sp-TA5" firstAttribute="top" secondItem="bdr-q2-OBJ" secondAttribute="bottom" constant="16" id="la4-oR-FNg"/>
+                                                <constraint firstItem="cCj-Sp-TA5" firstAttribute="top" secondItem="bdr-q2-OBJ" secondAttribute="bottom" constant="1" id="la4-oR-FNg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

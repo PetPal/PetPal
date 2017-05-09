@@ -56,22 +56,14 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         let group = self.groups[indexPath.row]
-        
         cell.nameLabel.text = group.name
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
         cell.createdAtLabel?.text = "Created at: " + formatter.string(from: group.timeStamp!)
         cell.createdAtLabel?.textColor = UIColor.lightGray
-        
-        cell.createdAtLabel.text = "124"
-
- 
-      //self.groupAvatar.file = Group["groupAvatar"] as? PFFile
-            let file = group.profileImage as? PFFile
-            cell.groupAvatar.file = file
-            cell.groupAvatar.loadInBackground()
-        
-    
+        let file = group.profileImage
+        cell.groupAvatar.file = file
+        cell.groupAvatar.loadInBackground()
         return cell
     }
     
