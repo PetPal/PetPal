@@ -15,6 +15,8 @@
 		995C9E3F1EBFA6150063510E /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */; };
 		99CBCD221EBFAFE300850FCC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */; };
 		99CBCD241EC00F9100850FCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD231EC00F9100850FCC /* SettingsViewController.swift */; };
+		99CBCD261EC03AAF00850FCC /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD251EC03AAF00850FCC /* Pet.swift */; };
+		99CBCD281EC03C7E00850FCC /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */; };
 		99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D74BC31EB7EFA100CAB24C /* UITextField.swift */; };
 		99F9DAA01EAC016B00878886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9DA9F1EAC016B00878886 /* AppDelegate.swift */; };
 		99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F9DAA61EAC016B00878886 /* Assets.xcassets */; };
@@ -66,6 +68,8 @@
 		995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
 		99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		99CBCD231EC00F9100850FCC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		99CBCD251EC03AAF00850FCC /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		99D74BC31EB7EFA100CAB24C /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		99F9DA9C1EAC016B00878886 /* PetPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9DA9F1EAC016B00878886 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				CEF1A2431EB4631700EBC0A4 /* Request.swift */,
 				CEF1A2451EB4649000EBC0A4 /* Group.swift */,
 				A50A9C2A1EBD289B000A1394 /* Messages.swift */,
+				99CBCD251EC03AAF00850FCC /* Pet.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */,
 				A50A9C281EBCF81B000A1394 /* MessagesViewController.swift */,
 				99CBCD231EC00F9100850FCC /* SettingsViewController.swift */,
+				99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 				CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */,
 				CEBA9ACC1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift in Sources */,
 				CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */,
+				99CBCD261EC03AAF00850FCC /* Pet.swift in Sources */,
 				A5F966381EB5998B001D072B /* GroupViewController.swift in Sources */,
 				A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */,
 				CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */,
@@ -413,6 +420,7 @@
 				CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */,
 				992D9C681EB3D9FF00668001 /* User.swift in Sources */,
 				995C9E3F1EBFA6150063510E /* CAGradientLayer.swift in Sources */,
+				99CBCD281EC03C7E00850FCC /* AddPetViewController.swift in Sources */,
 				CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */,
 				CEF1A2441EB4631700EBC0A4 /* Request.swift in Sources */,
 				A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */,

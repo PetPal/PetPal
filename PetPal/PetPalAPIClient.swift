@@ -26,6 +26,16 @@ class PetPalAPIClient  {
         newUser.username = user.screenName
         newUser.email = user.email
         newUser["password"] = user.password
+        
+        let imageData = UIImageJPEGRepresentation(UIImage(named:"defaultProfileImage")!, 0.05)
+        let imageFile = PFFile(name: "image.jpg", data: imageData!)
+        do {
+            try imageFile?.save()
+        } catch {
+            print(error)
+        }
+        newUser.setObject(imageFile!, forKey: "userAvatar")
+        
         newUser.signUpInBackground { (response: Bool, error: Error?) in
             if(error == nil){
                 print("Successfully Signed up a User!")
@@ -209,6 +219,41 @@ class PetPalAPIClient  {
     }
     
     
+    func addPet(pet: Pet, success: @escaping (Pet) -> (), failure: @escaping (Error?) -> (), completion: @escaping () -> ()) {
+        let petObject: PFObject! = pet.makePFObject()
+        
+        
+        petObject.saveInBackground { (successSavePet: Bool, error: Error?) in
+            if successSavePet {
+                print("pet added")
+                //NotificationCenter.default.post(name: PetPalConstants.petAdded, object: pet)
+                success(pet)
+            } else if let error = error {
+                print("Error: \(error.localizedDescription)")
+                failure(error)
+            }
+        }
+        completion()
+    }
+
     
     
+    func addPetToUser(pet: Pet, success: @escaping (User) -> (), failure: @escaping (Error?) -> ()) {
+        let user = pet.owner
+        let pfUser = user?.pfUser
+        let petObject: PFObject! = pet.makePFObject()
+        let relation = pfUser!.relation(forKey: "Pets")
+        relation.add(petObject)
+        
+        pfUser?.saveInBackground(block: { (successSavePetToUser: Bool, error: Error?) in
+            if successSavePetToUser {
+                print("Saved Pets to User!")
+                success(user!)
+            } else if let error = error {
+                print("Error: \(error.localizedDescription)")
+                failure(error)
+            }
+        })
+    }
+
 }

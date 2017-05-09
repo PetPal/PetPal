@@ -21,6 +21,7 @@ class User: NSObject {
     var password: String?
     var groups: [Group]?
     var userAvatar: PFFile?
+    var pets: [Pet]?
     
 //    var petCount: Int?
 //    var locationCity: String?
@@ -60,6 +61,12 @@ class User: NSObject {
             }
         }
         return nil
+    }
+    
+    func addPets(pets: [Pet]) {
+        for pet in pets {
+            self.pets?.append(pet)
+        }
     }
     
     override func isEqual(_ object: Any?) -> Bool {

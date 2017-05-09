@@ -10,9 +10,13 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var profilePicture: UIImageView!
+    let currentUser = User.currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        profilePicture.setRounded()
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +25,13 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "AddPetSegue") {
+            let addPetVC = segue.destination as! AddPetViewController
+            addPetVC.user = currentUser
+        }
+    }
 
     /*
     // MARK: - Navigation
