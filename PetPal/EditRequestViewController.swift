@@ -143,11 +143,21 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
             break
         case .acceptedRequest:
             // segue chat
-            _ = navigationController?.popViewController(animated: true)
+            if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
+                _ = Messages.startPrivateChat(requestUser.pfUser!, user2: acceptUser.pfUser!)
+            }
+
+            let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController")
+            navigationController?.present(chatVC, animated: true, completion: nil)
             break
         case .task:
           // segue chat
-            _ = navigationController?.popViewController(animated: true)
+            if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
+                _ = Messages.startPrivateChat(requestUser.pfUser!, user2: acceptUser.pfUser!)
+            }
+
+            let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController")
+            navigationController?.present(chatVC, animated: true, completion: nil)
             break
         case .groupRequest:
             request.acceptUser = User.currentUser
