@@ -161,6 +161,7 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
             break
         case .groupRequest:
             request.acceptUser = User.currentUser
+            request.acceptDate = Date()
             PetPalAPIClient.sharedInstance.updateRequest(request: request)
             
             _ = navigationController?.popViewController(animated: true)

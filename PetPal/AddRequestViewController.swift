@@ -156,7 +156,7 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let startDate = startDate, let endDate = endDate else { return }
         
         let user = User.currentUser
-        var requestType = RequestType.boardingType
+        let  requestType = RequestType.boardingType
         //requestType = RequestType.dropInVisitType
         
         // gather the selectedGroups

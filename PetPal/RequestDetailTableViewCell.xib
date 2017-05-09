@@ -78,7 +78,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.88324600458145142" green="0.88131684064865112" blue="0.9245409369468689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sdi-uM-s3l" secondAttribute="bottom" constant="6" id="BOl-kt-UBc"/>
                                     <constraint firstItem="Pqx-nR-mlX" firstAttribute="top" secondItem="ZLu-7q-4bH" secondAttribute="top" constant="6" id="HiF-nF-EAl"/>
@@ -95,7 +95,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUR-fL-12b">
                                         <rect key="frame" x="67" y="6" width="23.5" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.44701606035232544" green="0.44885629415512085" blue="0.64301109313964844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7i-Xe-rir">
@@ -111,7 +111,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.88324600458145142" green="0.88131684064865112" blue="0.9245409369468689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="s7i-Xe-rir" firstAttribute="centerX" secondItem="tX7-hk-2Ix" secondAttribute="centerX" id="5xB-hm-cEL"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2qp-r0-qos" secondAttribute="bottom" constant="6" id="BmI-hn-nJa"/>
@@ -123,6 +123,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.88324600458145142" green="0.88131684064865112" blue="0.9245409369468689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZLu-7q-4bH" firstAttribute="leading" secondItem="Whd-7d-Gfq" secondAttribute="leading" constant="-4" id="8Tl-5J-YqQ"/>
                             <constraint firstItem="uT7-t4-Y8Y" firstAttribute="centerY" secondItem="Whd-7d-Gfq" secondAttribute="centerY" id="CPB-iy-Yff"/>
@@ -149,14 +150,14 @@
                     <constraint firstItem="xZi-po-hB4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4pn-AS-wMC"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Whd-7d-Gfq" secondAttribute="trailing" id="7R4-AJ-bo2"/>
                     <constraint firstItem="xZi-po-hB4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="C1g-eT-IIG"/>
-                    <constraint firstItem="Whd-7d-Gfq" firstAttribute="leading" secondItem="6Qz-Qe-fvP" secondAttribute="leading" id="WQt-3I-LsV"/>
+                    <constraint firstItem="Whd-7d-Gfq" firstAttribute="top" secondItem="xZi-po-hB4" secondAttribute="bottom" constant="5" id="F89-4L-9My"/>
+                    <constraint firstItem="Whd-7d-Gfq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="48" id="Nsa-e9-VqL"/>
                     <constraint firstItem="Fab-Uy-Fjk" firstAttribute="baseline" secondItem="6Qz-Qe-fvP" secondAttribute="baseline" id="WmI-qe-aOs"/>
                     <constraint firstItem="Zqy-aF-ivi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="c8y-yR-sQf"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Whd-7d-Gfq" secondAttribute="bottom" id="dYj-bs-v69"/>
                     <constraint firstItem="Fab-Uy-Fjk" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="dvg-O6-rO6"/>
                     <constraint firstItem="Zqy-aF-ivi" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="gWG-DU-3Qy"/>
                     <constraint firstItem="Zqy-aF-ivi" firstAttribute="baseline" secondItem="sVr-Y2-OIV" secondAttribute="baseline" id="i0g-NE-Dmt"/>
-                    <constraint firstItem="Whd-7d-Gfq" firstAttribute="top" secondItem="6Qz-Qe-fvP" secondAttribute="bottom" constant="8" id="mCf-M7-xOm"/>
                     <constraint firstItem="6Qz-Qe-fvP" firstAttribute="top" secondItem="sVr-Y2-OIV" secondAttribute="bottom" constant="2" id="vg0-Pg-gJX"/>
                 </constraints>
             </tableViewCellContentView>

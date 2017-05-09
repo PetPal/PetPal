@@ -36,7 +36,7 @@ class Utilities {
         User.currentUser = nil
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let welcomeVC = storyboard.instantiateViewController(withIdentifier: "WelcomeNavigationController") as! UINavigationController
+        let welcomeVC = storyboard.instantiateViewController(withIdentifier: "loginVC")
         if let keyWindow = UIApplication.shared.keyWindow {
             keyWindow.rootViewController = welcomeVC
         }

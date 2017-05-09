@@ -47,11 +47,12 @@ class HamburgerViewController: UIViewController {
     
     @IBOutlet var contentViewLeadingConstraint: NSLayoutConstraint!
     var originalContentViewMargin: CGFloat = 0.0
+    var quarterWidth: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        quarterWidth = view.frame.width / 4
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,13 +66,41 @@ class HamburgerViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.began {
             originalContentViewMargin = contentViewLeadingConstraint.constant
         } else if sender.state == UIGestureRecognizerState.changed {
-            contentViewLeadingConstraint.constant = originalContentViewMargin + translation.x
-        } else if sender.state == UIGestureRecognizerState.ended {
-            UIView.animate(withDuration: 0.3, animations: { 
+            let offset = originalContentViewMargin + translation.x
+            if offset >= 0 {
                 if velocity.x > 0.0 {
-                    let quarterWidth = self.view.frame.width / 4
-                    self.contentViewLeadingConstraint.constant = 3 * quarterWidth
+                    let scale = 1 - ((translation.x / (3 * quarterWidth)) * 0.1)
+                    contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
                 } else {
+                    let scale = ((-translation.x / (3 * quarterWidth)) * 0.1) + 0.9
+                    contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
+                }
+                contentViewLeadingConstraint.constant = offset
+            }
+        } else if sender.state == UIGestureRecognizerState.ended {
+//            UIView.animate(withDuration: 1.0, animations: {
+//                if velocity.x > 0.0 {
+//                    self.contentViewLeadingConstraint.constant = 3 * self.quarterWidth
+//                } else {
+//                    self.contentViewLeadingConstraint.constant = 0
+//                }
+//            })
+            UIView.animate(withDuration: 1.0, animations: {
+                if velocity.x > 0.0 {
+                    // translate then scale (only translate)
+//                    let transform = CGAffineTransform(translationX: 3 * self.quarterWidth, y: 0)
+//                    transform.concatenating(CGAffineTransform(scaleX: 0.9, y: 0.9))
+                    // scale then translate (only scale)
+//                    let transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+//                    transform.concatenating(CGAffineTransform(translationX: 3 * self.quarterWidth, y: 0))
+                    let transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                    self.contentView.transform = transform
+                    self.contentViewLeadingConstraint.constant = 3 * self.quarterWidth
+                } else {
+                    let transform = CGAffineTransform(translationX: 0, y: 0)
+                    transform.scaledBy(x: 1.0, y: 1.0)
+                    print("transform \(transform)")
+                    self.contentView.transform = transform
                     self.contentViewLeadingConstraint.constant = 0
                 }
             })
