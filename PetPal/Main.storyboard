@@ -1224,12 +1224,9 @@
     <resources>
         <image name="PetPalLogo" width="1000" height="1000"/>
         <image name="camera" width="48" height="48"/>
-<<<<<<< HEAD
         <image name="defaultProfileImage" width="256" height="256"/>
-=======
         <image name="dog" width="64" height="64"/>
         <image name="dog-650299" width="590" height="350"/>
->>>>>>> origin/master
         <image name="email" width="32" height="32"/>
         <image name="mygroup" width="24" height="24"/>
         <image name="nearby" width="24" height="24"/>
