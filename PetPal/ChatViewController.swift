@@ -125,4 +125,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
 
+    @IBAction func onCancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

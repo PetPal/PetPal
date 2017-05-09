@@ -52,7 +52,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     func loadMessages() {
         let query = PFQuery(className: "Message")
         query.whereKey("user", equalTo: PFUser.current()!)
-        // query.includeKey("lastUser")
+        query.includeKey("lastUser")
         query.order(byDescending: "updatedAt")
         query.findObjectsInBackground{ (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {

@@ -21,16 +21,19 @@ class MessagesCell: UITableViewCell {
     
     var message: PFObject! {
         didSet {
-            let lastUser = message.object(forKey: "lastUser") as? User
+            let lastUser = message.object(forKey: "lastUser") as? PFUser
             //let lastUser = message["lastUser"] as? User
-            //userImage.file = lastUser?.object(forKey: "userAvatar") as? PFFile
-             //userImage.loadInBackground()
-            nameLabel.text = lastUser?.name
+            userImage.file = lastUser?.object(forKey: "userAvatar") as? PFFile
+            userImage.loadInBackground()
+            nameLabel.text = lastUser?.object(forKey: "name") as? String
+            
             lastMessageLabel.text = message["text"] as? String
-           // let date = Date()
-          //  let timeInterval = date.timeIntervalSince(message["updatedAt"] as! Date)
+            let date = Date()
+            if let updateDate = message["updatedAt"] as? Date {
+                let timeInterval = date.timeIntervalSince(updateDate)
+                timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)
+            }
  
-           // timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)
             let dateText = JSQMessagesTimestampFormatter.shared().relativeDate(for: message["updatedAt"] as? Date)
             if dateText == "Today" {
                 timeElapsedLabel.text = JSQMessagesTimestampFormatter.shared().time(for: message["updatedAt"] as? Date)
