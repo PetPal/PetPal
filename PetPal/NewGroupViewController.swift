@@ -13,6 +13,10 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var typeSegment: UISegmentedControl!
     @IBOutlet weak var descriptionTextField: UITextView!
+    
+    @IBOutlet weak var groupTypeSegment: UISegmentedControl!
+    
+    
     var photo: UIImage!
     
     override func viewDidLoad() {
@@ -77,7 +81,7 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
         if (nameTextField.text == "" ||  descriptionTextField.text == ""){
             self.present(alertController, animated: true, completion: nil)
         } else {
-            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: 0)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!)
+            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: self.groupTypeSegment.selectedSegmentIndex)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!)
             PetPalAPIClient.sharedInstance.addGroup(group: newgroup)
             self.dismiss(animated: true, completion: nil)
         }

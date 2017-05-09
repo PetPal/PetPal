@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SXo-7P-b0y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SXo-7P-b0y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -537,6 +537,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="TQW-YD-iGq" id="iiG-iN-Oqw"/>
                         <outlet property="descriptionTextField" destination="xvk-Jt-k1Z" id="u7m-uE-wlA"/>
+                        <outlet property="groupTypeSegment" destination="zFq-4u-RuD" id="OVh-JC-L1O"/>
                         <outlet property="nameTextField" destination="aHr-ex-ipq" id="Dex-at-hPT"/>
                         <outlet property="typeSegment" destination="zFq-4u-RuD" id="kh7-s0-aKa"/>
                     </connections>
