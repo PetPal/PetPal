@@ -39,6 +39,9 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         let nibName = UINib(nibName: "DateRangeTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "DateRangeTableViewCell")
         
+        let basicNibName = UINib(nibName: "BasicTableViewCell", bundle: nil)
+        tableView.register(basicNibName, forCellReuseIdentifier: "BasicTableViewCell")
+        
         tableView.estimatedRowHeight = 320
         tableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -82,30 +85,27 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
             dateCell.dateRange = DateRange(startDate: startDate, endDate: endDate)
             return dateCell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicTableViewCell", for: indexPath) as! BasicTableViewCell
             
             switch request.category {
             case .pendingRequest:
-                cell.textLabel?.text = request.groups![indexPath.row].name
+                cell.group = request.groups![indexPath.row]
             case .acceptedRequest:
-                let user = request.acceptUser
-                cell.textLabel?.text = user?.name
+                cell.user = request.acceptUser
             case .task:
-                let user = request.requestUser
-                cell.textLabel?.text = user?.name
+                cell.user = request.requestUser
             case .groupRequest:
-                let user = request.requestUser
-                cell.textLabel?.text = user?.name
+                cell.user = request.requestUser
             }
 
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicCell", for: indexPath)
-            cell.textLabel?.text = request.getTypeString()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicTableViewCell", for: indexPath) as! BasicTableViewCell
+            cell.basicText = request.getTypeString()
             return cell
         default:
-            let dateCell = tableView.dequeueReusableCell(withIdentifier: "BasicCell", for: indexPath)
-            return dateCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicTableViewCell", for: indexPath) as! BasicTableViewCell
+            return cell
         }
     }
     
@@ -143,11 +143,21 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
             break
         case .acceptedRequest:
             // segue chat
-            _ = navigationController?.popViewController(animated: true)
+            if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
+                _ = Messages.startPrivateChat(requestUser.pfUser!, user2: acceptUser.pfUser!)
+            }
+
+            let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController")
+            navigationController?.present(chatVC, animated: true, completion: nil)
             break
         case .task:
           // segue chat
-            _ = navigationController?.popViewController(animated: true)
+            if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
+                _ = Messages.startPrivateChat(requestUser.pfUser!, user2: acceptUser.pfUser!)
+            }
+
+            let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController")
+            navigationController?.present(chatVC, animated: true, completion: nil)
             break
         case .groupRequest:
             request.acceptUser = User.currentUser

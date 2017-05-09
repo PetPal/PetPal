@@ -21,14 +21,19 @@ class MessagesCell: UITableViewCell {
     
     var message: PFObject! {
         didSet {
-            let lastUser = message["lastUser"] as? PFUser
-            userImage.file = lastUser?["userAvatar"] as? PFFile
-             userImage.loadInBackground()
+            let lastUser = message.object(forKey: "lastUser") as? PFUser
+            //let lastUser = message["lastUser"] as? User
+            userImage.file = lastUser?.object(forKey: "userAvatar") as? PFFile
+            userImage.loadInBackground()
+            nameLabel.text = lastUser?.object(forKey: "name") as? String
+            
             lastMessageLabel.text = message["text"] as? String
             let date = Date()
-            let timeInterval = date.timeIntervalSince(message["updatedAt"] as! Date)
+            if let updateDate = message["updatedAt"] as? Date {
+                let timeInterval = date.timeIntervalSince(updateDate)
+                timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)
+            }
  
-            timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)
             let dateText = JSQMessagesTimestampFormatter.shared().relativeDate(for: message["updatedAt"] as? Date)
             if dateText == "Today" {
                 timeElapsedLabel.text = JSQMessagesTimestampFormatter.shared().time(for: message["updatedAt"] as? Date)
@@ -36,19 +41,21 @@ class MessagesCell: UITableViewCell {
                 timeElapsedLabel.text = dateText
             }
             
-            let counter = message["counter"] as! Int
-            counterLabel.text = (counter == 0) ? "" : "\(counter) new"
+           // let counter = message["counter"] as! Int
+           // counterLabel.text = (counter == 0) ? "" : "\(counter) new"
 
             
         }
     }
-    func bindData(_ message: PFObject) {
+    /*func bindData(_ message: PFObject) {
         userImage.layer.cornerRadius = userImage.frame.size.width / 2
         userImage.layer.masksToBounds = true
         
         let lastUser = message["lastUser"] as? PFUser
         userImage.file = lastUser?["userAvatar"] as? PFFile
         userImage.loadInBackground()
+        
+        nameLabel.text = lastUser?["name"] as? String
         
        // descriptionLabel.text = message["text"] as? String
         lastMessageLabel.text = message["text"] as? String
@@ -73,7 +80,7 @@ class MessagesCell: UITableViewCell {
         
         let counter = message["counter"] as! Int
         counterLabel.text = (counter == 0) ? "" : "\(counter) new"
-    }
+    }*/
     
 }
 

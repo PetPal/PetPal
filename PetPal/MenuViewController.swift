@@ -61,8 +61,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        // initialize profile view
-        
         let user = User.currentUser
         profileName.text = user?.name
         if let avatar = user?.userAvatar {
@@ -71,13 +69,10 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
             profileImage.setRounded()
         }
         
-        
-        //initProfileView()
-        //        NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-        //            self.initProfileView()
-        //        }
-        
-        
+        initProfileView()
+        NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            self.initProfileView()
+        }
         
         // set collection view's content to be the visible view area
         collectionViewTrailingConstraint.constant = (view.frame.width / 4) + CGFloat(collectionViewBuffer)
@@ -99,6 +94,15 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         menuItems[2].viewController = messagesNavigationController
         menuItems[4].viewController = settingsNavigationController
      }
+    
+    func initProfileView() {
+        let user = User.currentUser
+        profileName.text = user?.name
+        if let avatar = user?.userAvatar {
+            profileImage.file = avatar
+            profileImage.loadInBackground()
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

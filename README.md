@@ -20,15 +20,15 @@ The following base functionality is provided with the free version of this appli
 
 
 ##### Communities Features
-- [ ] User can send and recieve requests for pet care among their community.
+- [x] User can send and recieve requests for pet care among their community.
 - [ ] User can look for communities based on thier geo-location.
-- [ ] User can create, join and leave communities within the app.
+- [x] User can create, join and leave communities within the app.
 
 
 ##### Backend and Specifics
-- [ ] User can see requests, messages and other data that is retreieved from a Parse DB using Parse API.
+- [x] User can see requests, messages and other data that is retreieved from a Parse DB using Parse API.
 - [ ] User sees an error message when there is a network error.
-- [ ] Application will save the login credentials of the user until logout.
+- [x] Application will save the login credentials of the user until logout.
 
 
 ##### Profile
@@ -54,6 +54,9 @@ Sprint1 walk through
 
 ![Video Walkthrough](PetPalSprint1.gif)
 
+Sprint2 walk through
+
+![Video Walkthrough](PetPalSprint2.gif)
 
 # License
 

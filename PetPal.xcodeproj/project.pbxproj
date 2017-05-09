@@ -34,6 +34,9 @@
 		A5F966421EB92B3C001D072B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F966411EB92B3C001D072B /* Main.storyboard */; };
 		A5F966461EBA62E7001D072B /* nearbyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */; };
 		A5F966481EBA6324001D072B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F966471EBA6324001D072B /* MapKit.framework */; };
+		CE2710261EBFCD8900C3B26B /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */; };
+		CE2710271EBFCD8900C3B26B /* BasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */; };
+		CEA04EE71EC04DB6007E5E3E /* PetPalSprint2.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */; };
 		CEBA9AC81EB6FEFC00CB846C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9AC71EB6FEFC00CB846C /* README.md */; };
 		CEBA9ACA1EB702D000CB846C /* PetPalSprint1.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */; };
 		CEBA9ACC1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */; };
@@ -89,6 +92,9 @@
 		A5F966411EB92B3C001D072B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyGroupsViewController.swift; sourceTree = "<group>"; };
 		A5F966471EBA6324001D072B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
+		CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
+		CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint2.gif; sourceTree = "<group>"; };
 		CEBA9AC71EB6FEFC00CB846C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint1.gif; sourceTree = "<group>"; };
 		CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBA9AC71EB6FEFC00CB846C /* README.md */,
+				CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */,
 				CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */,
 				99F9DA9E1EAC016B00878886 /* PetPal */,
 				99F9DA9D1EAC016B00878886 /* Products */,
@@ -200,12 +207,12 @@
 			isa = PBXGroup;
 			children = (
 				99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */,
+				A5F966311EB46948001D072B /* WelcomeViewController.swift */,
+				A5F9662F1EB292FF001D072B /* LoginViewController.swift */,
 				994255401EB66DDC0039BE4B /* ProfileViewController.swift */,
 				CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */,
 				CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */,
 				A5F966091EB1797A001D072B /* ChatViewController.swift */,
-				A5F9662F1EB292FF001D072B /* LoginViewController.swift */,
-				A5F966311EB46948001D072B /* WelcomeViewController.swift */,
 				CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */,
 				CEEC8B431EB28BAB00CC07C5 /* AddRequestViewController.swift */,
 				CEEFFB901EBD1C4D00E93EE4 /* EditRequestViewController.swift */,
@@ -233,6 +240,8 @@
 				CEEFFB951EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib */,
 				CEEFFB8C1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift */,
 				CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */,
+				CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */,
+				CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -321,10 +330,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2710271EBFCD8900C3B26B /* BasicTableViewCell.xib in Resources */,
 				99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */,
 				99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */,
 				CEEFFB8F1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib in Resources */,
 				CEBA9ACA1EB702D000CB846C /* PetPalSprint1.gif in Resources */,
+				CEA04EE71EC04DB6007E5E3E /* PetPalSprint2.gif in Resources */,
 				A5F966421EB92B3C001D072B /* Main.storyboard in Resources */,
 				994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */,
 				CEEFFB971EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib in Resources */,
@@ -407,6 +418,7 @@
 				CEEFFB911EBD1C4D00E93EE4 /* EditRequestViewController.swift in Sources */,
 				CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */,
 				CEBA9ACC1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift in Sources */,
+				CE2710261EBFCD8900C3B26B /* BasicTableViewCell.swift in Sources */,
 				CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */,
 				99CBCD261EC03AAF00850FCC /* Pet.swift in Sources */,
 				A5F966381EB5998B001D072B /* GroupViewController.swift in Sources */,

@@ -25,10 +25,11 @@ class Request: NSObject {
 
     var pfObject: PFObject?
     var requestUser: User?
+    var createdAtDate: Date?
     var acceptUser: User?
+    var acceptDate: Date?
     var startDate: Date?
     var endDate: Date?
-    var updatedAtDate: Date?
     var requestType: RequestType = RequestType.boardingType
     var groups: [Group]?
     
@@ -57,18 +58,20 @@ class Request: NSObject {
         self.requestType = requestType
         self.groups = groups
 
-        self.updatedAtDate = Date()
+        self.createdAtDate = Date()
     }
 
     init(object: PFObject) {
         pfObject = object
-        updatedAtDate = object.updatedAt
+
+        createdAtDate = pfObject?.createdAt
 
         if let pfUser = object["requestUser"] as? PFUser {
             requestUser = User(pfUser: pfUser)
         }
         if let pfUser = object["acceptUser"] as? PFUser {
             acceptUser = User(pfUser: pfUser)
+            acceptDate = object["acceptedDate"] as? Date
         }
         
         startDate = object["startDate"] as? Date
@@ -103,6 +106,7 @@ class Request: NSObject {
         }
         if let acceptUser = acceptUser {
             requestObject["acceptUser"] = acceptUser.pfUser
+            requestObject["acceptedDate"] = Date()
         }
         requestObject["requestType"] = requestType.rawValue
         
