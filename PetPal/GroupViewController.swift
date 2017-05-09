@@ -13,9 +13,6 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     
     var groups: [Group]! = []
     var refreshControl: UIRefreshControl!
-    var groupNameField: UITextField?
-    var groupTypeField: UITextField?
-   
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,36 +47,31 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         PetPalAPIClient.sharedInstance.populateGroups(forUser: user!)
         self.groups = user?.groups
         self.tableView.reloadData()
-        }
-       /* let query = PFQuery(className: "Group")
-        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?)
-            -> Void in
-            if error == nil {
-                self.groups.removeAll()
-                self.groups = objects
-               // self.groups.extend(objects as! [PFObject]!)
-                self.tableView.reloadData()
-            } else {
-                print("error: \(error?.localizedDescription)")
-            }
-            self.refreshControl!.endRefreshing()
-        }*/
-    
- 
+        } 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.groups.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         let group = self.groups[indexPath.row]
-        cell.textLabel?.text = group.name
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        
+        cell.nameLabel.text = group.name
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
-        cell.detailTextLabel?.text = "Created at: " + formatter.string(from: group.timeStamp!)
-        cell.detailTextLabel?.textColor = UIColor.lightGray
+        cell.createdAtLabel?.text = "Created at: " + formatter.string(from: group.timeStamp!)
+        cell.createdAtLabel?.textColor = UIColor.lightGray
+        
+        cell.createdAtLabel.text = "124"
+
+ 
+      //self.groupAvatar.file = Group["groupAvatar"] as? PFFile
+            let file = group.profileImage as? PFFile
+            cell.groupAvatar.file = file
+            cell.groupAvatar.loadInBackground()
+        
+    
         return cell
     }
     
@@ -114,7 +106,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
  */
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ChatViewController {
             let cell = sender as! UITableViewCell
             let indexPath = tableView.indexPath(for: cell)
@@ -124,6 +116,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
             //chatViewController.groupId = groupId
         }
     }
+ */
     
 
 }

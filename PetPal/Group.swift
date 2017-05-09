@@ -22,9 +22,9 @@ class Group: NSObject {
     var owner: User?
     var timeStamp: Date?
     var overview: String?
-    var profileImage : UIImage?
+    var profileImage : PFFile?
 
-    init(name: String, type: GroupType, owner: User, timeStamp: Date, overview: String, profileImage: UIImage) {
+    init(name: String, type: GroupType, owner: User, timeStamp: Date, overview: String, profileImage: PFFile) {
         self.name = name
         self.type = type
         self.owner = User.currentUser
@@ -39,7 +39,7 @@ class Group: NSObject {
         type = GroupType(rawValue: (object["groupType"] as? Int) ?? 0)!
         overview = (object["overview"] as? String) ?? "None"
         timeStamp = object.createdAt as Date!
-        profileImage = object["groupAvatar"] as! UIImage
+        profileImage = object["groupAvatar"] as? PFFile
   
     }
 

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cameraButton: UIButton!
@@ -16,6 +18,7 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
     @IBOutlet weak var groupTypeSegment: UISegmentedControl!
 
     var photo: UIImage!
+    var processedPhoto: PFFile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +64,7 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         photo = originalImage
+        _ = Utilities.getPFFileFromImage(image: photo)
         self.cameraButton.setImage(originalImage, for: UIControlState.normal)
        
         self.dismiss(animated: true, completion: nil)
@@ -72,7 +76,7 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
         if (nameTextField.text == "" ||  descriptionTextField.text == ""){
             self.present(alertController, animated: true, completion: nil)
         } else {
-            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: self.groupTypeSegment.selectedSegmentIndex)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!, profileImage: photo)
+            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: self.groupTypeSegment.selectedSegmentIndex)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!, profileImage: processedPhoto!)
             PetPalAPIClient.sharedInstance.addGroup(group: newgroup)
             self.dismiss(animated: true, completion: nil)
         }
