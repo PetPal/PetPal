@@ -21,6 +21,7 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var groups: [Group]?
     var selectedGroups: [Bool] = []
+    var initialSelectedGroup: Group?
     
     // TODO services
     let services = ["Boarding", "Drop in Visit"]
@@ -41,6 +42,14 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         if let groups = groups {
             if groups.count > 0 {
                 selectedGroups = Array.init(repeating: true, count: groups.count)
+            }
+            if let initialSelectedGroup = initialSelectedGroup {
+                if let index = groups.index(of: initialSelectedGroup) {
+                    if groups.count > 0 {
+                        selectedGroups = Array.init(repeating: false, count: groups.count)
+                    }
+                    selectedGroups[index] = true
+                }
             }
         }
         

@@ -167,6 +167,34 @@ class PetPalAPIClient  {
             }
         }
     }
+    
+    func getUsers(group: Group, success: @escaping ([User]) -> (), failure: @escaping (Error?) -> ()) {
+        guard let pfObject = group.pfObject else { return }
+        guard let groupObjectid = pfObject.objectId else { return }
+        
+        let innerQuery = PFQuery(className: "Group")
+        innerQuery.whereKey("objectId", equalTo: groupObjectid)
+        
+        let query = PFQuery(className: "_User")
+        query.includeKey("Pets")
+        query.whereKey("groups", matchesQuery: innerQuery)
+
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                var users = [User]()
+                if let objects = objects {
+                    for object in objects {
+                        let pfUser = object as! PFUser
+                        let user = User(pfUser: pfUser)
+                        users.append(user)
+                    }
+                }
+                success(users)
+            } else {
+                failure(error)
+            }
+        }
+    }
 
     func getRequestInUserGroup(user: User, success: @escaping ([Request]) -> (), failure: @escaping (Error?) -> ()) {
         guard let userGroups = user.groups else { return }

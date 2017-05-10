@@ -14,6 +14,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     var groups: [Group]! = []
     var refreshControl: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //set Nav bar color
@@ -27,7 +28,11 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         // Pull to refresh
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        self.refreshControl!.addTarget(self, action: #selector(GroupViewController.loadGroups), for: UIControlEvents.valueChanged)
+        self.refreshControl!.addTarget(self, action: #selector(loadGroups), for: UIControlEvents.valueChanged)
+        
+        NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            self.loadGroups()
+        }
     }
     
 
@@ -41,13 +46,10 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     }
     
     func loadGroups() {
-        //fetching the group which the current user belongs to
         let user = User.currentUser
-        self.groups.removeAll()
-        PetPalAPIClient.sharedInstance.populateGroups(forUser: user!)
-        self.groups = user?.groups
-        self.tableView.reloadData()
-        } 
+        groups = user?.groups
+        tableView.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.groups.count
@@ -73,15 +75,17 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "groupDetailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let detailGroupVC = segue.destination as! GroupDetailViewController
+                detailGroupVC.group = groups[indexPath.row]
+            }
+        }
     }
-    */
 
     
     /*func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

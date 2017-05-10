@@ -144,7 +144,7 @@
                                         <rect key="frame" x="0.0" y="160" width="375" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iwd-sk-9Jo" id="7nZ-dn-UZ6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="81.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -188,7 +188,7 @@
         <!--Add Request View Controller-->
         <scene sceneID="bDS-jp-Q2h">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="4f2-wv-9ZU" customClass="AddRequestViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRequestViewController" wantsFullScreenLayout="YES" id="4f2-wv-9ZU" customClass="AddRequestViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g5E-Dc-4lg"/>
                         <viewControllerLayoutGuide type="bottom" id="ohC-eD-TeW"/>
