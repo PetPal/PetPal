@@ -97,6 +97,25 @@ class PetPalAPIClient  {
         }
     }
     
+    func populatePets(forUser user: User) {
+        let pfUser = user.pfUser
+        let relation = pfUser!.relation(forKey: "Pets")
+        relation.query().findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                var pets = [Pet]()
+                if let objects = objects {
+                    for object in objects {
+                        let pet = Pet(object: object)
+                        pets.append(pet)
+                    }
+                    user.pets = pets
+                    
+                    NotificationCenter.default.post(name: PetPalConstants.userPetUpdated, object: user)
+                }
+            }
+        }
+    }
+    
     func addRequest(request: Request) {
         let requestObject: PFObject! = request.makePFObject()
         requestObject.saveInBackground { (success: Bool, error: Error?) in
@@ -223,26 +242,27 @@ class PetPalAPIClient  {
     func addPet(pet: Pet, success: @escaping (Pet) -> (), failure: @escaping (Error?) -> (), completion: @escaping () -> ()) {
         let petObject: PFObject! = pet.makePFObject()
         
-        
         petObject.saveInBackground { (successSavePet: Bool, error: Error?) in
             if successSavePet {
                 print("pet added")
                 //NotificationCenter.default.post(name: PetPalConstants.petAdded, object: pet)
+                pet.pfPet = petObject
                 success(pet)
+                completion()
             } else if let error = error {
                 print("Error: \(error.localizedDescription)")
                 failure(error)
             }
         }
-        completion()
     }
 
     
     
     func addPetToUser(pet: Pet, success: @escaping (User) -> (), failure: @escaping (Error?) -> ()) {
+        guard let pfPet = pet.pfPet else {return}
         let user = pet.owner
         let pfUser = user?.pfUser
-        let petObject: PFObject! = pet.makePFObject()
+        let petObject: PFObject! = pet.updatePFObject(petObject: pfPet)
         let relation = pfUser!.relation(forKey: "Pets")
         relation.add(petObject)
         

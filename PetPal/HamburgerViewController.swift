@@ -33,6 +33,10 @@ class HamburgerViewController: UIViewController {
             
             contentViewController.willMove(toParentViewController: self)
             
+            let transform = CGAffineTransform(translationX: 0, y: 0)
+            transform.scaledBy(x: 1.0, y: 1.0)
+            contentView.transform = transform
+
             contentView.addSubview(contentViewController.view)
             
             contentViewController.didMove(toParentViewController: self)
@@ -85,7 +89,7 @@ class HamburgerViewController: UIViewController {
 //                    self.contentViewLeadingConstraint.constant = 0
 //                }
 //            })
-            UIView.animate(withDuration: 1.0, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 if velocity.x > 0.0 {
                     // translate then scale (only translate)
 //                    let transform = CGAffineTransform(translationX: 3 * self.quarterWidth, y: 0)
@@ -99,7 +103,6 @@ class HamburgerViewController: UIViewController {
                 } else {
                     let transform = CGAffineTransform(translationX: 0, y: 0)
                     transform.scaledBy(x: 1.0, y: 1.0)
-                    print("transform \(transform)")
                     self.contentView.transform = transform
                     self.contentViewLeadingConstraint.constant = 0
                 }

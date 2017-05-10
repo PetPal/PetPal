@@ -16,6 +16,7 @@ struct PetPalConstants {
     static let groupAdded = NSNotification.Name(rawValue: "groupAdded")
 
     static let userGroupUpdated = NSNotification.Name(rawValue: "userGroupUpdated")
+    static let userPetUpdated = NSNotification.Name(rawValue: "userPetUpdated")
     
     static let petAdded = NSNotification.Name(rawValue: "petAdded")
     

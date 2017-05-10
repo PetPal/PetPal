@@ -86,8 +86,9 @@ class User: NSObject {
                 if let pfUser = PFUser.current() {
                     _currentUser = User(pfUser: pfUser)
                     
-                    // populate the groups- notification will be sent 
+                    // populate the groups/pets - notification will be sent
                     PetPalAPIClient.sharedInstance.populateGroups(forUser: _currentUser!)
+                    PetPalAPIClient.sharedInstance.populatePets(forUser: _currentUser!)
                 }
             }
             return _currentUser
