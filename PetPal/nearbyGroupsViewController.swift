@@ -30,10 +30,26 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
+            //locationManager.startUpdatingLocation()
         }
         
         mapView.showsUserLocation = true
+        
+        
+        //set region
+        
+        let user = User.currentUser
+        let location = user?.location! ?? "1 Infinite Loop, CA, USA" as String
+        let geocoder: CLGeocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: Error?) -> Void in
+            if ((placemarks?.count)! > 0) {
+                let topResult: CLPlacemark = (placemarks?[0])!
+                let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+                let region = MKCoordinateRegionMake(CLLocationCoordinate2DMake((placemark.location?.coordinate.latitude)!,  (placemark.location?.coordinate.longitude)!),                                                  MKCoordinateSpanMake(0.3, 0.3))
+                self.mapView.setRegion(region, animated: true)
+                //self.mapView.addAnnotation(placemark)
+            }
+        })
         
         addPin()
         
@@ -48,14 +64,13 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         // Dispose of any resources that can be recreated.
     }
     
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         defer { currentLocation = locations.last }
        // let currentLocation =
         if currentLocation == nil {
             // Zoom to user location
             if let userLocation = locations.last {
-                let viewRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 5000, 5000)
+                let viewRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 40000, 40000)
                 mapView.setRegion(viewRegion, animated: false)
             }
         }
@@ -68,14 +83,19 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
             if ((placemarks?.count)! > 0) {
                 let topResult: CLPlacemark = (placemarks?[0])!
                 let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
-                let region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.368832,  -122.036346),                                                  MKCoordinateSpanMake(0.3, 0.3))
-                self.mapView.setRegion(region, animated: true)
+                //let region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.368832,  -122.036346),                                                  MKCoordinateSpanMake(0.3, 0.3))
+                
+               // let region = MKCoordinateRegionMake(CLLocationCoordinate2DMake((placemark.location?.coordinate.latitude)!, (placemark.location?.coordinate.longitude)!),                                                  MKCoordinateSpanMake(0.3, 0.3))
+            
+                //self.mapView.setRegion(region, animated: true)
                 self.annotation.coordinate = (placemark.location?.coordinate)!
                 self.mapView.addAnnotation(self.annotation)
             }
         })
         
     }
+    
+    
     
 
     /*
