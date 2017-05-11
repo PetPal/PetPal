@@ -16,6 +16,8 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
     let annotation = MKPointAnnotation()
     private var locationManager: CLLocationManager!
     private var currentLocation: CLLocation?
+    
+    var groups: [Group]! = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +53,7 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
             }
         })
         
-        addPin()
+        addPinsForGroups()
         
         // Do any additional setup after loading the view.
         //let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),
@@ -76,22 +78,29 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         }
     }
     
-    func addPin(){
-        let location: String = "1 infinite loop, CA, USA"
-        let geocoder: CLGeocoder = CLGeocoder()
-        geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: Error?) -> Void in
-            if ((placemarks?.count)! > 0) {
-                let topResult: CLPlacemark = (placemarks?[0])!
-                let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
-                //let region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.368832,  -122.036346),                                                  MKCoordinateSpanMake(0.3, 0.3))
-                
-               // let region = MKCoordinateRegionMake(CLLocationCoordinate2DMake((placemark.location?.coordinate.latitude)!, (placemark.location?.coordinate.longitude)!),                                                  MKCoordinateSpanMake(0.3, 0.3))
-            
-                //self.mapView.setRegion(region, animated: true)
-                self.annotation.coordinate = (placemark.location?.coordinate)!
-                self.mapView.addAnnotation(self.annotation)
+    func addPinsForGroups(){
+        PetPalAPIClient.sharedInstance.getGroups(success: { (groups: [Group]) in
+            self.groups = groups
+            for group in groups {
+                let location = group.location!
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MM/dd/yy"
+                let createdTime = "Created at: " + formatter.string(from: group.timeStamp!)
+                let geocoder: CLGeocoder = CLGeocoder()
+                geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: Error?) -> Void in
+                    if ((placemarks?.count)! > 0) {
+                        let topResult: CLPlacemark = (placemarks?[0])!
+                        let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+                        self.annotation.coordinate = (placemark.location?.coordinate)!
+                        
+                        let annotation = Annotation(title: group.name!, coordinate: (placemark.location?.coordinate)!, subtitle: createdTime)
+                        self.mapView.addAnnotation(annotation)
+                    }
+                })
             }
-        })
+        }) { (error: Error?) in
+            print("error \(String(describing: error?.localizedDescription))")
+        }
         
     }
     

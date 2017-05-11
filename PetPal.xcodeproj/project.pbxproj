@@ -35,6 +35,7 @@
 		A5F966421EB92B3C001D072B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F966411EB92B3C001D072B /* Main.storyboard */; };
 		A5F966461EBA62E7001D072B /* nearbyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */; };
 		A5F966481EBA6324001D072B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F966471EBA6324001D072B /* MapKit.framework */; };
+		A5F976561EC4E05D00D73332 /* Annoation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F976551EC4E05D00D73332 /* Annoation.swift */; };
 		CE2710261EBFCD8900C3B26B /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */; };
 		CE2710271EBFCD8900C3B26B /* BasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */; };
 		CEA04EE71EC04DB6007E5E3E /* PetPalSprint2.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */; };
@@ -95,6 +96,7 @@
 		A5F966411EB92B3C001D072B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyGroupsViewController.swift; sourceTree = "<group>"; };
 		A5F966471EBA6324001D072B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A5F976551EC4E05D00D73332 /* Annoation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annoation.swift; sourceTree = "<group>"; };
 		CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
 		CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
 		CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint2.gif; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				CEF1A2451EB4649000EBC0A4 /* Group.swift */,
 				A50A9C2A1EBD289B000A1394 /* Messages.swift */,
 				99CBCD251EC03AAF00850FCC /* Pet.swift */,
+				A5F976551EC4E05D00D73332 /* Annoation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */,
 				A50A9C2D1EBD36D7000A1394 /* MessagesCell.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
+				A5F976561EC4E05D00D73332 /* Annoation.swift in Sources */,
 				CEBA9AD01EBA671700CB846C /* CustomDateCell.swift in Sources */,
 				A50A9C2B1EBD289B000A1394 /* Messages.swift in Sources */,
 				99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */,
