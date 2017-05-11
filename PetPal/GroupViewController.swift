@@ -25,6 +25,10 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        
+        // register tableView Cell
+        let nibName = UINib(nibName: "GroupCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "GroupCell")
         // Pull to refresh
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -57,15 +61,8 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
-        let group = self.groups[indexPath.row]
-        cell.nameLabel.text = group.name
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yy"
-        cell.createdAtLabel?.text = "Created at: " + formatter.string(from: group.timeStamp!)
-        cell.createdAtLabel?.textColor = UIColor.lightGray
-        let file = group.profileImage
-        cell.groupAvatar.file = file
-        cell.groupAvatar.loadInBackground()
+        cell.selectionStyle = .none
+        cell.group = self.groups[indexPath.row]
         return cell
     }
     

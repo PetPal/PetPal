@@ -10,7 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocationManagerDelegate {
+class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var tableView: UITableView!
 
     @IBOutlet weak var mapView: MKMapView!
     let annotation = MKPointAnnotation()
@@ -52,8 +53,11 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
                 //self.mapView.addAnnotation(placemark)
             }
         })
-        
+        loadGroups()
         addPinsForGroups()
+        // register tableView Cell
+        let nibName = UINib(nibName: "GroupCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "GroupCell")
         
         // Do any additional setup after loading the view.
         //let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(37.783333, -122.416667),
@@ -78,6 +82,15 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         }
     }
     
+    func loadGroups(){
+        PetPalAPIClient.sharedInstance.getGroups(success: { (groups: [Group]) in
+            self.groups = groups
+        }) { (error: Error?) in
+            print("error \(String(describing: error?.localizedDescription))")
+        }
+    }
+    
+    
     func addPinsForGroups(){
         PetPalAPIClient.sharedInstance.getGroups(success: { (groups: [Group]) in
             self.groups = groups
@@ -101,8 +114,19 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         }) { (error: Error?) in
             print("error \(String(describing: error?.localizedDescription))")
         }
-        
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.groups.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
+        cell.selectionStyle = .none
+        cell.group = self.groups[indexPath.row]
+        return cell
+    }
+    
     
     
     

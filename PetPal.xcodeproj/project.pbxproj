@@ -36,6 +36,7 @@
 		A5F966461EBA62E7001D072B /* nearbyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */; };
 		A5F966481EBA6324001D072B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F966471EBA6324001D072B /* MapKit.framework */; };
 		A5F976561EC4E05D00D73332 /* Annoation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F976551EC4E05D00D73332 /* Annoation.swift */; };
+		A5F976581EC4F11800D73332 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F976571EC4F11800D73332 /* GroupCell.xib */; };
 		CE2710261EBFCD8900C3B26B /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */; };
 		CE2710271EBFCD8900C3B26B /* BasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */; };
 		CEA04EE71EC04DB6007E5E3E /* PetPalSprint2.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */; };
@@ -99,6 +100,7 @@
 		A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyGroupsViewController.swift; sourceTree = "<group>"; };
 		A5F966471EBA6324001D072B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A5F976551EC4E05D00D73332 /* Annoation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annoation.swift; sourceTree = "<group>"; };
+		A5F976571EC4F11800D73332 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
 		CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
 		CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
 		CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint2.gif; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */,
 				CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */,
 				A59787301EC2661D00949539 /* GroupCell.swift */,
+				A5F976571EC4F11800D73332 /* GroupCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2710271EBFCD8900C3B26B /* BasicTableViewCell.xib in Resources */,
+				A5F976581EC4F11800D73332 /* GroupCell.xib in Resources */,
 				99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */,
 				99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */,
 				CEEFFB8F1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib in Resources */,

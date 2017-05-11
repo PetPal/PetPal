@@ -24,8 +24,9 @@ class Group: NSObject {
     var overview: String?
     var profileImage : PFFile?
     var location: String?
+    var memberCount: Int?
 
-    init(name: String, type: GroupType, owner: User, timeStamp: Date, overview: String, profileImage: PFFile, location: String) {
+    init(name: String, type: GroupType, owner: User, timeStamp: Date, overview: String, profileImage: PFFile, location: String, memberCount: Int) {
         self.name = name
         self.type = type
         self.owner = User.currentUser
@@ -33,6 +34,7 @@ class Group: NSObject {
         self.overview = overview
         self.profileImage = profileImage
         self.location = location
+        self.memberCount = memberCount
     }
     
     init(object: PFObject) {
@@ -43,6 +45,7 @@ class Group: NSObject {
         timeStamp = object.createdAt as Date!
         profileImage = object["groupAvatar"] as? PFFile
         location = object["Location"] as? String
+        memberCount = object["memberCount"] as? Int
   
     }
 
