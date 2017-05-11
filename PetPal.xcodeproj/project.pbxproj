@@ -46,6 +46,9 @@
 		CEBA9ACE1EBA636A00CB846C /* DateSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9ACD1EBA636A00CB846C /* DateSelectViewController.swift */; };
 		CEBA9AD01EBA671700CB846C /* CustomDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9ACF1EBA671700CB846C /* CustomDateCell.swift */; };
 		CEBA9AD41EBB074E00CB846C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9AD31EBB074E00CB846C /* UIColor.swift */; };
+		CEC62CDE1EC426C00042D808 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC62CDC1EC426C00042D808 /* HeaderTableViewCell.swift */; };
+		CEC62CE11EC427A40042D808 /* GroupHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC62CE01EC427A40042D808 /* GroupHeaderTableViewCell.swift */; };
+		CEC62CE31EC429060042D808 /* GroupUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC62CE21EC429060042D808 /* GroupUserTableViewCell.swift */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
 		CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */; };
 		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
@@ -57,7 +60,6 @@
 		CEEFFB8E1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB8C1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift */; };
 		CEEFFB8F1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */; };
 		CEEFFB911EBD1C4D00E93EE4 /* EditRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB901EBD1C4D00E93EE4 /* EditRequestViewController.swift */; };
-		CEEFFB931EBD8AA000E93EE4 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */; };
 		CEEFFB961EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFFB941EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift */; };
 		CEEFFB971EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEEFFB951EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib */; };
 		CEF1A2441EB4631700EBC0A4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1A2431EB4631700EBC0A4 /* Request.swift */; };
@@ -107,6 +109,9 @@
 		CEBA9ACD1EBA636A00CB846C /* DateSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSelectViewController.swift; sourceTree = "<group>"; };
 		CEBA9ACF1EBA671700CB846C /* CustomDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDateCell.swift; sourceTree = "<group>"; };
 		CEBA9AD31EBB074E00CB846C /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		CEC62CDC1EC426C00042D808 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		CEC62CE01EC427A40042D808 /* GroupHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		CEC62CE21EC429060042D808 /* GroupUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupUserTableViewCell.swift; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +123,6 @@
 		CEEFFB8C1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRangeTableViewCell.swift; sourceTree = "<group>"; };
 		CEEFFB8D1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateRangeTableViewCell.xib; sourceTree = "<group>"; };
 		CEEFFB901EBD1C4D00E93EE4 /* EditRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRequestViewController.swift; sourceTree = "<group>"; };
-		CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CEEFFB941EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailTableViewCell.swift; sourceTree = "<group>"; };
 		CEEFFB951EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestDetailTableViewCell.xib; sourceTree = "<group>"; };
 		CEF1A2431EB4631700EBC0A4 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -243,7 +247,9 @@
 				A50A9C2C1EBD36D7000A1394 /* MessagesCell.swift */,
 				CEBA9ACB1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift */,
 				CEBA9ACF1EBA671700CB846C /* CustomDateCell.swift */,
-				CEEFFB921EBD8AA000E93EE4 /* HeaderTableViewCell.swift */,
+				CEC62CDC1EC426C00042D808 /* HeaderTableViewCell.swift */,
+				CEC62CE01EC427A40042D808 /* GroupHeaderTableViewCell.swift */,
+				CEC62CE21EC429060042D808 /* GroupUserTableViewCell.swift */,
 				CEEFFB941EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift */,
 				CEEFFB951EBF7B8200E93EE4 /* RequestDetailTableViewCell.xib */,
 				CEEFFB8C1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift */,
@@ -408,8 +414,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				99CBCD221EBFAFE300850FCC /* SignUpViewController.swift in Sources */,
-				CEEFFB931EBD8AA000E93EE4 /* HeaderTableViewCell.swift in Sources */,
 				A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */,
+				CEC62CDE1EC426C00042D808 /* HeaderTableViewCell.swift in Sources */,
 				CEBA9AD41EBB074E00CB846C /* UIColor.swift in Sources */,
 				992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */,
 				CEEFFB8E1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift in Sources */,
@@ -429,6 +435,7 @@
 				CEEFFB911EBD1C4D00E93EE4 /* EditRequestViewController.swift in Sources */,
 				CEF1A2461EB4649000EBC0A4 /* Group.swift in Sources */,
 				CEBA9ACC1EB8F3F300CB846C /* MenuItemCollectionViewCell.swift in Sources */,
+				CEC62CE11EC427A40042D808 /* GroupHeaderTableViewCell.swift in Sources */,
 				A59787311EC2661D00949539 /* GroupCell.swift in Sources */,
 				CE2710261EBFCD8900C3B26B /* BasicTableViewCell.swift in Sources */,
 				CEEC8B441EB28BAB00CC07C5 /* AddRequestViewController.swift in Sources */,
@@ -437,6 +444,7 @@
 				A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */,
 				CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */,
 				994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */,
+				CEC62CE31EC429060042D808 /* GroupUserTableViewCell.swift in Sources */,
 				99CBCD241EC00F9100850FCC /* SettingsViewController.swift in Sources */,
 				A50A9C291EBCF81B000A1394 /* MessagesViewController.swift in Sources */,
 				CEEFFB961EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift in Sources */,

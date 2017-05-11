@@ -41,11 +41,17 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
             groupBackgroundImage.loadInBackground()
         }
         
+        tableView.estimatedRowHeight = 320
+        tableView.rowHeight = UITableViewAutomaticDimension
+
         if let objectId = group.pfObject?.objectId {
             if User.currentUser?.getGroup(fromId: objectId) != nil {
                 myGroup = true
             }
         }
+        
+        tableView.estimatedRowHeight = 320
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         groupActionButton.titleLabel?.text = myGroup ? "Ask For Help" : "Join Group"
         
@@ -68,11 +74,22 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO custom cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupUserCell", for: indexPath)
-        cell.textLabel?.text = users?[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "groupUserCell", for: indexPath) as! GroupUserTableViewCell
+        cell.selectionStyle = .none
+        cell.user = users?[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupHeaderTableViewCell") as! GroupHeaderTableViewCell
+        cell.header = "Group Members"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+
 
     // MARK: - Navigation
 
@@ -88,7 +105,10 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
         if myGroup {
             performSegue(withIdentifier: "addRequestSegue", sender: self)
         } else {
-            print("TODO join group")
+            if let user = User.currentUser {
+                PetPalAPIClient.sharedInstance.addGroupToUser(user: user, group: group)
+            }
+            _ = navigationController?.popViewController(animated: true)
         }
     }
 

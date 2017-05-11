@@ -23,6 +23,8 @@ class User: NSObject {
     var userAvatar: PFFile?
     var pets: [Pet]?
     var location: String?
+    var city: String?
+    var state: String?
     
 //    var petCount: Int?
 //    var locationCity: String?
@@ -52,6 +54,8 @@ class User: NSObject {
         password = pfUser.password
         userAvatar = pfUser.object(forKey: "userAvatar") as? PFFile
         location = pfUser.object(forKey: "Address") as? String
+        city = pfUser.object(forKey: "City") as? String
+        state = pfUser.object(forKey: "State") as? String
     }
     
     func getGroup(fromId id: String) -> Group? {
