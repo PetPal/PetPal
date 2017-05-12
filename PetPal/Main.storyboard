@@ -1004,6 +1004,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="23"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Lyn-ea-Xfo" kind="show" identifier="groupDetailSegue" id="CNE-G5-kJG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1365,7 +1368,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSN-fI-Xqu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2598" y="3296"/>
+            <point key="canvasLocation" x="2726" y="3296"/>
         </scene>
         <!--Nearby Groups-->
         <scene sceneID="H0X-Ay-9cf">
@@ -1437,4 +1440,7 @@
         <image name="user-name" width="32" height="32"/>
         <image name="white-x-24" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="CNE-G5-kJG"/>
+    </inferredMetricsTieBreakers>
 </document>
