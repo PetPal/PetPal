@@ -83,5 +83,10 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
             }
         }
     }
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // pass any object as parameter, i.e. the tapped row
+        performSegue(withIdentifier: "groupDetailSegue", sender: indexPath.row)
+    }
 
 }

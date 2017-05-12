@@ -408,9 +408,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Lyn-ea-Xfo" kind="show" identifier="groupDetailSegue" id="4Ez-5A-XTL"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -434,6 +431,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="7Rs-UT-e7d" id="v5u-mC-tgg"/>
+                        <segue destination="Lyn-ea-Xfo" kind="show" identifier="groupDetailSegue" id="0A3-e8-ODe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqM-KH-Ont" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -994,7 +992,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="23" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MfA-yQ-ct5">
-                                <rect key="frame" x="0.0" y="387" width="375" height="231"/>
+                                <rect key="frame" x="0.0" y="387" width="375" height="223"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="23" id="Cnp-Sb-Kkb" customClass="GroupCell" customModule="PetPal" customModuleProvider="target">
@@ -1004,9 +1002,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="23"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Lyn-ea-Xfo" kind="show" identifier="groupDetailSegue" id="CNE-G5-kJG"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1022,7 +1017,7 @@
                             <constraint firstAttribute="trailing" secondItem="Ql7-vZ-3d1" secondAttribute="trailing" id="JP6-kZ-vgf"/>
                             <constraint firstAttribute="bottom" secondItem="Ql7-vZ-3d1" secondAttribute="bottom" constant="280" id="KCU-dn-Nvs"/>
                             <constraint firstItem="MfA-yQ-ct5" firstAttribute="top" secondItem="uHU-H4-MX9" secondAttribute="bottom" id="SLG-gZ-jKi"/>
-                            <constraint firstItem="sfN-ws-ljr" firstAttribute="top" secondItem="MfA-yQ-ct5" secondAttribute="bottom" id="cHm-cD-hAE"/>
+                            <constraint firstItem="sfN-ws-ljr" firstAttribute="top" secondItem="MfA-yQ-ct5" secondAttribute="bottom" constant="8" id="cHm-cD-hAE"/>
                             <constraint firstItem="MfA-yQ-ct5" firstAttribute="top" secondItem="uHU-H4-MX9" secondAttribute="bottom" id="ivD-MI-Gng"/>
                             <constraint firstItem="uHU-H4-MX9" firstAttribute="bottom" secondItem="Ql7-vZ-3d1" secondAttribute="bottom" id="oMT-V4-T0d"/>
                             <constraint firstAttribute="trailing" secondItem="MfA-yQ-ct5" secondAttribute="trailing" id="t46-Zz-M05"/>
@@ -1034,6 +1029,7 @@
                     <connections>
                         <outlet property="mapView" destination="Ql7-vZ-3d1" id="V1t-sV-brB"/>
                         <outlet property="tableView" destination="MfA-yQ-ct5" id="DxS-YA-Ett"/>
+                        <segue destination="Lyn-ea-Xfo" kind="show" identifier="groupDetailSegue" id="5ux-zO-a7c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfw-EW-eKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1441,6 +1437,6 @@
         <image name="white-x-24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CNE-G5-kJG"/>
+        <segue reference="5ux-zO-a7c"/>
     </inferredMetricsTieBreakers>
 </document>
