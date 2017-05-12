@@ -71,6 +71,8 @@ class PetPalAPIClient  {
         pfUser?.saveInBackground(block: { (success: Bool, error: Error?) in
             if success {
                 print("add group to user successfully")
+                user.addGroup(group: group)
+                NotificationCenter.default.post(name: PetPalConstants.userGroupUpdated, object: user)
             } else {
                 print("failed to add group to user")
             }
