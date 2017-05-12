@@ -24,7 +24,7 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 80
         
         // register tableView Cell
         let nibName = UINib(nibName: "GroupCell", bundle: nil)

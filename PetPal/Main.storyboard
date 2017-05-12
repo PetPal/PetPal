@@ -986,31 +986,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MfA-yQ-ct5">
-                                <rect key="frame" x="0.0" y="466" width="375" height="152"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHU-H4-MX9">
+                                <rect key="frame" x="0.0" y="382" width="375" height="5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="KGc-li-TDo"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="23" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MfA-yQ-ct5">
+                                <rect key="frame" x="0.0" y="387" width="375" height="231"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="61" id="Cnp-Sb-Kkb" customClass="GroupCell" customModule="PetPal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="61"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="23" id="Cnp-Sb-Kkb" customClass="GroupCell" customModule="PetPal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="23"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cnp-Sb-Kkb" id="Sll-D5-ALd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="23"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ql7-vZ-3d1">
-                                <rect key="frame" x="0.0" y="-25" width="375" height="458"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="387"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ql7-vZ-3d1" firstAttribute="leading" secondItem="Ufp-SL-mIb" secondAttribute="leading" id="Dhf-7R-EfN"/>
-                            <constraint firstItem="sfN-ws-ljr" firstAttribute="top" secondItem="Ql7-vZ-3d1" secondAttribute="bottom" constant="185" id="FyC-5K-pVo"/>
-                            <constraint firstAttribute="trailing" secondItem="Ql7-vZ-3d1" secondAttribute="trailing" id="Ky0-GK-MG3"/>
-                            <constraint firstItem="Ql7-vZ-3d1" firstAttribute="top" secondItem="Ufp-SL-mIb" secondAttribute="top" constant="-25" id="cPA-qI-7UU"/>
+                            <constraint firstItem="uHU-H4-MX9" firstAttribute="leading" secondItem="MfA-yQ-ct5" secondAttribute="leading" id="0zI-7o-2NE"/>
+                            <constraint firstItem="MfA-yQ-ct5" firstAttribute="leading" secondItem="Ufp-SL-mIb" secondAttribute="leading" id="HaG-tE-Gy4"/>
+                            <constraint firstItem="Ql7-vZ-3d1" firstAttribute="leading" secondItem="Ufp-SL-mIb" secondAttribute="leading" id="I0F-Wg-rAu"/>
+                            <constraint firstAttribute="trailing" secondItem="Ql7-vZ-3d1" secondAttribute="trailing" id="JP6-kZ-vgf"/>
+                            <constraint firstAttribute="bottom" secondItem="Ql7-vZ-3d1" secondAttribute="bottom" constant="280" id="KCU-dn-Nvs"/>
+                            <constraint firstItem="MfA-yQ-ct5" firstAttribute="top" secondItem="uHU-H4-MX9" secondAttribute="bottom" id="SLG-gZ-jKi"/>
+                            <constraint firstItem="sfN-ws-ljr" firstAttribute="top" secondItem="MfA-yQ-ct5" secondAttribute="bottom" id="cHm-cD-hAE"/>
+                            <constraint firstItem="MfA-yQ-ct5" firstAttribute="top" secondItem="uHU-H4-MX9" secondAttribute="bottom" id="ivD-MI-Gng"/>
+                            <constraint firstItem="uHU-H4-MX9" firstAttribute="bottom" secondItem="Ql7-vZ-3d1" secondAttribute="bottom" id="oMT-V4-T0d"/>
+                            <constraint firstAttribute="trailing" secondItem="MfA-yQ-ct5" secondAttribute="trailing" id="t46-Zz-M05"/>
+                            <constraint firstItem="uHU-H4-MX9" firstAttribute="trailing" secondItem="MfA-yQ-ct5" secondAttribute="trailing" id="wVl-o5-Mwl"/>
+                            <constraint firstItem="Ql7-vZ-3d1" firstAttribute="top" secondItem="Ufp-SL-mIb" secondAttribute="top" id="zXP-S7-uYX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nearby Groups" id="mNa-Hx-oxZ"/>

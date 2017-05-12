@@ -11,17 +11,18 @@ import Foundation
 import UIKit
 import MapKit
 
-class Annotation: NSObject,MKAnnotation {
+class Annotation: NSObject, MKAnnotation {
     
     var title : String?
-    var subTit : String?
+    var subtitle : String?
     var coordinate : CLLocationCoordinate2D
+    var pinCustomImageName: String!
     
-    init(title:String,coordinate : CLLocationCoordinate2D,subtitle:String){
+    init(title:String, coordinate : CLLocationCoordinate2D){
         
-        self.title = title;
-        self.coordinate = coordinate;
-        self.subTit = subtitle;
+        self.title = title
+        self.coordinate = coordinate
+       
         
     }
     

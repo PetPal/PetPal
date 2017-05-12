@@ -17,10 +17,15 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
     let annotation = MKPointAnnotation()
     private var locationManager: CLLocationManager!
     private var currentLocation: CLLocation?
+    var pinAnnotationView:MKPinAnnotationView!
     
     var groups: [Group]! = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60
         
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 157/256, green: 169/256, blue: 61/256, alpha: 1.0)
         navigationController?.navigationBar.tintColor = UIColor.white
@@ -85,20 +90,20 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
     func loadGroups(){
         PetPalAPIClient.sharedInstance.getGroups(success: { (groups: [Group]) in
             self.groups = groups
+            self.tableView.reloadData()
         }) { (error: Error?) in
             print("error \(String(describing: error?.localizedDescription))")
         }
     }
-    
-    
+
     func addPinsForGroups(){
         PetPalAPIClient.sharedInstance.getGroups(success: { (groups: [Group]) in
             self.groups = groups
             for group in groups {
                 let location = group.location!
-                let formatter = DateFormatter()
-                formatter.dateFormat = "MM/dd/yy"
-                let createdTime = "Created at: " + formatter.string(from: group.timeStamp!)
+                //let formatter = DateFormatter()
+                //formatter.dateFormat = "MM/dd/yy"
+                //let createdTime = "Created at: " + formatter.string(from: group.timeStamp!)
                 let geocoder: CLGeocoder = CLGeocoder()
                 geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: Error?) -> Void in
                     if ((placemarks?.count)! > 0) {
@@ -106,8 +111,17 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
                         let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
                         self.annotation.coordinate = (placemark.location?.coordinate)!
                         
-                        let annotation = Annotation(title: group.name!, coordinate: (placemark.location?.coordinate)!, subtitle: createdTime)
-                        self.mapView.addAnnotation(annotation)
+                        let annotation = Annotation(title: group.name!, coordinate: (placemark.location?.coordinate)!)
+                        
+                        //pointAnnotation = CustomPointAnnotation()
+                        annotation.pinCustomImageName = "pawpin-40"
+                        //pointAnnotation.coordinate = location
+                        //pointAnnotation.title = "POKéSTOP"
+                        //pointAnnotation.subtitle = "Pick up some Poké Balls"
+                        
+                        self.pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+                        self.mapView.addAnnotation(self.pinAnnotationView.annotation!)
+                        //self.mapView.addAnnotation(annotation)
                     }
                 })
             }
@@ -127,6 +141,26 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         return cell
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        if (annotation is MKUserLocation) {
+            return nil
+        } else {
+        let customPointAnnotation = annotation as! Annotation
+        annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
+        
+        return annotationView
+        }
+    }
     
     
     
