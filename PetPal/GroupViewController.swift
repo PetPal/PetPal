@@ -24,7 +24,11 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 80
+        
+        // register tableView Cell
+        let nibName = UINib(nibName: "GroupCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "GroupCell")
         // Pull to refresh
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -57,15 +61,8 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
-        let group = self.groups[indexPath.row]
-        cell.nameLabel.text = group.name
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yy"
-        cell.createdAtLabel?.text = "Created at: " + formatter.string(from: group.timeStamp!)
-        cell.createdAtLabel?.textColor = UIColor.lightGray
-        let file = group.profileImage
-        cell.groupAvatar.file = file
-        cell.groupAvatar.loadInBackground()
+        cell.selectionStyle = .none
+        cell.group = self.groups[indexPath.row]
         return cell
     }
     
@@ -86,33 +83,10 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
             }
         }
     }
-
     
-    /*func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "groupChatSegue" {
-            let chatVC = segue.destination as! ChatViewController
-            chatVC.hidesBottomBarWhenPushed = true
-            let groupId = sender as! String
-            //if let indexPath = tableView.indexPathForSelectedRow
-            //let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
-            chatVC.groupId = groupId as String
-            
-        }
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // pass any object as parameter, i.e. the tapped row
+        performSegue(withIdentifier: "groupDetailSegue", sender: indexPath.row)
     }
- */
-    
-    
-  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is ChatViewController {
-            let cell = sender as! UITableViewCell
-            let indexPath = tableView.indexPath(for: cell)
-            let group = groups[indexPath!.row]
-            //let groupId = group.objectId! as String
-            let chatViewController = segue.destination as! ChatViewController
-            //chatViewController.groupId = groupId
-        }
-    }
- */
-    
 
 }

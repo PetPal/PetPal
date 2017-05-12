@@ -13,15 +13,19 @@ import ParseUI
 class GroupCell: UITableViewCell {
 
     @IBOutlet weak var groupAvatar: PFImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var createdAtLabel: UILabel!
-    
-    var Group: PFObject! {
+    @IBOutlet weak var membersCount: UILabel!
+    var formatter = DateFormatter()
+
+    var group: Group! {
         didSet {
-            self.groupAvatar.file = Group["groupAvatar"] as? PFFile
+            self.groupAvatar.file = group.profileImage
             self.groupAvatar.loadInBackground()
+            self.nameLabel.text = group.name
+            formatter.dateFormat = "MM/dd/yy"
+            self.createdAtLabel.text = formatter.string(from: group.timeStamp!)
+            self.membersCount.text = String(describing: group.memberCount!)
         }
     }
     
