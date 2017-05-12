@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import ParseUI
 
 class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var profileTableView: UITableView!
-    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var petCount: UILabel!
     @IBOutlet weak var creditCount: UILabel!
     @IBOutlet weak var groupCount: UILabel!
+    @IBOutlet weak var profileImage: PFImageView!
+    @IBOutlet weak var profileContainerView: UIView!
+    @IBOutlet weak var imageBorderView: UIView!
     
 
     var requests: [Request]?
@@ -43,6 +46,17 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         //Updating data on labels
         nameLabel.text = user?.name
+        
+        //Updating the profileImage
+        if let avatar = user?.userAvatar {
+            profileImage.file = avatar
+            profileImage.loadInBackground()
+            profileImage.setRounded()
+        }
+        let radius = imageBorderView.frame.width / 2
+        imageBorderView.layer.cornerRadius = radius
+        imageBorderView.layer.borderColor = UIColor.darkGray.cgColor
+        imageBorderView.layer.borderWidth = 1
         
         
         // Do any additional setup after loading the view.
