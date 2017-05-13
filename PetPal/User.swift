@@ -90,6 +90,7 @@ class User: NSObject {
         return false
     }
     
+    
     // MARK: class vars
     
     private static var _currentUser: User?

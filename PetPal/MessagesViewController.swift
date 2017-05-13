@@ -109,7 +109,7 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "messagesChatSegue" {
-            let chatVC = segue.destination as! ChatViewController
+            let chatVC = (segue.destination as! UINavigationController).topViewController as! ChatViewController
             chatVC.hidesBottomBarWhenPushed = true
             let groupId = sender as! String
             chatVC.groupId = groupId
