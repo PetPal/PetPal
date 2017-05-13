@@ -75,6 +75,14 @@ class User: NSObject {
         }
     }
     
+    func addGroup(group: Group) {
+        if groups == nil {
+            groups = [group]
+        } else {
+            groups?.append(group)
+        }
+    }
+    
     override func isEqual(_ object: Any?) -> Bool {
         if let objectUser = object as? User {
             return pfUser?.objectId == objectUser.pfUser?.objectId

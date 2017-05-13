@@ -32,9 +32,12 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // padding to make menu more centered
     let collectionViewBuffer = 20
     
+    let initialMenuSelection = "initialMenuSelection"
+    
     // profile show on top of view
     var profileNavigationController: UIViewController!
     var requestsNavigationController: UIViewController!
+    var calendarNavigationController: UIViewController!
     var groupNavigationController: UITabBarController!
     var messagesNavigationController: UIViewController!
     var settingsNavigationController: UIViewController!
@@ -42,16 +45,19 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // Make sure to set the viewController in viewDidLoad
     var menuItems: [MenuItem] = [
         MenuItem(title: "Requests", color: UIColor(colorWithHexValue: 0xE08E43), image: UIImage(named: "requests_64")),
+        MenuItem(title: "Calendar", color: UIColor(colorWithHexValue: 0x7E4DC3), image: UIImage(named: "calendar_64")),
         MenuItem(title: "Groups", color: UIColor(colorWithHexValue: 0x9DA933), image: UIImage(named: "groups_64")),
         MenuItem(title: "Messages", color: UIColor(colorWithHexValue: 0x397FCC), image: UIImage(named: "chats_64")),
-        MenuItem(title: "Logout", color: UIColor(colorWithHexValue: 0xC44D58), image: UIImage(named: "logout_64")),
-        MenuItem(title: "Settings", color: UIColor.white, image: UIImage(named:"settings"))
+        MenuItem(title: "Settings", color: UIColor.white, image: UIImage(named:"settings")),
+        MenuItem(title: "Logout", color: UIColor(colorWithHexValue: 0xC44D58), image: UIImage(named: "logout_64"))
     ]
     
     weak var hamburgerViewController: HamburgerViewController! {
         didSet {
             view.layoutIfNeeded()
-            hamburgerViewController.contentViewController = menuItems[0].viewController
+            let defaults = UserDefaults.standard
+            let initIndex = defaults.integer(forKey: initialMenuSelection)
+            hamburgerViewController.contentViewController = menuItems[initIndex].viewController
         }
     }
     
@@ -85,13 +91,15 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
+        calendarNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "CalendarNavigationController")
 
         let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
         profileNavigationController = profileStoryboard.instantiateViewController(withIdentifier: "ProfileNavigationController")
 
         menuItems[0].viewController = requestsNavigationController
-        menuItems[1].viewController = groupNavigationController
-        menuItems[2].viewController = messagesNavigationController
+        menuItems[1].viewController = calendarNavigationController
+        menuItems[2].viewController = groupNavigationController
+        menuItems[3].viewController = messagesNavigationController
         menuItems[4].viewController = settingsNavigationController
      }
     
@@ -130,6 +138,8 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let viewController = menuItems[indexPath.row].viewController {
+            let defaults = UserDefaults.standard
+            defaults.set(indexPath.row, forKey: initialMenuSelection)
             hamburgerViewController.contentViewController = viewController
         } else {
             Utilities.logoutUser()
@@ -142,6 +152,15 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let widthPerItem = availableWidth / 2
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
-    
+   
+    // MARK: - Animation
+    func animateMenus() {
+        print("TODO animate menus")
+//        collectionView.performBatchUpdates({ 
+//            let indexSet = IndexSet(integer: 0)
+//            self.collectionView.reloadSections(indexSet)
+//        }, completion: nil)
+    }
+
    
 }

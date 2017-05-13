@@ -53,7 +53,7 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.estimatedRowHeight = 320
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        groupActionButton.titleLabel?.text = myGroup ? "Ask For Help" : "Join Group"
+        groupActionButton.setTitle(myGroup ? "Ask For Help" : "Join Group", for: .normal)
         
         PetPalAPIClient.sharedInstance.getUsers(group: group, success: { (users: [User]) in
             print(users)

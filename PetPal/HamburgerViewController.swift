@@ -107,6 +107,7 @@ class HamburgerViewController: UIViewController {
                     self.contentViewLeadingConstraint.constant = 0
                 }
             })
+            menuViewController.animateMenus()
         }
     }
     
