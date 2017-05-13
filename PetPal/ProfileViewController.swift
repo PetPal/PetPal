@@ -77,14 +77,25 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         let cell = profileTableView.dequeueReusableCell(withIdentifier: "RequestDetailCell", for: indexPath) as! RequestDetailTableViewCell
         return cell
     }
-    /*
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        profileTableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "requestDetailFromProfileSegue", sender: profileTableView.cellForRow(at: indexPath))
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
+        if(segue.identifier == "requestDetailFromProfileSegue") {
+            let requestDetailVC = segue.destination as! EditRequestViewController
+            let indexPath = profileTableView.indexPath(for: sender as! RequestDetailTableViewCell)
+            requestDetailVC.request = requests?[(indexPath?.row)!]
+        }
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
