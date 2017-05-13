@@ -8,15 +8,21 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var editProfilePhotoButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
     let currentUser = User.currentUser
+    
+    var profileImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         profilePicture.setRounded()
+        
+        editProfilePhotoButton.layer.borderColor = UIColor.black.cgColor
+        editProfilePhotoButton.layer.borderWidth = 1
         // Do any additional setup after loading the view.
     }
 
@@ -32,6 +38,28 @@ class SettingsViewController: UIViewController {
             addPetVC.user = currentUser
         }
     }
+    
+    @IBAction func onEditProfilePhotoButton(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = false
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            print("Camera is Available")
+            vc.sourceType = .camera
+        } else {
+            print("Camera 🚫 available so we will use photo library instead")
+            vc.sourceType = .photoLibrary
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let newProfileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //profileImage = newProfileImage
+        self.profilePicture.image = newProfileImage
+        let pfProfileImage = Utilities.getPFFileFromImage(image: newProfileImage)
+        
+    }
+    
 
     /*
     // MARK: - Navigation

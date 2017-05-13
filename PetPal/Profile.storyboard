@@ -228,6 +228,7 @@
                                             <outlet property="requestPetLabel" destination="2Sj-Vy-tAa" id="Go6-ro-OPa"/>
                                             <outlet property="requestStatusLabel" destination="mUH-xc-X9s" id="yq2-Sg-Gun"/>
                                             <outlet property="startDateLabel" destination="l4d-E7-Jp9" id="sjb-Ct-4Bl"/>
+                                            <segue destination="PIy-g6-lds" kind="show" identifier="requestDetailFromProfileSegue" id="SYo-A8-fO3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -251,6 +252,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TjE-aZ-c7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1032.8" y="147.97601199400302"/>
+        </scene>
+        <!--EditRequestViewController-->
+        <scene sceneID="FB9-va-193">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Request" referencedIdentifier="EditRequestViewController" id="PIy-g6-lds" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qRB-bG-IiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AHM-Xh-itd">

@@ -34,12 +34,12 @@ class MessagesCell: UITableViewCell {
                 timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)
             }
  
-            let dateText = JSQMessagesTimestampFormatter.shared().relativeDate(for: message["updatedAt"] as? Date)
+           /* let dateText = JSQMessagesTimestampFormatter.shared().relativeDate(for: message["updatedAt"] as? Date)
             if dateText == "Today" {
                 timeElapsedLabel.text = JSQMessagesTimestampFormatter.shared().time(for: message["updatedAt"] as? Date)
             } else {
                 timeElapsedLabel.text = dateText
-            }
+            }*/
             
            // let counter = message["counter"] as! Int
            // counterLabel.text = (counter == 0) ? "" : "\(counter) new"
