@@ -47,12 +47,10 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            print("request - user updated")
             self.refreshControlAction()
         }
         
         NotificationCenter.default.addObserver(forName: PetPalConstants.requestUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            print("request - user updated")
             let request = notification.object as! Request
             self.updateRequests(request: request)
         }

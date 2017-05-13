@@ -212,6 +212,7 @@ class PetPalAPIClient  {
             }
         }
         query.whereKey("groupIds", containedIn: groupIds)
+        // TODO sort by 
         
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if error == nil {
@@ -227,6 +228,30 @@ class PetPalAPIClient  {
                 failure(error)
             }
         }
+    }
+    
+    func getUserTasks(user: User, success: @escaping ([Request]) -> (), failure: @escaping (Error?) -> ()) {
+        guard let pfUser = user.pfUser else { return }
+        let query = PFQuery(className: "Request")
+        query.includeKey("requestUser")
+        query.includeKey("acceptUser")
+        query.whereKey("acceptUser", equalTo: pfUser)
+        
+        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+            if error == nil {
+                var requests = [Request]()
+                if let objects = objects {
+                    for object in objects {
+                        let request = Request(object: object)
+                        requests.append(request)
+                    }
+                }
+                success(requests)
+            } else {
+                failure(error)
+            }
+        }
+        
     }
     
     func addGroup(group: Group) {
