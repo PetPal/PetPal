@@ -13,7 +13,7 @@
         <!--Profile View Controller-->
         <scene sceneID="SuT-eM-rdW">
             <objects>
-                <viewController id="5Cr-ns-4w5" customClass="ProfileViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ProfileViewController" storyboardIdentifier="ProfileViewController" id="5Cr-ns-4w5" customClass="ProfileViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EYG-y1-cQN"/>
                         <viewControllerLayoutGuide type="bottom" id="YRi-rG-VkV"/>

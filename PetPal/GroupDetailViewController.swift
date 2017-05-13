@@ -98,6 +98,10 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
         if segue.identifier == "addRequestSegue" {
             let addRequestVC = segue.destination as! AddRequestViewController
             addRequestVC.initialSelectedGroup = group
+        } else if segue.identifier == "showProfileSegue" {
+            let profileVC = segue.destination as! ProfileViewController
+            let indexPath = tableView.indexPath(for: sender as! GroupUserTableViewCell)
+            profileVC.user = users?[(indexPath?.row)!]
         }
     }
     

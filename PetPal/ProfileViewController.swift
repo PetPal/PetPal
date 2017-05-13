@@ -24,12 +24,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
 
     var requests: [Request]?
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         profileTableView.dataSource = self
         profileTableView.delegate = self
         
-        let user = User.currentUser
+        if(user == nil){
+         user = User.currentUser
+        }
         
         PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in
             self.requests = requests
