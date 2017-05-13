@@ -77,11 +77,13 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func searchUsers(_ searchLower: String) {
+    func searchUsers(_ searchText: String) {
         let user = PFUser.current()
-        let query = PFQuery(className: "User")
+        let query = PFQuery(className: "_User")
         query.whereKey("objectId", notEqualTo: user!.objectId!)
-       // query.whereKey("name_lower", contains: searchLower)
+        
+        query.whereKey("name", matchesRegex: "(?i) (searchText)")
+        //query.whereKey("name", matchesRegex: "(?i)\(String(describing: searchBar.text))")
         query.order(byAscending: "name")
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
