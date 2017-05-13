@@ -47,6 +47,20 @@ class PetPalAPIClient  {
         }
     }
     
+    
+    func updateUserProfilePicture(profilePicture: PFFile, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()){
+        PFUser.current()?.setObject(profilePicture, forKey: "userAvatar")
+        PFUser.current()?.saveInBackground(block: { (successSaveAvatar: Bool, errorSaveAvatar: Error?) in
+            if (successSaveAvatar) {
+                print("Successfully Saved the User's Profile Picture to Parse!")
+                success(true)
+            } else {
+                print("Failed to Save the User's Profile Picture to Parse!")
+            }
+        })
+        
+    }
+    
     func getUsers() {
         let query = PFQuery(className: "_User")
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in

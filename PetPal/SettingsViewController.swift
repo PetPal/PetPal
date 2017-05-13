@@ -50,13 +50,27 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             print("Camera 🚫 available so we will use photo library instead")
             vc.sourceType = .photoLibrary
         }
+        self.present(vc, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let newProfileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        //profileImage = newProfileImage
-        self.profilePicture.image = newProfileImage
-        let pfProfileImage = Utilities.getPFFileFromImage(image: newProfileImage)
+        do{
+            let newProfileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            self.profilePicture.image = newProfileImage
+            let pfProfileImage = Utilities.getPFFileFromImage(image: newProfileImage)
+            try pfProfileImage?.save()
+            currentUser?.userAvatar = pfProfileImage
+            
+            PetPalAPIClient.sharedInstance.updateUserProfilePicture(profilePicture: pfProfileImage!, success: { (response: Bool) in
+                print("Successfully save the Current User's Profile Picture.")
+            }, failure: { (error: Error) in
+                print("Error saving the current user's profile picture: \(error.localizedDescription)")
+            })
+            self.dismiss(animated: true, completion: nil)
+        } catch {
+            print("Unable to save a user's Image!")
+        }
+        
         
     }
     
