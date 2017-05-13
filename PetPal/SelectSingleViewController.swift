@@ -22,7 +22,8 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = UIColor.white
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -46,21 +47,22 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
     
     func loadUsers() {
         let user = PFUser.current()
-        let query = PFQuery(className: "User")
+        let query = PFQuery(className: "_User")
         query.whereKey("objectId", notEqualTo: user!.objectId!)
         
         query.order(byAscending: "name")
-        query.limit = 1000
+        query.limit = 50
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 self.users.removeAll(keepingCapacity: false)
-                if let array = objects as? [PFUser] {
+                /*if let array = objects as? [PFUser] {
                     for obj in array {
                         if ((obj as PFUser)["name"] as? String) != nil {
                             self.users.append(obj as PFUser)
                         }
                     }
-                }
+                }*/
+                self.users = objects as! [PFUser]
                 //self.users += objects as! [PFUser]!
                 self.tableView.reloadData()
             } else {
@@ -79,12 +81,14 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
         let user = PFUser.current()
         let query = PFQuery(className: "User")
         query.whereKey("objectId", notEqualTo: user!.objectId!)
-        query.whereKey("name_lower", contains: searchLower)
+       // query.whereKey("name_lower", contains: searchLower)
         query.order(byAscending: "name")
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 self.users.removeAll(keepingCapacity: false)
-                self.users += objects as! [PFUser]!
+                
+                self.users = objects as! [PFUser]
+              //  self.users += objects as! [PFUser]!
                 self.tableView.reloadData()
             } else {
                 let alertController = UIAlertController(title: "Network Error", message: "", preferredStyle: .alert)
