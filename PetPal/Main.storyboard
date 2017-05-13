@@ -887,11 +887,11 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSm-y8-4El">
                                             <rect key="frame" x="299" y="12" width="68" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.23325101200000001" green="0.83462880709999998" blue="0.2830457965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="0 New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26z-g2-FY0">
-                                            <rect key="frame" x="323" y="34" width="44" height="18"/>
+                                            <rect key="frame" x="323" y="38" width="44" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.95642488120000002" green="0.14029291290000001" blue="0.080781847320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -906,7 +906,7 @@
                                         <constraint firstItem="Goq-2F-8YW" firstAttribute="top" secondItem="IOd-li-72x" secondAttribute="top" constant="12" id="NkZ-lU-mSO"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Goq-2F-8YW" secondAttribute="bottom" constant="12" id="OEH-lO-jBb"/>
                                         <constraint firstItem="Ouj-Kc-fmd" firstAttribute="top" secondItem="cuB-8U-HfS" secondAttribute="bottom" constant="2" id="T0n-oF-wMJ"/>
-                                        <constraint firstItem="26z-g2-FY0" firstAttribute="top" secondItem="OSm-y8-4El" secondAttribute="bottom" constant="4" id="UWF-1n-jW4"/>
+                                        <constraint firstItem="26z-g2-FY0" firstAttribute="top" secondItem="OSm-y8-4El" secondAttribute="bottom" constant="8" id="UWF-1n-jW4"/>
                                         <constraint firstItem="Ouj-Kc-fmd" firstAttribute="leading" secondItem="Goq-2F-8YW" secondAttribute="trailing" constant="8" id="VGo-sw-VXe"/>
                                         <constraint firstItem="Goq-2F-8YW" firstAttribute="leading" secondItem="IOd-li-72x" secondAttribute="leading" constant="8" id="Zu2-xa-FSh"/>
                                         <constraint firstItem="OSm-y8-4El" firstAttribute="top" secondItem="IOd-li-72x" secondAttribute="top" constant="12" id="oDP-BY-raO"/>
