@@ -1211,11 +1211,20 @@
                                 <rect key="frame" x="127" y="94" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKb-pj-7ZW">
+                                <rect key="frame" x="250" y="145" width="19" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="editPhoto"/>
+                                <connections>
+                                    <action selector="onEditProfilePhotoButton:" destination="x9w-PA-ees" eventType="touchUpInside" id="Pdn-zU-8nv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="QmH-Bb-NAR"/>
                     <connections>
+                        <outlet property="editProfilePhotoButton" destination="gKb-pj-7ZW" id="6g6-Fq-EA8"/>
                         <outlet property="profilePicture" destination="Amp-ku-Ev5" id="gxl-LR-MLO"/>
                     </connections>
                 </viewController>
@@ -1413,6 +1422,7 @@
         <image name="defaultProfileImage" width="256" height="256"/>
         <image name="dog" width="64" height="64"/>
         <image name="dog-650299" width="590" height="350"/>
+        <image name="editPhoto" width="32" height="32"/>
         <image name="email" width="32" height="32"/>
         <image name="mygroup" width="24" height="24"/>
         <image name="nearby" width="24" height="24"/>
