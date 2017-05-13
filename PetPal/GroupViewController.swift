@@ -11,7 +11,7 @@ import Parse
 
 class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate {
     
-    var groups: [Group]! = []
+    var groups: [Group]?
     var refreshControl: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!
     
@@ -56,13 +56,13 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.groups.count
+        return groups?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         cell.selectionStyle = .none
-        cell.group = self.groups[indexPath.row]
+        cell.group = groups![indexPath.row]
         return cell
     }
     
@@ -79,9 +79,14 @@ class GroupViewController: UIViewController, UIAlertViewDelegate, UITableViewDat
         if segue.identifier == "groupDetailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let detailGroupVC = segue.destination as! GroupDetailViewController
-                detailGroupVC.group = groups[indexPath.row]
+                detailGroupVC.group = groups![indexPath.row]
             }
         }
+    }
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // pass any object as parameter, i.e. the tapped row
+        performSegue(withIdentifier: "groupDetailSegue", sender: indexPath.row)
     }
 
 }

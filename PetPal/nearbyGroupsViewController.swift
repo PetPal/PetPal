@@ -172,6 +172,10 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "groupDetailSegue", sender: indexPath.row)
+    }
 
 
 }

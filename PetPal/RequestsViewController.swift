@@ -47,12 +47,10 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            print("request - user updated")
             self.refreshControlAction()
         }
         
         NotificationCenter.default.addObserver(forName: PetPalConstants.requestUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-            print("request - user updated")
             let request = notification.object as! Request
             self.updateRequests(request: request)
         }
@@ -156,10 +154,14 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
                             requestArray[i].remove(at: removeIndex)
                         }
                         // add it back in 
-                        requestArray[requestIndex].insert(request, at: 0)
                         segmentControl.selectedSegmentIndex = requestIndex
                         currentIndex = requestIndex
+                        requestArray[requestIndex].insert(request, at: 0)
                         tableView.reloadData()
+
+                        // animate
+                        let indexPath = IndexPath(row: 0, section: 0)
+                        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.left)
                         break
                     }
                 }
