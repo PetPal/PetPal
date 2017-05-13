@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
+class MessagesViewController: UITableViewController, SelectSingleViewControllerDelegate  {
     
     var messages = [PFObject]()
     
@@ -87,61 +87,54 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
     
     // MARK: - User actions
     
-   /* func openChat(_ groupId: String) {
+    func openChat(_ groupId: String) {
         self.performSegue(withIdentifier: "messagesChatSegue", sender: groupId)
-    } */
-    
-    func openChat() {
-        self.performSegue(withIdentifier: "messagesChatSegue", sender: nil)
     }
+    
+   
     
     func cleanup() {
         self.messages.removeAll(keepingCapacity: false)
         self.tableView.reloadData()
         self.updateTabCounter()
-        //self.updateEmptyView()
+        self.updateEmptyView()
     }
     
     @IBAction func compose(_ sender: UIBarButtonItem) {
-        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Single recipient", "Multiple recipients", "Address Book", "Facebook Friends")
-        actionSheet.show(from: self.tabBarController!.tabBar)
+        self.performSegue(withIdentifier: "selectSingleSegue", sender: self)
+
     }
     
     // MARK: - Prepare for segue to chatVC
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "messagesChatSegue" {
+            let chatVC = segue.destination as! ChatViewController
+            chatVC.hidesBottomBarWhenPushed = true
+            let groupId = sender as! String
+            chatVC.groupId = groupId
+        } else if segue.identifier == "selectSingleSegue" {
+            let selectSingleVC = (segue.destination as! UINavigationController).topViewController as! SelectSingleViewController
+            selectSingleVC.delegate = self
+        }
+    }
+    
 
     
     // MARK: - UIActionSheetDelegate
-    
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        if buttonIndex != actionSheet.cancelButtonIndex {
-            switch buttonIndex {
-            case 1:
-                self.performSegue(withIdentifier: "selectSingleSegue", sender: self)
-            case 2:
-                self.performSegue(withIdentifier: "selectMultipleSegue", sender: self)
-            case 3:
-                self.performSegue(withIdentifier: "addressBookSegue", sender: self)
-            case 4:
-                self.performSegue(withIdentifier: "facebookFriendsSegue", sender: self)
-            default:
-                return
-            }
-        }
-    }
+
     
     // MARK: - SelectSingleDelegate
     
     func didSelectSingleUser(_ user2: PFUser) {
         let user1 = PFUser.current()!
         let groupId = Messages.startPrivateChat(user1, user2: user2)
-        //self.openChat(groupId)
-        self.openChat()
+        self.openChat(groupId)
     }
     
     // MARK: - SelectMultipleDelegate
     
-    func didSelectMultipleUsers(_ selectedUsers: [PFUser]!) {
+   /* func didSelectMultipleUsers(_ selectedUsers: [PFUser]!) {
         let groupId = Messages.startMultipleChat(selectedUsers)
         //self.openChat(groupId)
         self.openChat()
@@ -164,6 +157,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
         //self.openChat(groupId)
         self.openChat()
     }
+ */
     
     // MARK: - Table view data source
     
@@ -204,7 +198,7 @@ class MessagesViewController: UITableViewController, UIActionSheetDelegate  {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let message = self.messages[indexPath.row] as PFObject
-        //self.openChat(message["groupId"] as! String)
-        self.openChat()
+        self.openChat(message["groupId"] as! String)
+        //self.openChat(groupId)
     }
 }

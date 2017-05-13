@@ -37,6 +37,7 @@
 		A5F966481EBA6324001D072B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F966471EBA6324001D072B /* MapKit.framework */; };
 		A5F976561EC4E05D00D73332 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F976551EC4E05D00D73332 /* Annotation.swift */; };
 		A5F976581EC4F11800D73332 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F976571EC4F11800D73332 /* GroupCell.xib */; };
+		A5F9765A1EC6E3C600D73332 /* SelectSingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F976591EC6E3C600D73332 /* SelectSingleViewController.swift */; };
 		CE2710261EBFCD8900C3B26B /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */; };
 		CE2710271EBFCD8900C3B26B /* BasicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */; };
 		CEA04EE71EC04DB6007E5E3E /* PetPalSprint2.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */; };
@@ -104,6 +105,7 @@
 		A5F966471EBA6324001D072B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A5F976551EC4E05D00D73332 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		A5F976571EC4F11800D73332 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		A5F976591EC6E3C600D73332 /* SelectSingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSingleViewController.swift; sourceTree = "<group>"; };
 		CE2710241EBFCD8900C3B26B /* BasicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
 		CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicTableViewCell.xib; sourceTree = "<group>"; };
 		CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint2.gif; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				A50A9C281EBCF81B000A1394 /* MessagesViewController.swift */,
 				99CBCD231EC00F9100850FCC /* SettingsViewController.swift */,
 				99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */,
+				A5F976591EC6E3C600D73332 /* SelectSingleViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				A50A9C2D1EBD36D7000A1394 /* MessagesCell.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
 				A5F976561EC4E05D00D73332 /* Annotation.swift in Sources */,
+				A5F9765A1EC6E3C600D73332 /* SelectSingleViewController.swift in Sources */,
 				CEBA9AD01EBA671700CB846C /* CustomDateCell.swift in Sources */,
 				CEC62CE71EC680680042D808 /* TaskHeaderTableViewCell.swift in Sources */,
 				A50A9C2B1EBD289B000A1394 /* Messages.swift in Sources */,

@@ -60,8 +60,8 @@ class Messages {
                     message["groupId"] = groupId;
                     message["text"] = description;
                     message["lastUser"] = PFUser.current()
-                    //message[PF_MESSAGES_LASTMESSAGE] = "";
-                    //message["counter"] = 0
+                    message["lastMessage"] = "";
+                    message["counter"] = 0
                     message["updatedAt"] = NSDate()
                     message.saveInBackground{
                         (success: Bool, error: Error?) -> Void in
