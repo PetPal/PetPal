@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var imageBorderView: UIView!
     @IBOutlet weak var addButtonView: UIView!
+    @IBOutlet weak var addButton: UIButton!
     
 
     var requests: [Request]?
@@ -34,6 +35,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         if(user == nil){
          user = User.currentUser
+        }
+        
+        if user != User.currentUser {
+            addButtonView.isHidden = true
+            addButton.isHidden = true
         }
         
         PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in

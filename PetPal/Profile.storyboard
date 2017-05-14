@@ -263,6 +263,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qpE-gr-Xl6"/>
                     <connections>
+                        <outlet property="addButton" destination="EQ5-r9-4sA" id="Ddz-y0-m12"/>
                         <outlet property="addButtonView" destination="CWm-Tj-lhq" id="55w-12-KyR"/>
                         <outlet property="creditCount" destination="coW-Hz-0dY" id="nSy-e8-kyk"/>
                         <outlet property="groupCount" destination="G0k-2u-U2R" id="mVA-B2-xmH"/>
