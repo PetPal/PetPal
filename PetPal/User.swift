@@ -54,6 +54,7 @@ class User: NSObject {
         email = pfUser.email
         password = pfUser.password
         userAvatar = pfUser.object(forKey: "userAvatar") as? PFFile
+        geoLocation = pfUser.object(forKey: "GeoLocation") as? PFGeoPoint
         location = pfUser.object(forKey: "Address") as? String
         city = pfUser.object(forKey: "City") as? String
         state = pfUser.object(forKey: "State") as? String

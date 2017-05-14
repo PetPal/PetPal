@@ -12,7 +12,6 @@ import Parse
 class PetPalAPIClient  {
     
     static let sharedInstance = PetPalAPIClient()
-    var currentGeoLocation: PFGeoPoint? = nil
     
     func initializeParse(){
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
@@ -21,13 +20,6 @@ class PetPalAPIClient  {
         }))
         
         
-        PFGeoPoint.geoPointForCurrentLocation { (pfGeoLocation: PFGeoPoint?, error: Error?) in
-            if(error == nil) {
-                if let pfGeoLocation = pfGeoLocation {
-                    self.currentGeoLocation = pfGeoLocation
-                }
-            }
-        }
     }
     
     func addUser(user: User, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()){
@@ -46,8 +38,6 @@ class PetPalAPIClient  {
             print(error)
         }
         newUser.setObject(imageFile!, forKey: "userAvatar")
-        
-        newUser["GeoLocation"] = currentGeoLocation
         
         newUser.signUpInBackground { (response: Bool, error: Error?) in
             if(error == nil){
@@ -72,6 +62,19 @@ class PetPalAPIClient  {
             }
         })
         
+    }
+    
+    func updateUserCurrentLocation(geoLocation: PFGeoPoint, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()){
+        PFUser.current()?["GeoLocation"] = geoLocation
+        PFUser.current()?.saveInBackground(block: { (successSavingLocation: Bool, errorSavingLocation: Error?) in
+            if(successSavingLocation){
+                print("Saved the Location.")
+                success(true)
+            } else {
+                print("Failed to save the location!")
+                failure(errorSavingLocation!)
+            }
+        })
     }
     
     func getUsers() {
