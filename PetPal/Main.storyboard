@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F3l-JR-e2e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F3l-JR-e2e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -287,9 +287,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="Wts-Qx-Ujl">
-                        <barButtonItem key="leftBarButtonItem" image="white-x-24" id="z0r-v7-N6J">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="z0r-v7-N6J">
                             <connections>
-                                <action selector="onCancelButton:" destination="yZa-hY-yyl" id="i0H-lm-zhk"/>
+                                <action selector="onCancelButton:" destination="yZa-hY-yyl" id="9Kg-ig-yF5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

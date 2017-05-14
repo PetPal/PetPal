@@ -106,83 +106,24 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     
     func addMessage(_ object: PFObject) {
         let message: JSQMessage!
-        
         let user = object["user"] as! PFUser
         let name = user["name"] as! String
         
          message = JSQMessage(senderId: user.objectId, senderDisplayName: name, date: object.createdAt, text: (object["text"] as? String))
-        
-        /*
-         let videoFile = object["video"] as? PFFile
-        let pictureFile = object["picture"] as? PFFile
-        
-        if videoFile == nil && pictureFile == nil {
-            message = JSQMessage(senderId: user.objectId, senderDisplayName: name, date: object.createdAt, text: (object["text"] as? String))
-        }
-        
-        if let videoFile = videoFile {
-            var mediaItem = JSQVideoMediaItem(fileURL: URL(string: videoFile.url!), isReadyToPlay: true)
-            mediaItem.appliesMediaViewMaskAsOutgoing = (user.objectId == self.senderId)
-            message = JSQMessage(senderId: user.objectId, senderDisplayName: name, date: object.createdAt, media: mediaItem)
-        }
-        
-        if let pictureFile = pictureFile {
-            var mediaItem = JSQPhotoMediaItem(image: nil)
-            mediaItem.appliesMediaViewMaskAsOutgoing = (user.objectId == self.senderId)
-            message = JSQMessage(senderId: user.objectId, senderDisplayName: name, date: object.createdAt, media: mediaItem)
-            
-            pictureFile.getDataInBackgroundWithBlock({ (imageData: Data?, error: NSError?) -> Void in
-                if error == nil {
-                    mediaItem.image = UIImage(data: imageData!)
-                    self.collectionView.reloadData()
-                }
-            })
-        }
- */
         users.append(user)
         messages.append(message)
     }
     
     func sendMessage(_ text: String, video: URL?, picture: UIImage?) {
         let text = text
-      /*  var videoFile: PFFile!
-        var pictureFile: PFFile!
-        
-        if let video = video {
-            text = "[Video message]"
-            videoFile = PFFile(name: "video.mp4", data: FileManager.defaultManager().contentsAtPath(video.path!)!)
-            
-            videoFile.saveInBackgroundWithBlock({ (succeeed: Bool, error: NSError?) -> Void in
-                if error != nil {
-                    ProgressHUD.showError("Network error")
-                }
-            })
-        }
-        
-        if let picture = picture {
-            text = "[Picture message]"
-            pictureFile = PFFile(name: "picture.jpg", data: UIImageJPEGRepresentation(picture, 0.6))
-            pictureFile.saveInBackgroundWithBlock({ (suceeded: Bool, error: NSError?) -> Void in
-                if error != nil {
-                    ProgressHUD.showError("Picture save error")
-                }
-            })
-        }
-        */
         let object = PFObject(className: "Chat")
         object["user"] = PFUser.current()
         object["groupId"] = self.groupId
         object["text"] = text
-       /* if let videoFile = videoFile {
-            object[PF_CHAT_VIDEO] = videoFile
-        }
-        if let pictureFile = pictureFile {
-            object[PF_CHAT_PICTURE] = pictureFile
-        }*/
         object.saveInBackground{ (succeeded: Bool, error: Error?) -> Void in
             if error == nil {
-                JSQSystemSoundPlayer.jsq_playMessageSentSound()
-                self.loadMessages()
+                //JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                //self.loadMessages()
             } else {
                 let alertController = UIAlertController(title: "Network Error", message: "", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -202,6 +143,10 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     // MARK: - JSQMessagesViewController method overrides
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+       // let message = JSQMessage(senderId: senderId!, displayName: senderDisplayName, text: text)
+        //messages.append(message!)
+        //self.finishSendingMessage()
+        
         self.sendMessage(text, video: nil, picture: nil)
     }
     
@@ -215,11 +160,11 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     // MARK: - JSQMessages CollectionView DataSource
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        return self.messages[indexPath.item]
+        return self.messages[indexPath.row]
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        let message = self.messages[indexPath.item]
+        let message = self.messages[indexPath.row]
         if message.senderId == self.senderId {
             return outgoingBubbleImage
         }
@@ -227,7 +172,7 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        let user = self.users[indexPath.item]
+       /* let user = self.users[indexPath.row]
         if self.avatars[user.objectId!] == nil {
             let thumbnailFile = user["userAvatar"] as? PFFile
             thumbnailFile?.getDataInBackground(block: { (imageData: Data?, error: Error?) -> Void in
@@ -239,21 +184,25 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
             return blankAvatarImage
         } else {
             return self.avatars[user.objectId!]
-        }
+        }*/
+        return nil
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         if indexPath.item % 3 == 0 {
-            let message = self.messages[indexPath.item]
+            let message = self.messages[indexPath.row]
             return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
         }
         return nil;
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-        let message = self.messages[indexPath.item]
+        let message = self.messages[indexPath.row]
         if message.senderId == self.senderId {
             return nil
+        }else {
+            let messageUsername = message.senderDisplayName
+            return NSAttributedString(string: messageUsername!)
         }
         
         if indexPath.item > 0 {
@@ -290,10 +239,10 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     // MARK: - UICollectionView flow layout
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellTopLabelAt indexPath: IndexPath!) -> CGFloat {
-        if indexPath.item % 3 == 0 {
+        if indexPath.row % 3 == 0 {
             return kJSQMessagesCollectionViewCellLabelHeightDefault
         }
-        return 0
+        return 15
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
@@ -317,29 +266,6 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     }
     
     // MARK: - Responding to CollectionView tap events
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, header headerView: JSQMessagesLoadEarlierHeaderView!, didTapLoadEarlierMessagesButton sender: UIButton!) {
-        print("didTapLoadEarlierMessagesButton")
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapAvatarImageView avatarImageView: UIImageView!, at indexPath: IndexPath!) {
-        print("didTapAvatarImageview")
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
-        let message = self.messages[indexPath.item]
-        /*if message.isMediaMessage {
-            if let mediaItem = message.media as? JSQVideoMediaItem {
-                let moviePlayer = MPMoviePlayerViewController(contentURL: mediaItem.fileURL)
-                self.presentMoviePlayerViewControllerAnimated(moviePlayer)
-                moviePlayer?.moviePlayer.play()
-            }
-        } */
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapCellAt indexPath: IndexPath!, touchLocation: CGPoint) {
-        print("didTapCellAtIndexPath")
-    }
     
     // MARK: - UIActionSheetDelegate
     
@@ -365,4 +291,10 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
         
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    
+    @IBAction func onCancelButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

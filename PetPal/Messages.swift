@@ -16,7 +16,7 @@ class Messages {
         let id1 = user1.objectId
         let id2 = user2.objectId
         
-        let groupId = (id1! < id2!) ? "\(id1)\(id2)" : "\(id2)\(id1)"
+        let groupId = (id1! < id2!) ? "\(id1!)\(id2!)" : "\(id2!)\(id1!)"
         
         createMessageItem(user1, groupId: groupId, description: user2["name"] as! String)
         createMessageItem(user2, groupId: groupId, description: user1["name"] as! String)
