@@ -12,12 +12,22 @@ import Parse
 class PetPalAPIClient  {
     
     static let sharedInstance = PetPalAPIClient()
+    var currentGeoLocation: PFGeoPoint? = nil
     
     func initializeParse(){
         Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
             configuration.applicationId = "petpal2-id"
             configuration.server = "https://petpal2.herokuapp.com/parse"
         }))
+        
+        
+        PFGeoPoint.geoPointForCurrentLocation { (pfGeoLocation: PFGeoPoint?, error: Error?) in
+            if(error == nil) {
+                if let pfGeoLocation = pfGeoLocation {
+                    self.currentGeoLocation = pfGeoLocation
+                }
+            }
+        }
     }
     
     func addUser(user: User, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()){
@@ -27,6 +37,7 @@ class PetPalAPIClient  {
         newUser.email = user.email
         newUser["password"] = user.password
         
+        
         let imageData = UIImageJPEGRepresentation(UIImage(named:"defaultProfileImage")!, 0.05)
         let imageFile = PFFile(name: "image.jpg", data: imageData!)
         do {
@@ -35,6 +46,8 @@ class PetPalAPIClient  {
             print(error)
         }
         newUser.setObject(imageFile!, forKey: "userAvatar")
+        
+        newUser["GeoLocation"] = currentGeoLocation
         
         newUser.signUpInBackground { (response: Bool, error: Error?) in
             if(error == nil){

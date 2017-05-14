@@ -22,6 +22,7 @@ class User: NSObject {
     var groups: [Group]?
     var userAvatar: PFFile?
     var pets: [Pet]?
+    var geoLocation: PFGeoPoint?
     var location: String?
     var city: String?
     var state: String?

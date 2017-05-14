@@ -40,7 +40,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Take photo for group picture</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>For map in application</string>
+	<string>Allow PetPal to use your location? Using location will allow the app to find the best communities for you to be a part of.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Allow PetPal to use your location in the background?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Upload photo from photo library</string>
 	<key>UILaunchStoryboardName</key>
