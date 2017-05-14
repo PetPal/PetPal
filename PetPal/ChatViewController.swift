@@ -144,7 +144,7 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
        // let message = JSQMessage(senderId: senderId!, displayName: senderDisplayName, text: text)
-        //messages.append(message!)
+        //obmessages.append(message!)
         //self.finishSendingMessage()
         
         self.sendMessage(text, video: nil, picture: nil)

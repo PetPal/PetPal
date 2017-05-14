@@ -62,7 +62,7 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
                 self.tableView.reloadData()
                 //}
                 self.updateEmptyView()
-                //self.updateTabCounter()
+                self.updateTabCounter()
             } else {
                 print("Network error")
             }
@@ -81,8 +81,9 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
         for message in self.messages {
             total += message["counter"]! as! Int
         }
-        let item = self.tabBarController!.tabBar.items![1]
-        item.badgeValue = (total == 0) ? nil : "\(total)"
+        //let item = self.tabBarController!.tabBar.items![1]
+       // let item = MenuViewController.
+        //item.badgeValue = (total == 0) ? nil : "\(total)"
     }
     
     // MARK: - User actions

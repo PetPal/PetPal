@@ -56,11 +56,11 @@ class Messages {
             if error == nil {
                 if objects!.count == 0 {
                     let message = PFObject(className: "Message")
-                    message["user"] = user;
-                    message["groupId"] = groupId;
-                    message["text"] = description;
+                    message["user"] = user
+                    message["groupId"] = groupId
+                    message["description"] = description
                     message["lastUser"] = PFUser.current()
-                    message["lastMessage"] = "";
+                    message["lastMessage"] = ""
                     message["counter"] = 0
                     message["updatedAt"] = NSDate()
                     message.saveInBackground{
@@ -102,7 +102,7 @@ class Messages {
                     if user.objectId != PFUser.current()!.objectId {
                         message.incrementKey("counter") // Increment by 1
                         message["lastUser"] = PFUser.current()
-                        //message[PF_MESSAGES_LASTMESSAGE] = lastMessage
+                        message["lastMessage"] = lastMessage
                         message["updatedAt"] = NSDate()
                         message.saveInBackground{
                             (success: Bool, error: Error?) -> Void in
