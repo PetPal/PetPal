@@ -91,6 +91,31 @@ class User: NSObject {
     }
     
     
+    func makePFObject() -> PFObject! {
+        let userObject = PFObject(className: "_User")
+        return updatePFObject(userObject: userObject)
+    }
+    
+    func updatePFObject(userObject: PFObject) -> PFObject {
+        if let name = name {
+            userObject["name"] = name
+        }
+        if let screenName = screenName {
+            userObject["username"] = screenName
+        }
+        if let password = password {
+            userObject["password"] = password
+        }
+        if let userAvatar = userAvatar {
+            userObject.setObject(userAvatar, forKey: "userAvatar")
+        }
+        if let email = email {
+            userObject["email"] = email
+        }
+        return userObject
+    }
+    
+    
     // MARK: class vars
     
     private static var _currentUser: User?
