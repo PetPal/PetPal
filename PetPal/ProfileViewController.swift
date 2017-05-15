@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
 
     var requests: [Request]?
+    var pets: [Pet]?
     
     var user: User?
     
@@ -46,6 +47,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             addButton.isHidden = true
         }
         
+        
+        //Getting all the User's Pets
+        
+        //Getting all the User's Requests
         PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in
             self.requests = requests
             self.profileTableView.reloadData()
@@ -90,9 +95,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return requests?.count ?? 0
+            return requests?.count ?? 0
     }
 
     

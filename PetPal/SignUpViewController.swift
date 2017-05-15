@@ -28,15 +28,15 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         //Background Styling
-        let topColor = UIColor(displayP3Red: (225.0/255.0), green: (141.0/255.0), blue: (68.0/255.0), alpha: 1)
-        let bottomColor = UIColor(displayP3Red: (220.0/255.0), green: (85.0/255.0), blue: (99.0/255.0), alpha: 1)
+        let topColor = UIColor(displayP3Red: (142.0/255.0), green: (92.0/255.0), blue: (213.0/255.0), alpha: 1)
+        let bottomColor = UIColor(displayP3Red: (112.0/255.0), green: (116.0/255.0), blue: (161.0/255.0), alpha: 1)
         let background = CAGradientLayer().gradientBackground(topColor: topColor.cgColor, bottomColor: bottomColor.cgColor)
         background.frame = self.view.bounds
         self.view.layer.insertSublayer(background, at: 0)
         
         //Button Styling
         signUpButton.layer.cornerRadius = 4
-        signUpButton.backgroundColor = UIColor(displayP3Red: (250.0/255.0), green: (157.0/255.0), blue: (77.0/255.0), alpha: 1)
+        signUpButton.backgroundColor = UIColor(displayP3Red: (177.0/255.0), green: (188.0/255.0), blue: (57.0/255.0), alpha: 1)
         signUpWithTwitter.layer.cornerRadius = 4
         signUpWithTwitter.backgroundColor = UIColor(displayP3Red: (0/255.0), green: (172.0/255.0), blue: (237.0/255.0), alpha: 1)
         
