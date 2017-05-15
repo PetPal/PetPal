@@ -18,15 +18,9 @@ class AddPetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NotificationCenter.default.addObserver(forName: PetPalConstants.petAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
-//            
-//            let pet = notification.object as! Pet
-//            
-//            
-//            
-//    
-//        }
-//        
+        petName.signupTextBox()
+        petType.signupTextBox()
+        petAge.signupTextBox()
         
         // Do any additional setup after loading the view.
     }
