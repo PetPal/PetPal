@@ -22,6 +22,7 @@ class User: NSObject {
     var groups: [Group]?
     var userAvatar: PFFile?
     var pets: [Pet]?
+    var geoLocation: PFGeoPoint?
     var location: String?
     var city: String?
     var state: String?
@@ -53,6 +54,7 @@ class User: NSObject {
         email = pfUser.email
         password = pfUser.password
         userAvatar = pfUser.object(forKey: "userAvatar") as? PFFile
+        geoLocation = pfUser.object(forKey: "GeoLocation") as? PFGeoPoint
         location = pfUser.object(forKey: "Address") as? String
         city = pfUser.object(forKey: "City") as? String
         state = pfUser.object(forKey: "State") as? String
@@ -88,6 +90,31 @@ class User: NSObject {
             return pfUser?.objectId == objectUser.pfUser?.objectId
         }
         return false
+    }
+    
+    
+    func makePFObject() -> PFObject! {
+        let userObject = PFObject(className: "_User")
+        return updatePFObject(userObject: userObject)
+    }
+    
+    func updatePFObject(userObject: PFObject) -> PFObject {
+        if let name = name {
+            userObject["name"] = name
+        }
+        if let screenName = screenName {
+            userObject["username"] = screenName
+        }
+        if let password = password {
+            userObject["password"] = password
+        }
+        if let userAvatar = userAvatar {
+            userObject.setObject(userAvatar, forKey: "userAvatar")
+        }
+        if let email = email {
+            userObject["email"] = email
+        }
+        return userObject
     }
     
     

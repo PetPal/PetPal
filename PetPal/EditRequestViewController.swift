@@ -144,7 +144,7 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         case .acceptedRequest:
             // segue chat
             if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
-                _ = Messages.startPrivateChat(requestUser.pfUser!, user2: acceptUser.pfUser!)
+                _ = Messages.startPrivateChat(user1: requestUser.pfUser!, user2: acceptUser.pfUser!)
             }
 
             let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController")
@@ -153,7 +153,7 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         case .task:
           // segue chat
             if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
-                _ = Messages.startPrivateChat(requestUser.pfUser!, user2: acceptUser.pfUser!)
+                _ = Messages.startPrivateChat(user1: requestUser.pfUser!, user2: acceptUser.pfUser!)
             }
 
             let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController")

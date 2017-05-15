@@ -11,20 +11,60 @@ import Foundation
 import Parse
 
 class Messages {
+    var groupId : String?
+    var user1 : User?
+    var user2 : User?
+    var counter: Int?
     
-    class func startPrivateChat(_ user1: PFUser, user2: PFUser) -> String {
+    init(groupId: String, users: [User]){
+        self.groupId = groupId
+        user1 = users[0]
+        user2 = users[1]
+    }
+    
+    init(conversation: PFObject) {
+        self.groupId = conversation["groupId"] as? String
+        self.user1 = conversation["user"] as? User
+        self.user2 = conversation["user2"] as? User
+        self.counter = conversation["counter"] as? Int
+    }
+    
+    func makePFObject() -> PFObject! {
+        let conversationObject = PFObject(className: "Message")
+        return updatePFObject(conversationObject: conversationObject)
+    }
+    
+    func updatePFObject(conversationObject: PFObject) -> PFObject {
+        if let groupId = groupId {
+            conversationObject["groupId"] = groupId
+        }
+        if let user1 = user1 {
+            conversationObject["user"] = user1.pfUser
+        }
+        if let user2 = user2 {
+            conversationObject["user2"] = user2.pfUser
+        }
+        if let counter = counter {
+            conversationObject["counter"] = counter
+        }
+        
+        return  conversationObject
+    }
+    
+    
+    class func startPrivateChat(user1: PFUser, user2: PFUser) -> String {
         let id1 = user1.objectId
         let id2 = user2.objectId
         
-        let groupId = (id1! < id2!) ? "\(id1)\(id2)" : "\(id2)\(id1)"
+        let groupId = (id1! < id2!) ? "\(id1!)\(id2!)" : "\(id2!)\(id1!)"
         
-        createMessageItem(user1, groupId: groupId, description: user2["name"] as! String)
-        createMessageItem(user2, groupId: groupId, description: user1["name"] as! String)
+        createMessageItem(user1: user1, user2: user2, groupId: groupId, description: "Test String")
+       // createMessageItem(user2, user2: PFUser, groupId: groupId, description: user1["name"] as! String)
         
         return groupId
     }
     
-    class func startMultipleChat(_ users: [PFUser]!) -> String {
+    /*class func startMultipleChat(_ users: [PFUser]!) -> String {
         var groupId = ""
         let description = ""
         
@@ -46,21 +86,26 @@ class Messages {
         }
         
         return groupId
-    }
+    }*/
     
-    class func createMessageItem(_ user: PFUser, groupId: String, description: String) {
+    class func createMessageItem(user1: PFUser, user2: PFUser, groupId: String, description: String) {
+        let user1 = User(pfUser: user1)
+        let user2 = User(pfUser: user2)
+        let conversation = Messages(groupId: groupId , users: [user1, user2])
         let query = PFQuery(className: "Message")
-        query.whereKey("user", equalTo: user)
-        query.whereKey("groupId", equalTo: groupId)
+        query.whereKey("user", equalTo: conversation.user1 ?? "default user1")
+        query.whereKey("groupId", equalTo: conversation.groupId ?? "0000")
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 if objects!.count == 0 {
                     let message = PFObject(className: "Message")
-                    message["user"] = user;
-                    message["groupId"] = groupId;
-                    message["text"] = description;
+                    
+                    message["user"] = conversation.user1
+                    message["user2"] = conversation.user2
+                    message["groupId"] = conversation.groupId
+                    message["description"] = description
                     message["lastUser"] = PFUser.current()
-                    message["lastMessage"] = "";
+                    message["lastMessage"] = ""
                     message["counter"] = 0
                     message["updatedAt"] = NSDate()
                     message.saveInBackground{
@@ -102,7 +147,7 @@ class Messages {
                     if user.objectId != PFUser.current()!.objectId {
                         message.incrementKey("counter") // Increment by 1
                         message["lastUser"] = PFUser.current()
-                        //message[PF_MESSAGES_LASTMESSAGE] = lastMessage
+                        message["lastMessage"] = lastMessage
                         message["updatedAt"] = NSDate()
                         message.saveInBackground{
                             (success: Bool, error: Error?) -> Void in

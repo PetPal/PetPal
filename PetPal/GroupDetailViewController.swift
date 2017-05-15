@@ -112,7 +112,8 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if let user = User.currentUser {
                 PetPalAPIClient.sharedInstance.addGroupToUser(user: user, group: group)
             }
-            _ = navigationController?.popViewController(animated: true)
+           self.navigationController?.popViewController(animated: true)
+            
         }
     }
 

@@ -19,12 +19,15 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
 
     var photo: UIImage!
     var processedPhoto: PFFile?
+    var defaultGroupPhoto = Utilities.getPFFileFromImage(image: #imageLiteral(resourceName: "defaultGroupImage"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 157/256, green: 169/256, blue: 61/256, alpha: 1.0)
         navigationController?.navigationBar.tintColor = UIColor.white
         descriptionTextField.delegate = self
+        nameTextField.autocorrectionType = .no
+        descriptionTextField.autocorrectionType = .no
 
         // Do any additional setup after loading the view.
     }
@@ -64,7 +67,8 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         photo = originalImage
-        _ = Utilities.getPFFileFromImage(image: photo)
+        processedPhoto = Utilities.getPFFileFromImage(image: photo)
+        
         self.cameraButton.setImage(originalImage, for: UIControlState.normal)
        
         self.dismiss(animated: true, completion: nil)
@@ -76,8 +80,14 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
         if (nameTextField.text == "" ||  descriptionTextField.text == ""){
             self.present(alertController, animated: true, completion: nil)
         } else {
-            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: self.groupTypeSegment.selectedSegmentIndex)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!, profileImage: processedPhoto!, location: (User.currentUser?.location!)!, memberCount: 0)
+            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: self.groupTypeSegment.selectedSegmentIndex)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!, profileImage: processedPhoto ?? defaultGroupPhoto! , location: (User.currentUser?.location!)!, memberCount: 0)
             PetPalAPIClient.sharedInstance.addGroup(group: newgroup)
+            
+            if let user = User.currentUser {
+                PetPalAPIClient.sharedInstance.addGroupToUser(user: user, group: newgroup)
+            }
+           
+         
             self.dismiss(animated: true, completion: nil)
         }
     }

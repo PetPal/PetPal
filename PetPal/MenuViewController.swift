@@ -133,6 +133,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as! MenuItemCollectionViewCell
         cell.menuItem = menuItems[indexPath.row]
+    
         return cell
     }
     

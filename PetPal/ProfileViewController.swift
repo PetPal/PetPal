@@ -20,6 +20,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var profileImage: PFImageView!
     @IBOutlet weak var profileContainerView: UIView!
     @IBOutlet weak var imageBorderView: UIView!
+    @IBOutlet weak var addButtonView: UIView!
+    @IBOutlet weak var addButton: UIButton!
     
 
     var requests: [Request]?
@@ -33,6 +35,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         if(user == nil){
          user = User.currentUser
+        }
+        
+        if user != User.currentUser {
+            addButtonView.isHidden = true
+            addButton.isHidden = true
         }
         
         PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in
@@ -50,6 +57,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         //Updating data on labels
         nameLabel.text = user?.name
+        petCount.text = "\(user?.pets?.count ?? 0)"
+        groupCount.text = "\(user?.groups?.count ?? 0)"
         
         //Updating the profileImage
         if let avatar = user?.userAvatar {
@@ -61,6 +70,12 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         imageBorderView.layer.cornerRadius = radius
         imageBorderView.layer.borderColor = UIColor.darkGray.cgColor
         imageBorderView.layer.borderWidth = 1
+        
+        
+        let addButtonRadius = addButtonView.frame.width / 2
+        addButtonView.layer.cornerRadius = addButtonRadius
+        addButtonView.clipsToBounds = true
+        addButtonView.alpha = 0.7
         
         
         // Do any additional setup after loading the view.
@@ -87,6 +102,24 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         performSegue(withIdentifier: "requestDetailFromProfileSegue", sender: profileTableView.cellForRow(at: indexPath))
     }
     
+    @IBAction func onAddButtonPress(_ sender: Any) {
+        let alert = UIAlertController(title: "Add", message: "Add a New Pet or Create a New Request for your pet", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "New Pet", style: .default, handler: { (action: UIAlertAction) in
+            print("Hit the Add a Pet Button!")
+            self.performSegue(withIdentifier: "addPetFromProfileSegue", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "New Request", style: .default, handler: { (action: UIAlertAction) in
+            print("Hit the Add a Request Button!")
+            self.performSegue(withIdentifier: "addRequestFromProfileSegue", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction) in
+            print("Hit the Cancel Button!")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     // MARK: - Navigation
 
@@ -97,7 +130,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             let requestDetailVC = segue.destination as! EditRequestViewController
             let indexPath = profileTableView.indexPath(for: sender as! RequestDetailTableViewCell)
             requestDetailVC.request = requests?[(indexPath?.row)!]
-        }
+        } 
         // Pass the selected object to the new view controller.
     }
     
