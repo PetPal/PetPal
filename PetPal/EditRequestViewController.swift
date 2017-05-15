@@ -45,12 +45,18 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.estimatedRowHeight = 320
         tableView.rowHeight = UITableViewAutomaticDimension
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barTintColor = UIColor(colorWithHexValue: 0xE08E43)
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     // MARK: - UITableView
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -177,6 +183,12 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
                 let groupVC = segue.destination as! GroupDetailViewController
                 groupVC.group = group
             }
+        } else if segue.identifier == "showChatVCSegue" {
+            if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
+                let chatVC = segue.destination as! ChatViewController
+                let groupId = Messages.getGroupId(id1: requestUser.pfUser!.objectId!, id2: acceptUser.pfUser!.objectId!)
+                chatVC.groupId = groupId
+            }
         }
     }
 
@@ -195,10 +207,10 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         case .pendingRequest:
             break
         case .acceptedRequest:
-            navigateToChat()
+            performSegue(withIdentifier: "showChatVCSegue", sender: self)
             break
         case .task:
-            navigateToChat()
+            performSegue(withIdentifier: "showChatVCSegue", sender: self)
             break
         case .groupRequest:
             request.acceptUser = User.currentUser

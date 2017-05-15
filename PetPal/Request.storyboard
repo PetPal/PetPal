@@ -181,6 +181,7 @@
                         <outlet property="tableView" destination="v8r-Gx-UoJ" id="wUE-Nh-E5U"/>
                         <segue destination="Edy-3x-4Hw" kind="show" identifier="showProfileViewControllerSegue" id="RBz-Cn-Efg"/>
                         <segue destination="6a8-HS-efB" kind="show" identifier="showGroupDetailViewSegue" id="pQQ-hz-dyv"/>
+                        <segue destination="JVp-3Q-PNY" kind="show" identifier="showChatVCSegue" id="wZ4-zG-Fri"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aK5-5f-1WJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,7 +194,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileViewController" id="Edy-3x-4Hw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQ8-la-tqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705" y="775"/>
+            <point key="canvasLocation" x="1763" y="912"/>
         </scene>
         <!--myGroupSegue-->
         <scene sceneID="7Eg-Ww-f9h">
@@ -606,6 +607,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OL1-yz-oAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2510" y="152"/>
+        </scene>
+        <!--chatVC-->
+        <scene sceneID="Kl7-Ow-76d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="chatVC" id="JVp-3Q-PNY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OO4-my-4fB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1694" y="835"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rak-0d-OIN">
