@@ -41,7 +41,7 @@ class Group: NSObject {
         pfObject = object
         name = object["name"] as? String
         type = GroupType(rawValue: (object["groupType"] as? Int) ?? 0)!
-        overview = (object["overview"] as? String) ?? "None"
+        overview = object["description"] as? String
         timeStamp = object.createdAt as Date!
         profileImage = object["groupAvatar"] as? PFFile
         location = object["Location"] as? String
