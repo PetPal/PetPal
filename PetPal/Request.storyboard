@@ -179,11 +179,29 @@
                     <connections>
                         <outlet property="actionButton" destination="ifl-HE-N7E" id="hqj-XJ-gof"/>
                         <outlet property="tableView" destination="v8r-Gx-UoJ" id="wUE-Nh-E5U"/>
+                        <segue destination="Edy-3x-4Hw" kind="show" identifier="showProfileViewControllerSegue" id="RBz-Cn-Efg"/>
+                        <segue destination="6a8-HS-efB" kind="show" identifier="showGroupDetailViewSegue" id="pQQ-hz-dyv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aK5-5f-1WJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="912.5937031484259"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="Rdf-r8-Uqv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileViewController" id="Edy-3x-4Hw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQ8-la-tqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705" y="775"/>
+        </scene>
+        <!--myGroupSegue-->
+        <scene sceneID="7Eg-Ww-f9h">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="myGroupSegue" id="6a8-HS-efB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GD9-ic-1ku" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734" y="983"/>
         </scene>
         <!--Add Request View Controller-->
         <scene sceneID="bDS-jp-Q2h">
@@ -381,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naW-vH-dgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2517.5999999999999" y="151.57421289355324"/>
+            <point key="canvasLocation" x="3276" y="152"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="uJ2-9q-s9g">
@@ -587,7 +605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OL1-yz-oAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1678" y="913"/>
+            <point key="canvasLocation" x="2510" y="152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rak-0d-OIN">
@@ -834,6 +852,7 @@
                                             <outlet property="taskProfileImage" destination="zUF-1K-hdy" id="tvL-gr-btK"/>
                                             <outlet property="taskType" destination="Glj-Ks-Ith" id="kc8-Tp-Okd"/>
                                             <outlet property="taskUserName" destination="snx-f5-pix" id="7AB-Bh-1jr"/>
+                                            <segue destination="d50-30-1Ps" kind="show" identifier="CalendarEditRequestSegue" id="38u-V3-xP6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -888,4 +907,7 @@
         <image name="blank-profile-picture" width="640" height="640"/>
         <image name="white-x-24" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="38u-V3-xP6"/>
+    </inferredMetricsTieBreakers>
 </document>

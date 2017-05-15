@@ -21,8 +21,14 @@ class BasicTableViewCell: UITableViewCell {
         didSet {
             if let group = group {
                 basicLabel.text = group.name
-                // todo set group image
-                labelLeadingConstraint.constant = 8
+                if let avatar = group.profileImage {
+                    basicImage.setSquare()
+                    basicImage.file = avatar
+                    basicImage.loadInBackground()
+                    labelLeadingConstraint.constant = 48
+                } else {
+                    labelLeadingConstraint.constant = 8
+                }
             }
         }
     }
@@ -32,6 +38,7 @@ class BasicTableViewCell: UITableViewCell {
             if let user = user {
                 basicLabel.text = user.name
                 if let avatar = user.userAvatar {
+                    basicImage.setRounded()
                     basicImage.file = avatar
                     basicImage.loadInBackground()
                     labelLeadingConstraint.constant = 48
@@ -66,7 +73,6 @@ class BasicTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        basicImage.setRounded()
         checkImage.isHidden = true
         uncheckImage.isHidden = true
     }

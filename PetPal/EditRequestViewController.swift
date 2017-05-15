@@ -86,6 +86,7 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
             return dateCell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicTableViewCell", for: indexPath) as! BasicTableViewCell
+            cell.selectionStyle = .none
             
             switch request.category {
             case .pendingRequest:
@@ -101,6 +102,7 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicTableViewCell", for: indexPath) as! BasicTableViewCell
+            cell.selectionStyle = .none
             cell.basicText = request.getTypeString()
             return cell
         default:
@@ -136,6 +138,48 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            switch request.category {
+            case .pendingRequest:
+                let group = request.groups![indexPath.row]
+                segueToGroup(group)
+            case .acceptedRequest:
+                let user = request.acceptUser
+                segueToUser(user!)
+            case .task:
+                let user = request.requestUser
+                segueToUser(user!)
+            case .groupRequest:
+                let user = request.requestUser
+                segueToUser(user!)
+            }
+        }
+    }
+    
+    func segueToUser(_ user: User) {
+        performSegue(withIdentifier: "showProfileViewControllerSegue", sender: user)
+    }
+    
+    func segueToGroup(_ group: Group) {
+        performSegue(withIdentifier: "showGroupDetailViewSegue", sender: group)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showProfileViewControllerSegue" {
+            if let user = sender as? User {
+                let profileVC = segue.destination as! ProfileViewController
+                profileVC.user = user
+            }
+        } else if segue.identifier == "showGroupDetailViewSegue" {
+            if let group = sender as? Group {
+                let groupVC = segue.destination as! GroupDetailViewController
+                groupVC.group = group
+            }
+        }
+    }
+
     
     func navigateToChat() {
         if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
