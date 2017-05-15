@@ -365,10 +365,30 @@ class PetPalAPIClient  {
         })
     }
     
+    func addConversation(conversation: Messages) {
+        let conversationObject = PFObject(className: "Message")
+        if let groupId = conversation.groupId {
+            conversationObject["groupId"] = groupId
+        }
+        conversationObject["user1"] = conversation.user1?.pfUser
+        conversationObject["user2"] = conversation.user2?.pfUser
+      
+        conversationObject.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                print("Conversation added")
+                conversation.pfObject = conversationObject
+            } else if let error = error {
+                print("error \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    
+    
     
     func loadConversations(success: @escaping ([Messages]) -> (),failure: @escaping (Error) -> ()) {
         let query = PFQuery(className: "Message")
-        query.whereKey("user", equalTo: PFUser.current()!)
+        query.whereKey("user1", equalTo: PFUser.current()!)
         query.includeKey("lastUser")
         query.order(byDescending: "updatedAt")
         

@@ -19,20 +19,21 @@ class MessagesCell: UITableViewCell {
     @IBOutlet weak var timeElapsedLabel: UILabel!
     @IBOutlet weak var counterLabel: UILabel!
     
-    var message: PFObject! {
+    var message: Messages! {
         didSet {
-            let lastUser = message.object(forKey: "lastUser") as? PFUser
-            //let lastUser = message["lastUser"] as? User
-            userImage.file = lastUser?.object(forKey: "userAvatar") as? PFFile
-            userImage.loadInBackground()
-            nameLabel.text = lastUser?.object(forKey: "name") as? String
-            
-            lastMessageLabel.text = message["text"] as? String
+            let lastUser = message.user2
+            self.userImage.file = lastUser?.userAvatar
+            self.userImage.loadInBackground()
+            self.nameLabel.text = lastUser?.name
+            self.lastMessageLabel.text = message.lastMessage
             let date = Date()
-            if let updateDate = message["updatedAt"] as? Date {
+            if let updateDate = message.updatedAt {
                 let timeInterval = date.timeIntervalSince(updateDate)
-                timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)
+                self.timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)
             }
+            //let counter = message.counter
+            //counterLabel.text = (counter == 0) ? "" : "\(String(describing: counter)) new"
+            
  
            /* let dateText = JSQMessagesTimestampFormatter.shared().relativeDate(for: message["updatedAt"] as? Date)
             if dateText == "Today" {

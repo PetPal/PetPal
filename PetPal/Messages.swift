@@ -11,22 +11,30 @@ import Foundation
 import Parse
 
 class Messages {
+    var pfObject: PFObject?
     var groupId : String?
     var user1 : User?
     var user2 : User?
     var counter: Int?
+    var lastMessage: String?
+    var updatedAt: Date?
     
-    init(groupId: String, users: [User]){
+    init(groupId: String, user1: User, user2: User, counter: Int,  lastMessage: String){
         self.groupId = groupId
-        user1 = users[0]
-        user2 = users[1]
+        self.user1 = user1
+        self.user2 = user2
+        self.counter = counter
+        self.lastMessage = lastMessage
     }
     
     init(conversation: PFObject) {
+        self.pfObject = conversation
         self.groupId = conversation["groupId"] as? String
-        self.user1 = conversation["user"] as? User
+        self.user1 = conversation["user1"] as? User
         self.user2 = conversation["user2"] as? User
         self.counter = conversation["counter"] as? Int
+        self.lastMessage = conversation["lastMessage"] as? String
+        self.updatedAt = conversation["updatedAt"] as? Date
     }
     
     func makePFObject() -> PFObject! {
@@ -39,13 +47,19 @@ class Messages {
             conversationObject["groupId"] = groupId
         }
         if let user1 = user1 {
-            conversationObject["user"] = user1.pfUser
+            conversationObject["user1"] = user1.pfUser
         }
         if let user2 = user2 {
             conversationObject["user2"] = user2.pfUser
         }
         if let counter = counter {
             conversationObject["counter"] = counter
+        }
+        if let lastMessage = lastMessage {
+            conversationObject["lastMessage"] = lastMessage
+        }
+        if let updatedAt = updatedAt  {
+            conversationObject["updatedAt"] = updatedAt
         }
         
         return  conversationObject
@@ -58,7 +72,9 @@ class Messages {
         
         let groupId = getGroupId(id1: id1!, id2: id2!)
         
-        createMessageItem(user1: user1, user2: user2, groupId: groupId, description: "Test String")
+      
+        
+        //createMessageItem(user1: user1, user2: user2, groupId: groupId, description: "Test String")
        // createMessageItem(user2, user2: PFUser, groupId: groupId, description: user1["name"] as! String)
         
         return groupId
@@ -92,7 +108,7 @@ class Messages {
         return groupId
     }*/
     
-    class func createMessageItem(user1: PFUser, user2: PFUser, groupId: String, description: String) {
+    class func createMessageItem(user1: PFUser, user2: PFUser, groupId: String, counter: Int, lastMessage: String) {
         let query = PFQuery(className: "Message")
         query.whereKey("user", equalTo: user1)
         query.whereKey("groupId", equalTo: groupId)
@@ -102,12 +118,10 @@ class Messages {
                     let message = PFObject(className: "Message")
                     let user1 = User(pfUser: user1)
                     let user2 = User(pfUser: user2)
-                    let conversation = Messages(groupId: groupId , users: [user1, user2])
+                    let conversation = Messages(groupId: groupId , user1: user1, user2: user2, counter: counter, lastMessage: "test msg")
                     message["user"] = conversation.user1
                     message["user2"] = conversation.user2
                     message["groupId"] = conversation.groupId
-                    message["description"] = description
-                    message["lastUser"] = PFUser.current()
                     message["lastMessage"] = ""
                     message["counter"] = 0
                     message["updatedAt"] = NSDate()

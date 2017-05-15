@@ -54,7 +54,7 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
             self.messages = freshMessages
             self.tableView.reloadData()
             self.updateEmptyView()
-            self.updateTabCounter()
+            //self.updateTabCounter()
             self.refreshControl!.endRefreshing()
         }) { (error: Error) in
             print("There was an error fetching the messages: \(error.localizedDescription)")
@@ -71,7 +71,7 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     func updateTabCounter() {
         var total = 0
         for message in self.messages {
-            total += message.counter! 
+            total += message.counter!
         }
     }
     
@@ -86,7 +86,7 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     func cleanup() {
         self.messages.removeAll(keepingCapacity: false)
         self.tableView.reloadData()
-        self.updateTabCounter()
+        //self.updateTabCounter()
         self.updateEmptyView()
     }
     
@@ -127,15 +127,17 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     // MARK: - SelectSingleDelegate
     
     func didSelectSingleUser(_ user2: PFUser) {
-        //let senderUser = User(pfUser: PFUser.current()!)
-        //let recieverUser = User(pfUser: user2)
+       
         let user1 = PFUser.current()!
         
         let groupId = Messages.startPrivateChat(user1: user1, user2: user2)
         self.openChat(groupId: groupId)
-        //let newConversation = Messages(groupId: groupId, users: [senderUser, recieverUser])
-        //messages.append(newConversation)
-        //tableView.reloadData()
+        let senderUser = User(pfUser: PFUser.current()!)
+        let recieverUser = User(pfUser: user2)
+        let newConversation = Messages(groupId: groupId, user1: senderUser, user2: recieverUser, counter: 0, lastMessage: "test msg")
+        messages.append(newConversation)
+        PetPalAPIClient.sharedInstance.addConversation(conversation: newConversation)
+        tableView.reloadData()
         //let indexPath = NSIndexPath(row: messages.count-1, section: 0) as IndexPath
         //tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         //self.performSegue(withIdentifier: "messagesToChatSegue", sender: self)
@@ -183,7 +185,8 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
         //let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "MessagesCell") as! MessagesCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesCell", for: indexPath) as! MessagesCell
         let message = self.messages[indexPath.row] as Messages
-        cell.message = message.makePFObject()
+        cell.message = message
+        //cell.message = message.makePFObject()
        
         //cell.bindData(self.messages[indexPath.row])
         return cell
@@ -200,7 +203,7 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
         self.messages.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         self.updateEmptyView()
-        self.updateTabCounter()
+        //self.updateTabCounter()
     }
     
     // MARK: - UITableViewDelegate
