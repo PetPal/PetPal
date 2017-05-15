@@ -69,12 +69,22 @@ class SignUpViewController: UIViewController {
         let alertController = UIAlertController(title: "Missed a Field!", message: "You missed a mandatory field on the SignUp", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         
+        // Starting a Spinner
+        let spinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        spinner.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
+        spinner.startAnimating()
+        
         if (nameField.text == "" || userNameField.text == "" || emailField.text == "" || passwordField.text == ""){
             self.present(alertController, animated: true, completion: nil)
         } else {
             let newUser = User(newName: nameField.text!, newScreenName: userNameField.text!, newEmail: emailField.text!, newPassword: passwordField.text!)
             PetPalAPIClient.sharedInstance.addUser(user: newUser, success: { (bool: Bool) in
                 print("Successfully Signed up user")
+                spinner.stopAnimating()
+                //Logging User Upon SignUp
+                User.currentUser = newUser
+                Utilities.presentHamburgerView(window: UIApplication.shared.keyWindow)
+                
             }, failure: { (error: Error) in
                 print("Failed to Signup User. : \(error.localizedDescription)")
             })

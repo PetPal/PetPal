@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Parse
 
 class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +21,8 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
     var pinAnnotationView:MKPinAnnotationView!
     
     var groups: [Group]! = []
+    var currentGeoLocation: PFGeoPoint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -40,6 +43,21 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
             locationManager.requestWhenInUseAuthorization()
             //locationManager.startUpdatingLocation()
         }
+        
+        //Saving the User's GeoLocation during the Start of the App
+//        PFGeoPoint.geoPointForCurrentLocation { (pfGeoLocation: PFGeoPoint?, error: Error?) in
+//            if(error == nil) {
+//                if let pfGeoLocation = pfGeoLocation {
+//                    self.currentGeoLocation = pfGeoLocation
+//                }
+//            }
+//        }
+//        PetPalAPIClient.sharedInstance.updateUserCurrentLocation(geoLocation: currentGeoLocation!, success: { (response: Bool) in
+//            print("Updated the user's current location Successfully!")
+//        }) { (error: Error) in
+//            print("There was an error udpating the user's current Location: \(error.localizedDescription)")
+//        }
+        
         
         mapView.showsUserLocation = true
         
@@ -93,7 +111,7 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
             self.groups = groups
             self.tableView.reloadData()
         }) { (error: Error?) in
-            print("error \(String(describing: error?.localizedDescription))")
+            print("error \(error?.localizedDescription ?? "Default Error String")")
         }
     }
 

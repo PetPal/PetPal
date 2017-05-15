@@ -21,17 +21,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-  
-
-    
 
     /*
     // MARK: - Navigation
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
                 alertController.addAction(OKAction)
                 self.present(alertController, animated: true)
-                print ("Error: \(error?.localizedDescription)")
+                print ("Error: \(error?.localizedDescription ?? "Default Error String!")")
             }
         }
     }

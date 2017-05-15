@@ -18,6 +18,8 @@ class PetPalAPIClient  {
             configuration.applicationId = "petpal2-id"
             configuration.server = "https://petpal2.herokuapp.com/parse"
         }))
+        
+        
     }
     
     func addUser(user: User, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()){
@@ -26,6 +28,7 @@ class PetPalAPIClient  {
         newUser.username = user.screenName
         newUser.email = user.email
         newUser["password"] = user.password
+        
         
         let imageData = UIImageJPEGRepresentation(UIImage(named:"defaultProfileImage")!, 0.05)
         let imageFile = PFFile(name: "image.jpg", data: imageData!)
@@ -59,6 +62,19 @@ class PetPalAPIClient  {
             }
         })
         
+    }
+    
+    func updateUserCurrentLocation(geoLocation: PFGeoPoint, success: @escaping (Bool) -> (), failure: @escaping (Error) -> ()){
+        PFUser.current()?["GeoLocation"] = geoLocation
+        PFUser.current()?.saveInBackground(block: { (successSavingLocation: Bool, errorSavingLocation: Error?) in
+            if(successSavingLocation){
+                print("Saved the Location.")
+                success(true)
+            } else {
+                print("Failed to save the location!")
+                failure(errorSavingLocation!)
+            }
+        })
     }
     
     func getUsers() {

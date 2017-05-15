@@ -233,11 +233,38 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWm-Tj-lhq">
+                                <rect key="frame" x="168" y="618" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.68937895541278182" blue="0.37803231437193308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="EZ6-UO-iY3"/>
+                                    <constraint firstAttribute="height" constant="40" id="qfI-B6-tKa"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQ5-r9-4sA">
+                                <rect key="frame" x="173" y="623" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="6ET-6f-qhf"/>
+                                    <constraint firstAttribute="height" constant="30" id="Nmh-Vk-NIz"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="onAddButtonPress:" destination="5Cr-ns-4w5" eventType="touchUpInside" id="YiL-RG-lpG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YRi-rG-VkV" firstAttribute="top" secondItem="CWm-Tj-lhq" secondAttribute="bottom" constant="9" id="79i-m0-hbh"/>
+                            <constraint firstItem="CWm-Tj-lhq" firstAttribute="centerX" secondItem="f9R-5W-2hF" secondAttribute="centerX" id="BqA-QM-2Gt"/>
+                            <constraint firstItem="EQ5-r9-4sA" firstAttribute="centerX" secondItem="CWm-Tj-lhq" secondAttribute="centerX" id="MQF-Vc-9UK"/>
+                            <constraint firstItem="EQ5-r9-4sA" firstAttribute="centerY" secondItem="CWm-Tj-lhq" secondAttribute="centerY" id="Vag-Na-1wh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qpE-gr-Xl6"/>
                     <connections>
+                        <outlet property="addButton" destination="EQ5-r9-4sA" id="Ddz-y0-m12"/>
+                        <outlet property="addButtonView" destination="CWm-Tj-lhq" id="55w-12-KyR"/>
                         <outlet property="creditCount" destination="coW-Hz-0dY" id="nSy-e8-kyk"/>
                         <outlet property="groupCount" destination="G0k-2u-U2R" id="mVA-B2-xmH"/>
                         <outlet property="imageBorderView" destination="VoO-A4-c4S" id="20y-EV-RWY"/>
@@ -247,6 +274,8 @@
                         <outlet property="profileContainerView" destination="34M-rK-hsn" id="FVp-Fj-x7u"/>
                         <outlet property="profileImage" destination="7St-PH-fx0" id="eNR-yR-ldP"/>
                         <outlet property="profileTableView" destination="2e8-Js-oZR" id="hQr-84-RrW"/>
+                        <segue destination="nFv-66-oxd" kind="presentation" identifier="addPetFromProfileSegue" id="k07-Ni-Whk"/>
+                        <segue destination="Kkh-As-eDU" kind="show" identifier="addRequestFromProfileSegue" id="wr8-te-IGc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TjE-aZ-c7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -259,7 +288,23 @@
                 <viewControllerPlaceholder storyboardName="Request" referencedIdentifier="EditRequestViewController" id="PIy-g6-lds" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qRB-bG-IiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="138"/>
+            <point key="canvasLocation" x="1773" y="4"/>
+        </scene>
+        <!--AddPetViewController-->
+        <scene sceneID="DeZ-zM-Yrr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="AddPetViewController" id="nFv-66-oxd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A6a-nK-9i3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750" y="167"/>
+        </scene>
+        <!--AddRequestViewController-->
+        <scene sceneID="tBp-LO-utK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Request" referencedIdentifier="AddRequestViewController" id="Kkh-As-eDU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R07-Y2-3JE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1773" y="304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AHM-Xh-itd">
@@ -281,6 +326,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="24" height="24"/>
         <image name="blank-profile-picture" width="640" height="640"/>
         <image name="dog" width="64" height="64"/>
         <image name="group" width="64" height="64"/>
