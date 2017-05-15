@@ -121,7 +121,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskHeaderCell") as! TaskHeaderTableViewCell
-        cell.header = "Tasks"
+        let hasCount = (tasks?.count ?? 0) > 0 ? true : false
+        cell.header = hasCount ? "Tasks" : "No upcoming tasks"
         return cell
     }
     

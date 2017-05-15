@@ -33,6 +33,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         profileTableView.dataSource = self
         profileTableView.delegate = self
         
+        //set Nav bar color
+        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = UIColor.white
+
         if(user == nil){
          user = User.currentUser
         }

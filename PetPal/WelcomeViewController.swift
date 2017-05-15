@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class WelcomeViewController: UIViewController {
+class WelcomeViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var userTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -17,7 +17,15 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        userTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +33,21 @@ class WelcomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        animateTextField(moveUp: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        animateTextField(moveUp: false)
+    }
+    
+    func animateTextField(moveUp: Bool) {
+        let offset = moveUp ? -180 : 180
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(offset))
+        }
+    }
 
     @IBAction func onSignIn(_ sender: Any) {
         let username = userTextField.text

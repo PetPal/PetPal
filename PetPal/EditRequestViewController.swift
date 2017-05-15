@@ -137,27 +137,24 @@ class EditRequestViewController: UIViewController, UITableViewDelegate, UITableV
         return 40
     }
     
+    func navigateToChat() {
+        if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
+            let groupId = Messages.getGroupId(id1: requestUser.pfUser!.objectId!, id2: acceptUser.pfUser!.objectId!)
+            let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chatVC") as! ChatViewController
+            chatVC.groupId = groupId
+            navigationController?.present(chatVC, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func onActionButton(_ sender: Any) {
         switch request.category {
         case .pendingRequest:
             break
         case .acceptedRequest:
-            // segue chat
-            if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
-                _ = Messages.startPrivateChat(user1: requestUser.pfUser!, user2: acceptUser.pfUser!)
-            }
-
-            let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController")
-            navigationController?.present(chatVC, animated: true, completion: nil)
+            navigateToChat()
             break
         case .task:
-          // segue chat
-            if let requestUser = request.requestUser, let acceptUser = request.acceptUser {
-                _ = Messages.startPrivateChat(user1: requestUser.pfUser!, user2: acceptUser.pfUser!)
-            }
-
-            let chatVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChatNavigationController")
-            navigationController?.present(chatVC, animated: true, completion: nil)
+            navigateToChat()
             break
         case .groupRequest:
             request.acceptUser = User.currentUser

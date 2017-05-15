@@ -156,7 +156,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
    
     // MARK: - Animation
     func animateMenus() {
-        print("TODO animate menus")
 //        collectionView.performBatchUpdates({ 
 //            let indexSet = IndexSet(integer: 0)
 //            self.collectionView.reloadSections(indexSet)
