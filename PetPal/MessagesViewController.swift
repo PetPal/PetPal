@@ -77,9 +77,9 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     
     // MARK: - User actions
     
-//    func openChat() {
-//        self.performSegue(withIdentifier: "messagesToChatSegue", sender: )
-//    }
+    func openChat(groupId: String) {
+        self.performSegue(withIdentifier: "messagesToChatSegue", sender: groupId)
+    }
     
    
     
@@ -100,11 +100,19 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
         if segue.identifier == "messagesToChatSegue" {
             let chatVC = segue.destination as! ChatViewController
             chatVC.hidesBottomBarWhenPushed = true
-            let cell = sender as! MessagesCell
-            let indexPath = tableView.indexPath(for: cell)
-           
-            let groupId = messages[(indexPath?.row)!].groupId
-            chatVC.groupId = groupId!
+            
+            if sender is UITableViewCell {
+                let cell = sender as! MessagesCell
+                let indexPath = tableView.indexPath(for: cell)
+                
+                let groupId = messages[(indexPath?.row)!].groupId
+                chatVC.groupId = groupId!
+            } else {
+                let groupId = sender as! String
+                chatVC.groupId = groupId
+            }
+        
+            
         } else if segue.identifier == "selectSingleSegue" {
             let selectSingleVC = (segue.destination as! UINavigationController).topViewController as! SelectSingleViewController
             selectSingleVC.delegate = self
@@ -119,16 +127,18 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     // MARK: - SelectSingleDelegate
     
     func didSelectSingleUser(_ user2: PFUser) {
-        let senderUser = User(pfUser: PFUser.current()!)
-        let recieverUser = User(pfUser: user2)
+        //let senderUser = User(pfUser: PFUser.current()!)
+        //let recieverUser = User(pfUser: user2)
+        let user1 = PFUser.current()!
         
-        let groupId = Messages.startPrivateChat(user1: PFUser.current()!, user2: user2)
-        let newConversation = Messages(groupId: groupId, users: [senderUser, recieverUser])
-        messages.append(newConversation)
-        tableView.reloadData()
-        let indexPath = NSIndexPath(row: messages.count-1, section: 0) as IndexPath
-        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-        self.performSegue(withIdentifier: "messagesToChatSegue", sender: self)
+        let groupId = Messages.startPrivateChat(user1: user1, user2: user2)
+        self.openChat(groupId: groupId)
+        //let newConversation = Messages(groupId: groupId, users: [senderUser, recieverUser])
+        //messages.append(newConversation)
+        //tableView.reloadData()
+        //let indexPath = NSIndexPath(row: messages.count-1, section: 0) as IndexPath
+        //tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        //self.performSegue(withIdentifier: "messagesToChatSegue", sender: self)
     }
     
     // MARK: - SelectMultipleDelegate

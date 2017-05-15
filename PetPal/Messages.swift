@@ -93,17 +93,16 @@ class Messages {
     }*/
     
     class func createMessageItem(user1: PFUser, user2: PFUser, groupId: String, description: String) {
-        let user1 = User(pfUser: user1)
-        let user2 = User(pfUser: user2)
-        let conversation = Messages(groupId: groupId , users: [user1, user2])
         let query = PFQuery(className: "Message")
-        query.whereKey("user", equalTo: conversation.user1 ?? "default user1")
-        query.whereKey("groupId", equalTo: conversation.groupId ?? "0000")
+        query.whereKey("user", equalTo: user1)
+        query.whereKey("groupId", equalTo: groupId)
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 if objects!.count == 0 {
                     let message = PFObject(className: "Message")
-                    
+                    let user1 = User(pfUser: user1)
+                    let user2 = User(pfUser: user2)
+                    let conversation = Messages(groupId: groupId , users: [user1, user2])
                     message["user"] = conversation.user1
                     message["user2"] = conversation.user2
                     message["groupId"] = conversation.groupId
