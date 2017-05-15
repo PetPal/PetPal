@@ -32,6 +32,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.estimatedRowHeight = 320
+        tableView.rowHeight = UITableViewAutomaticDimension
+
         loadTasks()
         
         NotificationCenter.default.addObserver(forName: PetPalConstants.requestUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
@@ -111,14 +114,15 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
-        cell.textLabel?.text = tasks?[indexPath.row].getTypeString()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskDetailTableViewCell", for: indexPath) as! TaskDetailTableViewCell
+        cell.request = tasks![indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskHeaderCell") as! TaskHeaderTableViewCell
-        cell.header = "Tasks"
+        let hasCount = (tasks?.count ?? 0) > 0 ? true : false
+        cell.header = hasCount ? "Tasks" : "No upcoming tasks"
         return cell
     }
     

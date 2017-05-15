@@ -56,12 +56,16 @@ class Messages {
         let id1 = user1.objectId
         let id2 = user2.objectId
         
-        let groupId = (id1! < id2!) ? "\(id1!)\(id2!)" : "\(id2!)\(id1!)"
+        let groupId = getGroupId(id1: id1!, id2: id2!)
         
         createMessageItem(user1: user1, user2: user2, groupId: groupId, description: "Test String")
        // createMessageItem(user2, user2: PFUser, groupId: groupId, description: user1["name"] as! String)
         
         return groupId
+    }
+    
+    class func getGroupId(id1: String, id2: String) -> String {
+        return (id1 < id2) ? "\(id1)\(id2)" : "\(id2)\(id1)"
     }
     
     /*class func startMultipleChat(_ users: [PFUser]!) -> String {
