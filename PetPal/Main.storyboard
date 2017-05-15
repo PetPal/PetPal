@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F3l-JR-e2e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F3l-JR-e2e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -289,7 +289,7 @@
                     <navigationItem key="navigationItem" title="Chat" id="Wts-Qx-Ujl">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="z0r-v7-N6J">
                             <connections>
-                                <action selector="onCancelButton:" destination="yZa-hY-yyl" id="9Kg-ig-yF5"/>
+                                <action selector="onCancelButton:" destination="yZa-hY-yyl" id="Omz-fP-1ai"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -884,7 +884,6 @@
                                     <outlet property="nameLabel" destination="cuB-8U-HfS" id="sTC-xA-866"/>
                                     <outlet property="timeElapsedLabel" destination="OSm-y8-4El" id="KKb-vk-vTk"/>
                                     <outlet property="userImage" destination="Goq-2F-8YW" id="fWY-Ls-ZYD"/>
-                                    <segue destination="yZa-hY-yyl" kind="presentation" identifier="messagesToChatSegue" id="mMl-hL-xqy"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -904,6 +903,7 @@
                         <outlet property="composeButton" destination="bR0-bg-ez4" id="FYW-K8-9uO"/>
                         <outlet property="emptyView" destination="EhR-xe-sKq" id="XGT-Bc-lOu"/>
                         <segue destination="V9V-NL-4bu" kind="presentation" identifier="selectSingleSegue" id="1hA-dI-ePa"/>
+                        <segue destination="yZa-hY-yyl" kind="show" identifier="messagesToChatSegue" id="wbr-z2-bvn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kw-DW-owr" userLabel="First Responder" sceneMemberID="firstResponder"/>
