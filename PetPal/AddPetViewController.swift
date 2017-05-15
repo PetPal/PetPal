@@ -18,6 +18,7 @@ class AddPetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        user = User.currentUser
         petName.signupTextBox()
         petType.signupTextBox()
         petAge.signupTextBox()

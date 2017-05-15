@@ -58,6 +58,10 @@ Sprint2 walk through
 
 ![Video Walkthrough](PetPalSprint2.gif)
 
+Sprint3 walk through
+
+![Video Walkthrough](PetPalSprint3.gif)
+
 # License
 
     Copyright 2017 PetPal

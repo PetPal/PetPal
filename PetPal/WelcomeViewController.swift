@@ -9,17 +9,16 @@
 import UIKit
 import Parse
 
-class WelcomeViewController: UIViewController, UITextFieldDelegate {
+class WelcomeViewController: UIViewController {
 
     @IBOutlet var userTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    var keyboardOffset = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userTextField.delegate = self
-        passwordTextField.delegate = self
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))
         view.addGestureRecognizer(tapGesture)
     }
@@ -27,25 +26,50 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     func handleSingleTap(recognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        registerKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        deregisterKeyboardNotifications()
+    }
+    
+    func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(animateUpForKeyboard), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(animateDownForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func deregisterKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        animateTextField(moveUp: true)
+    func animateUpForKeyboard() {
+        if keyboardOffset == 0 {
+            keyboardOffset = -180
+            UIView.animate(withDuration: 0.3) {
+                self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(self.keyboardOffset))
+            }
+        }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        animateTextField(moveUp: false)
-    }
-    
-    func animateTextField(moveUp: Bool) {
-        let offset = moveUp ? -180 : 180
-        
-        UIView.animate(withDuration: 0.3) {
-            self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(offset))
+    func animateDownForKeyboard() {
+        if keyboardOffset < 0 {
+            let offset = -keyboardOffset
+            keyboardOffset = 0
+            UIView.animate(withDuration: 0.3) {
+                self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(offset))
+            }
         }
     }
 

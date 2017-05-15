@@ -297,7 +297,10 @@ class PetPalAPIClient  {
         groupObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("group added")
-                NotificationCenter.default.post(name: PetPalConstants.groupAdded, object: group)
+                group.pfObject = groupObject
+                if let user = User.currentUser {
+                    PetPalAPIClient.sharedInstance.addGroupToUser(user: user, group: group)
+                }
             } else if let error = error {
                 print("error \(error.localizedDescription)")
             }

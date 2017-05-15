@@ -119,24 +119,25 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         PetPalAPIClient.sharedInstance.getGroups(success: { (groups: [Group]) in
             self.groups = groups
             for group in groups {
-                let location = group.location!
-                //let formatter = DateFormatter()
-                //formatter.dateFormat = "MM/dd/yy"
-                //let createdTime = "Created at: " + formatter.string(from: group.timeStamp!)
-                let geocoder: CLGeocoder = CLGeocoder()
-                geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: Error?) -> Void in
-                    if ((placemarks?.count)! > 0) {
-                        let topResult: CLPlacemark = (placemarks?[0])!
-                        let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
-                        self.annotation.coordinate = (placemark.location?.coordinate)!
-                
-                        let annotation = Annotation(title: group.name!, coordinate: (placemark.location?.coordinate)!)
-                        annotation.pinCustomImageName = "pawpin-40"
-                        self.pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-                        self.mapView.addAnnotation(self.pinAnnotationView.annotation!)
-                        //self.mapView.addAnnotation(annotation)
-                    }
-                })
+                if let location = group.location {
+                    //let formatter = DateFormatter()
+                    //formatter.dateFormat = "MM/dd/yy"
+                    //let createdTime = "Created at: " + formatter.string(from: group.timeStamp!)
+                    let geocoder: CLGeocoder = CLGeocoder()
+                    geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: Error?) -> Void in
+                        if ((placemarks?.count)! > 0) {
+                            let topResult: CLPlacemark = (placemarks?[0])!
+                            let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+                            self.annotation.coordinate = (placemark.location?.coordinate)!
+                            
+                            let annotation = Annotation(title: group.name!, coordinate: (placemark.location?.coordinate)!)
+                            annotation.pinCustomImageName = "pawpin-40"
+                            self.pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+                            self.mapView.addAnnotation(self.pinAnnotationView.annotation!)
+                            //self.mapView.addAnnotation(annotation)
+                        }
+                    })
+                }
             }
         }) { (error: Error?) in
             print("error \(String(describing: error?.localizedDescription))")
