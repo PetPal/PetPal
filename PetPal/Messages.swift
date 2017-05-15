@@ -30,8 +30,12 @@ class Messages {
     init(conversation: PFObject) {
         self.pfObject = conversation
         self.groupId = conversation["groupId"] as? String
-        self.user1 = conversation["user1"] as? User
-        self.user2 = conversation["user2"] as? User
+        if let pfUser1 = conversation["user1"] as? PFUser {
+            self.user1 = User(pfUser: pfUser1)
+        }
+        if let pfUser2 = conversation["user2"] as? PFUser {
+            self.user2 = User(pfUser: pfUser2)
+        }
         self.counter = conversation["counter"] as? Int
         self.lastMessage = conversation["lastMessage"] as? String
         self.updatedAt = conversation["updatedAt"] as? Date

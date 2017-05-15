@@ -390,7 +390,8 @@ class PetPalAPIClient  {
     func loadConversations(success: @escaping ([Messages]) -> (),failure: @escaping (Error) -> ()) {
         let query = PFQuery(className: "Message")
         query.whereKey("user1", equalTo: PFUser.current()!)
-        query.includeKey("lastUser")
+        query.includeKey("user1")
+        query.includeKey("user2")
         query.order(byDescending: "updatedAt")
         
         query.findObjectsInBackground{ (objects: [PFObject]?, error: Error?) -> Void in
