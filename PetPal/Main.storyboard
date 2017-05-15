@@ -884,7 +884,7 @@
                                     <outlet property="nameLabel" destination="cuB-8U-HfS" id="sTC-xA-866"/>
                                     <outlet property="timeElapsedLabel" destination="OSm-y8-4El" id="KKb-vk-vTk"/>
                                     <outlet property="userImage" destination="Goq-2F-8YW" id="fWY-Ls-ZYD"/>
-                                    <segue destination="yZa-hY-yyl" kind="show" identifier="messagesChatSegue" id="VGq-tp-vp1"/>
+                                    <segue destination="yZa-hY-yyl" kind="presentation" identifier="messagesToChatSegue" id="mMl-hL-xqy"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

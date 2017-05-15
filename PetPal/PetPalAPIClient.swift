@@ -361,5 +361,29 @@ class PetPalAPIClient  {
             }
         })
     }
+    
+    
+    func loadConversations(success: @escaping ([Messages]) -> (),failure: @escaping (Error) -> ()) {
+        let query = PFQuery(className: "Message")
+        query.whereKey("user", equalTo: PFUser.current()!)
+        query.includeKey("lastUser")
+        query.order(byDescending: "updatedAt")
+        
+        query.findObjectsInBackground{ (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                var conversations = [Messages]()
+                if let objects = objects{
+                    for object in objects {
+                        let newConversation = Messages(conversation: object)
+                        conversations.append(newConversation)
+                    }
+                }
+                success(conversations)
+            } else {
+                print("Network error")
+                failure(error!)
+            }
+        }
+    }
 
 }

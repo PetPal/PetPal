@@ -24,12 +24,10 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
         tableView.rowHeight = UITableViewAutomaticDimension
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0)
         navigationController?.navigationBar.tintColor = UIColor.white
-        // NotificationCenter.default.addObserver(self, selector: #selector(MessagesViewController.cleanup), name: NSNotification.Name(rawValue: NOTIFICATION_USER_LOGGED_OUT), object: nil)
         
         self.loadMessages()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(MessagesViewController.loadMessages), name: NSNotification.Name(rawValue: "reloadMessages"), object: nil)
-        
+        //NotificationCenter.default.addObserver(self, selector: #selector(MessagesViewController.loadMessages), name: NSNotification.Name(rawValue: "reloadMessages"), object: nil)
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.addTarget(self, action: #selector(MessagesViewController.loadMessages), for: UIControlEvents.valueChanged)
         self.tableView?.addSubview(self.refreshControl!)
@@ -50,29 +48,18 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     // MARK: - Backend methods
     
     func loadMessages() {
-        let query = PFQuery(className: "Message")
-        query.whereKey("user", equalTo: PFUser.current()!)
-        query.includeKey("lastUser")
-        query.order(byDescending: "updatedAt")
-        query.findObjectsInBackground{ (objects: [PFObject]?, error: Error?) -> Void in
-            if error == nil {
-                self.messages.removeAll(keepingCapacity: false)
-                print ("count: \(objects?.count)")
-               /*for object in objects! {
-                    let newConversation = Messages(conversation: object)
-                    self.messages.append(newConversation)
-                }*/
-                //self.messages = objects as [PFObject]!
-                //DispatchQueue.main.async {
-                self.tableView.reloadData()
-                //}
-                self.updateEmptyView()
-                self.updateTabCounter()
-            } else {
-                print("Network error")
-            }
+        
+        PetPalAPIClient.sharedInstance.loadConversations(success: { (freshMessages: [Messages]) in
+            print("Successfully fetched all the messages")
+            self.messages = freshMessages
+            self.tableView.reloadData()
+            self.updateEmptyView()
+            self.updateTabCounter()
             self.refreshControl!.endRefreshing()
+        }) { (error: Error) in
+            print("There was an error fetching the messages: \(error.localizedDescription)")
         }
+        
     }
     
     // MARK: - Helper methods
@@ -84,18 +71,15 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     func updateTabCounter() {
         var total = 0
         for message in self.messages {
-            total += message.counter! as! Int
+            total += message.counter! 
         }
-        //let item = self.tabBarController!.tabBar.items![1]
-       // let item = MenuViewController.
-        //item.badgeValue = (total == 0) ? nil : "\(total)"
     }
     
     // MARK: - User actions
     
-    func openChat(_ groupId: String) {
-        self.performSegue(withIdentifier: "messagesChatSegue", sender: groupId)
-    }
+//    func openChat() {
+//        self.performSegue(withIdentifier: "messagesToChatSegue", sender: )
+//    }
     
    
     
@@ -108,19 +92,19 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     
     @IBAction func compose(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "selectSingleSegue", sender: self)
-
     }
     
     // MARK: - Prepare for segue to chatVC
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "messagesChatSegue" {
+        if segue.identifier == "messagesToChatSegue" {
             let chatVC = segue.destination as! ChatViewController
             chatVC.hidesBottomBarWhenPushed = true
-            let indexPath = tableView.indexPath(for: sender as! MessagesCell)
+            let cell = sender as! MessagesCell
+            let indexPath = tableView.indexPath(for: cell)
            
-            let groupId = messages[(indexPath?.row)!].groupId!
-            chatVC.groupId = groupId
+            let groupId = messages[(indexPath?.row)!].groupId
+            chatVC.groupId = groupId!
         } else if segue.identifier == "selectSingleSegue" {
             let selectSingleVC = (segue.destination as! UINavigationController).topViewController as! SelectSingleViewController
             selectSingleVC.delegate = self
@@ -135,9 +119,16 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     // MARK: - SelectSingleDelegate
     
     func didSelectSingleUser(_ user2: PFUser) {
-        let user1 = PFUser.current()!
-        let groupId = Messages.startPrivateChat(user1, user2: user2)
-        self.openChat(groupId)
+        let senderUser = User(pfUser: PFUser.current()!)
+        let recieverUser = User(pfUser: user2)
+        
+        let groupId = Messages.startPrivateChat(user1: PFUser.current()!, user2: user2)
+        let newConversation = Messages(groupId: groupId, users: [senderUser, recieverUser])
+        messages.append(newConversation)
+        tableView.reloadData()
+        let indexPath = NSIndexPath(row: messages.count-1, section: 0) as IndexPath
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        self.performSegue(withIdentifier: "messagesToChatSegue", sender: self)
     }
     
     // MARK: - SelectMultipleDelegate
@@ -206,9 +197,6 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let message = self.messages[indexPath.row] as Messages
-        let pfmessage = message.makePFObject()
-        self.openChat(pfmessage?["groupId"] as! String)
-        //self.openChat(groupId)
+        self.performSegue(withIdentifier: "messagesToChatSegue", sender: tableView.cellForRow(at: indexPath))
     }
 }

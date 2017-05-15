@@ -12,7 +12,6 @@ import Parse
 
 class Messages {
     var groupId : String?
-    //var users: [User]?
     var user1 : User?
     var user2 : User?
     var counter: Int?
@@ -25,8 +24,8 @@ class Messages {
     
     init(conversation: PFObject) {
         self.groupId = conversation["groupId"] as? String
-        self.user1 = User(pfUser: conversation["user"] as! PFUser)
-        self.user2 = User(pfUser: conversation["user2"] as! PFUser)
+        self.user1 = conversation["user"] as? User
+        self.user2 = conversation["user2"] as? User
         self.counter = conversation["counter"] as? Int
     }
     
@@ -52,18 +51,14 @@ class Messages {
         return  conversationObject
     }
     
-
     
-    
-    
-    class func startPrivateChat(_ user1: PFUser, user2: PFUser) -> String {
+    class func startPrivateChat(user1: PFUser, user2: PFUser) -> String {
         let id1 = user1.objectId
         let id2 = user2.objectId
         
         let groupId = (id1! < id2!) ? "\(id1!)\(id2!)" : "\(id2!)\(id1!)"
         
-        createMessageItem(user1: user1, user2: user2, groupId: groupId, description: user2["name"] as! String)
-     
+        createMessageItem(user1: user1, user2: user2, groupId: groupId, description: "Test String")
        // createMessageItem(user2, user2: PFUser, groupId: groupId, description: user1["name"] as! String)
         
         return groupId
