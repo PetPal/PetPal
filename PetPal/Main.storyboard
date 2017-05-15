@@ -296,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AB-9d-FxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3686" y="2522"/>
+            <point key="canvasLocation" x="3094" y="2522"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="KXG-aa-br5">
@@ -311,7 +311,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Rs-UT-e7d">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="71" id="wyt-us-1xh" customClass="GroupCell" customModule="PetPal" customModuleProvider="target">
@@ -884,7 +884,7 @@
                                     <outlet property="nameLabel" destination="cuB-8U-HfS" id="sTC-xA-866"/>
                                     <outlet property="timeElapsedLabel" destination="OSm-y8-4El" id="KKb-vk-vTk"/>
                                     <outlet property="userImage" destination="Goq-2F-8YW" id="fWY-Ls-ZYD"/>
-                                    <segue destination="9lW-lD-W4a" kind="presentation" identifier="messagesChatSegue" id="FHw-kX-wGi"/>
+                                    <segue destination="yZa-hY-yyl" kind="show" identifier="messagesChatSegue" id="VGq-tp-vp1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -909,24 +909,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kw-DW-owr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1892" y="2521.8890554722639"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="V45-KX-lPi">
-            <objects>
-                <navigationController storyboardIdentifier="ChatNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="9lW-lD-W4a" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZH8-jj-oar">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="yZa-hY-yyl" kind="relationship" relationship="rootViewController" id="ckK-s1-2QL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rVp-aN-yW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2841" y="2522"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="h29-PG-INo">
@@ -1014,7 +996,7 @@
         <!--Group Detail View Controller-->
         <scene sceneID="meW-PM-Qz0">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Lyn-ea-Xfo" customClass="GroupDetailViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myGroupSegue" automaticallyAdjustsScrollViewInsets="NO" id="Lyn-ea-Xfo" customClass="GroupDetailViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lxF-OQ-ptW"/>
                         <viewControllerLayoutGuide type="bottom" id="Loy-hS-VGR"/>
@@ -1176,6 +1158,7 @@
                         <outlet property="groupName" destination="qns-Pz-Zy5" id="cIB-vO-EIU"/>
                         <outlet property="tableView" destination="Yid-5m-Jm6" id="uaQ-uF-ofg"/>
                         <segue destination="DgJ-XB-gwG" kind="show" identifier="addRequestSegue" id="ja0-Yl-TbN"/>
+                        <segue destination="cRV-hE-VNq" kind="presentation" id="JXt-xV-Ppy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdB-Hz-OFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1451,5 +1434,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5ux-zO-a7c"/>
+        <segue reference="JXt-xV-Ppy"/>
     </inferredMetricsTieBreakers>
 </document>

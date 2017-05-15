@@ -47,7 +47,8 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         //set region
         
         let user = User.currentUser
-        let location = user?.location! ?? "1 Infinite Loop, CA, USA" as String
+        //let location = user?.location! ?? "1 Infinite Loop, CA, USA" as String
+        let location = "1 Infinite Loop, CA, USA" as String
         let geocoder: CLGeocoder = CLGeocoder()
         geocoder.geocodeAddressString(location,completionHandler: {(placemarks: [CLPlacemark]?, error: Error?) -> Void in
             if ((placemarks?.count)! > 0) {
@@ -76,7 +77,7 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        defer { currentLocation = locations.last }
+       // defer { currentLocation = locations.last }
        // let currentLocation =
         if currentLocation == nil {
             // Zoom to user location
@@ -110,15 +111,9 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
                         let topResult: CLPlacemark = (placemarks?[0])!
                         let placemark: MKPlacemark = MKPlacemark(placemark: topResult)
                         self.annotation.coordinate = (placemark.location?.coordinate)!
-                        
+                
                         let annotation = Annotation(title: group.name!, coordinate: (placemark.location?.coordinate)!)
-                        
-                        //pointAnnotation = CustomPointAnnotation()
                         annotation.pinCustomImageName = "pawpin-40"
-                        //pointAnnotation.coordinate = location
-                        //pointAnnotation.title = "POKéSTOP"
-                        //pointAnnotation.subtitle = "Pick up some Poké Balls"
-                        
                         self.pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
                         self.mapView.addAnnotation(self.pinAnnotationView.annotation!)
                         //self.mapView.addAnnotation(annotation)

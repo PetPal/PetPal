@@ -80,8 +80,14 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
         if (nameTextField.text == "" ||  descriptionTextField.text == ""){
             self.present(alertController, animated: true, completion: nil)
         } else {
-                let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: self.groupTypeSegment.selectedSegmentIndex)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!, profileImage: processedPhoto ?? defaultGroupPhoto! , location: (User.currentUser?.location!)!, memberCount: 0)
-                PetPalAPIClient.sharedInstance.addGroup(group: newgroup)
+            let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: self.groupTypeSegment.selectedSegmentIndex)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!, profileImage: processedPhoto ?? defaultGroupPhoto! , location: (User.currentUser?.location!)!, memberCount: 0)
+            PetPalAPIClient.sharedInstance.addGroup(group: newgroup)
+            
+            if let user = User.currentUser {
+                PetPalAPIClient.sharedInstance.addGroupToUser(user: user, group: newgroup)
+            }
+           
+         
             self.dismiss(animated: true, completion: nil)
         }
     }

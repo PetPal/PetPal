@@ -11,7 +11,7 @@ import Parse
 
 class MessagesViewController: UITableViewController, SelectSingleViewControllerDelegate  {
     
-    var messages = [PFObject]()
+    var messages = [Messages]()
     
     
     @IBOutlet weak var emptyView: UIView!
@@ -57,7 +57,12 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
         query.findObjectsInBackground{ (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 self.messages.removeAll(keepingCapacity: false)
-                self.messages = objects as [PFObject]!
+                print ("count: \(objects?.count)")
+               /*for object in objects! {
+                    let newConversation = Messages(conversation: object)
+                    self.messages.append(newConversation)
+                }*/
+                //self.messages = objects as [PFObject]!
                 //DispatchQueue.main.async {
                 self.tableView.reloadData()
                 //}
@@ -79,7 +84,7 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     func updateTabCounter() {
         var total = 0
         for message in self.messages {
-            total += message["counter"]! as! Int
+            total += message.counter! as! Int
         }
         //let item = self.tabBarController!.tabBar.items![1]
        // let item = MenuViewController.
@@ -110,9 +115,11 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "messagesChatSegue" {
-            let chatVC = (segue.destination as! UINavigationController).topViewController as! ChatViewController
+            let chatVC = segue.destination as! ChatViewController
             chatVC.hidesBottomBarWhenPushed = true
-            let groupId = sender as! String
+            let indexPath = tableView.indexPath(for: sender as! MessagesCell)
+           
+            let groupId = messages[(indexPath?.row)!].groupId!
             chatVC.groupId = groupId
         } else if segue.identifier == "selectSingleSegue" {
             let selectSingleVC = (segue.destination as! UINavigationController).topViewController as! SelectSingleViewController
@@ -174,9 +181,9 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
         
         //let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "MessagesCell") as! MessagesCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessagesCell", for: indexPath) as! MessagesCell
-        let message = self.messages[indexPath.row] as PFObject
-        cell.message = message
-        
+        let message = self.messages[indexPath.row] as Messages
+        cell.message = message.makePFObject()
+       
         //cell.bindData(self.messages[indexPath.row])
         return cell
     }
@@ -186,7 +193,9 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        Messages.deleteMessageItem(self.messages[indexPath.row])
+         let message = self.messages[indexPath.row] as Messages
+        
+        Messages.deleteMessageItem(message.makePFObject())
         self.messages.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
         self.updateEmptyView()
@@ -197,9 +206,9 @@ class MessagesViewController: UITableViewController, SelectSingleViewControllerD
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let message = self.messages[indexPath.row] as PFObject
-        self.openChat(message["groupId"] as! String)
+        let message = self.messages[indexPath.row] as Messages
+        let pfmessage = message.makePFObject()
+        self.openChat(pfmessage?["groupId"] as! String)
         //self.openChat(groupId)
     }
 }
