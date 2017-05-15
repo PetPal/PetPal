@@ -16,12 +16,16 @@ class Pet: NSObject {
     var type: String?
     var age: Int?
     var owner: User?
+    var petImage: PFFile?
+    var petDescription: String?
     
     
-    init(petName: String, petType: String, petAge: Int, petOwner: User){
+    init(petName: String, petType: String, petAge: Int, petDescription: String, petImage: PFFile, petOwner: User){
         name = petName
         type = petType
         age = petAge
+        self.petImage = petImage
+        self.petDescription = petDescription
         owner = petOwner
     }
     
@@ -30,6 +34,8 @@ class Pet: NSObject {
         name = object["Name"] as? String
         type = object["Type"] as? String
         age = object["Age"] as? Int
+        petImage = object["petAvatar"] as? PFFile
+        petDescription = object["Description"] as? String
         owner = object["Owner"] as? User
     }
     
@@ -47,6 +53,12 @@ class Pet: NSObject {
         }
         if let owner = owner {
             petObject["Owner"] = owner.pfUser
+        }
+        if let petImage = petImage {
+            petObject.setObject(petImage, forKey: "petAvatar")
+        }
+        if let petDescription = petDescription {
+            petObject["Description"] = petDescription
         }
         if let age = age {
             petObject["Age"] = age
