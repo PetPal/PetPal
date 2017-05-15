@@ -72,23 +72,24 @@ class HamburgerViewController: UIViewController {
         } else if sender.state == UIGestureRecognizerState.changed {
             let offset = originalContentViewMargin + translation.x
             if offset >= 0 {
-                if velocity.x > 0.0 {
-                    let scale = 1 - ((translation.x / (3 * quarterWidth)) * 0.1)
-                    contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
-                } else {
-                    let scale = ((-translation.x / (3 * quarterWidth)) * 0.1) + 0.9
-                    contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
-                }
+//                if velocity.x > 0.0 {
+//                    let scale = 1 - ((translation.x / (3 * quarterWidth)) * 0.1)
+//                    contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
+//                } else {
+//                    let scale = ((-translation.x / (3 * quarterWidth)) * 0.1) + 0.9
+//                    contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
+//                }
                 contentViewLeadingConstraint.constant = offset
             }
         } else if sender.state == UIGestureRecognizerState.ended {
-//            UIView.animate(withDuration: 1.0, animations: {
-//                if velocity.x > 0.0 {
-//                    self.contentViewLeadingConstraint.constant = 3 * self.quarterWidth
-//                } else {
-//                    self.contentViewLeadingConstraint.constant = 0
-//                }
-//            })
+            UIView.animate(withDuration: 1.0, animations: {
+                if velocity.x > 0.0 {
+                    self.contentViewLeadingConstraint.constant = 3 * self.quarterWidth
+                } else {
+                    self.contentViewLeadingConstraint.constant = 0
+                }
+            })
+            /*
             UIView.animate(withDuration: 0.3, animations: {
                 if velocity.x > 0.0 {
                     // translate then scale (only translate)
@@ -108,6 +109,7 @@ class HamburgerViewController: UIViewController {
                 }
             })
             menuViewController.animateMenus()
+            */
         }
     }
     

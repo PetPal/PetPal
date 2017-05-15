@@ -21,7 +21,7 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -62,6 +62,13 @@ class RequestsViewController: UIViewController, UITableViewDelegate, UITableView
 
         // update requests
         refreshControlAction()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barTintColor = UIColor(colorWithHexValue: 0xE08E43)
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     func getRequestIndex(request: Request) -> Int {

@@ -15,6 +15,7 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var groupImage: PFImageView!
     @IBOutlet var groupName: UILabel!
     @IBOutlet var groupCreatedAtDate: UILabel!
+    @IBOutlet var groupDescription: UILabel!
     @IBOutlet var groupActionButton: UIButton!
     
     @IBOutlet var tableView: UITableView!
@@ -31,15 +32,17 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         
         groupName.text = group.name
+        groupDescription.text = group.overview
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
-        groupCreatedAtDate.text = "Created at " + formatter.string(from: group.timeStamp!)
+        groupCreatedAtDate.text = "Together since " + formatter.string(from: group.timeStamp!)
         if let file = group.profileImage {
             groupImage.file = file
             groupImage.loadInBackground()
             groupBackgroundImage.file = file
             groupBackgroundImage.loadInBackground()
         }
+        
         
         tableView.estimatedRowHeight = 320
         tableView.rowHeight = UITableViewAutomaticDimension

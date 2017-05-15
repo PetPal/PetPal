@@ -15,7 +15,8 @@ class GroupCell: UITableViewCell {
     @IBOutlet weak var groupAvatar: PFImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
-    @IBOutlet weak var membersCount: UILabel!
+    @IBOutlet var groupOverview: UILabel!
+
     var formatter = DateFormatter()
 
     var group: Group! {
@@ -25,9 +26,7 @@ class GroupCell: UITableViewCell {
             self.nameLabel.text = group.name
             formatter.dateFormat = "MM/dd/yy"
             self.createdAtLabel.text = formatter.string(from: group.timeStamp!)
-            if let count = group.memberCount {
-                self.membersCount.text = String(describing: count)
-            }
+            groupOverview.text = group.overview
         }
     }
     

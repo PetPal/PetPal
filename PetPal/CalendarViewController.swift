@@ -41,6 +41,13 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             self.loadTasks()
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barTintColor = UIColor(colorWithHexValue: 0x7F44BF)
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -115,6 +122,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskDetailTableViewCell", for: indexPath) as! TaskDetailTableViewCell
+        cell.selectionStyle = .none
         cell.request = tasks![indexPath.row]
         return cell
     }
@@ -131,15 +139,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "CalendarEditRequestSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let editRequestVC = segue.destination as! EditRequestViewController
+                if let task = tasks?[indexPath.row] {
+                    editRequestVC.request = task
+                }
+            }
+        }
     }
-    */
 
 }
 

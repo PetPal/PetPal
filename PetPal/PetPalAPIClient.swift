@@ -294,6 +294,7 @@ class PetPalAPIClient  {
             groupObject["owner"] = owner.pfUser
         }
         groupObject["groupAvatar"] = group.profileImage
+        groupObject["description"] = group.description
         groupObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("group added")

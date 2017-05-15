@@ -16,4 +16,8 @@ extension UIImageView {
         self.layer.masksToBounds = true
     }
 
+    func setSquare() {
+        self.layer.cornerRadius = 0
+        self.layer.masksToBounds = true
+    }
 }
