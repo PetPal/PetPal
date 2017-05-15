@@ -54,6 +54,7 @@
 		CEC62CE51EC659390042D808 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC62CE41EC659390042D808 /* CalendarViewController.swift */; };
 		CEC62CE71EC680680042D808 /* TaskHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC62CE61EC680680042D808 /* TaskHeaderTableViewCell.swift */; };
 		CEC62CE91EC685D00042D808 /* TaskDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC62CE81EC685D00042D808 /* TaskDetailTableViewCell.swift */; };
+		CEC62CEB1EC97FC10042D808 /* PetPalSprint3.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEC62CEA1EC97FC10042D808 /* PetPalSprint3.gif */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
 		CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */; };
 		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
@@ -122,6 +123,7 @@
 		CEC62CE41EC659390042D808 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		CEC62CE61EC680680042D808 /* TaskHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CEC62CE81EC685D00042D808 /* TaskDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailTableViewCell.swift; sourceTree = "<group>"; };
+		CEC62CEA1EC97FC10042D808 /* PetPalSprint3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint3.gif; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBA9AC71EB6FEFC00CB846C /* README.md */,
+				CEC62CEA1EC97FC10042D808 /* PetPalSprint3.gif */,
 				CEA04EE61EC04DB6007E5E3E /* PetPalSprint2.gif */,
 				CEBA9AC91EB702D000CB846C /* PetPalSprint1.gif */,
 				99F9DA9E1EAC016B00878886 /* PetPal */,
@@ -362,6 +365,7 @@
 			files = (
 				CE2710271EBFCD8900C3B26B /* BasicTableViewCell.xib in Resources */,
 				A5F976581EC4F11800D73332 /* GroupCell.xib in Resources */,
+				CEC62CEB1EC97FC10042D808 /* PetPalSprint3.gif in Resources */,
 				99F9DAAA1EAC016B00878886 /* LaunchScreen.storyboard in Resources */,
 				99F9DAA71EAC016B00878886 /* Assets.xcassets in Resources */,
 				CEEFFB8F1EBD1BF800E93EE4 /* DateRangeTableViewCell.xib in Resources */,
