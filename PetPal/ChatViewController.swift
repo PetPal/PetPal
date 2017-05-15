@@ -58,7 +58,7 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.collectionView.collectionViewLayout.springinessEnabled = true
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(ChatViewController.loadMessages), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChatViewController.loadMessages), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
