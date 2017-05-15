@@ -25,7 +25,9 @@ class GroupCell: UITableViewCell {
             self.nameLabel.text = group.name
             formatter.dateFormat = "MM/dd/yy"
             self.createdAtLabel.text = formatter.string(from: group.timeStamp!)
-            self.membersCount.text = String(describing: group.memberCount!)
+            if let count = group.memberCount {
+                self.membersCount.text = String(describing: count)
+            }
         }
     }
     

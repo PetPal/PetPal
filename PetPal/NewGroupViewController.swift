@@ -83,11 +83,6 @@ class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePicker
             let newgroup = Group(name: nameTextField.text!, type: GroupType(rawValue: self.groupTypeSegment.selectedSegmentIndex)!, owner: User.currentUser!, timeStamp: Date(), overview: descriptionTextField.text!, profileImage: processedPhoto ?? defaultGroupPhoto! , location: (User.currentUser?.location!)!, memberCount: 0)
             PetPalAPIClient.sharedInstance.addGroup(group: newgroup)
             
-            if let user = User.currentUser {
-                PetPalAPIClient.sharedInstance.addGroupToUser(user: user, group: newgroup)
-            }
-           
-         
             self.dismiss(animated: true, completion: nil)
         }
     }
