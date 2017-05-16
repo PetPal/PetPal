@@ -135,7 +135,7 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
         }
         
       //  PushNotication.sendPushNotification(groupId, text: text)
-        Messages.updateMessageCounter(groupId, lastMessage: text)
+        Messages.updateMessageCounter(groupId: groupId, lastMessage: text)
         
         self.finishSendingMessage()
     }

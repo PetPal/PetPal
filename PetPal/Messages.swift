@@ -157,17 +157,17 @@ class Messages {
         }
     }
     
-    class func updateMessageCounter(_ groupId: String, lastMessage: String) {
+    class func updateMessageCounter(groupId: String, lastMessage: String) {
         let query = PFQuery(className: "Message")
-        query.whereKey(groupId, equalTo: groupId)
-        query.limit = 1000
+        query.whereKey("groupId", equalTo: groupId)
+        query.limit = 100
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 for message in objects as [PFObject]! {
-                    let user = message["user"] as! PFUser
+                    let user = message["user2"] as! PFUser
                     if user.objectId != PFUser.current()!.objectId {
                         message.incrementKey("counter") // Increment by 1
-                        message["lastUser"] = PFUser.current()
+                        //message["lastUser"] = PFUser.current()
                         message["lastMessage"] = lastMessage
                         message["updatedAt"] = NSDate()
                         message.saveInBackground{
