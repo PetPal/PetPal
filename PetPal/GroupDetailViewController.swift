@@ -43,7 +43,6 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
             groupBackgroundImage.loadInBackground()
         }
         
-        
         tableView.estimatedRowHeight = 320
         tableView.rowHeight = UITableViewAutomaticDimension
 
@@ -53,15 +52,30 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         
-        tableView.estimatedRowHeight = 320
-        tableView.rowHeight = UITableViewAutomaticDimension
-        
         groupActionButton.setTitle(myGroup ? "Ask For Help" : "Join Group", for: .normal)
         
         PetPalAPIClient.sharedInstance.getUsers(group: group, success: { (users: [User]) in
-            print(users)
             self.users = users
             self.tableView.reloadData()
+        }) { (error: Error?) in
+        }
+        
+        NotificationCenter.default.addObserver(forName: PetPalConstants.userGroupUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            self.updateData()
+        }
+    }
+    
+    func updateData() {
+        groupActionButton.setTitle(myGroup ? "Ask For Help" : "Join Group", for: .normal)
+
+        PetPalAPIClient.sharedInstance.getUsers(group: group, success: { (users: [User]) in
+            self.users = users
+            // animate
+            if let row = users.index(of: User.currentUser!) {
+                let indexPath = IndexPath(row: row, section: 0)
+                self.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.middle)
+                
+            }
         }) { (error: Error?) in
         }
     }
@@ -85,7 +99,7 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupHeaderTableViewCell") as! GroupHeaderTableViewCell
-        cell.header = "Group Members"
+        cell.header = String(users?.count ?? 0) + " Group Members"
         return cell
     }
     
@@ -110,13 +124,16 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func onGroupActionButton(_ sender: UIButton) {
         if myGroup {
+            // ask for help
             performSegue(withIdentifier: "addRequestSegue", sender: self)
         } else {
+            // join group
             if let user = User.currentUser {
+                myGroup = true
                 PetPalAPIClient.sharedInstance.addGroupToUser(user: user, group: group)
             }
-           self.navigationController?.popViewController(animated: true)
-            
+            // Stay on this page to allow user to ask for help
+            //self.navigationController?.popViewController(animated: true)
         }
     }
 

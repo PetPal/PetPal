@@ -82,7 +82,7 @@ class HamburgerViewController: UIViewController {
                 contentView.transform = transform.concatenating(CGAffineTransform(translationX: offset, y: 0))
             }
         } else if sender.state == UIGestureRecognizerState.ended {
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.4, animations: {
                 if velocity.x > 0.0 {
                     let transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                     self.contentView.transform = transform.concatenating(CGAffineTransform(translationX: 3 * self.quarterWidth, y: 0))

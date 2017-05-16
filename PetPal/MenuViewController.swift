@@ -56,8 +56,12 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         didSet {
             view.layoutIfNeeded()
             let defaults = UserDefaults.standard
-            let initIndex = defaults.integer(forKey: initialMenuSelection)
-            hamburgerViewController.contentViewController = menuItems[initIndex].viewController
+            if defaults.object(forKey: initialMenuSelection) == nil {
+                hamburgerViewController.contentViewController = profileNavigationController
+            } else {
+                let initIndex = defaults.integer(forKey: initialMenuSelection)
+                hamburgerViewController.contentViewController = menuItems[initIndex].viewController
+            }
         }
     }
     
