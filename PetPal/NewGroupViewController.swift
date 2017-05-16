@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class NewGroupViewController: UIViewController, UITextViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewGroupViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var typeSegment: UISegmentedControl!

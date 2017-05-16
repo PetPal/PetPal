@@ -879,7 +879,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="0QN-TL-9Xw">
-                        <barButtonItem key="rightBarButtonItem" image="compose-1" id="bR0-bg-ez4">
+                        <barButtonItem key="rightBarButtonItem" image="compose" id="bR0-bg-ez4">
                             <connections>
                                 <action selector="compose:" destination="Yh5-f6-vwz" id="jnX-fZ-7lJ"/>
                             </connections>
@@ -1542,7 +1542,7 @@
         <image name="PetPalLogo" width="1000" height="1000"/>
         <image name="addPetImage" width="128" height="128"/>
         <image name="camera" width="48" height="48"/>
-        <image name="compose-1" width="32" height="32"/>
+        <image name="compose" width="40" height="40"/>
         <image name="defaultProfileImage" width="256" height="256"/>
         <image name="dog" width="64" height="64"/>
         <image name="dog-650299" width="590" height="350"/>
