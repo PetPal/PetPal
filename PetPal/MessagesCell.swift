@@ -27,6 +27,7 @@ class MessagesCell: UITableViewCell {
             self.nameLabel.text = lastUser?.name
             self.lastMessageLabel.text = message.lastMessage
             let date = Date()
+          
             if let updateDate = message.updatedAt {
                 let timeInterval = date.timeIntervalSince(updateDate)
                 self.timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)

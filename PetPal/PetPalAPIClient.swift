@@ -392,6 +392,7 @@ class PetPalAPIClient  {
         query.whereKey("user1", equalTo: PFUser.current()!)
         query.includeKey("user1")
         query.includeKey("user2")
+        query.includeKey("updatedAt")
         query.order(byDescending: "updatedAt")
         
         query.findObjectsInBackground{ (objects: [PFObject]?, error: Error?) -> Void in

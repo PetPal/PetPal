@@ -38,7 +38,7 @@ class Messages {
         }
         self.counter = conversation["counter"] as? Int
         self.lastMessage = conversation["lastMessage"] as? String
-        self.updatedAt = conversation["updatedAt"] as? Date
+        self.updatedAt = conversation.updatedAt
     }
     
     func makePFObject() -> PFObject! {
