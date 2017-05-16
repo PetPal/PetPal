@@ -28,7 +28,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         //Background Styling
-        let topColor = UIColor(displayP3Red: (142.0/255.0), green: (92.0/255.0), blue: (213.0/255.0), alpha: 1)
+        //let topColor = UIColor(displayP3Red: (142.0/255.0), green: (92.0/255.0), blue: (213.0/255.0), alpha: 1)
+        let topColor = UIColor(displayP3Red: (10.0/255.0), green: (15.0/255.0), blue: (68.0/255.0), alpha: 1)
         let bottomColor = UIColor(displayP3Red: (112.0/255.0), green: (116.0/255.0), blue: (161.0/255.0), alpha: 1)
         let background = CAGradientLayer().gradientBackground(topColor: topColor.cgColor, bottomColor: bottomColor.cgColor)
         background.frame = self.view.bounds
@@ -55,7 +56,9 @@ class SignUpViewController: UIViewController {
         userNameField.signupTextBox()
         emailField.signupTextBox()
         passwordField.signupTextBox()
-        
+        //Tap Gesture
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
     }
@@ -63,6 +66,10 @@ class SignUpViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func onSignUp(_ sender: Any) {
