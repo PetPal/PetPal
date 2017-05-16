@@ -24,6 +24,8 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var petTypeFieldContainer: UIView!
     @IBOutlet weak var petAgeFieldContainer: UIView!
     @IBOutlet weak var petDescriptionFieldContainer: UIView!
+    @IBOutlet weak var petAddButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
 
     override func viewDidLoad() {
@@ -54,6 +56,12 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
         petAgeFieldContainer.alpha = 0.3
         petDescriptionFieldContainer.layer.cornerRadius = 20
         petDescriptionFieldContainer.alpha = 0.3
+        
+        
+        //Button Styling
+        petAddButton.greenButton()
+        cancelButton.greenButton()
+        cancelButton.setTitleColor(UIColor.red, for: .normal)
         
         
         //Background Gradient
@@ -98,12 +106,15 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
         let name = petName.text
         let type = petType.text
         let age = Int(petAge.text!)
-        let pfPetImage = Utilities.getPFFileFromImage(image: petImageView.image)
+        let compressedPetImage = petImageView.image?.jpeg(.lowest)
+        let pfPetImage = Utilities.getPFFileFromImage(image: UIImage(data: compressedPetImage!))
         let petDescription = self.petDescription.text
         
         if name != nil && type != nil && age != nil && petDescription != nil && pfPetImage != nil{
             
             let pet = Pet(petName: name!, petType: type!, petAge: age!, petDescription: petDescription!, petImage: pfPetImage!, petOwner: user)
+            let pfPet = pet.makePFObject()
+            pet.pfPet = pfPet
             
             PetPalAPIClient.sharedInstance.addPet(pet: pet, success: { (pet: Pet) in
                 print("Successfully Added a Pet to the Pet Table")
@@ -113,10 +124,12 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
                 
                 PetPalAPIClient.sharedInstance.addPetToUser(pet: pet, success: { (user: User) in
                     print("Owner has a pet!")
-                    self.dismiss(animated: true, completion: nil)
+                    
                 }) {(error: Error?) in
                     print("Error: \(error?.localizedDescription ?? "Error Value is Nil")")
                 }
+                PetPalAPIClient.sharedInstance.populatePets(forUser: User.currentUser!)
+                self.dismiss(animated: true, completion: nil)
             })
         }
     }

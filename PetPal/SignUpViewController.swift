@@ -36,8 +36,7 @@ class SignUpViewController: UIViewController {
         self.view.layer.insertSublayer(background, at: 0)
         
         //Button Styling
-        signUpButton.layer.cornerRadius = 4
-        signUpButton.backgroundColor = UIColor(displayP3Red: (177.0/255.0), green: (188.0/255.0), blue: (57.0/255.0), alpha: 1)
+        signUpButton.greenButton()
         signUpWithTwitter.layer.cornerRadius = 4
         signUpWithTwitter.backgroundColor = UIColor(displayP3Red: (0/255.0), green: (172.0/255.0), blue: (237.0/255.0), alpha: 1)
         

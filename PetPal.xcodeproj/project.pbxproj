@@ -13,6 +13,8 @@
 		994255411EB66DDC0039BE4B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9942553F1EB66DDC0039BE4B /* Profile.storyboard */; };
 		994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994255401EB66DDC0039BE4B /* ProfileViewController.swift */; };
 		995C9E3F1EBFA6150063510E /* CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */; };
+		9962028F1ECBBBCE000CBA9E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962028E1ECBBBCE000CBA9E /* UIImage.swift */; };
+		996202911ECBC192000CBA9E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996202901ECBC192000CBA9E /* UIButton.swift */; };
 		99CBCD221EBFAFE300850FCC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */; };
 		99CBCD241EC00F9100850FCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD231EC00F9100850FCC /* SettingsViewController.swift */; };
 		99CBCD261EC03AAF00850FCC /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD251EC03AAF00850FCC /* Pet.swift */; };
@@ -81,6 +83,8 @@
 		9942553F1EB66DDC0039BE4B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		994255401EB66DDC0039BE4B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayer.swift; sourceTree = "<group>"; };
+		9962028E1ECBBBCE000CBA9E /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		996202901ECBC192000CBA9E /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		99CBCD231EC00F9100850FCC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		99CBCD251EC03AAF00850FCC /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 				99D74BC31EB7EFA100CAB24C /* UITextField.swift */,
 				CEBA9AD31EBB074E00CB846C /* UIColor.swift */,
 				995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */,
+				9962028E1ECBBBCE000CBA9E /* UIImage.swift */,
+				996202901ECBC192000CBA9E /* UIButton.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99CBCD221EBFAFE300850FCC /* SignUpViewController.swift in Sources */,
+				9962028F1ECBBBCE000CBA9E /* UIImage.swift in Sources */,
 				A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */,
 				CEC62CDE1EC426C00042D808 /* HeaderTableViewCell.swift in Sources */,
 				CEBA9AD41EBB074E00CB846C /* UIColor.swift in Sources */,
@@ -453,6 +460,7 @@
 				CEBA9AD01EBA671700CB846C /* CustomDateCell.swift in Sources */,
 				CEC62CE71EC680680042D808 /* TaskHeaderTableViewCell.swift in Sources */,
 				A50A9C2B1EBD289B000A1394 /* Messages.swift in Sources */,
+				996202911ECBC192000CBA9E /* UIButton.swift in Sources */,
 				99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */,
 				CEBA9AC81EB6FEFC00CB846C /* README.md in Sources */,
 				A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */,

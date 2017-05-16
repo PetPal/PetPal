@@ -354,6 +354,7 @@ class PetPalAPIClient  {
         let petObject: PFObject! = pet.updatePFObject(petObject: pfPet)
         let relation = pfUser!.relation(forKey: "Pets")
         relation.add(petObject)
+        User.currentUser?.addPets(pets: [pet])
         
         pfUser?.saveInBackground(block: { (successSavePetToUser: Bool, error: Error?) in
             if successSavePetToUser {
