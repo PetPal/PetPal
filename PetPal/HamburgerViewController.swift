@@ -72,44 +72,25 @@ class HamburgerViewController: UIViewController {
         } else if sender.state == UIGestureRecognizerState.changed {
             let offset = originalContentViewMargin + translation.x
             if offset >= 0 {
-//                if velocity.x > 0.0 {
-//                    let scale = 1 - ((translation.x / (3 * quarterWidth)) * 0.1)
-//                    contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
-//                } else {
-//                    let scale = ((-translation.x / (3 * quarterWidth)) * 0.1) + 0.9
-//                    contentView.transform = CGAffineTransform(scaleX: scale, y: scale)
-//                }
-                contentViewLeadingConstraint.constant = offset
+                var scale: CGFloat
+                if velocity.x > 0.0 {
+                    scale = 1 - ((translation.x / (3 * quarterWidth)) * 0.1)
+                } else {
+                    scale = ((-translation.x / (3 * quarterWidth)) * 0.1) + 0.9
+                }
+                let transform = CGAffineTransform(scaleX: scale, y: scale)
+                contentView.transform = transform.concatenating(CGAffineTransform(translationX: offset, y: 0))
             }
         } else if sender.state == UIGestureRecognizerState.ended {
-            UIView.animate(withDuration: 1.0, animations: {
+            UIView.animate(withDuration: 0.4, animations: {
                 if velocity.x > 0.0 {
-                    self.contentViewLeadingConstraint.constant = 3 * self.quarterWidth
-                } else {
-                    self.contentViewLeadingConstraint.constant = 0
-                }
-            })
-            /*
-            UIView.animate(withDuration: 0.3, animations: {
-                if velocity.x > 0.0 {
-                    // translate then scale (only translate)
-//                    let transform = CGAffineTransform(translationX: 3 * self.quarterWidth, y: 0)
-//                    transform.concatenating(CGAffineTransform(scaleX: 0.9, y: 0.9))
-                    // scale then translate (only scale)
-//                    let transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-//                    transform.concatenating(CGAffineTransform(translationX: 3 * self.quarterWidth, y: 0))
                     let transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                    self.contentView.transform = transform
-                    self.contentViewLeadingConstraint.constant = 3 * self.quarterWidth
+                    self.contentView.transform = transform.concatenating(CGAffineTransform(translationX: 3 * self.quarterWidth, y: 0))
                 } else {
                     let transform = CGAffineTransform(translationX: 0, y: 0)
-                    transform.scaledBy(x: 1.0, y: 1.0)
-                    self.contentView.transform = transform
-                    self.contentViewLeadingConstraint.constant = 0
+                    self.contentView.transform = transform.scaledBy(x: 1.0, y: 1.0)
                 }
             })
-            menuViewController.animateMenus()
-            */
         }
     }
     

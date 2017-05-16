@@ -339,6 +339,7 @@
 					99F9DA9B1EAC016B00878886 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BDVS636UPQ;
+						DevelopmentTeam = 62RFK2LF2M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -601,6 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = BDVS636UPQ;
+				DEVELOPMENT_TEAM = 62RFK2LF2M;
 				INFOPLIST_FILE = PetPal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.petpal.PetPal;
@@ -616,6 +618,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = BDVS636UPQ;
+				DEVELOPMENT_TEAM = 62RFK2LF2M;
 				INFOPLIST_FILE = PetPal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.petpal.PetPal;
