@@ -22,9 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2e8-Js-oZR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2e8-Js-oZR">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="34M-rK-hsn">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
@@ -255,9 +254,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YRi-rG-VkV" firstAttribute="top" secondItem="2e8-Js-oZR" secondAttribute="bottom" id="2w8-JY-KQ8"/>
                             <constraint firstItem="YRi-rG-VkV" firstAttribute="top" secondItem="CWm-Tj-lhq" secondAttribute="bottom" constant="9" id="79i-m0-hbh"/>
                             <constraint firstItem="CWm-Tj-lhq" firstAttribute="centerX" secondItem="f9R-5W-2hF" secondAttribute="centerX" id="BqA-QM-2Gt"/>
                             <constraint firstItem="EQ5-r9-4sA" firstAttribute="centerX" secondItem="CWm-Tj-lhq" secondAttribute="centerX" id="MQF-Vc-9UK"/>
+                            <constraint firstAttribute="trailing" secondItem="2e8-Js-oZR" secondAttribute="trailing" id="Ppz-9R-FVS"/>
+                            <constraint firstItem="2e8-Js-oZR" firstAttribute="leading" secondItem="f9R-5W-2hF" secondAttribute="leading" id="PtT-dD-6KE"/>
+                            <constraint firstItem="2e8-Js-oZR" firstAttribute="top" secondItem="f9R-5W-2hF" secondAttribute="top" id="VVH-Il-LQv"/>
                             <constraint firstItem="EQ5-r9-4sA" firstAttribute="centerY" secondItem="CWm-Tj-lhq" secondAttribute="centerY" id="Vag-Na-1wh"/>
                         </constraints>
                     </view>

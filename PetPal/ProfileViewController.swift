@@ -49,6 +49,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         
         //Getting all the User's Pets
+        PetPalAPIClient.sharedInstance.populatePets(forUser: user!)
         
         //Getting all the User's Requests
         PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in
@@ -88,6 +89,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        petCount.text = "\(user?.pets?.count ?? 0)"
+        groupCount.text = "\(user?.groups?.count ?? 0)"
     }
 
     override func didReceiveMemoryWarning() {

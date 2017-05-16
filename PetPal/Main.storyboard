@@ -1243,7 +1243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3a-Rb-TU6">
-                                <rect key="frame" x="16" y="79" width="343" height="445"/>
+                                <rect key="frame" x="16" y="50" width="343" height="445"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xf4-Ec-xDm">
                                         <rect key="frame" x="60" y="405" width="30" height="30"/>
@@ -1377,7 +1377,6 @@
                                     <constraint firstItem="SZF-T0-iwR" firstAttribute="leading" secondItem="8QG-bl-Iij" secondAttribute="leading" id="HCS-Pk-FHh"/>
                                     <constraint firstItem="IpO-jb-ugF" firstAttribute="top" secondItem="o3a-Rb-TU6" secondAttribute="top" constant="8" id="Has-gE-0mh"/>
                                     <constraint firstItem="ax9-ji-OZc" firstAttribute="top" secondItem="pwm-El-ogm" secondAttribute="top" id="QiV-4S-lWU"/>
-                                    <constraint firstAttribute="height" constant="445" id="TfC-CB-55C"/>
                                     <constraint firstItem="TFN-Yo-Y3w" firstAttribute="leading" secondItem="Ibw-dj-oqm" secondAttribute="leading" id="WK1-G2-lo2"/>
                                     <constraint firstItem="TFN-Yo-Y3w" firstAttribute="top" secondItem="Ibw-dj-oqm" secondAttribute="top" id="Yyi-CG-y6B"/>
                                     <constraint firstItem="SZF-T0-iwR" firstAttribute="top" secondItem="cnm-J5-MOe" secondAttribute="bottom" constant="40" id="Z9e-NE-3nB"/>
@@ -1392,6 +1391,7 @@
                                     <constraint firstItem="IpO-jb-ugF" firstAttribute="centerX" secondItem="o3a-Rb-TU6" secondAttribute="centerX" id="jxC-aR-wMd"/>
                                     <constraint firstAttribute="trailing" secondItem="pwm-El-ogm" secondAttribute="trailing" constant="35" id="lww-er-sm9"/>
                                     <constraint firstAttribute="bottom" secondItem="Xf4-Ec-xDm" secondAttribute="bottom" constant="10" id="p8E-gQ-Ckj"/>
+                                    <constraint firstItem="Xf4-Ec-xDm" firstAttribute="top" secondItem="ax9-ji-OZc" secondAttribute="bottom" constant="20" id="pde-RD-CzX"/>
                                     <constraint firstItem="cnm-J5-MOe" firstAttribute="bottom" secondItem="IpO-jb-ugF" secondAttribute="bottom" constant="10" id="qMc-Cz-tFo"/>
                                     <constraint firstItem="cnm-J5-MOe" firstAttribute="centerX" secondItem="o3a-Rb-TU6" secondAttribute="centerX" id="s1g-JJ-XvZ"/>
                                     <constraint firstAttribute="trailing" secondItem="SZF-T0-iwR" secondAttribute="trailing" constant="35" id="t6u-PT-faY"/>
@@ -1406,12 +1406,14 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="o3a-Rb-TU6" secondAttribute="trailing" constant="16" id="XTf-YY-3nr"/>
                             <constraint firstItem="o3a-Rb-TU6" firstAttribute="leading" secondItem="TpF-EP-R7G" secondAttribute="leading" constant="16" id="fpk-X4-ruH"/>
-                            <constraint firstItem="o3a-Rb-TU6" firstAttribute="top" secondItem="cqz-HB-HIf" secondAttribute="bottom" constant="59" id="oJ1-dd-4kJ"/>
+                            <constraint firstItem="o3a-Rb-TU6" firstAttribute="top" secondItem="cqz-HB-HIf" secondAttribute="bottom" constant="30" id="oJ1-dd-4kJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="SOf-mB-VOM" id="4lW-7h-Xgw"/>
                         <outlet property="changePetPictureButton" destination="cnm-J5-MOe" id="4FZ-O8-PJR"/>
                         <outlet property="mainPetView" destination="o3a-Rb-TU6" id="KZd-M9-9VU"/>
+                        <outlet property="petAddButton" destination="Xf4-Ec-xDm" id="eat-OZ-z7l"/>
                         <outlet property="petAge" destination="Ibw-dj-oqm" id="wAN-s8-Ajc"/>
                         <outlet property="petAgeFieldContainer" destination="TFN-Yo-Y3w" id="HSN-F8-5aY"/>
                         <outlet property="petDescription" destination="ax9-ji-OZc" id="uoV-rv-Upa"/>
