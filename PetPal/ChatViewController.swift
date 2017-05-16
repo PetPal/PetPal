@@ -12,6 +12,7 @@ import Parse
 import ParseUI
 import JSQMessagesViewController
 import Foundation
+import MediaPlayer
 
 
 class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -143,17 +144,12 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     // MARK: - JSQMessagesViewController method overrides
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-       // let message = JSQMessage(senderId: senderId!, displayName: senderDisplayName, text: text)
-        //obmessages.append(message!)
-        //self.finishSendingMessage()
-        
         self.sendMessage(text, video: nil, picture: nil)
     }
     
     override func didPressAccessoryButton(_ sender: UIButton!) {
         self.view.endEditing(true)
-        
-        let action = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Take photo", "Choose existing photo", "Choose existing video")
+        let action = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Take photo", "Choose existing photo")
         action.show(in: self.view)
     }
     
@@ -264,23 +260,30 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellBottomLabelAt indexPath: IndexPath!) -> CGFloat {
         return 0
     }
+        
     
-    // MARK: - Responding to CollectionView tap events
     
     // MARK: - UIActionSheetDelegate
     
-   /* func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = false
         if buttonIndex != actionSheet.cancelButtonIndex {
             if buttonIndex == 1 {
-                Camera.shouldStartCamera(self, canEdit: true, frontFacing: true)
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    print("Camera is available 📸")
+                    vc.sourceType = .camera
+                } else {
+                    print("Camera 🚫 available so we will use photo library instead")
+                    vc.sourceType = .photoLibrary
+                }
             } else if buttonIndex == 2 {
-                Camera.shouldStartPhotoLibrary(self, canEdit: true)
-            } else if buttonIndex == 3 {
-                Camera.shouldStartVideoLibrary(self, canEdit: true)
+                vc.sourceType = .photoLibrary
             }
         }
     }
-    */
+    
     // MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [AnyHashable: Any]) {
