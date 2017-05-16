@@ -186,10 +186,10 @@ class Messages {
         }
     }
     
-    class func clearMessageCounter(_ groupId: String) {
+    class func clearMessageCounter(groupId: String) {
         let query = PFQuery(className: "Message")
         query.whereKey("groupId", equalTo: groupId)
-        query.whereKey("user", equalTo: PFUser.current()!)
+        query.whereKey("user1", equalTo: PFUser.current()!)
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 for message in objects as [PFObject]! {

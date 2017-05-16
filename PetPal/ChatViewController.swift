@@ -52,7 +52,7 @@ class ChatViewController: JSQMessagesViewController, UIActionSheetDelegate, UIIm
         
         isLoading = false
         self.loadMessages()
-        Messages.clearMessageCounter(groupId);
+        Messages.clearMessageCounter(groupId: groupId);
     }
     
     override func viewDidAppear(_ animated: Bool) {

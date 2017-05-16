@@ -32,8 +32,9 @@ class MessagesCell: UITableViewCell {
                 let timeInterval = date.timeIntervalSince(updateDate)
                 self.timeElapsedLabel.text = Utilities.timeElapsed(timeInterval)
             }
-            //let counter = message.counter
-            //counterLabel.text = (counter == 0) ? "" : "\(String(describing: counter)) new"
+            if let counter = message.counter {
+            counterLabel.text = (counter == 0) ? "" : "\(String(describing: counter)) new"
+            }
             
  
            /* let dateText = JSQMessagesTimestampFormatter.shared().relativeDate(for: message["updatedAt"] as? Date)
