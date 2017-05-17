@@ -132,7 +132,7 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
                             self.annotation.coordinate = (placemark.location?.coordinate)!
                             
                             let annotation = Annotation(title: group.name!, coordinate: (placemark.location?.coordinate)!)
-                            annotation.pinCustomImageName = "pawpin-40"
+                            annotation.pinCustomImageName = "pawpin"
                             annotation.group = group
                             let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
                             self.mapView.addAnnotation(pinAnnotationView.annotation!)
