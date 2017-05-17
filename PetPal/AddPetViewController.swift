@@ -27,6 +27,8 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var petAddButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    var imagePicker = UIImagePickerController()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +75,11 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Do any additional setup after loading the view.
     }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,17 +88,16 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBAction func onPetPictureChange(_ sender: Any) {
         
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = false
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             print("Camera is Available")
-            vc.sourceType = .camera
+            imagePicker.sourceType = .camera
         } else {
             print("Camera 🚫 available so we will use photo library instead")
-            vc.sourceType = .photoLibrary
+            imagePicker.sourceType = .photoLibrary
         }
-        self.present(vc, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
         
     }
     
@@ -101,13 +107,34 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.dismiss(animated: true, completion: nil)
     }
     
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if(imagePicker.sourceType == UIImagePickerControllerSourceType.photoLibrary){
+            let button = UIBarButtonItem(title: "Take Photo", style: .plain, target: self, action: #selector(showCamera))
+            viewController.navigationItem.rightBarButtonItem = button
+            
+        } else {
+            let button = UIBarButtonItem(title: "Choose Photo", style: .plain, target: self, action: #selector(showPhotoLibrary))
+            viewController.navigationItem.rightBarButtonItem = button
+            viewController.navigationController?.isNavigationBarHidden = false
+            viewController.navigationController?.navigationBar.isTranslucent = true
+        }
+    }
+    
+    func showCamera(){
+        imagePicker.sourceType = .camera
+    }
+    
+    func showPhotoLibrary(){
+        imagePicker.sourceType = .photoLibrary
+    }
+    
     @IBAction func onAddPetButton(_ sender: Any) {
         
         let name = petName.text
         let type = petType.text
         let age = Int(petAge.text!)
-        let compressedPetImage = petImageView.image?.jpeg(.lowest)
-        let pfPetImage = Utilities.getPFFileFromImage(image: UIImage(data: compressedPetImage!))
+        let compressedPetImage = petImageView.image?.compress()
+        let pfPetImage = Utilities.getPFFileFromImage(image: compressedPetImage)
         let petDescription = self.petDescription.text
         
         if name != nil && type != nil && age != nil && petDescription != nil && pfPetImage != nil{
