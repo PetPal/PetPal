@@ -344,6 +344,7 @@
                         <outlet property="addButton" destination="EQ5-r9-4sA" id="Ddz-y0-m12"/>
                         <outlet property="addButtonView" destination="CWm-Tj-lhq" id="55w-12-KyR"/>
                         <outlet property="creditCount" destination="coW-Hz-0dY" id="nSy-e8-kyk"/>
+                        <outlet property="editProfilePictureButton" destination="6WT-GB-9fU" id="Jdo-bh-bxo"/>
                         <outlet property="groupCount" destination="G0k-2u-U2R" id="mVA-B2-xmH"/>
                         <outlet property="imageBorderView" destination="VoO-A4-c4S" id="20y-EV-RWY"/>
                         <outlet property="locationLabel" destination="VkZ-RP-2Ox" id="xt8-AQ-L5p"/>
