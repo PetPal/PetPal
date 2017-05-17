@@ -115,7 +115,7 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
         let name = petName.text
         let type = petType.text
         let age = Int(petAge.text!)
-        let compressedPetImageOrig = petImageView.image?.jpeg(.lowest)
+        let compressedPetImage = petImageView.image?.jpeg(.lowest)
         let pfPetImage = Utilities.getPFFileFromImage(image: UIImage(data: compressedPetImage!))
         let petDescription = self.petDescription.text
         
