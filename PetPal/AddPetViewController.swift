@@ -71,8 +71,16 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
         background.frame = mainPetView.bounds
         mainPetView.layer.insertSublayer(background, at: 0)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))
+        view.addGestureRecognizer(tapGesture)
+
         // Do any additional setup after loading the view.
     }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,6 +105,7 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
             let newPetImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+
             self.petImageView.image = newPetImage
             self.dismiss(animated: true, completion: nil)
     }
