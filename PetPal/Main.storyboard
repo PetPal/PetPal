@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F3l-JR-e2e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F3l-JR-e2e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -364,7 +364,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your group name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHr-ex-ipq">
-                                <rect key="frame" x="58" y="168" width="259" height="30"/>
+                                <rect key="frame" x="58" y="188" width="259" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="259" id="VIv-Ye-dhB"/>
                                     <constraint firstAttribute="height" constant="30" id="x3d-4u-KTe"/>
@@ -374,7 +374,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zFq-4u-RuD">
-                                <rect key="frame" x="58" y="221" width="259" height="31"/>
+                                <rect key="frame" x="58" y="241" width="259" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="o8g-Te-Gch"/>
                                 </constraints>
@@ -385,10 +385,10 @@
                                 <color key="tintColor" red="0.71920138825502911" green="0.61839884072065532" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x7-vO-Dre">
-                                <rect key="frame" x="58" y="269" width="259" height="217"/>
+                                <rect key="frame" x="58" y="289" width="259" height="197"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write something about your group..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xvk-Jt-k1Z">
-                                        <rect key="frame" x="8" y="8" width="243" height="201"/>
+                                        <rect key="frame" x="8" y="8" width="243" height="181"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.8084747779" green="0.8084747779" blue="0.8084747779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -416,19 +416,19 @@
                                     <action selector="onCreateButton:" destination="hda-2t-8iW" eventType="touchUpInside" id="TFH-rS-Ni7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQW-YD-iGq">
-                                <rect key="frame" x="136" y="86" width="102" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQW-YD-iGq">
+                                <rect key="frame" x="133" y="72" width="109" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="N0n-qA-rJV"/>
-                                    <constraint firstAttribute="height" constant="60" id="OGs-N9-r3R"/>
+                                    <constraint firstAttribute="height" constant="80" id="OGs-N9-r3R"/>
                                 </constraints>
-                                <state key="normal" image="camera"/>
+                                <state key="normal" image="addPetImage"/>
                                 <connections>
                                     <action selector="onCameraButton:" destination="hda-2t-8iW" eventType="touchUpInside" id="etg-HP-oXN"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.93951541717841325" green="0.9547509517766497" blue="0.92267357414888296" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aHr-ex-ipq" firstAttribute="top" secondItem="TQW-YD-iGq" secondAttribute="bottom" constant="22" id="8PW-Tx-FHu"/>
                             <constraint firstItem="aHr-ex-ipq" firstAttribute="top" secondItem="TQW-YD-iGq" secondAttribute="bottom" constant="22" id="Adf-OH-eB5"/>
@@ -685,7 +685,7 @@
         <scene sceneID="ej7-RX-uts">
             <objects>
                 <tableViewController id="ab0-XG-zli" customClass="SelectSingleViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MHL-xs-Yug">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" id="MHL-xs-Yug">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -695,21 +695,12 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="jfv-fg-07M" style="IBUITableViewCellStyleDefault" id="SME-2V-VoS">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupCell" rowHeight="76" id="SME-2V-VoS" customClass="GroupCell" customModule="PetPal" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SME-2V-VoS" id="Nuw-Uw-J5B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jfv-fg-07M">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -731,7 +722,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fJF-7O-ldV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3910" y="1710"/>
+            <point key="canvasLocation" x="3909.5999999999999" y="1709.5952023988007"/>
         </scene>
         <!--Hamburger View Controller-->
         <scene sceneID="xSN-jq-39G">
@@ -1168,7 +1159,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileViewController" id="gQb-Pc-5aT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMX-Bx-4jI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3489" y="4046"/>
+            <point key="canvasLocation" x="3526" y="4051"/>
         </scene>
         <!--AddRequestViewController-->
         <scene sceneID="EZM-HN-yDl">
@@ -1176,7 +1167,7 @@
                 <viewControllerPlaceholder storyboardName="Request" referencedIdentifier="AddRequestViewController" id="DgJ-XB-gwG" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fol-WN-fVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3510" y="4107"/>
+            <point key="canvasLocation" x="3554" y="4195"/>
         </scene>
         <!--Settings-->
         <scene sceneID="dZQ-Ui-r7d">
@@ -1402,7 +1393,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="o3a-Rb-TU6" secondAttribute="trailing" constant="16" id="XTf-YY-3nr"/>
                             <constraint firstItem="o3a-Rb-TU6" firstAttribute="leading" secondItem="TpF-EP-R7G" secondAttribute="leading" constant="16" id="fpk-X4-ruH"/>
@@ -1543,7 +1534,6 @@
     <resources>
         <image name="Icon-Small-50x50@1x" width="50" height="50"/>
         <image name="addPetImage" width="128" height="128"/>
-        <image name="camera" width="48" height="48"/>
         <image name="compose" width="40" height="40"/>
         <image name="defaultProfileImage" width="256" height="256"/>
         <image name="dog" width="64" height="64"/>

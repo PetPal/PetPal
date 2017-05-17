@@ -51,19 +51,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //Getting all the User's Pets
         PetPalAPIClient.sharedInstance.populatePets(forUser: user!)
         
-        //Getting all the User's Requests
-        PetPalAPIClient.sharedInstance.getRequests(user: user!, success: { (requests: [Request]) in
-            self.requests = requests
-            self.profileTableView.reloadData()
-        }) { (error: Error?) in
-            print("error \(String(describing: error?.localizedDescription))")
-        }
-        
         profileTableView.estimatedRowHeight = 320
         profileTableView.rowHeight = UITableViewAutomaticDimension
-        
-        let nibName = UINib(nibName: "RequestDetailTableViewCell", bundle: nil)
-        profileTableView.register(nibName, forCellReuseIdentifier: "RequestDetailCell")
         
         //Updating data on labels
         nameLabel.text = user?.name
@@ -87,8 +76,16 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         addButtonView.clipsToBounds = true
         addButtonView.alpha = 0.7
         
+        NotificationCenter.default.addObserver(forName: PetPalConstants.petAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            self.profileTableView.reloadData()
+        }
         
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(forName: PetPalConstants.userPetUpdated, object: nil, queue: OperationQueue.main) { (notification: Notification) in
+            let petUser = notification.object as! User
+            if petUser.isEqual(self.user) {
+                self.profileTableView.reloadData()
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,19 +99,20 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return requests?.count ?? 0
+            return user?.pets?.count ?? 0
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = profileTableView.dequeueReusableCell(withIdentifier: "RequestDetailCell", for: indexPath) as! RequestDetailTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PetDetailTableViewCell", for: indexPath) as! PetDetailTableViewCell
+        cell.pet = user!.pets![indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        profileTableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "requestDetailFromProfileSegue", sender: profileTableView.cellForRow(at: indexPath))
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        profileTableView.deselectRow(at: indexPath, animated: true)
+//        performSegue(withIdentifier: "requestDetailFromProfileSegue", sender: profileTableView.cellForRow(at: indexPath))
+//    }
     
     @IBAction func onAddButtonPress(_ sender: Any) {
         let alert = UIAlertController(title: "Add", message: "Add a New Pet or Create a New Request for your pet", preferredStyle: .actionSheet)
@@ -148,5 +146,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     
+    @IBAction func onEditProfileImage(_ sender: Any) {
+        print("onEditProfileImage")
+    }
 
 }

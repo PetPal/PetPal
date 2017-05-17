@@ -13,6 +13,7 @@ protocol SelectSingleViewControllerDelegate {
     func didSelectSingleUser(_ user: PFUser)
 }
 
+
 class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
     
     var users = [PFUser]()
@@ -24,11 +25,11 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0)
         navigationController?.navigationBar.tintColor = UIColor.white
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // register tableView Cell
+        let nibName = UINib(nibName: "GroupCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "GroupCell")
         
         self.searchBar.delegate = self
         self.loadUsers()
@@ -55,16 +56,8 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 self.users.removeAll(keepingCapacity: false)
-                /*if let array = objects as? [PFUser] {
-                    for obj in array {
-                        if ((obj as PFUser)["name"] as? String) != nil {
-                            self.users.append(obj as PFUser)
-                        }
-                    }
-                }*/
                 self.users = objects as! [PFUser]
-                //self.users += objects as! [PFUser]!
-                self.tableView.reloadData()
+                    self.tableView.reloadData()
             } else {
                 let alertController = UIAlertController(title: "Network Error", message: "", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -90,6 +83,7 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
                 self.users.removeAll(keepingCapacity: false)
                 
                 self.users = objects as! [PFUser]
+                
               //  self.users += objects as! [PFUser]!
                 self.tableView.reloadData()
             } else {
@@ -125,10 +119,18 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! GroupCell
         
         let user = self.users[indexPath.row]
-        cell.textLabel?.text = user["name"] as? String
+        
+        cell.groupAvatar.file = user["userAvatar"] as? PFFile
+        cell.groupAvatar.loadInBackground()
+        cell.nameLabel.text = user["name"] as? String
+        cell.createdAtLabel.text = ""
+        cell.groupOverview.text = ""
+
+        
+       // cell.textLabel?.text = user["name"] as? String
         
         return cell
     }

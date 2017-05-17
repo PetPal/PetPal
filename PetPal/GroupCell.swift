@@ -25,7 +25,7 @@ class GroupCell: UITableViewCell {
             self.groupAvatar.loadInBackground()
             self.nameLabel.text = group.name
             formatter.dateFormat = "MM/dd/yy"
-            self.createdAtLabel.text = formatter.string(from: group.timeStamp!)
+            self.createdAtLabel.text = "Together since: " + formatter.string(from: group.timeStamp!)
             groupOverview.text = group.overview
         }
     }

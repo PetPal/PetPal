@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,50 +19,44 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YgG-t6-RKQ" customClass="PFImageView">
-                        <rect key="frame" x="8" y="10" width="40" height="40"/>
+                        <rect key="frame" x="8" y="8" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="C0t-2A-vhC"/>
                             <constraint firstAttribute="width" constant="40" id="Meo-xM-eEb"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="O2g-Ga-6Ge"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="mfk-Mj-Pfh"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Big Apple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FML-KH-ltW">
-                        <rect key="frame" x="56" y="10" width="82" height="23"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <rect key="frame" x="54" y="17" width="78" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.21959859132766724" green="0.22048449516296387" blue="0.31973356008529663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Together since " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRb-cM-7dC">
-                        <rect key="frame" x="60" y="34" width="94" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.62537461520000004" green="0.67000114919999998" blue="0.062215201560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/3/2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pry-w1-M2V">
-                        <rect key="frame" x="156" y="34" width="55" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Together since: 4/3/2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pry-w1-M2V">
+                        <rect key="frame" x="8" y="52" width="152" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.62537461520000004" green="0.67000114919999998" blue="0.062215201560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" verticalCompressionResistancePriority="740" text="We love dogs!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1P-H3-99h">
-                        <rect key="frame" x="60" y="52" width="468" height="16"/>
+                        <rect key="frame" x="8" y="72" width="528" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.44701606040000003" green="0.44885629420000001" blue="0.64301109310000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="pry-w1-M2V" firstAttribute="baseline" secondItem="GRb-cM-7dC" secondAttribute="baseline" id="ALa-V8-myi"/>
-                    <constraint firstItem="pry-w1-M2V" firstAttribute="leading" secondItem="GRb-cM-7dC" secondAttribute="trailing" constant="2" id="AMY-dm-XPl"/>
-                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="b1P-H3-99h" secondAttribute="bottom" constant="4" id="Aqu-pp-QIn"/>
-                    <constraint firstItem="YgG-t6-RKQ" firstAttribute="top" secondItem="E0E-P4-XEO" secondAttribute="topMargin" constant="2" id="DRC-jM-k5F"/>
-                    <constraint firstItem="b1P-H3-99h" firstAttribute="leading" secondItem="GRb-cM-7dC" secondAttribute="leading" id="Hfy-6f-7TL"/>
-                    <constraint firstItem="GRb-cM-7dC" firstAttribute="top" secondItem="FML-KH-ltW" secondAttribute="bottom" constant="1" id="Psj-MA-3bU"/>
-                    <constraint firstItem="GRb-cM-7dC" firstAttribute="leading" secondItem="YgG-t6-RKQ" secondAttribute="trailing" constant="12" id="dud-Tq-1wa"/>
-                    <constraint firstItem="FML-KH-ltW" firstAttribute="top" secondItem="E0E-P4-XEO" secondAttribute="topMargin" constant="2" id="e84-RF-WJ2"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="b1P-H3-99h" secondAttribute="trailing" constant="8" id="fFC-AD-4qG"/>
-                    <constraint firstItem="FML-KH-ltW" firstAttribute="leading" secondItem="YgG-t6-RKQ" secondAttribute="trailing" constant="8" id="j4m-DI-ojI"/>
-                    <constraint firstItem="YgG-t6-RKQ" firstAttribute="leading" secondItem="E0E-P4-XEO" secondAttribute="leadingMargin" id="phz-rH-XWd"/>
-                    <constraint firstItem="b1P-H3-99h" firstAttribute="top" secondItem="GRb-cM-7dC" secondAttribute="bottom" constant="2" id="sXD-X1-cwD"/>
+                    <constraint firstItem="b1P-H3-99h" firstAttribute="top" secondItem="pry-w1-M2V" secondAttribute="bottom" constant="4" id="5t3-NU-QbA"/>
+                    <constraint firstItem="pry-w1-M2V" firstAttribute="top" secondItem="YgG-t6-RKQ" secondAttribute="bottom" constant="4" id="8o5-XZ-bLA"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="b1P-H3-99h" secondAttribute="bottom" constant="4" id="BTj-KP-fO0"/>
+                    <constraint firstItem="FML-KH-ltW" firstAttribute="centerY" secondItem="YgG-t6-RKQ" secondAttribute="centerY" id="KGx-2X-wph"/>
+                    <constraint firstItem="pry-w1-M2V" firstAttribute="leading" secondItem="E0E-P4-XEO" secondAttribute="leading" constant="8" id="KI7-B6-hCd"/>
+                    <constraint firstItem="b1P-H3-99h" firstAttribute="leading" secondItem="E0E-P4-XEO" secondAttribute="leading" constant="8" id="mFx-1L-pZ4"/>
+                    <constraint firstAttribute="trailing" secondItem="b1P-H3-99h" secondAttribute="trailing" constant="8" id="nKP-Ef-74k"/>
+                    <constraint firstItem="YgG-t6-RKQ" firstAttribute="leading" secondItem="E0E-P4-XEO" secondAttribute="leading" constant="8" id="q2P-UT-1Qr"/>
+                    <constraint firstItem="YgG-t6-RKQ" firstAttribute="top" secondItem="E0E-P4-XEO" secondAttribute="top" constant="8" id="uCm-dz-NF2"/>
+                    <constraint firstItem="FML-KH-ltW" firstAttribute="leading" secondItem="YgG-t6-RKQ" secondAttribute="trailing" constant="6" id="w2x-WD-KB2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
