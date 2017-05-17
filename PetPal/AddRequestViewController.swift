@@ -62,6 +62,13 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.estimatedRowHeight = 320
         tableView.rowHeight = UITableViewAutomaticDimension
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.barTintColor = UIColor(colorWithHexValue: 0xE08E43)
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -154,7 +161,6 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         if segue.identifier == "DateSelectSegue" {
             let dateSelectVC = segue.destination as! DateSelectViewController
             dateSelectVC.delegate = self
-            
         }
     }
     
@@ -182,6 +188,5 @@ class AddRequestViewController: UIViewController, UITableViewDelegate, UITableVi
         PetPalAPIClient.sharedInstance.addRequest(request: request)
         
         _ = navigationController?.popViewController(animated: true)
-
     }
 }

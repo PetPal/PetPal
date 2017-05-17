@@ -235,6 +235,7 @@ class PetPalAPIClient  {
         query.includeKey("requestUser")
         query.includeKey("acceptUser")
         query.includeKey("groupIds")
+        query.order(byDescending: "updatedAt")
         var groupIds = [String]()
         for group in userGroups {
             if let objectId = group.pfObject?.objectId {
@@ -334,7 +335,6 @@ class PetPalAPIClient  {
         petObject.saveInBackground { (successSavePet: Bool, error: Error?) in
             if successSavePet {
                 print("pet added")
-                //NotificationCenter.default.post(name: PetPalConstants.petAdded, object: pet)
                 pet.pfPet = petObject
                 success(pet)
                 completion()
@@ -359,6 +359,7 @@ class PetPalAPIClient  {
         pfUser?.saveInBackground(block: { (successSavePetToUser: Bool, error: Error?) in
             if successSavePetToUser {
                 print("Saved Pets to User!")
+                NotificationCenter.default.post(name: PetPalConstants.petAdded, object: pet)
                 success(user!)
             } else if let error = error {
                 print("Error: \(error.localizedDescription)")

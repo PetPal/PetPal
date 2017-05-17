@@ -56,10 +56,11 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         didSet {
             view.layoutIfNeeded()
             let defaults = UserDefaults.standard
-            if defaults.object(forKey: initialMenuSelection) == nil {
+            let key = initialMenuSelection + (User.currentUser?.screenName ?? "")
+            if defaults.object(forKey: key) == nil {
                 hamburgerViewController.contentViewController = profileNavigationController
             } else {
-                let initIndex = defaults.integer(forKey: initialMenuSelection)
+                let initIndex = defaults.integer(forKey: key)
                 hamburgerViewController.contentViewController = menuItems[initIndex].viewController
             }
         }
@@ -144,7 +145,9 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let viewController = menuItems[indexPath.row].viewController {
             let defaults = UserDefaults.standard
-            defaults.set(indexPath.row, forKey: initialMenuSelection)
+            let key = initialMenuSelection + (User.currentUser?.screenName ?? "")
+            defaults.set(indexPath.row, forKey: key)
+            
             hamburgerViewController.contentViewController = viewController
         } else {
             Utilities.logoutUser()

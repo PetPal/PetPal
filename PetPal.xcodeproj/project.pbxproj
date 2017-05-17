@@ -58,6 +58,7 @@
 		CEC62CE91EC685D00042D808 /* TaskDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC62CE81EC685D00042D808 /* TaskDetailTableViewCell.swift */; };
 		CEC62CEB1EC97FC10042D808 /* PetPalSprint3-old.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEC62CEA1EC97FC10042D808 /* PetPalSprint3-old.gif */; };
 		CEC62CED1EC988BA0042D808 /* PetPalSprint3.gif in Resources */ = {isa = PBXBuildFile; fileRef = CEC62CEC1EC988BA0042D808 /* PetPalSprint3.gif */; };
+		CEC62CEF1ECBDB5E0042D808 /* PetDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC62CEE1ECBDB5E0042D808 /* PetDetailTableViewCell.swift */; };
 		CEEC8B381EB1324100CC07C5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */; };
 		CEEC8B391EB1324100CC07C5 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */; };
 		CEEC8B3B1EB138D600CC07C5 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */; };
@@ -130,6 +131,7 @@
 		CEC62CE81EC685D00042D808 /* TaskDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailTableViewCell.swift; sourceTree = "<group>"; };
 		CEC62CEA1EC97FC10042D808 /* PetPalSprint3-old.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "PetPalSprint3-old.gif"; sourceTree = "<group>"; };
 		CEC62CEC1EC988BA0042D808 /* PetPalSprint3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = PetPalSprint3.gif; sourceTree = "<group>"; };
+		CEC62CEE1ECBDB5E0042D808 /* PetDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDetailTableViewCell.swift; sourceTree = "<group>"; };
 		CEEC8B361EB1324100CC07C5 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CEEC8B371EB1324100CC07C5 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		CEEC8B3A1EB138D600CC07C5 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -252,8 +254,8 @@
 				CEC62CE41EC659390042D808 /* CalendarViewController.swift */,
 				A5F966371EB5998B001D072B /* GroupViewController.swift */,
 				A5F9663F1EB90619001D072B /* NewGroupViewController.swift */,
-				A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */,
 				CEA04EEA1EC370FC007E5E3E /* GroupDetailViewController.swift */,
+				A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */,
 				A50A9C281EBCF81B000A1394 /* MessagesViewController.swift */,
 				99CBCD231EC00F9100850FCC /* SettingsViewController.swift */,
 				99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */,
@@ -282,6 +284,7 @@
 				CE2710251EBFCD8900C3B26B /* BasicTableViewCell.xib */,
 				A59787301EC2661D00949539 /* GroupCell.swift */,
 				A5F976571EC4F11800D73332 /* GroupCell.xib */,
+				CEC62CEE1ECBDB5E0042D808 /* PetDetailTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -344,7 +347,7 @@
 				TargetAttributes = {
 					99F9DA9B1EAC016B00878886 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BDVS636UPQ;
+						DevelopmentTeam = 62RFK2LF2M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -457,6 +460,7 @@
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,
 				A5F976561EC4E05D00D73332 /* Annotation.swift in Sources */,
 				A5F9765A1EC6E3C600D73332 /* SelectSingleViewController.swift in Sources */,
+				CEC62CEF1ECBDB5E0042D808 /* PetDetailTableViewCell.swift in Sources */,
 				CEBA9AD01EBA671700CB846C /* CustomDateCell.swift in Sources */,
 				CEC62CE71EC680680042D808 /* TaskHeaderTableViewCell.swift in Sources */,
 				A50A9C2B1EBD289B000A1394 /* Messages.swift in Sources */,
@@ -608,7 +612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = BDVS636UPQ;
+				DEVELOPMENT_TEAM = 62RFK2LF2M;
 				INFOPLIST_FILE = PetPal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.petpal.PetPal;
@@ -623,7 +627,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = BDVS636UPQ;
+				DEVELOPMENT_TEAM = 62RFK2LF2M;
 				INFOPLIST_FILE = PetPal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.petpal.PetPal;

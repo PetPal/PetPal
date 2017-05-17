@@ -74,7 +74,6 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if let row = users.index(of: User.currentUser!) {
                 let indexPath = IndexPath(row: row, section: 0)
                 self.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.middle)
-                
             }
         }) { (error: Error?) in
         }
@@ -99,7 +98,7 @@ class GroupDetailViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupHeaderTableViewCell") as! GroupHeaderTableViewCell
-        cell.header = String(users?.count ?? 0) + " Group Members"
+        cell.header = /*String(users?.count ?? 0) + */ " Group Members"
         return cell
     }
     

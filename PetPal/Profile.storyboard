@@ -101,7 +101,7 @@
                                             <color key="backgroundColor" red="0.27794048190116882" green="0.91257733106613159" blue="0.51032179594039917" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.88324600458145142" green="0.88131684064865112" blue="0.9245409369468689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="G96-YR-QH4" firstAttribute="top" secondItem="VkZ-RP-2Ox" secondAttribute="bottom" constant="10" id="2Rz-xX-iaP"/>
                                         <constraint firstItem="G96-YR-QH4" firstAttribute="leading" secondItem="1tv-yo-Too" secondAttribute="trailing" constant="30" id="4GJ-3s-62J"/>
@@ -131,7 +131,7 @@
                                         <rect key="frame" x="0.0" y="234" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s9Z-kY-TjH" id="bCX-wh-apc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUH-xc-X9s">
@@ -228,6 +228,68 @@
                                             <outlet property="requestStatusLabel" destination="mUH-xc-X9s" id="yq2-Sg-Gun"/>
                                             <outlet property="startDateLabel" destination="l4d-E7-Jp9" id="sjb-Ct-4Bl"/>
                                             <segue destination="PIy-g6-lds" kind="show" identifier="requestDetailFromProfileSegue" id="SYo-A8-fO3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PetDetailTableViewCell" id="Nch-zy-Vir" customClass="PetDetailTableViewCell" customModule="PetPal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="335" width="375" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nch-zy-Vir" id="aAw-Pi-ePm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addPetImage" translatesAutoresizingMaskIntoConstraints="NO" id="Psi-FM-j45" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="8" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="Tgw-w5-ZuP"/>
+                                                        <constraint firstAttribute="height" constant="60" id="jo7-R1-LKF"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" horizontalCompressionResistancePriority="740" text="Sesame" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcy-Le-14m">
+                                                    <rect key="frame" x="76" y="8" width="61" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.21974492073059082" green="0.22032386064529419" blue="0.3238757848739624" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chihuahua" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zF4-tQ-WQO">
+                                                    <rect key="frame" x="298" y="8" width="69" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.21974492070000001" green="0.2203238606" blue="0.32387578490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 years old" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2a-VR-url">
+                                                    <rect key="frame" x="76" y="30" width="78" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.44701606035232544" green="0.44885629415512085" blue="0.64301109313964844" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" text="Needs walk 2x a day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KR-r9-aE3">
+                                                    <rect key="frame" x="76" y="50" width="132" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.44701606040000003" green="0.44885629420000001" blue="0.64301109310000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5KR-r9-aE3" firstAttribute="leading" secondItem="Psi-FM-j45" secondAttribute="trailing" constant="8" id="4dQ-Cl-emQ"/>
+                                                <constraint firstItem="Psi-FM-j45" firstAttribute="top" secondItem="aAw-Pi-ePm" secondAttribute="topMargin" id="Ofa-bU-MiJ"/>
+                                                <constraint firstItem="5KR-r9-aE3" firstAttribute="top" secondItem="B2a-VR-url" secondAttribute="bottom" constant="3" id="PBN-fB-kBW"/>
+                                                <constraint firstItem="Psi-FM-j45" firstAttribute="leading" secondItem="aAw-Pi-ePm" secondAttribute="leadingMargin" id="PxD-A8-og6"/>
+                                                <constraint firstItem="Vcy-Le-14m" firstAttribute="top" secondItem="aAw-Pi-ePm" secondAttribute="topMargin" id="Vlk-Kg-MDn"/>
+                                                <constraint firstItem="zF4-tQ-WQO" firstAttribute="top" secondItem="aAw-Pi-ePm" secondAttribute="topMargin" id="aZz-kB-sWa"/>
+                                                <constraint firstItem="zF4-tQ-WQO" firstAttribute="trailing" secondItem="aAw-Pi-ePm" secondAttribute="trailingMargin" id="ce9-Np-jVv"/>
+                                                <constraint firstItem="B2a-VR-url" firstAttribute="top" secondItem="Vcy-Le-14m" secondAttribute="bottom" constant="1" id="pAF-hq-rgd"/>
+                                                <constraint firstItem="Vcy-Le-14m" firstAttribute="leading" secondItem="Psi-FM-j45" secondAttribute="trailing" constant="8" id="pLN-JN-Cqy"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="5KR-r9-aE3" secondAttribute="bottom" constant="4" id="sdB-vH-bqJ"/>
+                                                <constraint firstItem="B2a-VR-url" firstAttribute="leading" secondItem="Psi-FM-j45" secondAttribute="trailing" constant="8" id="wFq-gH-WYR"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Psi-FM-j45" secondAttribute="bottom" constant="4" id="wKf-j6-Bev"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="petAge" destination="B2a-VR-url" id="5hm-IN-iqa"/>
+                                            <outlet property="petDescription" destination="5KR-r9-aE3" id="aBZ-gI-dfD"/>
+                                            <outlet property="petName" destination="Vcy-Le-14m" id="7e0-qo-0qM"/>
+                                            <outlet property="petProfileImage" destination="Psi-FM-j45" id="PpG-EF-wPJ"/>
+                                            <outlet property="petType" destination="zF4-tQ-WQO" id="QBc-3w-zkf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -330,6 +392,7 @@
     </scenes>
     <resources>
         <image name="add" width="24" height="24"/>
+        <image name="addPetImage" width="128" height="128"/>
         <image name="blank-profile-picture" width="640" height="640"/>
         <image name="dog" width="64" height="64"/>
         <image name="group" width="64" height="64"/>
