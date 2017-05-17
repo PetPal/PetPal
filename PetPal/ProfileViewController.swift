@@ -146,5 +146,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     
+    @IBAction func onEditProfileImage(_ sender: Any) {
+        print("onEditProfileImage")
+    }
 
 }
