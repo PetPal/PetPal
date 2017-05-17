@@ -9,7 +9,7 @@
 import UIKit
 import ParseUI
 
-class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var profileTableView: UITableView!
     @IBOutlet weak var locationLabel: UILabel!
@@ -22,6 +22,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     @IBOutlet weak var imageBorderView: UIView!
     @IBOutlet weak var addButtonView: UIView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var editProfilePictureButton: UIButton!
+    
+    var imagePicker = UIImagePickerController()
     
 
     var requests: [Request]?
@@ -76,6 +79,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         addButtonView.clipsToBounds = true
         addButtonView.alpha = 0.7
         
+        let editButtonRadius = 3
+        editProfilePictureButton.layer.cornerRadius = CGFloat(editButtonRadius)
+        editProfilePictureButton.clipsToBounds = true
+        editProfilePictureButton.layer.borderColor = UIColor.black.cgColor
+        editProfilePictureButton.layer.borderWidth = 0.5
+        editProfilePictureButton.backgroundColor = UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0)
+        
         NotificationCenter.default.addObserver(forName: PetPalConstants.petAdded, object: nil, queue: OperationQueue.main) { (notification: Notification) in
             self.profileTableView.reloadData()
         }
@@ -108,6 +118,71 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         cell.pet = user!.pets![indexPath.row]
         return cell
     }
+    
+    @IBAction func onEditProfilePhoto(_ sender: Any) {
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            print("Camera is Available")
+            imagePicker.sourceType = .camera
+        } else {
+            print("Camera 🚫 available so we will use photo library instead")
+            imagePicker.sourceType = .photoLibrary
+        }
+        self.present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        do{
+            let newProfileImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
+            self.profileImage.image = newProfileImage
+            let compressedImage = newProfileImage.compress()
+            let pfProfileImage = Utilities.getPFFileFromImage(image: compressedImage)
+            try pfProfileImage?.save()
+            User.currentUser?.userAvatar = pfProfileImage
+            
+            PetPalAPIClient.sharedInstance.updateUserProfilePicture(profilePicture: pfProfileImage!, success: { (response: Bool) in
+                print("Successfully save the Current User's Profile Picture.")
+            }, failure: { (error: Error) in
+                print("Error saving the current user's profile picture: \(error.localizedDescription)")
+            })
+            self.dismiss(animated: true, completion: nil)
+        } catch {
+            print("Error while Saving the Profile Picture")
+        }
+        
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        viewController.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0)
+        viewController.navigationController?.navigationBar.tintColor = UIColor.white
+        if(imagePicker.sourceType == UIImagePickerControllerSourceType.photoLibrary){
+            let button = UIBarButtonItem(title: "Take Photo", style: .plain, target: self, action: #selector(showCamera))
+            viewController.navigationItem.rightBarButtonItem = button
+            
+        } else {
+            let button = UIBarButtonItem(title: "Choose Photo", style: .plain, target: self, action: #selector(showPhotoLibrary))
+            viewController.navigationItem.rightBarButtonItem = button
+            viewController.navigationController?.isNavigationBarHidden = false
+            viewController.navigationController?.navigationBar.isTranslucent = true
+        }
+    }
+    
+    func showCamera(){
+        imagePicker.sourceType = .camera
+    }
+    
+    func showPhotoLibrary(){
+        imagePicker.sourceType = .photoLibrary
+    }
+    
+    
+    
+    
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        profileTableView.deselectRow(at: indexPath, animated: true)

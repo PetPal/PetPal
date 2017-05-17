@@ -117,6 +117,8 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        viewController.navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: 57/256, green: 127/256, blue: 204/256, alpha: 1.0)
+        viewController.navigationController?.navigationBar.tintColor = UIColor.white
         if(imagePicker.sourceType == UIImagePickerControllerSourceType.photoLibrary){
             let button = UIBarButtonItem(title: "Take Photo", style: .plain, target: self, action: #selector(showCamera))
             viewController.navigationItem.rightBarButtonItem = button

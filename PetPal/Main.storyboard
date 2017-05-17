@@ -1169,58 +1169,6 @@
             </objects>
             <point key="canvasLocation" x="3554" y="4195"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="dZQ-Ui-r7d">
-            <objects>
-                <viewController id="x9w-PA-ees" customClass="SettingsViewController" customModule="PetPal" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ndq-cL-nkw"/>
-                        <viewControllerLayoutGuide type="bottom" id="AOC-UE-62v"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pZV-3x-tG4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sabareesh Kappagantu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPR-Hu-JOV">
-                                <rect key="frame" x="98" y="222" width="178" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7J-2k-tIB">
-                                <rect key="frame" x="160" y="318" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Pet"/>
-                                <connections>
-                                    <segue destination="iw9-w0-t0V" kind="presentation" identifier="AddPetSegue" id="sdz-LY-N0F"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-ku-Ev5">
-                                <rect key="frame" x="127" y="94" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKb-pj-7ZW">
-                                <rect key="frame" x="250" y="145" width="19" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="editPhoto"/>
-                                <connections>
-                                    <action selector="onEditProfilePhotoButton:" destination="x9w-PA-ees" eventType="touchUpInside" id="Pdn-zU-8nv"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="QmH-Bb-NAR"/>
-                    <connections>
-                        <outlet property="editProfilePhotoButton" destination="gKb-pj-7ZW" id="6g6-Fq-EA8"/>
-                        <outlet property="profilePicture" destination="Amp-ku-Ev5" id="gxl-LR-MLO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OQV-UD-kov" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1053.5999999999999" y="4924.5877061469273"/>
-        </scene>
         <!--Add Pet View Controller-->
         <scene sceneID="Oob-wG-hYO">
             <objects>
@@ -1393,7 +1341,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="o3a-Rb-TU6" secondAttribute="trailing" constant="16" id="XTf-YY-3nr"/>
                             <constraint firstItem="o3a-Rb-TU6" firstAttribute="leading" secondItem="TpF-EP-R7G" secondAttribute="leading" constant="16" id="fpk-X4-ruH"/>
@@ -1419,7 +1367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ya-C2-k6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1996" y="4924.5877061469273"/>
+            <point key="canvasLocation" x="1164" y="5004"/>
         </scene>
         <!--Groups-->
         <scene sceneID="r31-v0-0vH">
@@ -1495,24 +1443,6 @@
             <point key="canvasLocation" x="1021.6" y="2521.8890554722639"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="cyU-3l-R9F">
-            <objects>
-                <navigationController storyboardIdentifier="SettingsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="nNk-EF-4I6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qEu-3w-AWZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="x9w-PA-ees" kind="relationship" relationship="rootViewController" id="70o-jo-QBE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AD3-uV-pME" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="116" y="4926"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="7lw-ie-IkO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V9V-NL-4bu" sceneMemberID="viewController">
@@ -1535,11 +1465,9 @@
         <image name="Icon-Small-50x50@1x" width="50" height="50"/>
         <image name="addPetImage" width="128" height="128"/>
         <image name="compose" width="40" height="40"/>
-        <image name="defaultProfileImage" width="256" height="256"/>
         <image name="dog" width="64" height="64"/>
         <image name="dog-650299" width="590" height="350"/>
         <image name="editPetPencil" width="32" height="32"/>
-        <image name="editPhoto" width="32" height="32"/>
         <image name="mail" width="32" height="32"/>
         <image name="mygroup" width="24" height="24"/>
         <image name="name-tag" width="32" height="32"/>

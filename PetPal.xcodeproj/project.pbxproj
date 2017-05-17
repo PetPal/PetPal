@@ -16,7 +16,6 @@
 		9962028F1ECBBBCE000CBA9E /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9962028E1ECBBBCE000CBA9E /* UIImage.swift */; };
 		996202911ECBC192000CBA9E /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996202901ECBC192000CBA9E /* UIButton.swift */; };
 		99CBCD221EBFAFE300850FCC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */; };
-		99CBCD241EC00F9100850FCC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD231EC00F9100850FCC /* SettingsViewController.swift */; };
 		99CBCD261EC03AAF00850FCC /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD251EC03AAF00850FCC /* Pet.swift */; };
 		99CBCD281EC03C7E00850FCC /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */; };
 		99D74BC41EB7EFA100CAB24C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D74BC31EB7EFA100CAB24C /* UITextField.swift */; };
@@ -88,7 +87,6 @@
 		9962028E1ECBBBCE000CBA9E /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		996202901ECBC192000CBA9E /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		99CBCD211EBFAFE300850FCC /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		99CBCD231EC00F9100850FCC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		99CBCD251EC03AAF00850FCC /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		99D74BC31EB7EFA100CAB24C /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 				CEA04EEA1EC370FC007E5E3E /* GroupDetailViewController.swift */,
 				A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */,
 				A50A9C281EBCF81B000A1394 /* MessagesViewController.swift */,
-				99CBCD231EC00F9100850FCC /* SettingsViewController.swift */,
 				99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */,
 				A5F976591EC6E3C600D73332 /* SelectSingleViewController.swift */,
 			);
@@ -489,7 +486,6 @@
 				A5342E991ECBF7B500A32374 /* Snow.swift in Sources */,
 				CEC62CE91EC685D00042D808 /* TaskDetailTableViewCell.swift in Sources */,
 				CEC62CE31EC429060042D808 /* GroupUserTableViewCell.swift in Sources */,
-				99CBCD241EC00F9100850FCC /* SettingsViewController.swift in Sources */,
 				A50A9C291EBCF81B000A1394 /* MessagesViewController.swift in Sources */,
 				CEEFFB961EBF7B8200E93EE4 /* RequestDetailTableViewCell.swift in Sources */,
 				CEEC8B461EB296E200CC07C5 /* MultiSelectViewController.swift in Sources */,

@@ -57,7 +57,7 @@ extension UIImage {
     
     func scaleImage() -> UIImage?{
         let originalSize = self.size
-        let newSize = CGSize(width: originalSize.width * 0.5, height: originalSize.height * 0.5)
+        let newSize = CGSize(width: originalSize.width * 0.3, height: originalSize.height * 0.3)
         UIGraphicsBeginImageContext(newSize)
         self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
