@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Parse
+import ParseUI
 
 class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -18,7 +19,7 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
     let annotation = MKPointAnnotation()
     private var locationManager: CLLocationManager!
     private var currentLocation: CLLocation?
-    var pinAnnotationView:MKPinAnnotationView!
+    //var pinAnnotationView:MKPinAnnotationView!
     
     var groups: [Group]! = []
     var currentGeoLocation: PFGeoPoint?
@@ -132,9 +133,9 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
                             
                             let annotation = Annotation(title: group.name!, coordinate: (placemark.location?.coordinate)!)
                             annotation.pinCustomImageName = "pawpin-40"
-                            self.pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-                            self.mapView.addAnnotation(self.pinAnnotationView.annotation!)
-                            //self.mapView.addAnnotation(annotation)
+                            annotation.group = group
+                            let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+                            self.mapView.addAnnotation(pinAnnotationView.annotation!)
                         }
                     })
                 }
@@ -162,6 +163,14 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView?.canShowCallout = true
+            let imageView = PFImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            //imageView.isUserInteractionEnabled = true
+            annotationView?.leftCalloutAccessoryView = imageView
+            
+            let imageButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            let image = UIImage(named: "disclosure-48")
+            imageButton.setImage(image, for: UIControlState.normal)
+            annotationView?.rightCalloutAccessoryView = imageButton
         } else {
             annotationView?.annotation = annotation
         }
@@ -169,27 +178,41 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
         if (annotation is MKUserLocation) {
             return nil
         } else {
-        let customPointAnnotation = annotation as! Annotation
-        annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
-        
-        return annotationView
+            let customPointAnnotation = annotation as! Annotation
+            annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
+            
+            if let group = customPointAnnotation.group {
+                let imageView = annotationView?.leftCalloutAccessoryView as! PFImageView
+                imageView.file = group.profileImage
+                imageView.loadInBackground()
+            }
+            return annotationView
         }
     }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? Annotation {
+            performSegue(withIdentifier: "groupDetailSegue", sender: annotation.group!)
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "groupDetailSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow {
+            if let group = sender as? Group {
                 let detailGroupVC = segue.destination as! GroupDetailViewController
-                detailGroupVC.group = groups[indexPath.row]
+                detailGroupVC.group = group
             }
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "groupDetailSegue", sender: indexPath.row)
+        let group = groups[indexPath.row]
+        performSegue(withIdentifier: "groupDetailSegue", sender: group)
     }
 
 
 }
+

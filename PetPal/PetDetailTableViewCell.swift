@@ -25,7 +25,7 @@ class PetDetailTableViewCell: UITableViewCell {
             }
             petName.text = pet.name
             if let age = pet.age {
-                petAge.text = age > 1 ? String(age) + " year old" : String(age) + " years old"
+                petAge.text = age > 1 ? String(age) + " years old" : String(age) + " year old"
             }
             petType.text = pet.type
             petDescription.text = pet.petDescription

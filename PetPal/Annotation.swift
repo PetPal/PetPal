@@ -10,6 +10,7 @@ import Foundation
 
 import UIKit
 import MapKit
+import ParseUI
 
 class Annotation: NSObject, MKAnnotation {
     
@@ -17,6 +18,7 @@ class Annotation: NSObject, MKAnnotation {
     var subtitle : String?
     var coordinate : CLLocationCoordinate2D
     var pinCustomImageName: String!
+    var group: Group?
     
     init(title:String, coordinate : CLLocationCoordinate2D){
         
