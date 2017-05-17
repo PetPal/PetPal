@@ -13,6 +13,7 @@ protocol SelectSingleViewControllerDelegate {
     func didSelectSingleUser(_ user: PFUser)
 }
 
+
 class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
     
     var users = [PFUser]()
@@ -55,16 +56,8 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 self.users.removeAll(keepingCapacity: false)
-                /*if let array = objects as? [PFUser] {
-                    for obj in array {
-                        if ((obj as PFUser)["name"] as? String) != nil {
-                            self.users.append(obj as PFUser)
-                        }
-                    }
-                }*/
                 self.users = objects as! [PFUser]
-                //self.users += objects as! [PFUser]!
-                self.tableView.reloadData()
+                    self.tableView.reloadData()
             } else {
                 let alertController = UIAlertController(title: "Network Error", message: "", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -90,6 +83,7 @@ class SelectSingleViewController: UITableViewController, UISearchBarDelegate {
                 self.users.removeAll(keepingCapacity: false)
                 
                 self.users = objects as! [PFUser]
+                
               //  self.users += objects as! [PFUser]!
                 self.tableView.reloadData()
             } else {

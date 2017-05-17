@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import QuartzCore
 
 class NewGroupViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cameraButton: UIButton!
@@ -20,6 +21,8 @@ class NewGroupViewController: UIViewController, UITextViewDelegate, UIImagePicke
     var photo: UIImage!
     var processedPhoto: PFFile?
     var defaultGroupPhoto = Utilities.getPFFileFromImage(image: #imageLiteral(resourceName: "defaultGroupImage"))
+    var snowView: SnowView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,15 @@ class NewGroupViewController: UIViewController, UITextViewDelegate, UIImagePicke
         descriptionTextField.delegate = self
         nameTextField.autocorrectionType = .no
         descriptionTextField.autocorrectionType = .no
+        
+        //snow effect
+        
+       /* snowView = SnowView(frame: CGRect(x: -150, y:-100, width: 300, height: 50))
+        let snowClipView = UIView(frame: view.frame.offsetBy(dx: 0, dy: 50))
+        snowClipView.clipsToBounds = true
+        snowClipView.addSubview(snowView)
+        view.addSubview(snowClipView)
+      */
 
         // Do any additional setup after loading the view.
     }

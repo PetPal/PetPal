@@ -26,6 +26,7 @@
 		A50A9C2B1EBD289B000A1394 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A9C2A1EBD289B000A1394 /* Messages.swift */; };
 		A50A9C2D1EBD36D7000A1394 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A9C2C1EBD36D7000A1394 /* MessagesCell.swift */; };
 		A5342E971ECBB26C00A32374 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5342E961ECBB26C00A32374 /* Assets.xcassets */; };
+		A5342E991ECBF7B500A32374 /* Snow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5342E981ECBF7B500A32374 /* Snow.swift */; };
 		A59787311EC2661D00949539 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59787301EC2661D00949539 /* GroupCell.swift */; };
 		A5F9660A1EB1797A001D072B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966091EB1797A001D072B /* ChatViewController.swift */; };
 		A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9662F1EB292FF001D072B /* LoginViewController.swift */; };
@@ -98,6 +99,7 @@
 		A50A9C2A1EBD289B000A1394 /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		A50A9C2C1EBD36D7000A1394 /* MessagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		A5342E961ECBB26C00A32374 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5342E981ECBF7B500A32374 /* Snow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snow.swift; sourceTree = "<group>"; };
 		A59787301EC2661D00949539 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		A5F966091EB1797A001D072B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A5F9662F1EB292FF001D072B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				995C9E3E1EBFA6150063510E /* CAGradientLayer.swift */,
 				9962028E1ECBBBCE000CBA9E /* UIImage.swift */,
 				996202901ECBC192000CBA9E /* UIButton.swift */,
+				A5342E981ECBF7B500A32374 /* Snow.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				A5F9663A1EB59DE5001D072B /* Utilities.swift in Sources */,
 				CEEC8B401EB2781000CC07C5 /* UIImageView.swift in Sources */,
 				994255421EB66DDC0039BE4B /* ProfileViewController.swift in Sources */,
+				A5342E991ECBF7B500A32374 /* Snow.swift in Sources */,
 				CEC62CE91EC685D00042D808 /* TaskDetailTableViewCell.swift in Sources */,
 				CEC62CE31EC429060042D808 /* GroupUserTableViewCell.swift in Sources */,
 				99CBCD241EC00F9100850FCC /* SettingsViewController.swift in Sources */,
