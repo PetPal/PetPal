@@ -100,22 +100,22 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.27794048190116882" green="0.91257733106613159" blue="0.51032179594039917" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WT-GB-9fU">
-                                            <rect key="frame" x="181" y="90" width="14" height="14"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIW-aY-PgE">
+                                            <rect key="frame" x="181" y="86" width="12" height="12"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="14" id="GKX-qo-MRH"/>
-                                                <constraint firstAttribute="height" constant="14" id="NLZ-Qo-Cxf"/>
+                                                <constraint firstAttribute="height" constant="12" id="jg7-aN-xb7"/>
+                                                <constraint firstAttribute="width" constant="12" id="wZB-yj-lWo"/>
                                             </constraints>
-                                            <state key="normal" image="editPhoto"/>
+                                            <state key="normal" image="editPencil"/>
                                             <connections>
-                                                <action selector="onEditProfileImage:" destination="5Cr-ns-4w5" eventType="touchUpInside" id="GbE-GG-rSc"/>
+                                                <action selector="onEditProfilePhoto:" destination="5Cr-ns-4w5" eventType="touchUpInside" id="cmo-n4-EOH"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.88324600458145142" green="0.88131684064865112" blue="0.9245409369468689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
+                                        <constraint firstItem="FIW-aY-PgE" firstAttribute="centerX" secondItem="34M-rK-hsn" secondAttribute="centerX" id="2Jw-zS-4js"/>
                                         <constraint firstItem="G96-YR-QH4" firstAttribute="top" secondItem="VkZ-RP-2Ox" secondAttribute="bottom" constant="10" id="2Rz-xX-iaP"/>
-                                        <constraint firstItem="6WT-GB-9fU" firstAttribute="centerX" secondItem="34M-rK-hsn" secondAttribute="centerX" id="2dg-1s-hhW"/>
                                         <constraint firstItem="G96-YR-QH4" firstAttribute="leading" secondItem="1tv-yo-Too" secondAttribute="trailing" constant="30" id="4GJ-3s-62J"/>
                                         <constraint firstItem="1tv-yo-Too" firstAttribute="centerY" secondItem="2hU-Nv-dhl" secondAttribute="centerY" id="7M6-Gi-1eZ"/>
                                         <constraint firstItem="6fa-oU-Igf" firstAttribute="top" secondItem="VoO-A4-c4S" secondAttribute="bottom" constant="8" id="8zV-RX-caX"/>
@@ -127,8 +127,8 @@
                                         <constraint firstAttribute="bottom" secondItem="2hU-Nv-dhl" secondAttribute="bottom" constant="8" id="Kig-gt-Ci0"/>
                                         <constraint firstItem="coW-Hz-0dY" firstAttribute="centerY" secondItem="G96-YR-QH4" secondAttribute="centerY" id="L3V-2k-kwl"/>
                                         <constraint firstItem="VkZ-RP-2Ox" firstAttribute="centerX" secondItem="VoO-A4-c4S" secondAttribute="centerX" id="Mjg-mw-G5Q"/>
+                                        <constraint firstItem="FIW-aY-PgE" firstAttribute="bottom" secondItem="VoO-A4-c4S" secondAttribute="bottom" constant="4" id="Q7Y-4L-zOB"/>
                                         <constraint firstItem="7St-PH-fx0" firstAttribute="centerX" secondItem="6fa-oU-Igf" secondAttribute="centerX" id="Ql0-0k-kWc"/>
-                                        <constraint firstItem="6WT-GB-9fU" firstAttribute="top" secondItem="34M-rK-hsn" secondAttribute="top" constant="90" id="TwJ-cN-Tvi"/>
                                         <constraint firstItem="wKq-t8-BcG" firstAttribute="leading" secondItem="coW-Hz-0dY" secondAttribute="trailing" constant="30" id="XvL-62-GHc"/>
                                         <constraint firstItem="1tv-yo-Too" firstAttribute="leading" secondItem="2hU-Nv-dhl" secondAttribute="trailing" constant="5" id="Zki-Rq-gFl"/>
                                         <constraint firstItem="7St-PH-fx0" firstAttribute="leading" secondItem="VoO-A4-c4S" secondAttribute="leading" constant="3" id="cwt-J2-D88"/>
@@ -144,7 +144,7 @@
                                         <rect key="frame" x="0.0" y="234" width="375" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s9Z-kY-TjH" id="bCX-wh-apc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUH-xc-X9s">
@@ -344,6 +344,7 @@
                         <outlet property="addButton" destination="EQ5-r9-4sA" id="Ddz-y0-m12"/>
                         <outlet property="addButtonView" destination="CWm-Tj-lhq" id="55w-12-KyR"/>
                         <outlet property="creditCount" destination="coW-Hz-0dY" id="nSy-e8-kyk"/>
+                        <outlet property="editProfilePictureButton" destination="FIW-aY-PgE" id="mPk-u4-5DO"/>
                         <outlet property="groupCount" destination="G0k-2u-U2R" id="mVA-B2-xmH"/>
                         <outlet property="imageBorderView" destination="VoO-A4-c4S" id="20y-EV-RWY"/>
                         <outlet property="locationLabel" destination="VkZ-RP-2Ox" id="xt8-AQ-L5p"/>
@@ -408,7 +409,7 @@
         <image name="addPetImage" width="128" height="128"/>
         <image name="blank-profile-picture" width="640" height="640"/>
         <image name="dog" width="64" height="64"/>
-        <image name="editPhoto" width="32" height="32"/>
+        <image name="editPencil" width="24" height="24"/>
         <image name="group" width="64" height="64"/>
         <image name="quality-badge" width="64" height="64"/>
     </resources>

@@ -48,7 +48,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         MenuItem(title: "Calendar", color: UIColor(colorWithHexValue: 0x7E4DC3), image: UIImage(named: "calendar_64")),
         MenuItem(title: "Groups", color: UIColor(colorWithHexValue: 0x9DA933), image: UIImage(named: "groups_64")),
         MenuItem(title: "Messages", color: UIColor(colorWithHexValue: 0x397FCC), image: UIImage(named: "chats_64")),
-        MenuItem(title: "Settings", color: UIColor.white, image: UIImage(named:"settings")),
         MenuItem(title: "Logout", color: UIColor(colorWithHexValue: 0xC44D58), image: UIImage(named: "logout_64"))
     ]
     
@@ -92,7 +91,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         groupNavigationController = storyboard.instantiateViewController(withIdentifier: "GroupTabBarController") as! UITabBarController
         
         messagesNavigationController = storyboard.instantiateViewController(withIdentifier: "messagesNavigationController")
-        settingsNavigationController = storyboard.instantiateViewController(withIdentifier: "SettingsNavigationController")
         
         let requestStoryboard = UIStoryboard(name: "Request", bundle: nil)
         requestsNavigationController = requestStoryboard.instantiateViewController(withIdentifier: "RequestsNavigationController")
@@ -105,7 +103,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         menuItems[1].viewController = calendarNavigationController
         menuItems[2].viewController = groupNavigationController
         menuItems[3].viewController = messagesNavigationController
-        menuItems[4].viewController = settingsNavigationController
      }
     
     func initProfileView() {
