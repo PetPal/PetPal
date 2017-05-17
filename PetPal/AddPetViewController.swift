@@ -84,9 +84,9 @@ class AddPetViewController: UIViewController, UIImagePickerControllerDelegate, U
         view.endEditing(true)
     }
     
-//    func handleSingleTap(recognizer: UITapGestureRecognizer) {
-//        view.endEditing(true)
-//    }
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 
 
     override func didReceiveMemoryWarning() {
