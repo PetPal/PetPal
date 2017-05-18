@@ -16,36 +16,36 @@ Pet care exchange for free among people you trust most.
 The following base functionality is provided with the free version of this application:
 
 - [ ] User can sign up with Twitter, Facebook, Google or E-mail.
-- [ ] A Launch Screen that will display the story of the App upon first launch
-
+- [x] A Launch Screen that will display the story of the App upon first launch
 
 ##### Communities Features
 - [x] User can send and recieve requests for pet care among their community.
-- [ ] User can look for communities based on thier geo-location.
+- [x] User can look for communities based on thier geo-location.
 - [x] User can create, join and leave communities within the app.
-
 
 ##### Backend and Specifics
 - [x] User can see requests, messages and other data that is retreieved from a Parse DB using Parse API.
 - [ ] User sees an error message when there is a network error.
 - [x] Application will save the login credentials of the user until logout.
 
-
 ##### Profile
-- [ ] User can edit his/her own profile page. .
-- [ ] User will be able to view other user's profile pages.
+- [x] User can edit his/her own profile page. .
+- [x] User will be able to view other user's profile pages.
 - [ ] User will be able to scroll through a Home Feed of posts by users within their community.
 - [ ] User can post pictures to profile or other users via Direct Message.
 
-
 ##### Messages
 - [ ] User will recieve notifications for requests/messages while the app is running in the background.
-- [ ] User will be able to view other user's profile pages.
+- [x] User will be able to view other user's profile pages.
+- [x] User will be able to start a private conversation from his/her contact list.
+- [x] Users will be able to see their conversation lively on the chatting board.
+- [x] Message will show a timestamp of its last updated time.
+- [x] New message will change its count status upon it's viewing status.
 
 ##### Schedule
-- [ ] Users can view their upcoming schedules.
+- [x] Users can view their upcoming schedules.
 
-
+<!--- 
 Walkthrough of all user stories:
 
 ![Video Walkthrough](Petpal_wf.gif)
@@ -62,7 +62,10 @@ Sprint3 walk through
 
 ![Video Walkthrough](PetPalSprint3.gif)
 
-Final video walkthrough
+--->
+
+Video walkthrough
+
 ![Video Walkthrough](petpal.final.gif)
 
 # License
