@@ -62,6 +62,9 @@ Sprint3 walk through
 
 ![Video Walkthrough](PetPalSprint3.gif)
 
+Final video walkthrough
+![Video Walkthrough](petpal.final.gif)
+
 # License
 
     Copyright 2017 PetPal
