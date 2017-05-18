@@ -22,7 +22,7 @@ class SnowView: UIView {
         
         let emitterCell = CAEmitterCell()
         emitterCell.contents = UIImage(named: "clover.png")!.cgImage
-        emitterCell.birthRate = 2
+        emitterCell.birthRate = 0.5
         emitterCell.lifetime = 5
         emitterCell.color = UIColor.white.cgColor
         emitterCell.redRange = 0.0
