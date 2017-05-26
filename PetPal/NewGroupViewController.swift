@@ -21,7 +21,7 @@ class NewGroupViewController: UIViewController, UITextViewDelegate, UIImagePicke
     var photo: UIImage!
     var processedPhoto: PFFile?
     var defaultGroupPhoto = Utilities.getPFFileFromImage(image: #imageLiteral(resourceName: "defaultGroupImage"))
-    var snowView: SnowView!
+    var keyboardOffset = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,25 +31,52 @@ class NewGroupViewController: UIViewController, UITextViewDelegate, UIImagePicke
         nameTextField.autocorrectionType = .no
         descriptionTextField.autocorrectionType = .no
         
-        //snow effect
-        
-        snowView = SnowView(frame: CGRect(x: -150, y:-100, width: 300, height: 50))
-        let snowClipView = UIView(frame: view.frame.offsetBy(dx: 0, dy: 50))
-        snowClipView.clipsToBounds = true
-        snowClipView.addSubview(snowView)
-        snowView.isUserInteractionEnabled = true
-        view.insertSubview(snowClipView, at: 0)
-        
-      
 
-        // Do any additional setup after loading the view.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSinglTap(recognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        //registerKeyboardNotifications()
+        NotificationCenter.default.addObserver(self, selector: #selector(animatedUpForKeyboard), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(animateDownForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(animatedUpForKeyboard), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(animateDownForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func animatedUpForKeyboard(){
+        if keyboardOffset == 0 {
+            keyboardOffset = -100
+     
+            UIView.animate(withDuration: 0.3){
+                self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(self.keyboardOffset))
+            }
+        }
+    }
+    
+    func animateDownForKeyboard() {
+        if keyboardOffset < 0 {
+            let offset = -keyboardOffset
+            keyboardOffset = 0
+            UIView.animate(withDuration: 0.3) {
+                self.view.frame = self.view.frame.offsetBy(dx: 0, dy: CGFloat(offset))
+            }
+        }
+    }
+
+    func handleSinglTap(recognizer: UITapGestureRecognizer){
+        nameTextField.endEditing(true)
+        descriptionTextField.endEditing(true)
+    }
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.descriptionTextField.text = ""
         self.descriptionTextField.textColor = UIColor.black
