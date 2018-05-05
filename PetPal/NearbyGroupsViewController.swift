@@ -69,6 +69,7 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
     
     func addAnnotationFromAddress (group: Group) -> Void {
         if let address = group.location {
+            //print("current address")
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(address, completionHandler: { (placemarks, error) in
                 if error == nil {
@@ -137,21 +138,21 @@ class NearbyGroupsViewController: UIViewController,  MKMapViewDelegate, CLLocati
             imageButton.setImage(image, for: UIControlState.normal)
             annotationView?.rightCalloutAccessoryView = imageButton
         } else {
-            annotationView?.annotation = annotation
+            annotationView!.annotation = annotation
         }
+
         
         if (annotation is MKUserLocation) {
             return nil
         } else {
             let customPointAnnotation = annotation as! Annotation
             annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
-            
             if let group = customPointAnnotation.group {
                 let imageView = annotationView?.leftCalloutAccessoryView as! PFImageView
                 imageView.file = group.profileImage
                 imageView.loadInBackground()
             }
-            return annotationView
+          return annotationView
         }
     }
     
