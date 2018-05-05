@@ -35,7 +35,7 @@
 		A5F9663E1EB66A63001D072B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663D1EB66A63001D072B /* ChatCell.swift */; };
 		A5F966401EB90619001D072B /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9663F1EB90619001D072B /* NewGroupViewController.swift */; };
 		A5F966421EB92B3C001D072B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5F966411EB92B3C001D072B /* Main.storyboard */; };
-		A5F966461EBA62E7001D072B /* nearbyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */; };
+		A5F966461EBA62E7001D072B /* NearbyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F966451EBA62E7001D072B /* NearbyGroupsViewController.swift */; };
 		A5F966481EBA6324001D072B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F966471EBA6324001D072B /* MapKit.framework */; };
 		A5F976561EC4E05D00D73332 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F976551EC4E05D00D73332 /* Annotation.swift */; };
 		A5F976581EC4F11800D73332 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F976571EC4F11800D73332 /* GroupCell.xib */; };
@@ -108,7 +108,7 @@
 		A5F9663D1EB66A63001D072B /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		A5F9663F1EB90619001D072B /* NewGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		A5F966411EB92B3C001D072B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nearbyGroupsViewController.swift; sourceTree = "<group>"; };
+		A5F966451EBA62E7001D072B /* NearbyGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyGroupsViewController.swift; sourceTree = "<group>"; };
 		A5F966471EBA6324001D072B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A5F976551EC4E05D00D73332 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		A5F976571EC4F11800D73332 /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
@@ -255,7 +255,7 @@
 				A5F966371EB5998B001D072B /* GroupViewController.swift */,
 				A5F9663F1EB90619001D072B /* NewGroupViewController.swift */,
 				CEA04EEA1EC370FC007E5E3E /* GroupDetailViewController.swift */,
-				A5F966451EBA62E7001D072B /* nearbyGroupsViewController.swift */,
+				A5F966451EBA62E7001D072B /* NearbyGroupsViewController.swift */,
 				A50A9C281EBCF81B000A1394 /* MessagesViewController.swift */,
 				99CBCD271EC03C7E00850FCC /* AddPetViewController.swift */,
 				A5F976591EC6E3C600D73332 /* SelectSingleViewController.swift */,
@@ -454,7 +454,7 @@
 				CEC62CE51EC659390042D808 /* CalendarViewController.swift in Sources */,
 				992D9C651EB3D90C00668001 /* PetPalAPIClient.swift in Sources */,
 				CEEFFB8E1EBD1BF800E93EE4 /* DateRangeTableViewCell.swift in Sources */,
-				A5F966461EBA62E7001D072B /* nearbyGroupsViewController.swift in Sources */,
+				A5F966461EBA62E7001D072B /* NearbyGroupsViewController.swift in Sources */,
 				A5F966321EB46948001D072B /* WelcomeViewController.swift in Sources */,
 				A50A9C2D1EBD36D7000A1394 /* MessagesCell.swift in Sources */,
 				A5F966301EB292FF001D072B /* LoginViewController.swift in Sources */,

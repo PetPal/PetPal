@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F3l-JR-e2e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F3l-JR-e2e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -160,7 +160,7 @@
                                 <rect key="frame" x="0.0" y="285" width="375" height="382"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PetPal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-Af-WiE">
-                                        <rect key="frame" x="124.5" y="8" width="126" height="55"/>
+                                        <rect key="frame" x="126.5" y="8" width="122.5" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -364,7 +364,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your group name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHr-ex-ipq">
-                                <rect key="frame" x="58" y="188" width="259" height="30"/>
+                                <rect key="frame" x="58" y="232" width="259" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="259" id="VIv-Ye-dhB"/>
                                     <constraint firstAttribute="height" constant="30" id="x3d-4u-KTe"/>
@@ -374,7 +374,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zFq-4u-RuD">
-                                <rect key="frame" x="58" y="241" width="259" height="31"/>
+                                <rect key="frame" x="58" y="285" width="259" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="o8g-Te-Gch"/>
                                 </constraints>
@@ -385,10 +385,10 @@
                                 <color key="tintColor" red="0.71920138825502911" green="0.61839884072065532" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x7-vO-Dre" userLabel="Discription View">
-                                <rect key="frame" x="58" y="289" width="259" height="197"/>
+                                <rect key="frame" x="58" y="333" width="259" height="153"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write something about your group..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xvk-Jt-k1Z">
-                                        <rect key="frame" x="8" y="8" width="243" height="181"/>
+                                        <rect key="frame" x="8" y="8" width="243" height="137"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.8084747779" green="0.8084747779" blue="0.8084747779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -894,7 +894,7 @@
                     <tabBarItem key="tabBarItem" title="My Groups" image="mygroup" id="Zah-VJ-cmp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N7t-z5-Rk4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -983,7 +983,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="248" verticalCompressionResistancePriority="700" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yid-5m-Jm6">
-                                <rect key="frame" x="0.0" y="156" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="200" width="375" height="418"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupHeaderTableViewCell" id="oGg-s4-Ni3" customClass="GroupHeaderTableViewCell" customModule="PetPal" customModuleProvider="target">
@@ -994,7 +994,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifn-bL-amG">
-                                                    <rect key="frame" x="151" y="11" width="72" height="21"/>
+                                                    <rect key="frame" x="151" y="14" width="72" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.62537461519241333" green="0.67000114917755127" blue="0.062215201556682587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1015,19 +1015,19 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupUserCell" rowHeight="61" id="Xwe-PK-Dan" customClass="GroupUserTableViewCell" customModule="PetPal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xwe-PK-Dan" id="HKV-91-INJ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="Xwe-PK-Dan" id="HKV-91-INJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BQm-kL-9G0" customClass="PFImageView">
-                                                    <rect key="frame" x="8" y="8" width="40" height="40"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BQm-kL-9G0" customClass="PFImageView">
+                                                    <rect key="frame" x="15" y="8" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="0A4-qi-IQp"/>
                                                         <constraint firstAttribute="width" constant="40" id="JgI-EM-Vhj"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bob Marley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRA-ED-4Io">
-                                                    <rect key="frame" x="56" y="8" width="73" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Bob Marley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRA-ED-4Io">
+                                                    <rect key="frame" x="63" y="8" width="73" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.21959859130000001" green="0.22048449519999999" blue="0.31973356009999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1058,7 +1058,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUq-zn-PGV">
-                                <rect key="frame" x="0.0" y="20" width="375" height="136"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="136"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dog-650299" translatesAutoresizingMaskIntoConstraints="NO" id="hEc-C4-dYz" customClass="PFImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -1393,7 +1393,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OZt-TM-yl0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="br1-4I-7Af">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1412,7 +1412,7 @@
                     <tabBarItem key="tabBarItem" title="Nearby Groups" image="nearby" id="j7h-jN-aDt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="m90-Xx-oiK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1430,7 +1430,7 @@
                 <navigationController storyboardIdentifier="messagesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="dCB-AT-DTA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b7r-2o-XJu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1448,7 +1448,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V9V-NL-4bu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ggf-V0-JaW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1477,7 +1477,7 @@
         <image name="white-x-24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0A3-e8-ODe"/>
+        <segue reference="5ux-zO-a7c"/>
         <segue reference="JXt-xV-Ppy"/>
     </inferredMetricsTieBreakers>
 </document>
