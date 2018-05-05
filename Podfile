@@ -10,8 +10,8 @@ target 'PetPal' do
   # Pods for PetPal
   pod 'Parse'
   pod 'ParseUI'
-  pod 'AFNetworking', '3.0'
+  pod 'AFNetworking'
   pod 'JSQMessagesViewController', :git => 'https://github.com/galambalazs/JSQMessagesViewController.git', :branch => 'smooth-scrolling'
   pod 'Alamofire'
-  pod 'JTAppleCalendar', '~> 7.0'
+  pod 'JTAppleCalendar'
 end

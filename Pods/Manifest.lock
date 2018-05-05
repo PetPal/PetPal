@@ -27,10 +27,10 @@ PODS:
     - Parse (~> 1.9)
 
 DEPENDENCIES:
-  - AFNetworking (= 3.0)
+  - AFNetworking
   - Alamofire
   - JSQMessagesViewController (from `https://github.com/galambalazs/JSQMessagesViewController.git`, branch `smooth-scrolling`)
-  - JTAppleCalendar (~> 7.0)
+  - JTAppleCalendar
   - Parse
   - ParseUI
 
@@ -54,6 +54,6 @@ SPEC CHECKSUMS:
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 
-PODFILE CHECKSUM: c64df34fe54e1d245818102865a773dabde31c75
+PODFILE CHECKSUM: e6ecb87fa27b53ad67e35966a957970566695252
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
